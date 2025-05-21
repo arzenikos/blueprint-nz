@@ -20,18 +20,10 @@ const sampleImageSrcSet = [640, 1280, 2048]
 const sizes = '(max-width: 1024px) 100vw, 1024px';
 
 const astroImageSnippet = `
-## Using the built-in Astro &lt;Image /&gt; component
+## Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-Astro's \`Image\` component will automatically use Netlify Image CDN to serve optimized images.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-~~~jsx
----
-import { Image } from 'astro:assets';
-import corgi from '../assets/corgi.jpg';
----
-// Later in your markup...
-<Image src={corgi} alt="Corgi" /* ... additional props */ />
-~~~
 `;
 
 const originalVsCdnSnippet = `
@@ -59,7 +51,7 @@ detection, so format is set to WebP.
 `;
 ---
 
-<Layout title="Image CDN">
+<Layout title="About">
     <div class="flex flex-col gap-12 sm:gap-16">
         <section>
             <ContextAlert
@@ -68,7 +60,7 @@ detection, so format is set to WebP.
                 }}
                 class="mb-8"
             />
-            <h1>Image CDN</h1>
+            <h1>About</h1>
         </section>
         <section>
             <Markdown content={astroImageSnippet} class="mb-8" />
