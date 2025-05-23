@@ -6,24 +6,24 @@ import { Carousel } from 'astro-carousel';
 const navItems = [
     { linkText: 'Home', href: '/' },
     { linkText: 'Newsletter', href: '/newsletter' }, // evalidation
-    // { linkText: 'Settings', href: '/settings' }, //image-cdn
+    { linkText: 'Settings', href: '/settings' }, //image-cdn
     { linkText: 'About', href: '/about' }, //edge
     // { linkText: 'Blobs', href: '/blobs' } //blobs
 ];
 
-const images: ComponentProps<typeof Carousel>["images"] = [
-  {
-    src: "https://a.storyblok.com/f/95455/1350x1080/3ef7748922/p5240368.jpg",
-    alt: "",
-    format: "webp",
-    width: 1350,
-    height: 1080,
-    widths: [450, 675, 1350],
-  }
-];
+// const images: ComponentProps<typeof Carousel>["images"] = [
+//   {
+//     src: "https://a.storyblok.com/f/95455/1350x1080/3ef7748922/p5240368.jpg",
+//     alt: "",
+//     format: "webp",
+//     width: 1350,
+//     height: 1080,
+//     widths: [450, 675, 1350],
+//   }
+// ];
 ---
 
-<nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">
+<nav class="flex flex-wrap items-center gap-8 pt-6 pb-16 sm:pt-12 sm:pb-24">
     <a href="/">
         <Logo />
     </a>
@@ -42,7 +42,7 @@ const images: ComponentProps<typeof Carousel>["images"] = [
     }
 </nav>
 
-<ul id="carouselTargetList">
+<!-- <ul id="carouselTargetList">
   {
     images.map((img, index) => {
       return (
@@ -51,11 +51,11 @@ const images: ComponentProps<typeof Carousel>["images"] = [
             href={`/?image=${index}`}
             data-carousel-index={index}
           >
-            <img src={img} alt="" />
+            <img src={img.src} alt={img.alt} width={img.width} height={img.height} />
           </a>
         </li>
       );
     })
   }
 </ul>
-<Carousel images={images} />
+<Carousel images={images} /> -->

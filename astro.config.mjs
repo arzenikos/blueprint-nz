@@ -9,5 +9,8 @@ export default defineConfig({
         plugins: [tailwindcss()]
     },
     integrations: [react()],
+    devToolbar: {
+        enabled: false
+    },
     adapter: netlify()
 });

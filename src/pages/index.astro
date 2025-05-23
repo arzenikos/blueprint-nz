@@ -1,6 +1,7 @@
+<!-- HOMEPAGE -->
 ---
 import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
+// import ContextAlert from '../components/ContextAlert.astro';
 import Markdown from '../components/Markdown.astro';
 
 const explainer = `
@@ -10,9 +11,19 @@ Your Health, Your Future: Get the Facts on Prostate Cancer.
 
 <Layout title="Welcome to BluePrintNZ.">
     <!-- <ContextAlert class="mb-8" /> -->
-    <h1 class="mb-10">BluePrintNZ</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="/bluenode" class="btn btn-lg sm:min-w-64">Explore BluePrint</a>
-    </p>
+    <div class="flex items-center gap-4 mb-10">
+        <div>
+            <h1 class="mb-10">BluePrintNZ</h1>
+            <Markdown content={explainer} class="mb-10 text-lg" />
+            <p>
+                <a href="/bluenode" class="btn btn-lg sm:min-w-64">Explore BluePrint</a>
+            </p>
+        </div>
+        <img
+            src="src/assets/placeholder-image.jpg"
+            alt="placeholder-image"
+            class="w-100 max-w mx-auto mt-10 mb-16 rounded-lg shadow-lg"
+            loading="lazy"
+        />
+    </div>
 </Layout>
