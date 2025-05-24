@@ -7,19 +7,21 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "edit-netlify-config": "code C:\\Users\\arsen\\AppData\\Roaming\\netlify\\Config\\config.json"
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.2.3",
-    "@astrojs/react": "^4.2.1",
+    "@astrojs/netlify": "^6.3.4",
+    "@astrojs/react": "^4.3.0",
     "@fontsource-variable/inter": "^5.2.5",
     "@netlify/blobs": "^8.2.0",
     "@netlify/functions": "^2.8.2",
     "@tailwindcss/vite": "^4.0.14",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
-    "astro": "^5.5.3",
+    "astro": "^5.8.0",
     "astro-carousel": "^3.0.2",
+    "astro-icon": "^1.1.5",
     "blobshape": "^1.0.0",
     "decap-cms-app": "^3.6.3",
     "marked": "^13.0.0",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "@types/blobshape": "^1.0.3",
     "@types/node": "^20.12.7",
+    "netlify-cli": "^21.5.0",
     "sass-embedded": "^1.89.0"
   }
 }
