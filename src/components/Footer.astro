@@ -4,10 +4,10 @@ const navItems = [
 ];
 ---
 
-<footer class="pt-16 pb-12 sm:pt-24 sm:pb-16">
-    <!-- <p class="text-sm">
+<!-- <footer class="pt-16 pb-12 sm:pt-24 sm:pb-16">
+    <p class="text-sm">
         <a href="https://docs.netlify.com/frameworks/astro/" class="decoration-dashed text-primary underline-offset-8"> Astro on Netlify </a>
-    </p> -->
+    </p>
     <div class="flex flex-wrap items-center gap-8 pt-6 pb-16 sm:pt-12 sm:pb-24">
         {
             !!navItems?.length && (
@@ -23,4 +23,114 @@ const navItems = [
             )
         }
     </nav>
+</footer> -->
+<footer class="w-full border-t border-astro-dark-100/20 bg-black">
+    <div class="w-full max-w-screen-2xl mx-auto px-4 sm:px-8">
+        <nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-20 py-8 md:py-12">
+            <div class=" flex flex-col md:max-lg:w-1/2 lg:max-w-sm">
+            <p class="font-semibold md:text-xl">Let's keep in touch</p>
+            <p class="mb-4 pt-2 text-astro-gray-200 lg:text-balance">
+                Enter your email to stay up to date with the latest updates from Astro.
+            </p>
+            <form
+                action="https://buttondown.email/api/emails/embed-subscribe/withastro"
+                method="post"
+                target="popupwindow"
+                onsubmit="window.open('https://buttondown.email/withastro', 'popupwindow')"
+                class="flex flex-col justify-between">
+                <input class="mb-2 h-10 rounded-lg border border-astro-gray-600 bg-astro-dark-900 px-3 py-1 text-astro-gray-100 focus:outline-none focus:ring-[1px] focus:ring-astro-gray-400" type="email"
+                placeholder="your@email.com"
+                name="email"
+                id="bd-email"
+                required="">
+                <input
+                    type="submit"
+                    value="Subscribe to our newsletter"
+                    class="!h-10 border border-astro-dark-100/10 font-sm font-light bg-astro-gray-600/80 hover:bg-astro-gray-600/50 hover:cursor-pointer rounded-full">
+                </form>
+            </div>
+            <div class="gap-12 sm:gap-16 lg:gap-20 flex flex-wrap xl:grid xl:grid-cols-4">
+                <section class="group flex flex-col basis-32">
+                <h2 id="footerHeading0" class="mb-4 label-base leading-none text-white font-semibold"> Resources </h2>
+                <ul aria-labelledby="footerHeading0" class="flex flex-col gap-2">
+                <li>
+                <a href="https://docs.astro.build/en/getting-started/" class="whitespace-nowrap link flex gap-2 items-center"> Docs </a>
+            </li><li>
+                <a href="/themes/" class="whitespace-nowrap link flex gap-2 items-center"> Themes </a>
+            </li><li>
+                <a href="/integrations/" class="whitespace-nowrap link flex gap-2 items-center"> Integrations </a>
+            </li><li>
+                <a href="/showcase/" class="whitespace-nowrap link flex gap-2 items-center"> Site showcase </a>
+            </li><li><a href="https://astro.new/" class="whitespace-nowrap link flex gap-2 items-center"> Starter templates </a>
+            </li>
+            </ul>
+            </section><section class="group flex flex-col basis-32">
+                <h2 id="footerHeading1" class="mb-4 label-base leading-none text-white font-semibold"> About </h2>
+                <ul aria-labelledby="footerHeading1" class="flex flex-col gap-2">
+                <li>
+                <a href="/blog/" class="whitespace-nowrap link flex gap-2 items-center"> Blog </a>
+            </li><li>
+                <a href="/case-studies/" class="whitespace-nowrap link flex gap-2 items-center"> Case studies </a>
+            </li><li>
+                <a href="/partnerships/" class="whitespace-nowrap link flex gap-2 items-center"> Partner with us </a>
+            </li><li>
+                <a href="/press/" class="whitespace-nowrap link flex gap-2 items-center"> Press </a>
+            </li><li>
+                <a href="/agencies/" class="whitespace-nowrap link flex gap-2 items-center"> Agencies </a>
+            </li>
+            </ul>
+            </section><section class="group flex flex-col basis-32">
+                <h2 id="footerHeading2" class="mb-4 label-base leading-none text-white font-semibold"> Community </h2>
+                <ul aria-labelledby="footerHeading2" class="flex flex-col gap-2">
+                <li>
+                <a href="https://github.com/withastro/astro/blob/main/CONTRIBUTING.md" class="whitespace-nowrap link flex gap-2 items-center"> Contributing </a>
+            </li><li>
+                <a href="https://opencollective.com/astrodotbuild" class="whitespace-nowrap link flex gap-2 items-center"> Sponsors </a>
+            </li><li>
+                <a href="/wallpapers/" class="whitespace-nowrap link flex gap-2 items-center"> Wallpapers </a>
+            </li><li>
+                <a href="https://shop.astro.build" class="whitespace-nowrap link flex gap-2 items-center"> Swag Shop </a>
+            </li>
+            </ul>
+            </section>
+            <section class="group flex flex-col basis-32">
+                <h2 id="footerHeading3" class="mb-4 label-base leading-none text-white font-semibold"> Legal </h2>
+                <ul aria-labelledby="footerHeading3" class="flex flex-col gap-2">
+                <li>
+                <a href="/telemetry/" class="whitespace-nowrap link flex gap-2 items-center"> Telemetry </a>
+            </li><li>
+                <a href="/privacy/" class="whitespace-nowrap link flex gap-2 items-center"> Privacy Policy </a>
+            </li><li>
+                <a href="/terms/" class="whitespace-nowrap link flex gap-2 items-center"> Terms of Service </a>
+            </li>
+            </ul>
+            </section>
+            </div>
+        </nav>
+            <hr class="border-astro-gray-500">
+            <nav aria-label="Legal" class="py-8 flex flex-col-reverse md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2 text-sm md:gap-4 md:text-base flex-wrap justify-center">
+                <svg width="20" height="20" data-icon="logos/astro">   <symbol id="ai:local:logos/astro" viewBox="0 0 85 107"><path fill="currentColor" d="M27.59 91.137c-4.834-4.42-6.246-13.704-4.232-20.43 3.492 4.241 8.33 5.584 13.342 6.343 7.737 1.17 15.336.732 22.523-2.804.822-.405 1.582-.943 2.48-1.489.675 1.957.85 3.932.615 5.943-.573 4.896-3.01 8.678-6.885 11.545-1.55 1.147-3.19 2.172-4.79 3.253-4.917 3.323-6.247 7.22-4.4 12.888.044.139.084.277.183.614-2.51-1.124-4.344-2.76-5.742-4.911-1.475-2.27-2.177-4.78-2.214-7.498-.019-1.322-.019-2.656-.197-3.96-.434-3.178-1.926-4.601-4.737-4.683-2.884-.084-5.166 1.699-5.771 4.507-.046.216-.113.429-.18.68zM0 69.587s14.314-6.973 28.668-6.973L39.49 29.12c.405-1.62 1.588-2.72 2.924-2.72s2.518 1.1 2.924 2.72L56.16 62.614c17 0 28.668 6.973 28.668 6.973S60.514 3.352 60.467 3.219C59.769 1.261 58.591 0 57.003 0H27.827c-1.588 0-2.718 1.261-3.464 3.22C24.311 3.35 0 69.586 0 69.586"></path></symbol><use href="#ai:local:logos/astro"></use>  </svg>
+                <a target="_blank" class="link" href="https://github.com/withastro/astro/blob/main/LICENSE">
+                MIT License © 2025&nbsp;
+            </a>
+            <a class="link" target="_blank" href="https://github.com/withastro/astro/graphs/contributors">
+                Astro Contributors
+            </a>
+        </div>
+        <div class="flex items-center gap-1 flex-wrap">
+            <a
+            target="_blank" rel="noopener noreferer"
+            class="link flex items-center gap-2 p-3 text-white"
+            href="https://bsky.app/profile/astro.build">
+                <span class="sr-only">Follow Astro on Bluesky</span>
+                <svg width="28" height="28" viewBox="0 0 64 57" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/bluesky">   <use href="#ai:local:social/bluesky"></use>  </svg>  </a><a target="_blank" rel="noopener noreferer" class="link flex items-center gap-2 p-3 text-white" href="/chat">  <span class="sr-only">Join the Astro community on Discord</span>
+            <svg width="28" height="28" viewBox="0 0 16 16" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/discord">   <use href="#ai:local:social/discord"></use>  </svg>  </a><a target="_blank" rel="noopener noreferer" class="link flex items-center gap-2 p-3 text-white" href="https://github.com/withastro/astro">  <span class="sr-only">Go to Astro's GitHub repo</span>
+            <svg width="28" height="28" viewBox="0 0 16 16" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/github">   <use href="#ai:local:social/github"></use>  </svg>  </a><a target="_blank" rel="noopener noreferer" class="link flex items-center gap-2 p-3 text-white" href="https://m.webtoo.ls/@astro">  <span class="sr-only">Follow Astro on Mastodon</span>
+            <svg width="28" height="28" viewBox="0 0 16 16" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/mastodon">   <use href="#ai:local:social/mastodon"></use>  </svg>  </a><a target="_blank" rel="noopener noreferer" class="link flex items-center gap-2 p-3 text-white" href="https://www.reddit.com/r/withastro/">  <span class="sr-only">Join the official Astro community on Reddit</span>
+            <svg width="28" height="28" viewBox="0 0 256 256" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/reddit">   <use href="#ai:local:social/reddit"></use>  </svg>  </a><a target="_blank" rel="noopener noreferer" class="link flex items-center gap-2 p-3 text-white" href="https://x.com/astrodotbuild">  <span class="sr-only">Follow Astro on x.com (formerly Twitter)</span>
+            <svg width="28" height="28" viewBox="0 0 24 24" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/twitter">   <use href="#ai:local:social/twitter"></use>  </svg>  </a>
+        </div>
+    </nav>
+    </div>
 </footer>
