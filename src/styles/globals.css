@@ -17,6 +17,10 @@
         @apply text-2xl font-bold sm:text-3xl;
     }
 
+    h3 {
+        @apply text-3xl sm:text-2xl;
+    }
+
     a:not(.btn) {
         @apply underline transition hover:opacity-80;
     }

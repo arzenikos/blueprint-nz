@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 // import ContextAlert from '../components/ContextAlert.astro';
 import Markdown from '../components/Markdown.astro';
 
-const explainer = `
+const slogan = `
 Your Health, Your Future: Get the Facts on Prostate Cancer.
 `;
 ---
@@ -14,7 +14,7 @@ Your Health, Your Future: Get the Facts on Prostate Cancer.
     <div class="flex items-center gap-4 mb-10">
         <div>
             <h1 class="mb-10">BluePrintNZ</h1>
-            <Markdown content={explainer} class="mb-10 text-lg" />
+            <Markdown content={slogan} class="mb-10 text-lg" />
             <p>
                 <a href="/bluenode" class="btn btn-lg sm:min-w-64">Explore BluePrint</a>
             </p>
@@ -26,4 +26,65 @@ Your Health, Your Future: Get the Facts on Prostate Cancer.
             loading="lazy"
         />
     </div>
+    <!-- BlurPrintNZ -->
+    <div class="flex items-center gap-15 card card-border bg-base-100 w-auto">
+        <img
+            src="src/assets/images/placeholder-image.jpg"
+            alt="placeholder-image"
+            class="h-40 max-w mx-auto mt-10 mb-16 rounded-lg shadow-lg"
+            loading="lazy"
+        />
+        <div class="card-body w-full">
+            <h3 class="card-title">Information & Support</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="card-actions justify-end">
+                <a href="#">Read more</a>
+            </div>
+        </div>
+    </div>
+    <!-- card bg-base-100 w-70 pt-15 shadow-sm -->
+    <!-- Get Involved -->
+    <div class="flex items-center gap-15 card card-border bg-base-100 w-auto">
+        <!-- Crucial -->
+        <div class=" card bg-base-100 w-90 pt-15 shadow-sm">
+            <figure class="px-10 pt-10">
+                <img
+                src="src/assets/images/placeholder-image.jpg"
+                alt="Shoes"
+                class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+                <h2 class="card-title">Get Involved</h2>
+                <!-- <p>A card component has a figure, a body part, and inside body there are title and actions parts</p> -->
+            </div>    
+        </div>
+        <!--  -->
+        <div class="card bg-base-100 w-90 pt-15 shadow-sm">
+            <figure class="px-10 pt-10">
+                <img
+                src="src/assets/images/placeholder-image.jpg"
+                alt="Shoes"
+                class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+                <h2 class="card-title">Research</h2>
+                <!-- <p>A card component has a figure, a body part, and inside body there are title and actions parts</p> -->
+            </div>    
+        </div>
+        <!--  -->
+        <div class=" card bg-base-100 w-90 pt-15 shadow-sm">
+            <figure class="px-10 pt-10">
+                <img
+                src="src/assets/images/placeholder-image.jpg"
+                alt="Shoes"
+                class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+                <h2 class="card-title">Shop</h2>
+                <!-- <p>A card component has a figure, a body part, and inside body there are title and actions parts</p> -->
+            </div>    
+        </div>
+    </div>
+
+
 </Layout>
