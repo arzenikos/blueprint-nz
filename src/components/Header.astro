@@ -1,7 +1,6 @@
 ---
 import type { ComponentProps } from 'astro/types';
 import Logo from '../components/Logo.astro';
-import { Carousel } from 'astro-carousel';
 import Icon from '../components/Icons.astro';
 
 const navItems = [
@@ -12,29 +11,18 @@ const navItems = [
   // { linkText: 'Settings', href: '/settings' }, //image-cdn
   // { linkText: 'About', href: '/about' }, //edge
 ];
-
-// const images: ComponentProps<typeof Carousel>["images"] = [
-//   {
-//     src: "https://a.storyblok.com/f/95455/1350x1080/3ef7748922/p5240368.jpg",
-//     alt: "",
-//     format: "webp",
-//     width: 1350,
-//     height: 1080,
-//     widths: [450, 675, 1350],
-//   }
-// ];
 ---
 
-<nav class="flex flex-wrap items-center gap-12 pt-6 pb-16 sm:pt-12 sm:pb-24">
-    <a href="/">
+<nav class="flex flex-wrap items-center justify-between w-full gap-6 pt-6 pb-12 sm:pt-8 sm:pb-16">
+    <a href="/" class="flex items-center">
         <Logo />
     </a>
     {
       !!navItems?.length && (
-        <ul class="flex flex-wrap gap-x-4 gap-y-1">
+        <ul class="flex flex-wrap gap-x-6 gap-y-2">
             {navItems.map((item) => (
                 <li>
-                    <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
+                    <a href={item.href} class="inline-block px-2 py-1 sm:px-3 sm:py-2">
                         {item.linkText}
                     </a>
                 </li>
@@ -42,28 +30,7 @@ const navItems = [
         </ul>
       )
     }
-    <!-- <a href="/settings">
-      <Icon icon="settings-dark" />
-    </a> -->
-    <!-- <a href="/about"> -->
+    <div class="flex items-center gap-4">
       <Icon icon="switch-light-theme" />
-    <!-- </a> -->
+    </div>
 </nav>
-
-<!-- <ul id="carouselTargetList">
-  {
-    images.map((img, index) => {
-      return (
-        <li>
-          <a
-            href={`/?image=${index}`}
-            data-carousel-index={index}
-          >
-            <img src={img.src} alt={img.alt} width={img.width} height={img.height} />
-          </a>
-        </li>
-      );
-    })
-  }
-</ul>
-<Carousel images={images} /> -->

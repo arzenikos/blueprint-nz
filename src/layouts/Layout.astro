@@ -23,11 +23,17 @@ const { title } = Astro.props;
         <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
     </head>
     <body class="antialiased text-white bg-complementary">
-        <div class="flex flex-col min-h-screen px-6 bg-noise sm:px-12">
-            <div class="flex flex-col mx-auto grow">
-                <Header />
-                <main class="grow"><slot /></main>
-                <Footer />
+        <div class="flex flex-col min-h-screen w-full bg-noise">
+            <div class="flex flex-col w-full grow">
+                <div class="px-4 sm:px-6 lg:px-8 xl:px-12 max-w-[2000px] mx-auto w-full">
+                    <Header />
+                </div>
+                <main class="grow w-full px-4 sm:px-6 lg:px-8 xl:px-12 max-w-[2000px] mx-auto">
+                    <slot />
+                </main>
+                <div class="px-4 sm:px-6 lg:px-8 xl:px-12 max-w-[2000px] mx-auto w-full">
+                    <Footer />
+                </div>
             </div>
         </div>
     </body>

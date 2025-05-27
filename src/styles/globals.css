@@ -9,6 +9,10 @@
 }
 
 @layer base {
+    html, body {
+        @apply w-full overflow-x-hidden;
+    }
+
     h1 {
         @apply text-4xl font-bold tracking-tight sm:text-5xl;
     }
@@ -73,5 +77,9 @@
         --btn-font-size: 1.125rem;
         --btn-px: 1.5rem;
         --btn-py: 1.125rem;
+    }
+
+    .container-fluid {
+        @apply w-full px-4 sm:px-6 lg:px-8 xl:px-12 max-w-[2000px] mx-auto;
     }
 }
