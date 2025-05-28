@@ -1,0 +1,33 @@
+---
+interface Props {
+  pixelSize?: number; // Size of each "pixel" in px
+  color?: string;     // Tailwind color class like 'bg-blue-600'
+}
+
+const { pixelSize = 2, color = 'bg-blue-600' } = Astro.props;
+
+// Minimal vertical ribbon with a center cutout and two tails
+const pattern: number[][] = [
+  [0, 1, 0],
+  [1, 1, 1],
+  [1, 0, 1],
+  [1, 1, 1],
+  [0, 1, 0],
+  [1, 0, 1], // Tails start
+  [0, 1, 0],
+];
+---
+
+<div
+  class="inline-grid"
+  style={`grid-template-columns: repeat(${pattern[0].length}, ${pixelSize}px);`}
+>
+  {
+    pattern.flat().map((bit, i) => (
+      <div
+        class={`${bit ? color : 'bg-transparent'}`}
+        style={`width: ${pixelSize}px; height: ${pixelSize}px;`}
+      />
+    ))
+  }
+</div>

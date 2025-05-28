@@ -1,6 +1,7 @@
 ---
 import { siteData } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PixelRibbon from '../components/PixelRibbon.astro';
 import HeroSection from '../components/home/HeroSection.astro';
 import InfoSection from '../components/home/InfoSection.astro';
 import ServicesSection from '../components/home/ServicesSection.astro';
@@ -10,7 +11,12 @@ const { site } = siteData;
 ---
 
 <BaseLayout title={site.title} description={site.description}>
-  <HeroSection />
+    <HeroSection />
+    <!-- <PixelRibbon /> -->
+     <PixelRibbon pixelSize={1} />
+<PixelRibbon pixelSize={2} color="bg-red-500" />
+<PixelRibbon pixelSize={4} />
+
   <InfoSection />
   <ServicesSection />
 </BaseLayout>
