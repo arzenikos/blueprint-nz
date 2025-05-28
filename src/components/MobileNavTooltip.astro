@@ -1,0 +1,61 @@
+---
+// MobileNavTooltip.astro - Tooltip component for mobile navigation icons
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('nav ul li a');
+    
+    // Create tooltip element
+    const tooltip = document.createElement('div');
+    tooltip.className = 'nav-tooltip hidden absolute bg-[var(--color-complementary)] text-[var(--color-complementary-content)] px-2 py-1 rounded text-xs whitespace-nowrap z-50 transform -translate-x-1/2 transition-opacity duration-200';
+    document.body.appendChild(tooltip);
+    
+    // Only apply tooltips on mobile/tablet
+    const isMobile = () => window.innerWidth < 640;
+    
+    // Show tooltip on hover
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', (e) => {
+        if (!isMobile()) return;
+        
+        const text = link.getAttribute('aria-label');
+        tooltip.textContent = text;
+        tooltip.classList.remove('hidden');
+        tooltip.classList.add('opacity-100');
+        
+        // Position the tooltip above the link
+        const rect = link.getBoundingClientRect();
+        tooltip.style.left = rect.left + rect.width / 2 + 'px';
+        tooltip.style.top = rect.top - 30 + 'px';
+      });
+      
+      link.addEventListener('mouseleave', () => {
+        tooltip.classList.add('hidden');
+      });
+    });
+    
+    // Hide tooltip when scrolling or resizing
+    window.addEventListener('scroll', () => {
+      tooltip.classList.add('hidden');
+    });
+    
+    window.addEventListener('resize', () => {
+      tooltip.classList.add('hidden');
+    });
+  });
+</script>
+
+<style>
+  .nav-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--color-complementary) transparent transparent transparent;
+  }
+</style>

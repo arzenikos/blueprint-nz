@@ -5,11 +5,8 @@ export const siteData = {
   },
   navigation: {
     items: [
-      { text: "Home", href: "/" },
-      { text: "About", href: "/about" },
-      { text: "Support Groups", href: "/support-group" },
-      { text: "Newsletter", href: "/newsletter" },
-      { text: "Shop", href: "/shop" }
+      { text: "Help", href: "/help" },
+      { text: "Settings", href: "/settings" }
     ]
   },
   footer: {

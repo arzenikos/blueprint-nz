@@ -12,20 +12,20 @@ const { hero } = homeData;
 
 <section class="py-12">
   <Container>
-    <div class="flex flex-col md:flex-row items-center gap-8 mb-10 w-full">
-      <PixelRibbon pixelSize={2} className="mb-2" />
+    <!-- Desktop layout (md and up) -->
+    <div class="hidden md:flex md:flex-row items-center gap-8 mb-10 w-full">
       <div class="w-full md:w-1/2">
         <div class="mb-6">
-          <h1 class="mb-2">{hero.title}</h1>
+          <h1 class="mb-2 text-[var(--color-primary)]">{hero.title}</h1>
         </div>
         <Markdown content={hero.slogan} class="mb-8 text-lg" />
-        <Button href={hero.ctaLink} size="lg">{hero.ctaText}</Button>
+        <Button href={hero.ctaLink} size="lg" class="custom-button">{hero.ctaText}</Button>
       </div>
-      <div class="w-full md:w-1/2">
+      <div class="w-full md:w-1/2 flex justify-center">
         <Image
           src={placeholderImage}
           alt="Hero image"
-          class="w-full max-w-full mx-auto rounded-lg shadow-lg"
+          class="w-full max-w-full rounded-lg shadow-lg object-cover"
           width={800}
           height={600}
           loading="eager"
@@ -34,5 +34,57 @@ const { hero } = homeData;
         />
       </div>
     </div>
+    
+    <!-- Mobile layout (sm and below) with text overlay -->
+    <div class="md:hidden relative mb-10">
+      <div class="relative flex justify-center">
+        <Image
+          src={placeholderImage}
+          alt="Hero image"
+          class="w-full rounded-lg shadow-lg object-cover"
+          width={800}
+          height={600}
+          loading="eager"
+          format="webp"
+          quality={80}
+        />
+        <!-- Gradient overlay for better text visibility -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[rgba(0,15,46,0.8)] to-transparent rounded-lg"></div>
+      </div>
+      
+      <!-- Text overlay positioned at the bottom of the image -->
+      <div class="absolute bottom-0 left-0 right-0 p-6">
+        <h1 class="mb-2 text-[var(--color-primary)]">{hero.title}</h1>
+        <Markdown content={hero.slogan} class="mb-4 text-white text-opacity-90" />
+        <Button href={hero.ctaLink} size="lg" class="custom-button">{hero.ctaText}</Button>
+      </div>
+    </div>
   </Container>
 </section>
+
+<style>
+  /* Additional styles for the mobile hero section */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    :global(.markdown-content p) {
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      font-size: 1rem;
+    }
+  }
+  
+  /* Custom button styling */
+  :global(.custom-button) {
+    background-color: var(--color-primary-light) !important;
+    color: var(--color-complementary) !important;
+    font-weight: 600;
+  }
+  
+  :global(.custom-button:hover) {
+    background-color: var(--color-primary) !important;
+  }
+</style>
