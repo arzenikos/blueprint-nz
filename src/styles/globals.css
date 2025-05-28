@@ -137,4 +137,22 @@
   .bg-noise {
     background-color: var(--color-complementary);
   }
+  
+  .markdown {
+    > * {
+      @apply my-6;
+    }
+
+    :where(h1, h2) {
+      @apply mt-12 mb-6;
+    }
+
+    > :first-child {
+      @apply mt-0;
+    }
+
+    > :last-child {
+      @apply mb-0;
+    }
+  }
 }
