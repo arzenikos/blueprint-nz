@@ -1,7 +1,7 @@
 ---
 import type { ComponentProps } from 'astro/types';
 import Logo from '../components/Logo.astro';
-import Icon from '../components/Icons.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 
 const navItems = [
   // { linkText: 'Support Groups', href: '/support-group' }, // 
@@ -9,7 +9,7 @@ const navItems = [
   // { linkText: 'Newsletter', href: '/newsletter' }, // evalidation
   // { linkText: 'Shop', href: '/shop' },
   // { linkText: 'Settings', href: '/settings' }, //image-cdn
-  // { linkText: 'About', href: '/about' }, //edge
+  { linkText: 'About', href: '/about' }, //edge
 ];
 ---
 
@@ -31,6 +31,6 @@ const navItems = [
       )
     }
     <div class="flex items-center gap-4">
-      <Icon icon="switch-light-theme" />
+      <ThemeToggle />
     </div>
 </nav>
