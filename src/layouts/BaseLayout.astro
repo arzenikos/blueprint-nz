@@ -1,0 +1,63 @@
+---
+import { siteData } from '../data/site';
+import '../styles/globals.css';
+import '@fontsource-variable/inter/wght.css';
+import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+
+interface Props {
+    title?: string;
+    description?: string;
+    image?: string;
+}
+
+const { site } = siteData;
+
+const { 
+  title = site.title,
+  description = site.description,
+  image = '/images/social-image.jpg'
+} = Astro.props;
+
+const fullTitle = title === site.title ? title : `${title} | ${site.title}`;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{fullTitle}</title>
+        <meta name="description" content={description} />
+        <meta name="generator" content={Astro.generator} />
+        
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        
+        <!-- Preload font -->
+        <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
+        
+        <!-- Open Graph / Social Media -->
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={site.title} />
+        
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={fullTitle} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
+    </head>
+    <body class="antialiased text-white bg-complementary min-h-screen flex flex-col">
+        <div class="flex flex-col min-h-screen w-full bg-noise">
+            <Header />
+            <main class="flex-grow">
+                <slot />
+            </main>
+            <Footer />
+        </div>
+    </body>
+</html>

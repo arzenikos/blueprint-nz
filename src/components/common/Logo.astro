@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+import logoDark from '../../assets/images/logo-dark.PNG';
+---
+
+<div class="flex items-center">
+  <Image 
+    src={logoDark} 
+    alt="BluePrintNZ Logo" 
+    width={150} 
+    height={50} 
+    class="h-10 w-auto" 
+    format="webp"
+    quality={90}
+  />
+</div>

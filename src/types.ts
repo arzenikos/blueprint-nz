@@ -1,13 +1,11 @@
-export type BlobParameterProps = {
-    seed: number;
-    size: number;
-    edges: number;
-    growth: number;
-    name: string;
-    colors: string[];
-};
+export interface BlobParameters {
+  name: string;
+  seed: number;
+  extraPoints: number;
+  randomness: number;
+  size: number;
+}
 
-export type BlobProps = {
-    svgPath: string;
-    parameters: BlobParameterProps;
-};
+export interface BlobProps {
+  parameters?: BlobParameters;
+}

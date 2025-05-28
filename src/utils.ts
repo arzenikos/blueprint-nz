@@ -1,57 +1,85 @@
-import blobshape from 'blobshape';
-import { uniqueNamesGenerator, adjectives, animals } from 'unique-names-generator';
+import { uniqueNamesGenerator, adjectives, colors, animals } from 'unique-names-generator';
+import type { BlobProps } from './types';
 
-// Note: this only works on the server side
-export function getNetlifyContext() {
-    return process.env.CONTEXT;
+/**
+ * Determine the current Netlify context
+ * @returns 'dev' | 'preview' | 'prod' | 'unknown'
+ */
+export function getNetlifyContext(): string {
+  // Check if we're in a browser environment
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      return 'dev';
+    } else if (hostname.includes('netlify.app')) {
+      return 'preview';
+    } else {
+      return 'prod';
+    }
+  }
+  
+  // Server-side detection
+  const context = process.env.CONTEXT || '';
+  
+  if (context === 'production') {
+    return 'prod';
+  } else if (context === 'deploy-preview' || context === 'branch-deploy') {
+    return 'preview';
+  } else if (context === 'dev' || process.env.NETLIFY_LOCAL === 'true') {
+    return 'dev';
+  }
+  
+  return 'unknown';
 }
 
-export function randomInt(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+/**
+ * Check if uploads are disabled
+ * @returns boolean
+ */
+export function uploadDisabled(): boolean {
+  return false;
 }
 
-export function uniqueName() {
-    const config = {
-        dictionaries: [adjectives, animals],
-        separator: '-',
-        length: 2
-    };
-    return uniqueNamesGenerator(config) + '-' + randomInt(100, 999);
+/**
+ * Generate a random integer between min and max (inclusive)
+ * @param min Minimum value
+ * @param max Maximum value
+ * @returns Random integer
+ */
+export function randomInt(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export function generateBlob(parameters?: any) {
-    const gradientColors = [
-        ['#13232A', '#13232A'],
-        ['#13232A', '#13232A'],
-        ['#13232A', '#13232A'],
-        ['#13232A', '#13232A'],
-        ['#13232A', '#13232A'],
-        ['#13232A', '#13232A']
-    ];
+/**
+ * Generate a random blob
+ * @returns BlobProps
+ */
+export function generateBlob(): BlobProps {
+  const name = uniqueNamesGenerator({
+    dictionaries: [adjectives, colors, animals],
+    separator: '-',
+    style: 'lowerCase',
+  });
 
-    parameters = {
-        seed: null,
-        size: 512,
-        edges: randomInt(3, 20),
-        growth: randomInt(2, 9),
-        name: uniqueName(),
-        colors: gradientColors[randomInt(0, gradientColors.length - 1)],
-        ...parameters
-    };
-    const { path: svgPath, seedValue: seed } = blobshape(parameters);
-    return { parameters: { ...parameters, seed }, svgPath };
+  return {
+    parameters: {
+      name,
+      seed: randomInt(1, 1000),
+      extraPoints: randomInt(3, 8),
+      randomness: Math.random() * 10,
+      size: randomInt(100, 400),
+    },
+  };
 }
 
-export function cacheHeaders(maxAgeDays = 365, cacheTags?: string[]): Record<string, string> {
-    // As far as the browser is concerned, it must revalidate on every request.
-    // However, Netlify CDN is told to keep the content cached for up to maxAgeDays (note: new deployment bust the cache by default).
-    // We're also setting cache tags to be able to later purge via API (see: https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/)
-    const headers = {
-        'Cache-Control': 'public, max-age=0, must-revalidate', // Tell browsers to always revalidate
-        'Netlify-CDN-Cache-Control': `public, max-age=${maxAgeDays * 86_400}, must-revalidate` // Tells Netlify CDN the max allwed cache duration
-    };
-    if (cacheTags?.length > 0) headers['Cache-Tag'] = cacheTags.join(',');
-    return headers;
+/**
+ * Generate cache headers for Netlify Edge Functions
+ * @param maxAge Max age in seconds
+ * @returns Cache-Control header
+ */
+export function cacheHeaders(maxAge: number = 60): Record<string, string> {
+  return {
+    'Cache-Control': `public, max-age=${maxAge}, s-maxage=${maxAge * 2}, stale-while-revalidate=${maxAge * 4}`
+  };
 }
-
-export const uploadDisabled = import.meta.env.PUBLIC_DISABLE_UPLOADS?.toLowerCase() === 'true';

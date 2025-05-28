@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import { homeData } from '../../data/home';
+import Container from '../ui/Container.astro';
+import Card from '../ui/Card.astro';
+import placeholderImage from '../../assets/images/placeholder-image.jpg';
+
+const { infoSection } = homeData;
+---
+
+<section class="py-12">
+  <Container>
+    <Card class="flex flex-col md:flex-row items-center gap-8 p-6">
+      <div class="w-full md:w-1/3">
+        <Image
+          src={placeholderImage}
+          alt="Information section image"
+          class="w-full rounded-lg shadow-lg"
+          width={600}
+          height={450}
+          loading="lazy"
+          format="webp"
+          quality={80}
+        />
+      </div>
+      <div class="card-body w-full md:w-2/3">
+        <h3 class="card-title">{infoSection.title}</h3>
+        <p>{infoSection.description}</p>
+        <div class="card-actions justify-end">
+          <a href={infoSection.ctaLink}>{infoSection.ctaText}</a>
+        </div>
+      </div>
+    </Card>
+  </Container>
+</section>

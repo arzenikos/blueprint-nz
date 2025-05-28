@@ -1,0 +1,16 @@
+---
+interface Props {
+  fluid?: boolean;
+  class?: string;
+}
+
+const { fluid = false, class: className = '' } = Astro.props;
+
+const containerClass = fluid 
+  ? `container-fluid ${className}` 
+  : `container mx-auto px-4 sm:px-6 lg:px-8 ${className}`;
+---
+
+<div class={containerClass}>
+  <slot />
+</div>

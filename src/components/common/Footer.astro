@@ -1,0 +1,65 @@
+---
+import { siteData } from '../../data/site';
+import Container from '../ui/Container.astro';
+import SocialIcon from './SocialIcon.astro';
+
+const { footer } = siteData;
+---
+
+<footer class="w-full border-t border-astro-dark-100/20 bg-black py-8 mt-16">
+  <Container fluid>
+    <nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-8 lg:gap-16">
+      <div class="flex flex-col md:max-lg:w-1/2 lg:max-w-sm">
+        <p class="font-semibold md:text-xl">{footer.newsletterSection.title}</p>
+        <p class="mb-4 pt-2 text-astro-gray-200">
+          {footer.newsletterSection.description}
+        </p>
+        <form
+          action="#"
+          method="post"
+          class="flex flex-col sm:flex-row gap-2">
+          <input 
+            class="h-10 rounded-lg border border-astro-gray-600 bg-astro-dark-900 px-3 py-1 text-astro-gray-100 focus:outline-none focus:ring-[1px] focus:ring-astro-gray-400 flex-grow" 
+            type="email"
+            placeholder={footer.newsletterSection.placeholder}
+            name="email"
+            id="email"
+            required>
+          <button
+            type="submit"
+            class="h-10 px-4 border border-astro-dark-100/10 font-sm font-light bg-astro-gray-600/80 hover:bg-astro-gray-600/50 hover:cursor-pointer rounded-lg">
+            {footer.newsletterSection.buttonText}
+          </button>
+        </form>
+      </div>
+      
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-8">
+        {footer.sections.map((section, index) => (
+          <section class="flex flex-col">
+            <h2 id={`footerHeading${index}`} class="mb-4 text-white font-semibold">{section.title}</h2>
+            <ul aria-labelledby={`footerHeading${index}`} class="flex flex-col gap-2">
+              {section.links.map(link => (
+                <li><a href={link.url} class="link">{link.text}</a></li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </nav>
+    
+    <hr class="border-astro-gray-500 my-6">
+    
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm text-center md:text-left">
+        {footer.copyright}
+      </div>
+      <div class="flex items-center gap-4">
+        {footer.socialLinks.map(social => (
+          <a href={social.url} class="text-white hover:text-primary" aria-label={social.ariaLabel}>
+            <SocialIcon platform={social.platform} />
+          </a>
+        ))}
+      </div>
+    </div>
+  </Container>
+</footer>
