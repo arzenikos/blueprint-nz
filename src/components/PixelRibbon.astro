@@ -5,46 +5,97 @@ interface Props {
 
 const { pixelSize = 3 } = Astro.props;
 
-const pattern: number[][] = [
-  // 7 columns wide, 12 rows tall
-  [0, 0, 3, 3, 3, 0, 0],  // 0 top highlight
-  [0, 2, 2, 2, 2, 2, 0],  // 1 main upper body
-  [1, 1, 0, 0, 0, 1, 1],  // 2 side shadows
-  [1, 2, 2, 2, 2, 2, 1],  // 3 main body
-  [0, 0, 3, 3, 3, 0, 0],  // 4 highlight center
-  [0, 2, 0, 0, 0, 2, 0],  // 5 tail start
-  [1, 0, 0, 0, 0, 0, 1],  // 6 tail diagonal out
-  [0, 2, 0, 0, 0, 2, 0],  // 7 tail center
-  [1, 0, 0, 0, 0, 0, 1],  // 8 tail diagonal out
-  [0, 2, 0, 0, 0, 2, 0],  // 9 tail center
-  [1, 0, 0, 0, 0, 0, 1],  // 10 tail diagonal out
-//   [0, 0, 1, 0, 1, 0, 0],  // 11 tail bottom tips
+// Ribbon pattern 7x12 (same as before)
+const ribbonPattern: number[][] = [
+  [0, 0, 0, 3, 3, 3, 0, 0, 0],
+  [0, 0, 2, 2, 2, 2, 2, 0, 0],
+  [0, 1, 1, 0, 0, 0, 1, 1, 0],
+  [0, 1, 2, 0, 0, 0, 2, 1, 0],
+  [0, 0, 2, 2, 2, 2, 2, 0, 0],
+  [0, 0, 0, 3, 3, 3, 0, 0, 0],
+  [0, 0, 2, 1, 0, 1, 2, 0, 0],
+  [0, 1, 1, 0, 0, 0, 1, 1, 0],
+  [1, 1, 2, 0, 0, 0, 2, 1, 1],
+  [0, 2, 0, 0, 0, 0, 0, 2, 0],
+//   [1, 2, 0, 0, 0, 0, 0, 2, 1],
+//   [0, 1, 0, 0, 0, 0, 0, 1, 0],
+//   [0, 0, 0, 1, 0, 1, 0, 0, 0],
+];
+
+// Magnifying glass 7x12 with lighter blues and brown handle
+// Legend:
+// 0 = transparent
+// 1 = light blue lens outline (bg-blue-300)
+// 2 = lighter blue lens fill (bg-blue-200)
+// 3 = very light highlight (bg-blue-100)
+// 4 = dark brown handle outline (bg-yellow-900)
+// 5 = medium brown handle fill (bg-yellow-700)
+// 6 = light brown handle highlight (bg-yellow-500)
+const magnifierPattern: number[][] = [
+  [0, 0, 3, 3, 3, 0, 0],      // 0: top lens highlight
+  [0, 3, 1, 1, 1, 3, 0],      // 1: lens outline light
+  [3, 1, 2, 2, 2, 1, 3],      // 2: lens fill
+  [3, 1, 2, 2, 2, 1, 3],      // 3: lens fill
+  [3, 1, 2, 2, 2, 1, 3],      // 4: lens fill
+  [3, 1, 2, 2, 2, 1, 3],      // 5: lens fill
+  [0, 3, 1, 1, 1, 3, 0],      // 6: lens bottom outline
+  [0, 0, 0, 4, 5, 6, 0],      // 11: handle end highlight
+  [0, 0, 0, 4, 5, 6, 0],      // 10: handle diagonal
+  [0, 0, 0, 0, 4, 5, 6],      // 9: handle diagonal
+  [0, 0, 0, 0, 4, 5, 6],      // 9: handle diagonal
+  [0, 0, 0, 0, 0, 4, 5],      // 9: handle diagonal
 ];
 
 function getColorClass(val: number): string {
   switch (val) {
     case 1:
-      return 'bg-blue-800';
+      return 'bg-blue-300';
     case 2:
-      return 'bg-blue-600';
+      return 'bg-blue-200';
     case 3:
-      return 'bg-blue-400';
+      return 'bg-blue-100';
+    case 4:
+      return 'bg-yellow-900';
+    case 5:
+      return 'bg-yellow-700';
+    case 6:
+      return 'bg-yellow-500';
     default:
       return 'bg-transparent';
   }
 }
 ---
 
-<div
-  class="inline-grid"
-  style={`grid-template-columns: repeat(${pattern[0].length}, ${pixelSize}px);`}
->
-  {
-    pattern.flat().map((val, i) => (
-      <div
-        class={`${getColorClass(val)}`}
-        style={`width: ${pixelSize}px; height: ${pixelSize}px;`}
-      />
-    ))
-  }
+<div class="flex items-end gap-2">
+  {/* Ribbon */}
+  <div
+    class="inline-grid"
+    style={`grid-template-columns: repeat(${ribbonPattern[0].length}, ${pixelSize}px);`}
+  >
+    {
+      ribbonPattern.flat().map((val, i) => (
+        <div
+        //   key={`ribbon-${i}`}
+          class={`${getColorClass(val)}`}
+          style={`width: ${pixelSize}px; height: ${pixelSize}px;`}
+        />
+      ))
+    }
+  </div>
+
+  <!-- {/* Magnifying Glass */}
+  <div
+    class="inline-grid"
+    style={`grid-template-columns: repeat(${magnifierPattern[0].length}, ${pixelSize}px);`}
+  >
+    {
+      magnifierPattern.flat().map((val, i) => (
+        <div
+        //   key={`mag-${i}`}
+          class={`${getColorClass(val)}`}
+          style={`width: ${pixelSize}px; height: ${pixelSize}px;`}
+        />
+      ))
+    }
+  </div> -->
 </div>
