@@ -6,6 +6,7 @@ import Container from '../components/ui/Container.astro';
 import ContextAlert from '../components/common/ContextAlert.astro';
 import MainContent from '../components/about/MainContent.astro';
 import ImageComparison from '../components/about/ImageComparison.astro';
+import PixelRibbon from '../components/ui/PixelRibbon.astro';
 
 // Get page-specific content
 const { title, description, imageComparison } = aboutData;
@@ -24,7 +25,10 @@ const devModeWarning = imageComparison.devModeWarning;
           }}
           class="mb-8"
         />
-        <h1>{title}</h1>
+        <div class="mb-6">
+          <h1 class="mb-2">{title}</h1>
+          <PixelRibbon pixelSize={2} />
+        </div>
       </section>
       
       <MainContent />

@@ -3,13 +3,15 @@ import { siteData } from '../../data/site';
 import Logo from './Logo.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import Container from '../ui/Container.astro';
+import PixelRibbon from '../ui/PixelRibbon.astro';
 
 const { navigation } = siteData;
 ---
 
 <header class="py-6">
+  <PixelRibbon pixelSize={2} />
   <Container>
-    <nav class="flex flex-wrap items-center justify-between w-full gap-6">
+    <nav class="flex flex-wrap items-center justify-between w-full gap-6 pt-4">
       <a href="/" class="flex items-center" aria-label="Home">
         <Logo />
       </a>

@@ -1,18 +1,30 @@
 ---
+import PixelRibbon from './PixelRibbon.astro';
+
 interface Props {
   title?: string;
   subtitle?: string;
   id?: string;
   class?: string;
+  showRibbon?: boolean;
 }
 
-const { title, subtitle, id, class: className = '' } = Astro.props;
+const { 
+  title, 
+  subtitle, 
+  id, 
+  class: className = '',
+  showRibbon = true
+} = Astro.props;
 ---
 
 <section id={id} class={`py-12 ${className}`}>
   {(title || subtitle) && (
     <div class="text-center mb-10">
-      {title && <h2 class="text-3xl font-bold mb-4">{title}</h2>}
+      <div class="mb-4">
+        {title && <h2 class="text-3xl font-bold mb-2">{title}</h2>}
+        {showRibbon && <PixelRibbon pixelSize={2} className="mx-auto w-24" />}
+      </div>
       {subtitle && <p class="text-lg text-gray-600">{subtitle}</p>}
     </div>
   )}

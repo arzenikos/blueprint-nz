@@ -4,6 +4,7 @@ import { homeData } from '../../data/home';
 import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import Markdown from '../common/Markdown.astro';
+import PixelRibbon from '../ui/PixelRibbon.astro';
 import placeholderImage from '../../assets/images/placeholder-image.jpg';
 
 const { hero } = homeData;
@@ -12,8 +13,11 @@ const { hero } = homeData;
 <section class="py-12">
   <Container>
     <div class="flex flex-col md:flex-row items-center gap-8 mb-10 w-full">
+      <PixelRibbon pixelSize={2} className="mb-2" />
       <div class="w-full md:w-1/2">
-        <h1 class="mb-6">{hero.title}</h1>
+        <div class="mb-6">
+          <h1 class="mb-2">{hero.title}</h1>
+        </div>
         <Markdown content={hero.slogan} class="mb-8 text-lg" />
         <Button href={hero.ctaLink} size="lg">{hero.ctaText}</Button>
       </div>

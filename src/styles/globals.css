@@ -1,101 +1,139 @@
 @import 'tailwindcss';
 
-@theme {
-    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #b9d6f2;
-    --color-primary-content: #000f2e;
-    --color-complementary:#000f2e;
+/* CSS variables are injected from colors.ts */
+:root {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  
+  /* Primary colors */
+  --color-primary: #b9d6f2;
+  --color-primary-light: #d4e5f7;
+  --color-primary-dark: #8fb8e6;
+  --color-primary-content: #000f2e;
+  
+  /* Complementary colors */
+  --color-complementary: #000f2e;
+  --color-complementary-light: #001a52;
+  --color-complementary-dark: #00071a;
+  --color-complementary-content: #ffffff;
+  
+  /* UI colors */
+  --color-background: #ffffff;
+  --color-foreground: #333333;
+  --color-border: #e2e8f0;
+  --color-focus: #b9d6f2;
+  --color-muted: #f1f5f9;
+  
+  /* Feedback colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
 }
 
 @layer base {
-    html, body {
-        @apply w-full overflow-x-hidden;
-    }
-    
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    ::-webkit-scrollbar {
-        display: none;
-    }
-    
-    /* Hide scrollbar for IE, Edge and Firefox */
-    html {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
+  html, body {
+    @apply w-full overflow-x-hidden;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  html {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
-    h1 {
-        @apply text-4xl font-bold tracking-tight sm:text-5xl;
-    }
+  h1 {
+    @apply text-4xl font-bold tracking-tight sm:text-5xl;
+    color: var(--color-complementary);
+  }
 
-    h2 {
-        @apply text-2xl font-bold sm:text-3xl;
-    }
+  h2 {
+    @apply text-2xl font-bold sm:text-3xl;
+    color: var(--color-complementary);
+  }
 
-    h3 {
-        @apply text-xl font-semibold sm:text-2xl;
-    }
+  h3 {
+    @apply text-xl font-semibold sm:text-2xl;
+    color: var(--color-complementary);
+  }
 
-    a:not(.btn) {
-        @apply underline transition hover:opacity-80;
-    }
+  a:not(.btn) {
+    @apply underline transition hover:opacity-80;
+    color: var(--color-primary-dark);
+  }
 
-    pre {
-        @apply p-6 overflow-x-auto rounded-lg;
-    }
+  pre {
+    @apply p-6 overflow-x-auto rounded-lg;
+    background-color: var(--color-complementary);
+    color: var(--color-complementary-content);
+  }
 
-    :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-gray-900 text-primary;
-        font-size: 0.9em;
-    }
+  :not(pre) > code {
+    @apply px-1 py-0.5 font-mono rounded;
+    background-color: var(--color-complementary);
+    color: var(--color-primary);
+    font-size: 0.9em;
+  }
 }
 
 @layer components {
-    .container {
-        @apply px-4 sm:px-6 lg:px-8 mx-auto;
-        max-width: 1280px;
-    }
-    
-    .container-fluid {
-        @apply w-full px-4 sm:px-6 lg:px-8 xl:px-12 max-w-[2000px] mx-auto;
-    }
-    
-    .btn {
-        @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-semibold no-underline transition-colors rounded-md;
-        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
-        font-size: var(--btn-font-size, 0.875rem);
+  .container {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto;
+    max-width: 1280px;
+  }
+  
+  .container-fluid {
+    @apply w-full px-4 sm:px-6 lg:px-8 xl:px-12 max-w-[2000px] mx-auto;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 cursor-pointer text-center font-semibold no-underline transition-colors rounded-md;
+    padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
+    font-size: var(--btn-font-size, 0.875rem);
+    background-color: var(--color-primary);
+    color: var(--color-primary-content);
 
-        &:hover {
-            @apply bg-primary/85;
-        }
-
-        &:disabled {
-            @apply text-gray-400 bg-gray-700;
-        }
+    &:hover {
+      background-color: var(--color-primary-dark);
     }
 
-    .btn-lg {
-        --btn-font-size: 1.125rem;
-        --btn-px: 1.5rem;
-        --btn-py: 1.125rem;
+    &:disabled {
+      @apply text-gray-400 bg-gray-700;
     }
-    
-    .card {
-        @apply rounded-lg overflow-hidden;
-    }
-    
-    .card-body {
-        @apply p-6;
-    }
-    
-    .card-title {
-        @apply text-xl font-semibold mb-2;
-    }
-    
-    .card-actions {
-        @apply mt-4 flex items-center justify-end;
-    }
-    
-    .bg-noise {
-        background-color: var(--color-complementary);
-    }
+  }
+
+  .btn-lg {
+    --btn-font-size: 1.125rem;
+    --btn-px: 1.5rem;
+    --btn-py: 1.125rem;
+  }
+  
+  .card {
+    @apply rounded-lg overflow-hidden;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+  }
+  
+  .card-body {
+    @apply p-6;
+  }
+  
+  .card-title {
+    @apply text-xl font-semibold mb-2;
+    color: var(--color-complementary);
+  }
+  
+  .card-actions {
+    @apply mt-4 flex items-center justify-end;
+  }
+  
+  .bg-noise {
+    background-color: var(--color-complementary);
+  }
 }

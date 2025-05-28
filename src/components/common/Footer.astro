@@ -2,13 +2,15 @@
 import { siteData } from '../../data/site';
 import Container from '../ui/Container.astro';
 import SocialIcon from './SocialIcon.astro';
+import PixelRibbon from '../ui/PixelRibbon.astro';
 
 const { footer } = siteData;
 ---
 
 <footer class="w-full border-t border-astro-dark-100/20 bg-black py-8 mt-16">
+  <PixelRibbon pixelSize={2} />
   <Container fluid>
-    <nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-8 lg:gap-16">
+    <nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 pt-4">
       <div class="flex flex-col md:max-lg:w-1/2 lg:max-w-sm">
         <p class="font-semibold md:text-xl">{footer.newsletterSection.title}</p>
         <p class="mb-4 pt-2 text-astro-gray-200">
