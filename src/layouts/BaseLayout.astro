@@ -6,6 +6,8 @@ import '@fontsource-variable/inter/wght.css';
 import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import Header from '../components/common/Header.astro';
 import Footer from '../components/common/Footer.astro';
+import ChatBox from '../components/ChatBox.astro';
+import BlueprintIcon from '../components/BlueprintIcon.astro';
 
 interface Props {
     title?: string;
@@ -39,6 +41,8 @@ const cssVarsStyle = Object.entries(cssVariables)
         <meta name="generator" content={Astro.generator} />
         
         <!-- Favicon -->
+         <!-- <link rel="icon" type="image/svg+xml" href="/src/assets/blueprint.svg.astro" /> -->
+          <!-- <BlueprintIcon class="h-7 w-7" /> -->
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         
         <!-- Preload font -->
@@ -68,5 +72,8 @@ const cssVarsStyle = Object.entries(cssVariables)
             </main>
             <Footer />
         </div>
+        
+        <!-- Virtual Agent Chat Box -->
+        <ChatBox />
     </body>
 </html>

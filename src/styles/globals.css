@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './chat-box.css';
 
 /* CSS variables are injected from colors.ts */
 :root {
