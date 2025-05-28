@@ -3,7 +3,21 @@ export const homeData = {
     title: "BluePrintNZ",
     slogan: "Your Health, Your Future: Get the Facts on Prostate Cancer.",
     ctaText: "Explore BluePrint",
-    ctaLink: "/bluenode"
+    ctaLink: "/bluenode",
+    carouselImages: [
+      {
+        src: "placeholder-image.jpg",
+        alt: "Hero image 1"
+      },
+      {
+        src: "placeholder-image.jpg",
+        alt: "Hero image 2"
+      },
+      {
+        src: "placeholder-image.jpg",
+        alt: "Hero image 3"
+      }
+    ]
   },
   infoSection: {
     title: "Information & Support",
@@ -33,5 +47,11 @@ export const homeData = {
         link: "/shop"
       }
     ]
+  },
+  foundationSection: {
+    title: "Prostate Cancer Foundation NZ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    ctaText: "Read more",
+    ctaLink: "/prostate-cancer-foundation"
   }
 };

@@ -1,0 +1,278 @@
+---
+import { bluenodeData } from '../data/bluenode';
+import FullPageLayout from '../layouts/FullPageLayout.astro';
+
+const title = "BluePrint Interactive Graph";
+const description = "Explore prostate cancer information through our interactive 3D knowledge graph.";
+---
+
+<FullPageLayout title={title} description={description}>
+  <div id="graph-container" class="w-full h-full">
+    <!-- Graph will be rendered here by Three.js -->
+    <canvas id="three-canvas" class="w-full h-full block"></canvas>
+    
+    <!-- Node info popup -->
+    <div class="fixed p-4 bg-white bg-opacity-90 backdrop-blur-sm rounded-lg shadow-lg max-w-xs z-50" 
+         id="node-info" style="display: none; transform: translate(-50%, -50%);">
+      <h2 class="text-xl font-bold text-primary mb-2" id="node-title"></h2>
+      <p class="text-gray-700" id="node-description"></p>
+    </div>
+    
+    <!-- Loading indicator -->
+    <div id="loading" class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-80 z-50">
+      <div class="text-center">
+        <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        <p class="text-lg font-medium text-gray-700">Loading graph...</p>
+      </div>
+    </div>
+    
+    <!-- Instructions -->
+    <div class="fixed bottom-4 left-4 p-3 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg shadow-md text-sm text-gray-700 max-w-xs">
+      <p><strong>Controls:</strong></p>
+      <p>• Drag to rotate</p>
+      <p>• Scroll to zoom</p>
+      <p>• Hover over nodes for info</p>
+    </div>
+  </div>
+</FullPageLayout>
+
+<script>
+  // Import Three.js from CDN
+  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+  import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+  
+  // Wait for the DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get the graph data
+    const nodes = JSON.parse(document.getElementById('graph-data').textContent);
+    
+    // Create a hierarchical structure from the flat node list
+    const nodeMap = {};
+    nodes.forEach(node => {
+      nodeMap[node.id] = { ...node, children: [] };
+    });
+    
+    // Build the tree structure
+    nodes.forEach(node => {
+      if (node.children) {
+        node.children.forEach(childId => {
+          if (nodeMap[childId]) {
+            nodeMap[node.id].children.push(nodeMap[childId]);
+          }
+        });
+      }
+    });
+    
+    // Get the root node
+    const root = nodeMap["root"];
+    
+    // Set up Three.js scene
+    const canvas = document.getElementById('three-canvas');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xf8fafc); // Light background
+    
+    // Set up camera
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 150;
+    
+    // Set up renderer
+    const renderer = new THREE.WebGLRenderer({ 
+      canvas, 
+      antialias: true,
+      alpha: true
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    
+    // Add ambient light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+    
+    // Add directional light
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(0, 10, 10);
+    scene.add(directionalLight);
+    
+    // Add controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    
+    // Create a raycaster for mouse interaction
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    
+    // Store node objects and their 3D positions
+    const nodeObjects = {};
+    const nodePositions = {};
+    
+    // Create a function to generate the 3D tree layout
+    function createTreeLayout(node, x = 0, y = 0, z = 0, level = 0, angle = 0, radius = 0) {
+      // Store the position
+      nodePositions[node.id] = { x, y, z };
+      
+      // Create sphere for the node
+      const geometry = new THREE.SphereGeometry(node.id === "root" ? 3 : 2, 32, 32);
+      
+      // Color based on level
+      const colors = [0x4f46e5, 0x6366f1, 0x818cf8, 0xa5b4fc, 0xc7d2fe];
+      const colorIndex = level > colors.length - 1 ? colors.length - 1 : level;
+      
+      const material = new THREE.MeshPhongMaterial({ 
+        color: colors[colorIndex],
+        shininess: 100
+      });
+      
+      const sphere = new THREE.Mesh(geometry, material);
+      sphere.position.set(x, y, z);
+      sphere.userData = { 
+        id: node.id,
+        label: node.label,
+        description: node.description
+      };
+      
+      scene.add(sphere);
+      nodeObjects[node.id] = sphere;
+      
+      // Process children
+      if (node.children && node.children.length > 0) {
+        const angleStep = (Math.PI * 2) / node.children.length;
+        const nextRadius = 30 + level * 15; // Increase radius with level
+        
+        node.children.forEach((child, i) => {
+          const childAngle = angle + angleStep * i;
+          const childX = x + Math.cos(childAngle) * nextRadius;
+          const childY = y + Math.sin(childAngle) * nextRadius;
+          const childZ = z - 20; // Move each level back in z-space
+          
+          // Create line connecting to child
+          const points = [];
+          points.push(new THREE.Vector3(x, y, z));
+          points.push(new THREE.Vector3(childX, childY, childZ));
+          
+          const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+          const lineMaterial = new THREE.LineBasicMaterial({ 
+            color: 0xcccccc,
+            transparent: true,
+            opacity: 0.7
+          });
+          
+          const line = new THREE.Line(lineGeometry, lineMaterial);
+          scene.add(line);
+          
+          // Recursively create the child node
+          createTreeLayout(child, childX, childY, childZ, level + 1, childAngle, nextRadius);
+        });
+      }
+    }
+    
+    // Create the tree starting from the root
+    createTreeLayout(root);
+    
+    // Node info elements
+    const nodeInfo = document.getElementById('node-info');
+    const nodeTitle = document.getElementById('node-title');
+    const nodeDescription = document.getElementById('node-description');
+    
+    // Track the currently hovered node
+    let hoveredNode = null;
+    
+    // Handle mouse move for hover effects
+    function onMouseMove(event) {
+      // Calculate mouse position in normalized device coordinates
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      
+      // Update the raycaster
+      raycaster.setFromCamera(mouse, camera);
+      
+      // Find intersections with node objects
+      const nodeValues = Object.values(nodeObjects);
+      const intersects = raycaster.intersectObjects(nodeValues);
+      
+      // Reset all nodes to original scale
+      if (hoveredNode && (!intersects.length || intersects[0].object !== hoveredNode)) {
+        hoveredNode.scale.set(1, 1, 1);
+        hoveredNode = null;
+        nodeInfo.style.display = 'none';
+      }
+      
+      // Handle hover effects
+      if (intersects.length > 0) {
+        const object = intersects[0].object;
+        
+        // Scale up the hovered node
+        object.scale.set(1.3, 1.3, 1.3);
+        hoveredNode = object;
+        
+        // Show node info
+        nodeTitle.textContent = object.userData.label;
+        nodeDescription.textContent = object.userData.description;
+        nodeInfo.style.display = 'block';
+        
+        // Position the info near the mouse
+        nodeInfo.style.left = `${event.clientX}px`;
+        nodeInfo.style.top = `${event.clientY - 100}px`;
+      }
+    }
+    
+    // Add event listener for mouse movement
+    window.addEventListener('mousemove', onMouseMove);
+    
+    // Handle window resize
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    
+    window.addEventListener('resize', onWindowResize);
+    
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      // Update controls
+      controls.update();
+      
+      // Render the scene
+      renderer.render(scene, camera);
+    }
+    
+    // Start animation
+    animate();
+    
+    // Hide loading indicator when everything is ready
+    document.getElementById('loading').style.display = 'none';
+  });
+</script>
+
+<!-- Hidden element to store graph data -->
+<script id="graph-data" type="application/json">
+  {JSON.stringify(bluenodeData.nodes)}
+</script>
+
+<style>
+  /* Make sure the canvas fills the entire viewport */
+  #three-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+  }
+  
+  /* Info box styling */
+  #node-info {
+    transition: all 0.2s ease;
+    pointer-events: none;
+  }
+  
+  /* Loading animation */
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+</style>
