@@ -119,16 +119,16 @@ const { hero } = homeData;
     const carousels = document.querySelectorAll('.carousel-container');
     
     carousels.forEach(carousel => {
-      const slides = carousel.querySelectorAll('.carousel-slide');
-      const dots = carousel.querySelectorAll('.carousel-dot');
-      const prevBtn = carousel.querySelector('.carousel-prev');
-      const nextBtn = carousel.querySelector('.carousel-next');
-      let currentIndex = 0;
+      const slides: NodeListOf<Element> = carousel.querySelectorAll('.carousel-slide');
+      const dots: NodeListOf<Element> = carousel.querySelectorAll('.carousel-dot');
+      const prevBtn: Element = carousel.querySelector('.carousel-prev');
+      const nextBtn: Element = carousel.querySelector('.carousel-next');
+      let currentIndex: number = 0;
       
       // Initialize the carousel
       function initCarousel() {
-        slides.forEach((slide, index) => {
-          slide.style.display = index === currentIndex ? 'block' : 'none';
+        slides.forEach((slide: Element, index: number) => {
+          (slide as HTMLElement).style.display = index === currentIndex ? 'block' : 'none';
         });
         updateDots();
       }
@@ -148,9 +148,23 @@ const { hero } = homeData;
       
       // Go to a specific slide
       function goToSlide(index:any) {
-        slides[currentIndex].style.display = 'none';
+        // Check if slides exist and have the style property before manipulating
+        if (slides.length > 0 && currentIndex >= 0 && currentIndex < slides.length) {
+          const currentSlide = slides[currentIndex] as HTMLElement;
+          if (currentSlide) {
+            currentSlide.style.display = 'none';
+          }
+        }
+        
         currentIndex = (index + slides.length) % slides.length;
-        slides[currentIndex].style.display = 'block';
+        
+        if (slides.length > 0 && currentIndex >= 0 && currentIndex < slides.length) {
+          const newSlide = slides[currentIndex] as HTMLElement;
+          if (newSlide) {
+            newSlide.style.display = 'block';
+          }
+        }
+        
         updateDots();
       }
       
