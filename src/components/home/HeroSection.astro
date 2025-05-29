@@ -147,7 +147,7 @@ const { hero } = homeData;
       }
       
       // Go to a specific slide
-      function goToSlide(index) {
+      function goToSlide(index:any) {
         slides[currentIndex].style.display = 'none';
         currentIndex = (index + slides.length) % slides.length;
         slides[currentIndex].style.display = 'block';
