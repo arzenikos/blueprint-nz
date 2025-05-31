@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import ShapePreview from './ShapePreview.tsx';
-import { generateBlob, uploadDisabled } from '../../../utils';
-import type { BlobProps } from '../../../types.ts';
+import { generateBlob } from '../../../lib/utils/helpers';
+import { uploadDisabled } from '../../../lib/utils/netlify';
+import type { BlobProps } from '../../../lib/types';
 
 interface Props {
     setLastMutationTime?: Dispatch<SetStateAction<number>>;
@@ -49,7 +50,7 @@ export default function NewShape(props: Props) {
                 <button className="btn" onClick={randomizeBlob}>
                     Randomize
                 </button>
-                <button className="btn" onClick={uploadBlob} disabled={uploadDisabled || wasUploaded || !blobData}>
+                <button className="btn" onClick={uploadBlob} disabled={uploadDisabled() || wasUploaded || !blobData}>
                     Upload
                 </button>
             </div>
