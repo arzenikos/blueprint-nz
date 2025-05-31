@@ -1,88 +1,38 @@
-// src/content.config.ts
 import { defineCollection, z } from 'astro:content';
 
-// Define schemas for each collection
-const homeCollection = defineCollection({
-  type: 'data',
+// Define a schema for each collection
+const aboutCollection = defineCollection({
+  type: 'data', // v2.5.0 and later
   schema: z.object({
-    hero: z.object({
-      title: z.string(),
-      slogan: z.string(),
-      ctaText: z.string(),
-      ctaLink: z.string(),
-    }),
-    infoSection: z.object({
-      title: z.string(),
-      description: z.string(),
-      ctaText: z.string(),
-      ctaLink: z.string(),
-    }),
-    servicesSection: z.object({
-      title: z.string(),
-      services: z.array(z.object({
-        title: z.string(),
-        image: z.string(),
-        alt: z.string(),
-        link: z.string().optional(),
-      })),
-    }),
+    // Define your schema here
+    title: z.string(),
+    description: z.string().optional(),
   }),
 });
 
-const aboutCollection = defineCollection({
+const homeCollection = defineCollection({
   type: 'data',
   schema: z.object({
+    // Define your schema here
     title: z.string(),
-    description: z.string(),
-    mainContent: z.string(),
-    imageComparison: z.object({
-      title: z.string(),
-      description: z.string(),
-      devModeWarning: z.string(),
-    }),
+    description: z.string().optional(),
   }),
 });
 
 const sharedCollection = defineCollection({
   type: 'data',
   schema: z.object({
+    // Define your schema here
     site: z.object({
       title: z.string(),
-      description: z.string(),
-    }),
-    navigation: z.object({
-      items: z.array(z.object({
-        text: z.string(),
-        href: z.string(),
-      })),
-    }),
-    footer: z.object({
-      newsletterSection: z.object({
-        title: z.string(),
-        description: z.string(),
-        placeholder: z.string(),
-        buttonText: z.string(),
-      }),
-      sections: z.array(z.object({
-        title: z.string(),
-        links: z.array(z.object({
-          text: z.string(),
-          url: z.string(),
-        })),
-      })),
-      copyright: z.string(),
-      socialLinks: z.array(z.object({
-        platform: z.string(),
-        url: z.string(),
-        ariaLabel: z.string(),
-      })),
-    }),
+      description: z.string().optional(),
+    }).optional(),
   }),
 });
 
-// Export collections
+// Export a single `collections` object to register your collection(s)
 export const collections = {
-  'home': homeCollection,
   'about': aboutCollection,
+  'home': homeCollection,
   'shared': sharedCollection,
 };

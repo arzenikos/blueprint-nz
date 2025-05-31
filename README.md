@@ -4,6 +4,18 @@
 
 A modern starter based on Astro.js, Tailwind, and [Netlify Core Primitives](https://docs.netlify.com/core/overview/#develop) (Edge Functions, Image CDN, Blob Store).
 
+## Color System
+
+The site uses a centralized 5-color palette system:
+
+1. **Primary** (`#b9d6f2`) - Main brand color (light blue)
+2. **Secondary** (`#000f2e`) - Secondary brand color (dark blue)
+3. **Accent** (`#3b82f6`) - Accent color for highlights and CTAs
+4. **Neutral** (`#ffffff`) - For backgrounds, text, and borders
+5. **Semantic** (`#10b981`) - Base for feedback states
+
+To modify the color palette, edit the `palette` object in `/src/styles/colors.ts`.
+
 ## Astro Commands
 
 All commands are run from the root of the project, from a terminal:
