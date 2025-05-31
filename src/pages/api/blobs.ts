@@ -1,11 +1,11 @@
 import type { APIRoute } from 'astro';
 import { getStore } from '@netlify/blobs';
-import { uploadDisabled } from '../../utils';
+import { uploadDisabled } from '../../lib/utils/netlify';
 
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
-    if (uploadDisabled) throw new Error('Sorry, uploads are disabled');
+    if (uploadDisabled()) throw new Error('Sorry, uploads are disabled');
 
     const parameters = await request.json();
     const blobStore = getStore('shapes');

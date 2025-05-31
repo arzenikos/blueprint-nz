@@ -3,8 +3,8 @@ import { Image } from 'astro:assets';
 import { homeData } from '../../data/home';
 import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
-import Markdown from '../common/Markdown.astro';
-import PixelRibbon from '../ui/PixelRibbon.astro';
+import Markdown from '../Markdown.astro';
+import PixelRibbon from '../shared/PixelRibbon.astro';
 import placeholderImage from '../../assets/images/placeholder-image.jpg';
 
 const { hero } = homeData;
@@ -215,7 +215,7 @@ const { hero } = homeData;
   /* Custom button styling */
   :global(.custom-button) {
     background-color: var(--color-primary-light) !important;
-    color: var(--color-complementary) !important;
+    color: var(--color-secondary) !important;
     font-weight: 600;
   }
   

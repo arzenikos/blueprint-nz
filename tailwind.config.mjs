@@ -1,4 +1,4 @@
-import { colors } from './src/styles/colors';
+import { colors } from './src/lib/theme/colors';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -13,11 +13,17 @@ export default {
           dark: colors.primary.dark,
           content: colors.primary.content,
         },
-        complementary: {
-          DEFAULT: colors.complementary.DEFAULT,
-          light: colors.complementary.light,
-          dark: colors.complementary.dark,
-          content: colors.complementary.content,
+        secondary: {
+          DEFAULT: colors.secondary.DEFAULT,
+          light: colors.secondary.light,
+          dark: colors.secondary.dark,
+          content: colors.secondary.content,
+        },
+        accent: {
+          DEFAULT: colors.accent.DEFAULT,
+          light: colors.accent.light,
+          dark: colors.accent.dark,
+          content: colors.accent.content,
         },
         success: colors.feedback.success,
         warning: colors.feedback.warning,

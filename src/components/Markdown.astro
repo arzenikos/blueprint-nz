@@ -1,28 +1,69 @@
 ---
-import { Marked } from 'marked';
-import markedShiki from 'marked-shiki';
-import { highlighterPromise } from '../utils/highlighter';
+import { marked } from 'marked';
 
 interface Props {
-    content: string;
-    class?: string;
+  content: string;
+  class?: string;
 }
 
-const { content, class: className } = Astro.props;
-
-const highlighter = await highlighterPromise;
-const html = await new Marked()
-    .use(
-        markedShiki({
-            highlight(code, lang, props) {
-                return highlighter.codeToHtml(code, {
-                    lang,
-                    theme: 'min-dark'
-                });
-            }
-        })
-    )
-    .parse(content);
+const { content, class: className = '' } = Astro.props;
+const html = marked.parse(content);
 ---
 
-<div class:list={['markdown', className]} set:html={html} />
+<div class={`markdown-content ${className}`} set:html={html} />
+
+<style>
+  .markdown-content {
+    line-height: 1.6;
+  }
+  
+  .markdown-content :global(p) {
+    margin-bottom: 1rem;
+  }
+  
+  .markdown-content :global(h1),
+  .markdown-content :global(h2),
+  .markdown-content :global(h3),
+  .markdown-content :global(h4),
+  .markdown-content :global(h5),
+  .markdown-content :global(h6) {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .markdown-content :global(ul),
+  .markdown-content :global(ol) {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .markdown-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  
+  .markdown-content :global(a) {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+  
+  .markdown-content :global(blockquote) {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+    font-style: italic;
+    margin: 1rem 0;
+  }
+  
+  .markdown-content :global(pre) {
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-content);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  
+  .markdown-content :global(code) {
+    font-family: monospace;
+  }
+</style>
