@@ -12,16 +12,16 @@
 // Core color palette - Limited to 5 colors
 export const palette = {
   // Primary brand color (light blue)
-  primary: '#13172a',
+  primary: '#ffffff',
   
   // Secondary brand color (dark blue)
-  secondary: '#80A4B7',
+  secondary: '#ffffff',
   
   // Accent color for highlights and CTAs
-  accent: '#12b9bd',
+  accent: '#ffffff',
   
   // Neutral color for backgrounds, text, and borders
-  neutral: '#5d6577',
+  neutral: '#ffffff',
   
   // Semantic color for feedback states
   semantic: '#ffffff',
@@ -31,22 +31,22 @@ export const palette = {
 export const colors = {
   // Primary color variations
   primary: {
-    light: lightenColor(palette.primary, 15),
     DEFAULT: palette.primary,
+    light: lightenColor(palette.primary, 15),
     dark: darkenColor(palette.primary, 15),
   },
   
   // Secondary color variations
   secondary: {
-    light: lightenColor(palette.secondary, 15),
     DEFAULT: palette.secondary,
+    light: lightenColor(palette.secondary, 15),
     dark: darkenColor(palette.secondary, 15),
   },
   
   // Accent color variations
   accent: {
-    light: lightenColor(palette.accent, 15),
     DEFAULT: palette.accent,
+    light: lightenColor(palette.accent, 15),
     dark: darkenColor(palette.accent, 15),
   },
   

@@ -7,7 +7,7 @@
   
   /* Core palette */
   --color-primary: #05213b;
-  --color-secondary: #000f2e;
+  --color-secondary: #c0c8d8;
   --color-accent: #3b82f6;
   --color-neutral: #ffffff;
   --color-semantic: #10b981;
@@ -19,7 +19,7 @@
   
   /* Secondary colors */
   --color-secondary-light: #001a52;
-  --color-secondary-dark: #00071a;
+  --color-secondary-dark: #70737a;
   --color-secondary-content: #ffffff;
   
   /* Accent colors */
@@ -29,7 +29,7 @@
   
   /* UI colors */
   --color-background: #000f2e;
-  --color-foreground: #333333;
+  --color-foreground: #b9b5b5;
   --color-border: #e2e8f0;
   --color-focus: #b9d6f2;
   --color-muted: #f1f5f9;
