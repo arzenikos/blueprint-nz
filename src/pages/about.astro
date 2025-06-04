@@ -10,7 +10,7 @@ import PixelRibbon from '../components/shared/PixelRibbon.astro';
 
 // Get site metadata
 const { site } = siteData;
-const { title, description, content } = aboutData;
+const { title, description, mainContent } = aboutData;
 ---
 
 <BaseLayout title={`${title} | ${site.title}`} description={description}>
@@ -20,10 +20,10 @@ const { title, description, content } = aboutData;
     <p class="text-lg mb-12">{description}</p>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-      <MainContent content={content} />
+      <MainContent content={mainContent} />
       <ImageComparison />
     </div>
     
-    <PixelRibbon class="my-12" />
+    <PixelRibbon/>
   </Container>
 </BaseLayout>

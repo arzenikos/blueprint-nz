@@ -1,33 +1,17 @@
 ---
 import { siteData } from '../../data/site';
 import { imageSizes } from '../../styles/images';
-import { componentSpacing } from '../../styles/spacing';
-import { palette } from '../../styles/theme';
+import SearchBar from '../navigation/SearchBar.astro';
+import SearchButton from '../navigation/SearchButton.astro';
+import MainNav from '../navigation/MainNav.astro';
 
 // Get logo sizes from centralized file
 const logoSizes = imageSizes.logo.default.height;
-
-// Get spacing values from centralized file
-const headerHeight = componentSpacing.header.height;
-const headerPaddingX = componentSpacing.header.padding.x;
-const searchMarginX = componentSpacing.header.nav.margin.left;
-const navItemSpacing = componentSpacing.header.nav.item.margin.right;
 ---
 
-<header class="sticky top-0 z-40 w-full bg-transparent" style={`height: ${headerHeight};`}>
-  <div class="container mx-auto max-w-[2000px]" style={`
-    padding-left: ${headerPaddingX.mobile}; 
-    padding-right: ${headerPaddingX.mobile};
-    @media (min-width: 768px) {
-      padding-left: ${headerPaddingX.tablet}; 
-      padding-right: ${headerPaddingX.tablet};
-    }
-    @media (min-width: 1024px) {
-      padding-left: ${headerPaddingX.desktop}; 
-      padding-right: ${headerPaddingX.desktop};
-    }
-  `}>
-    <div class="flex items-center justify-between h-full">
+<header class="sticky top-0 z-40 w-full bg-transparent">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-[2000px]">
+    <div class="flex items-center justify-between h-16">
       <!-- Logo (left) - Size from centralized file -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center">
@@ -41,76 +25,21 @@ const navItemSpacing = componentSpacing.header.nav.item.margin.right;
       </div> 
       
       <!-- Search Bar (middle) - Hidden on mobile -->
-      <div class="hidden md:flex flex-1 max-w-md" style={`margin-left: ${searchMarginX}; margin-right: ${searchMarginX};`}>
-        <form class="w-full">
-          <div class="relative">
-            <input 
-              type="search" 
-              placeholder="Search..." 
-              class="w-full pl-10 pr-4 py-2 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
-              <svg class="w-4 h-4 text-secondary" aria-hidden="true">
-                <use href="/assets/svg/icons.svg#search"></use>
-              </svg>
-            </div>
-          </div>
-        </form>
-      </div>
+      <SearchBar />
       
       <!-- Right Navigation Items -->
-      <div class="flex items-center" style={`gap: ${navItemSpacing};`}>
+      <div class="flex items-center space-x-1 sm:space-x-4">
         <!-- Search Icon (Mobile Only) -->
-        <button class="md:hidden p-2 rounded-full hover:bg-primary/20" aria-label="Search">
-          <svg class="w-5 h-5 text-secondary" aria-hidden="true">
-            <use href="/assets/svg/icons.svg#search"></use>
-          </svg>
-        </button>
+        <SearchButton />
         
-        <!-- Newsletter (Text on large screens, icon on small) -->
-        <a href="#newsletter" class="flex items-center text-secondary">
-          <span class="hidden sm:inline-block text-sm font-medium mr-1">Newsletter</span>
-          <svg class="w-4 h-4 sm:w-3 sm:h-3" aria-hidden="true">
-            <use href="/assets/svg/icons.svg#mail"></use>
-          </svg>
-        </a>
-        
-        <!-- Settings (Text on large screens, icon on small) -->
-        <a href="/settings" class="flex items-center text-secondary">
-          <span class="hidden sm:inline-block text-sm font-medium mr-1">Settings</span>
-          <svg class="w-4 h-4 sm:w-3 sm:h-3" aria-hidden="true">
-            <use href="/assets/svg/icons.svg#settings"></use>
-          </svg>
-        </a>
-        
-        <!-- Help (Text on large screens, icon on small) -->
-        <a href="/help" class="flex items-center text-secondary">
-          <span class="hidden sm:inline-block text-sm font-medium mr-1">Help</span>
-          <svg class="w-4 h-4 sm:w-3 sm:h-3" aria-hidden="true">
-            <use href="/assets/svg/icons.svg#help"></use>
-          </svg>
-        </a>
+        <!-- Main Navigation Items -->
+        <MainNav />
       </div>
     </div>
   </div>
   
   <!-- Mobile Search (Hidden by default) -->
-  <div id="mobile-search" class="md:hidden hidden border-t border-neutral-300 py-3 px-4 bg-neutral">
-    <form>
-      <div class="relative">
-        <input 
-          type="search" 
-          placeholder="Search..." 
-          class="w-full pl-10 pr-4 py-2 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary"
-        />
-        <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
-          <svg class="w-4 h-4 text-secondary" aria-hidden="true">
-            <use href="/assets/svg/icons.svg#search"></use>
-          </svg>
-        </div>
-      </div>
-    </form>
-  </div>
+  <SearchBar mobile={true} />
 </header>
 
 <script>
