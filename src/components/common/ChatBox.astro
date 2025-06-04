@@ -26,8 +26,8 @@ const chatGap = componentSpacing.chat.gap;
   <!-- Chat box (hidden by default) with light primary background -->
   <div 
     id="chat-box" 
-    class="hidden rounded-lg shadow-xl w-80 md:w-96 overflow-hidden flex flex-col transition-all duration-300 max-h-[500px]"
-    style="background-color: rgba(185, 214, 242, 0.15);"
+    class="hidden rounded-lg shadow-xl w-80 md:w-96 overflow-hidden flex-col transition-all duration-300 max-h-[500px]"
+    style="background-color: rgb(221, 230, 238);"
   >
     <!-- Chat header -->
     <div class="bg-secondary text-neutral flex justify-between items-center" style={`padding: ${chatPadding};`}>
@@ -113,14 +113,14 @@ const chatGap = componentSpacing.chat.gap;
     chatForm?.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const message = chatInput?.value.trim();
+      const message = (chatInput as HTMLInputElement)?.value.trim();
       if (!message) return;
       
       // Add user message to chat
       addMessage(message, 'user');
       
       // Clear input
-      if (chatInput) chatInput.value = '';
+      if (chatInput) (chatInput as HTMLInputElement).value = '';
       
       // Simulate response (replace with actual API call in production)
       setTimeout(() => {

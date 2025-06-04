@@ -103,7 +103,7 @@ const { class: className = '' } = Astro.props;
         const position = ((e.clientX - diffRect.left) / diffRect.width) * 100;
         const clampedPosition = Math.max(0, Math.min(100, position));
         
-        diff.style.setProperty('--position', `${clampedPosition}%`);
+        (diff as HTMLElement).style.setProperty('--position', `${clampedPosition}%`);
       };
       
       const onMouseUp = () => {
@@ -129,7 +129,7 @@ const { class: className = '' } = Astro.props;
         const position = ((e.touches[0].clientX - diffRect.left) / diffRect.width) * 100;
         const clampedPosition = Math.max(0, Math.min(100, position));
         
-        diff.style.setProperty('--position', `${clampedPosition}%`);
+        (diff as HTMLElement).style.setProperty('--position', `${clampedPosition}%`);
       };
       
       const onTouchEnd = () => {
