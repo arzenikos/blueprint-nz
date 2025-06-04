@@ -1,0 +1,155 @@
+---
+// ChatBox.astro - A simple chat interface component
+import { palette } from '../../styles/theme';
+import { componentSpacing } from '../../styles/spacing';
+
+// Get spacing values from centralized file
+const chatMarginBottom = componentSpacing.chat.margin.bottom;
+const chatPadding = componentSpacing.chat.padding.container;
+const chatMessagePadding = componentSpacing.chat.padding.message;
+const chatGap = componentSpacing.chat.gap;
+---
+
+<div id="chat-container" class="fixed bottom-4 right-4 z-50 flex flex-col">
+  <!-- Chat toggle button with primary color background -->
+  <button 
+    id="chat-toggle" 
+    class="ml-auto text-secondary p-3 rounded-full shadow-lg transition-all duration-300"
+    style={`margin-bottom: ${chatMarginBottom}; background-color: ${palette.primary};`}
+    aria-label="Toggle chat"
+  >
+    <svg class="h-6 w-6" aria-hidden="true">
+      <use href="/assets/svg/icons.svg#chat"></use>
+    </svg>
+  </button>
+  
+  <!-- Chat box (hidden by default) with light primary background -->
+  <div 
+    id="chat-box" 
+    class="hidden rounded-lg shadow-xl w-80 md:w-96 overflow-hidden flex flex-col transition-all duration-300 max-h-[500px]"
+    style="background-color: rgba(185, 214, 242, 0.15);"
+  >
+    <!-- Chat header -->
+    <div class="bg-secondary text-neutral flex justify-between items-center" style={`padding: ${chatPadding};`}>
+      <h3 class="font-medium">Chat with us</h3>
+      <button id="close-chat" class="text-neutral hover:text-primary transition-colors">
+        <svg class="h-5 w-5" aria-hidden="true">
+          <use href="/assets/svg/icons.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Chat messages -->
+    <div id="chat-messages" class="flex-grow overflow-y-auto flex flex-col min-h-[250px]" style={`padding: ${chatPadding}; gap: ${chatGap};`}>
+      <div class="chat-message bg-neutral self-start max-w-[80%] rounded-lg" style={`padding: ${chatMessagePadding};`}>
+        <p class="text-sm">Hello! How can we help you today?</p>
+        <span class="text-xs text-secondary mt-1 block">Support team, just now</span>
+      </div>
+    </div>
+    
+    <!-- Chat input -->
+    <div class="border-t border-primary/30" style={`padding: ${chatPadding};`}>
+      <form id="chat-form" class="flex gap-2">
+        <input 
+          type="text" 
+          id="chat-input" 
+          class="flex-grow border border-neutral-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          placeholder="Type your message..."
+          required
+        />
+        <button 
+          type="submit" 
+          class="bg-accent hover:bg-accent/80 text-neutral px-4 py-2 rounded-lg text-sm transition-colors"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatBox = document.getElementById('chat-box');
+    const closeChat = document.getElementById('close-chat');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatContainer = document.getElementById('chat-container');
+    
+    // Toggle chat visibility
+    chatToggle?.addEventListener('click', () => {
+      chatBox?.classList.toggle('hidden');
+      // If chat is now visible, focus the input
+      if (!chatBox?.classList.contains('hidden')) {
+        chatInput?.focus();
+      }
+    });
+    
+    // Close chat
+    closeChat?.addEventListener('click', () => {
+      chatBox?.classList.add('hidden');
+    });
+    
+    // Close chat when clicking outside
+    document.addEventListener('click', (e) => {
+      // Check if chat is visible
+      if (chatBox && !chatBox.classList.contains('hidden')) {
+        // Check if the click is outside the chat container
+        if (!chatContainer?.contains(e.target as Node)) {
+          chatBox.classList.add('hidden');
+        }
+      }
+    });
+    
+    // Prevent clicks inside the chat from closing it
+    chatContainer?.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+    
+    // Handle form submission
+    chatForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const message = chatInput?.value.trim();
+      if (!message) return;
+      
+      // Add user message to chat
+      addMessage(message, 'user');
+      
+      // Clear input
+      if (chatInput) chatInput.value = '';
+      
+      // Simulate response (replace with actual API call in production)
+      setTimeout(() => {
+        addMessage('Thank you for your message. Our team will get back to you soon!', 'support');
+      }, 1000);
+    });
+    
+    // Function to add a message to the chat
+    function addMessage(text: string, sender: 'user' | 'support') {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `chat-message p-3 rounded-lg max-w-[80%] ${
+        sender === 'user' ? 'bg-primary/20 self-end' : 'bg-neutral self-start'
+      }`;
+      
+      const messageText = document.createElement('p');
+      messageText.className = 'text-sm';
+      messageText.textContent = text;
+      
+      const messageTime = document.createElement('span');
+      messageTime.className = 'text-xs text-secondary mt-1 block';
+      messageTime.textContent = sender === 'user' ? 'You, just now' : 'Support team, just now';
+      
+      messageDiv.appendChild(messageText);
+      messageDiv.appendChild(messageTime);
+      
+      chatMessages?.appendChild(messageDiv);
+      
+      // Scroll to bottom
+      if (chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  });
+</script>

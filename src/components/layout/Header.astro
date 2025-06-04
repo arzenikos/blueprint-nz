@@ -1,9 +1,149 @@
 ---
-import Logo from '../shared/Logo.astro';
-import NavIcons from '../shared/NavIcons.astro';
+import { siteData } from '../../data/site';
+import { imageSizes } from '../../styles/images';
+import { componentSpacing } from '../../styles/spacing';
+import { palette } from '../../styles/theme';
+
+// Get logo sizes from centralized file
+const logoSizes = imageSizes.logo.default.height;
+
+// Get spacing values from centralized file
+const headerHeight = componentSpacing.header.height;
+const headerPaddingX = componentSpacing.header.padding.x;
+const searchMarginX = componentSpacing.header.nav.margin.left;
+const navItemSpacing = componentSpacing.header.nav.item.margin.right;
 ---
 
-<header class="container-fluid py-4 flex justify-between items-center">
-  <Logo />
-  <NavIcons />
+<header class="sticky top-0 z-40 w-full bg-transparent" style={`height: ${headerHeight};`}>
+  <div class="container mx-auto max-w-[2000px]" style={`
+    padding-left: ${headerPaddingX.mobile}; 
+    padding-right: ${headerPaddingX.mobile};
+    @media (min-width: 768px) {
+      padding-left: ${headerPaddingX.tablet}; 
+      padding-right: ${headerPaddingX.tablet};
+    }
+    @media (min-width: 1024px) {
+      padding-left: ${headerPaddingX.desktop}; 
+      padding-right: ${headerPaddingX.desktop};
+    }
+  `}>
+    <div class="flex items-center justify-between h-full">
+      <!-- Logo (left) - Size from centralized file -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img 
+            src="/src/assets/images/logo-dark.png" 
+            alt={siteData.site.title} 
+            class="max-h-full object-contain"
+            style={`height: ${logoSizes.mobile};`}
+          />
+        </a>
+      </div> 
+      
+      <!-- Search Bar (middle) - Hidden on mobile -->
+      <div class="hidden md:flex flex-1 max-w-md" style={`margin-left: ${searchMarginX}; margin-right: ${searchMarginX};`}>
+        <form class="w-full">
+          <div class="relative">
+            <input 
+              type="search" 
+              placeholder="Search..." 
+              class="w-full pl-10 pr-4 py-2 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+              <svg class="w-4 h-4 text-secondary" aria-hidden="true">
+                <use href="/assets/svg/icons.svg#search"></use>
+              </svg>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Right Navigation Items -->
+      <div class="flex items-center" style={`gap: ${navItemSpacing};`}>
+        <!-- Search Icon (Mobile Only) -->
+        <button class="md:hidden p-2 rounded-full hover:bg-primary/20" aria-label="Search">
+          <svg class="w-5 h-5 text-secondary" aria-hidden="true">
+            <use href="/assets/svg/icons.svg#search"></use>
+          </svg>
+        </button>
+        
+        <!-- Newsletter (Text on large screens, icon on small) -->
+        <a href="#newsletter" class="flex items-center text-secondary">
+          <span class="hidden sm:inline-block text-sm font-medium mr-1">Newsletter</span>
+          <svg class="w-4 h-4 sm:w-3 sm:h-3" aria-hidden="true">
+            <use href="/assets/svg/icons.svg#mail"></use>
+          </svg>
+        </a>
+        
+        <!-- Settings (Text on large screens, icon on small) -->
+        <a href="/settings" class="flex items-center text-secondary">
+          <span class="hidden sm:inline-block text-sm font-medium mr-1">Settings</span>
+          <svg class="w-4 h-4 sm:w-3 sm:h-3" aria-hidden="true">
+            <use href="/assets/svg/icons.svg#settings"></use>
+          </svg>
+        </a>
+        
+        <!-- Help (Text on large screens, icon on small) -->
+        <a href="/help" class="flex items-center text-secondary">
+          <span class="hidden sm:inline-block text-sm font-medium mr-1">Help</span>
+          <svg class="w-4 h-4 sm:w-3 sm:h-3" aria-hidden="true">
+            <use href="/assets/svg/icons.svg#help"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Search (Hidden by default) -->
+  <div id="mobile-search" class="md:hidden hidden border-t border-neutral-300 py-3 px-4 bg-neutral">
+    <form>
+      <div class="relative">
+        <input 
+          type="search" 
+          placeholder="Search..." 
+          class="w-full pl-10 pr-4 py-2 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+        <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+          <svg class="w-4 h-4 text-secondary" aria-hidden="true">
+            <use href="/assets/svg/icons.svg#search"></use>
+          </svg>
+        </div>
+      </div>
+    </form>
+  </div>
 </header>
+
+<script>
+  // Toggle mobile search
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchButton = document.querySelector('button[aria-label="Search"]');
+    const mobileSearch = document.getElementById('mobile-search');
+    
+    searchButton?.addEventListener('click', () => {
+      mobileSearch?.classList.toggle('hidden');
+      // Focus the search input when shown
+      if (!mobileSearch?.classList.contains('hidden')) {
+        const searchInput = mobileSearch.querySelector('input[type="search"]');
+        (searchInput as HTMLInputElement | null)?.focus();
+      }
+    });
+    
+    // Responsive image sizing for max screen width
+    const handleResize = () => {
+      const isMaxWidth = window.innerWidth >= 1920;
+      const icons = document.querySelectorAll('header svg:not(.logo-svg)');
+      
+      icons.forEach(icon => {
+        if (isMaxWidth) {
+          icon.classList.add('scale-75');
+        } else {
+          icon.classList.remove('scale-75');
+        }
+      });
+    };
+    
+    // Initial call and event listener
+    handleResize();
+    window.addEventListener('resize', handleResize);
+  });
+</script>
