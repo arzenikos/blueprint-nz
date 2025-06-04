@@ -5,7 +5,6 @@ import '../styles/globals.css';
 import '@fontsource-variable/inter/wght.css';
 import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import Header from '../components/layout/Header.astro';
-import ChatBox from '../components/ChatBox.astro';
 import MobileNavTooltip from '../components/shared/MobileNavTooltip.astro';
 
 interface Props {
@@ -67,13 +66,14 @@ const cssVarsStyle = Object.entries(cssVariables)
             <Header />
         </div>
         
+        <!-- Add spacer for mobile header margin -->
+        <div class="md:hidden h-14"></div>
+        <div class="hidden md:block h-7"></div>
+        
         <!-- Full Page Content -->
         <main class="w-full h-screen">
             <slot />
         </main>
-        
-        <!-- Virtual Agent Chat Box -->
-        <ChatBox />
         
         <!-- Mobile Navigation Tooltips -->
         <MobileNavTooltip />

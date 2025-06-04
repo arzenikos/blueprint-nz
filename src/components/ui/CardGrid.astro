@@ -25,7 +25,7 @@ const getColumnClass = () => {
 };
 ---
 
-<div class={`grid ${getColumnClass()} gap-6`}>
+<div class={`grid ${getColumnClass()} gap-6 md:gap-8`}>
   {cards.map(card => (
     <a href={card.link} class="group">
       <div class="border border-neutral-300 rounded-lg overflow-hidden hover:border-primary transition-colors h-full flex flex-col">
@@ -43,9 +43,9 @@ const getColumnClass = () => {
             <span class="text-secondary font-medium">{card.title}</span>
           </div>
         )}
-        <div class="p-5 flex flex-col flex-grow">
-          <h3 class="font-semibold text-lg text-secondary mb-2">{card.title}</h3>
-          <p class="text-sm mb-4 flex-grow">{card.description}</p>
+        <div class="p-5 md:p-6 flex flex-col flex-grow">
+          <h3 class="font-semibold text-lg text-secondary mb-3 md:mb-2">{card.title}</h3>
+          <p class="text-sm mb-5 md:mb-4 flex-grow">{card.description}</p>
           <div class="mt-auto">
             <span class="text-accent font-medium group-hover:underline">
               {card.buttonText || 'Learn more'} →

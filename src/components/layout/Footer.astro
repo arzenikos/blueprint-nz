@@ -18,6 +18,7 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
   padding-bottom: ${footerPaddingY};
   margin-top: ${footerMarginTop};
 `}>
+  <PixelRibbon pixelSize={2} />
   <div class="container mx-auto max-w-[2000px]" style={`
     padding-left: ${footerPaddingX.mobile}; 
     padding-right: ${footerPaddingX.mobile};
@@ -30,7 +31,7 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
       padding-right: ${footerPaddingX.desktop};
     }
   `}>
-    <nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 pt-4">
+    <nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-10 lg:gap-16 pt-6">
       <!-- Newsletter Section -->
       <NewsletterForm 
         title={footerLinks.newsletterSection.title}
@@ -40,7 +41,7 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
       />
       
       <!-- Footer Sections -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10">
         {footerLinks.sections.map((section, index) => (
           <FooterSection 
             title={section.title} 
@@ -53,7 +54,7 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
     
     <hr class="border-primary/30" style={`margin-top: ${footerDividerMargin}; margin-bottom: ${footerDividerMargin};`}>
     
-    <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="text-xs text-center md:text-left text-neutral/60">
         {footerLinks.copyright}
       </div>

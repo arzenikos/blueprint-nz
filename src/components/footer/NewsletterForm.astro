@@ -11,15 +11,15 @@ const { title, description, placeholder, buttonText } = Astro.props;
 
 <div class="flex flex-col md:max-lg:w-1/2 lg:max-w-sm">
   <p class="font-semibold text-base md:text-lg text-neutral">{title}</p>
-  <p class="mb-4 pt-2 text-primary text-sm">
+  <p class="mb-5 pt-2 text-primary text-sm">
     {description}
   </p>
   <form
     action="#"
     method="post"
-    class="flex flex-col sm:flex-row gap-2">
+    class="flex flex-col sm:flex-row gap-3">
     <input 
-      class="h-9 rounded-lg border border-primary bg-secondary px-3 py-1 text-neutral text-sm focus:outline-none focus:ring-[1px] focus:ring-primary flex-grow" 
+      class="h-10 rounded-lg border border-primary bg-secondary px-4 py-2 text-neutral text-sm focus:outline-none focus:ring-[1px] focus:ring-primary flex-grow" 
       type="email"
       placeholder={placeholder}
       name="email"
@@ -27,7 +27,7 @@ const { title, description, placeholder, buttonText } = Astro.props;
       required>
     <button
       type="submit"
-      class="h-9 px-4 border border-secondary/10 text-sm font-light bg-accent hover:bg-accent/80 text-neutral hover:cursor-pointer rounded-lg">
+      class="h-10 px-5 border border-secondary/10 text-sm font-light bg-accent hover:bg-accent/80 text-neutral hover:cursor-pointer rounded-lg">
       {buttonText}
     </button>
   </form>

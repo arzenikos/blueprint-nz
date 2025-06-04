@@ -72,6 +72,16 @@ export const componentSpacing = {
       },
       y: spacing[4],
     },
+    margin: {
+      top: {
+        mobile: spacing[6],  // 1.5rem (24px) for mobile
+        desktop: spacing[3],  // 0.75rem (12px) for desktop
+      },
+      bottom: {
+        mobile: spacing[8],  // 2rem (32px) for mobile
+        desktop: spacing[4],  // 1rem (16px) for desktop
+      }
+    },
     logo: {
       margin: {
         right: spacing[4],
@@ -93,23 +103,23 @@ export const componentSpacing = {
   footer: {
     padding: {
       x: {
-        mobile: spacing[4],
+        mobile: spacing[5],   // Increased from 4 to 5
         tablet: spacing[6],
         desktop: spacing[8],
       },
-      y: spacing[8],
+      y: spacing[10],         // Increased from 8 to 10
     },
     margin: {
       top: spacing[16],
     },
     section: {
       margin: {
-        bottom: spacing[8],
+        bottom: spacing[10],  // Increased from 8 to 10
       }
     },
     divider: {
       margin: {
-        y: spacing[5],
+        y: spacing[6],        // Increased from 5 to 6
       }
     }
   },
@@ -117,30 +127,30 @@ export const componentSpacing = {
   // Card component
   card: {
     padding: {
-      mobile: spacing[4],
+      mobile: spacing[5],   // Increased from 4 to 5
       desktop: spacing[6],
     },
     margin: {
-      bottom: spacing[6],
+      bottom: spacing[8],   // Increased from 6 to 8
     },
-    gap: spacing[4],
+    gap: spacing[5],        // Increased from 4 to 5
   },
   
   // Section component
   section: {
     padding: {
       y: {
-        mobile: spacing[8],
+        mobile: spacing[10],  // Increased from 8 to 10
         desktop: spacing[12],
       },
       x: {
-        mobile: spacing[4],
+        mobile: spacing[5],   // Increased from 4 to 5
         desktop: spacing[6],
       }
     },
     margin: {
       bottom: {
-        mobile: spacing[8],
+        mobile: spacing[10],  // Increased from 8 to 10
         desktop: spacing[12],
       }
     }

@@ -1,15 +1,23 @@
 ---
 import { siteData } from '../../data/site';
 import { imageSizes } from '../../styles/images';
+import { componentSpacing } from '../../styles/spacing';
 import SearchBar from '../navigation/SearchBar.astro';
 import SearchButton from '../navigation/SearchButton.astro';
 import MainNav from '../navigation/MainNav.astro';
 
 // Get logo sizes from centralized file
 const logoSizes = imageSizes.logo.default.height;
+// Get header margin from centralized file
+const headerMarginTop = componentSpacing.header.margin.top;
+const headerMarginBottom = componentSpacing.header.margin.bottom;
 ---
 
-<header class="sticky top-10 z-40 w-full bg-transparent">
+<header class="sticky top-0 z-40 w-full bg-transparent">
+  <!-- Spacer div for mobile top margin -->
+  <div class="md:hidden" style={`margin-top: ${headerMarginTop.mobile};`}></div>
+  <div class="hidden md:block" style={`margin-top: ${headerMarginTop.desktop};`}></div>
+
   <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-[2000px]">
     <div class="flex items-center justify-between h-16">
       <!-- Logo (left) - Size from centralized file -->
@@ -40,6 +48,10 @@ const logoSizes = imageSizes.logo.default.height;
   
   <!-- Mobile Search (Hidden by default) -->
   <SearchBar mobile={true} />
+  
+  <!-- Spacer div for mobile bottom margin -->
+  <div class="md:hidden" style={`margin-bottom: ${headerMarginBottom.mobile};`}></div>
+  <div class="hidden md:block" style={`margin-bottom: ${headerMarginBottom.desktop};`}></div>
 </header>
 
 <script>
