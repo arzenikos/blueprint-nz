@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 ---
 
-<div class={`card bg-base-100 shadow-sm ${className}`}>
+<div class={`card bg-base-100 shadow-sm dark:bg-gray-800 dark:border-gray-700 ${className}`}>
   <slot name="image" />
   
   <div class={`card-body ${bodyClass}`}>

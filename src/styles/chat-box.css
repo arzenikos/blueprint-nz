@@ -1,10 +1,42 @@
-/* Chat Box Styles */
+/* Chat box specific styles */
 
-/* Animation for chat box appearance */
-@keyframes slideUp {
+.chat-message {
+  transition: all 0.3s ease;
+}
+
+#chat-box {
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--color-border);
+}
+
+#chat-toggle {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#chat-toggle:hover {
+  transform: scale(1.05);
+}
+
+#chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 20px;
+}
+
+/* Animation for new messages */
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -12,87 +44,16 @@
   }
 }
 
-@keyframes robotGlow {
-  0% {
-    filter: drop-shadow(0 0 2px rgba(185, 214, 242, 0.5));
-  }
-  50% {
-    filter: drop-shadow(0 0 5px rgba(185, 214, 242, 0.8));
-  }
-  100% {
-    filter: drop-shadow(0 0 2px rgba(185, 214, 242, 0.5));
-  }
+.chat-message {
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
-#chat-toggle-btn svg {
-  animation: robotGlow 2s ease-in-out infinite;
+/* User message styling */
+.chat-message.self-end {
+  background-color: var(--color-primary-light);
 }
 
-#chat-box {
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.chat-box-entrance {
-  animation: slideUp 0.3s ease-out;
-}
-
-#chat-toggle-btn {
-  transition: all 0.2s ease-in-out;
-  animation: none; /* Removed pulse animation */
-}
-
-#chat-toggle-btn:hover {
-  transform: scale(1.05);
-}
-
-/* Custom scrollbar for chat messages */
-.chat-messages::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chat-messages::-webkit-scrollbar-track {
-  background: var(--color-muted);
-  border-radius: 10px;
-}
-
-.chat-messages::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 10px;
-}
-
-.chat-messages::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-dark);
-}
-
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  #chat-box-container {
-    bottom: 4rem;
-    right: 1rem;
-  }
-  
-  #chat-box {
-    width: calc(100vw - 2rem);
-    max-width: 100%;
-    max-height: 70vh;
-  }
-}
-
-/* Accessibility focus styles */
-#chat-toggle-btn:focus,
-#close-chat:focus,
-#minimize-chat:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  #chat-box {
-    border-color: var(--color-border);
-  }
-  
-  .chat-messages {
-    background-color: var(--color-muted);
-  }
+/* Support message styling */
+.chat-message.self-start {
+  background-color: var(--color-muted);
 }

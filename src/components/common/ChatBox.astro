@@ -1,6 +1,5 @@
 ---
 // ChatBox.astro - A simple chat interface component
-import { palette } from '../../styles/theme';
 import { componentSpacing } from '../../styles/spacing';
 
 // Get spacing values from centralized file
@@ -14,52 +13,51 @@ const chatGap = componentSpacing.chat.gap;
   <!-- Chat toggle button with primary color background -->
   <button 
     id="chat-toggle" 
-    class="ml-auto text-secondary p-3 rounded-full shadow-lg transition-all duration-300"
-    style={`margin-bottom: ${chatMarginBottom}; background-color: ${palette.primary};`}
+    class="ml-auto p-3 rounded-full shadow-lg transition-all duration-300 bg-primary dark:bg-accent text-secondary dark:text-neutral"
+    style={`margin-bottom: ${chatMarginBottom};`}
     aria-label="Toggle chat"
   >
-    <svg class="h-6 w-6" aria-hidden="true">
-      <use href="/assets/svg/icons.svg#chat"></use>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
     </svg>
   </button>
   
-  <!-- Chat box (hidden by default) with light primary background -->
+  <!-- Chat box (hidden by default) with background from theme -->
   <div 
     id="chat-box" 
-    class="hidden rounded-lg shadow-xl w-80 md:w-96 overflow-hidden flex-col transition-all duration-300 max-h-[500px]"
-    style="background-color: rgb(221, 230, 238);"
+    class="hidden rounded-lg shadow-xl w-80 md:w-96 overflow-hidden flex-col transition-all duration-300 max-h-[500px] bg-card border-card-border"
   >
     <!-- Chat header -->
-    <div class="bg-secondary text-neutral flex justify-between items-center" style={`padding: ${chatPadding};`}>
+    <div class="bg-primary dark:bg-accent text-secondary dark:text-neutral flex justify-between items-center" style={`padding: ${chatPadding};`}>
       <h3 class="font-medium">Chat with us</h3>
-      <button id="close-chat" class="text-neutral hover:text-primary transition-colors">
-        <svg class="h-5 w-5" aria-hidden="true">
-          <use href="/assets/svg/icons.svg#close"></use>
+      <button id="close-chat" class="text-secondary dark:text-neutral hover:opacity-80 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
     
     <!-- Chat messages -->
-    <div id="chat-messages" class="flex-grow overflow-y-auto flex flex-col min-h-[250px]" style={`padding: ${chatPadding}; gap: ${chatGap};`}>
-      <div class="chat-message bg-neutral self-start max-w-[80%] rounded-lg" style={`padding: ${chatMessagePadding};`}>
-        <p class="text-sm">Hello! How can we help you today?</p>
-        <span class="text-xs text-secondary mt-1 block">Support team, just now</span>
+    <div id="chat-messages" class="flex-grow overflow-y-auto flex flex-col min-h-[250px] bg-background" style={`padding: ${chatPadding}; gap: ${chatGap};`}>
+      <div class="chat-message bg-muted self-start max-w-[80%] rounded-lg shadow-sm" style={`padding: ${chatMessagePadding};`}>
+        <p class="text-sm text-foreground">Hello! How can we help you today?</p>
+        <span class="text-xs opacity-70 mt-1 block text-foreground">Support team, just now</span>
       </div>
     </div>
     
     <!-- Chat input -->
-    <div class="border-t border-primary/30" style={`padding: ${chatPadding};`}>
+    <div class="border-t border-border bg-card" style={`padding: ${chatPadding};`}>
       <form id="chat-form" class="flex gap-2">
         <input 
           type="text" 
           id="chat-input" 
-          class="flex-grow border border-neutral-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          class="flex-grow border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
           placeholder="Type your message..."
           required
         />
         <button 
           type="submit" 
-          class="bg-accent hover:bg-accent/80 text-neutral px-4 py-2 rounded-lg text-sm transition-colors"
+          class="bg-accent hover:bg-accent-dark text-accent-content px-4 py-2 rounded-lg text-sm transition-colors"
         >
           Send
         </button>
@@ -130,26 +128,39 @@ const chatGap = componentSpacing.chat.gap;
     
     // Function to add a message to the chat
     function addMessage(text: string, sender: 'user' | 'support') {
+      if (!chatMessages) return;
+      
       const messageDiv = document.createElement('div');
-      messageDiv.className = `chat-message p-3 rounded-lg max-w-[80%] ${
-        sender === 'user' ? 'bg-primary/20 self-end' : 'bg-neutral self-start'
-      }`;
+      
+      // Use CSS variables for styling to match theme
+      if (sender === 'user') {
+        messageDiv.className = 'chat-message rounded-lg max-w-[80%] shadow-sm self-end';
+        messageDiv.style.backgroundColor = 'var(--color-primary-light)';
+      } else {
+        messageDiv.className = 'chat-message rounded-lg max-w-[80%] shadow-sm self-start';
+        messageDiv.style.backgroundColor = 'var(--color-muted)';
+      }
+      
+      messageDiv.style.padding = '0.75rem';
       
       const messageText = document.createElement('p');
       messageText.className = 'text-sm';
+      messageText.style.color = 'var(--color-foreground)';
       messageText.textContent = text;
       
       const messageTime = document.createElement('span');
-      messageTime.className = 'text-xs text-secondary mt-1 block';
+      messageTime.className = 'text-xs mt-1 block';
+      messageTime.style.color = 'var(--color-foreground)';
+      messageTime.style.opacity = '0.7';
       messageTime.textContent = sender === 'user' ? 'You, just now' : 'Support team, just now';
       
       messageDiv.appendChild(messageText);
       messageDiv.appendChild(messageTime);
       
-      chatMessages?.appendChild(messageDiv);
+      chatMessages.appendChild(messageDiv);
       
       // Scroll to bottom
-      if (chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight;
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
   });
 </script>

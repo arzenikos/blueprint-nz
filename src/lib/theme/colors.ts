@@ -19,7 +19,7 @@ export const themes = {
     neutral: '#ffffff',    // White - for backgrounds
     semantic: '#10b981',   // Green - base for semantic colors
     background: '#ffffff', // White background
-    foreground: '#333333', // Dark text
+    foreground: '#000f2e', // Dark blue text
     border: '#e2e8f0',     // Light border
     muted: '#f1f5f9',      // Light muted background
     card: '#ffffff',       // White card background

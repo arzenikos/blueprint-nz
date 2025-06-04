@@ -88,12 +88,12 @@ export const footerLinks = {
       ]
     },
     {
-      title: "Legal",
+      title: "Shop & Services",
       links: [
-        { text: "Privacy Policy", url: "/privacy" },
-        { text: "Terms of Use", url: "/terms" },
-        { text: "Cookie Policy", url: "/cookies" },
-        { text: "Sitemap", url: "/sitemap" }
+        { text: "Shop", url: "/shop" },
+        { text: "Products", url: "/products" },
+        { text: "Resources", url: "/resources" },
+        { text: "Services", url: "/services" }
       ]
     }
   ],

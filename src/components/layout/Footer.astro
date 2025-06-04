@@ -64,21 +64,23 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
 </footer>
 
 <style>
+  /* Light mode - white links for footer (since footer has dark background) */
   .footer-link {
-    color: rgba(185, 214, 242, 0.6); /* primary color with opacity */
+    color: rgba(255, 255, 255, 0.8); /* Increased opacity for better visibility */
     transition: color 0.2s ease;
   }
   
   .footer-link:hover {
-    color: rgba(185, 214, 242, 1); /* primary color full opacity */
+    color: rgba(255, 255, 255, 1); /* Full opacity on hover */
   }
   
   /* Dark mode styles */
   :global(.dark) .footer-link {
-    color: rgba(203, 213, 225, 0.6); /* light gray with opacity for dark mode */
+    color: rgba(203, 213, 225, 0.8); /* Increased opacity for better visibility */
   }
   
   :global(.dark) .footer-link:hover {
-    color: rgba(203, 213, 225, 1); /* light gray full opacity for dark mode */
+    color: rgba(203, 213, 225, 1); /* Full opacity for dark mode */
   }
 </style>
+

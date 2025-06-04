@@ -22,12 +22,6 @@ const mainCards = [
     description: "Learn about our research initiatives and how they're advancing knowledge and improving outcomes.",
     link: "/research",
     buttonText: "Explore Research"
-  },
-  {
-    title: "Shop",
-    description: "Browse our selection of products and resources that support our mission.",
-    link: "/shop",
-    buttonText: "Visit Shop"
   }
 ];
 
@@ -92,7 +86,9 @@ const carouselImages = [
     <!-- Main Cards Section -->
     <section class="py-10 md:py-12">
       <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-10 text-secondary text-center">How We Can Help</h2>
-      <CardGrid cards={mainCards} columns={4} />
+      <div class="max-w-5xl mx-auto">
+        <CardGrid cards={mainCards} columns={3} />
+      </div>
     </section>
     
     <!-- Mission Statement -->
@@ -113,14 +109,14 @@ const carouselImages = [
     <section class="py-10 md:py-12 bg-secondary text-neutral rounded-lg my-10 md:my-12 px-5 md:px-6">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-6">Ready to Take the Next Step?</h2>
-        <p class="text-base md:text-lg mb-8 md:mb-8">
+        <p class="text-base md:text-lg mb-8 md:mb-8 ">
           Whether you're looking for information, support, or ways to get involved,
           we're here to help you on your journey.
         </p>
         <div class="flex flex-col sm:flex-row gap-5 justify-center">
           <Button href="/information-and-support" variant="accent">Find Support</Button>
-          <Button href="/get-involved" variant="neutral">Get Involved</Button>
-          <Button href="/contact" variant="outline">Contact Us</Button>
+          <Button href="/get-involved" variant="accent">Get Involved</Button>
+          <Button href="/contact" variant="accent">Contact Us</Button>
         </div>
       </div>
     </section>

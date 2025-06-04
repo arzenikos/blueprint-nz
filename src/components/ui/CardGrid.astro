@@ -10,24 +10,28 @@ interface Card {
 interface Props {
   cards: Card[];
   columns?: number;
+  centered?: boolean;
 }
 
-const { cards, columns = 2 } = Astro.props;
+const { cards, columns = 2, centered = false } = Astro.props;
 
 const getColumnClass = () => {
   switch (columns) {
     case 1: return 'grid-cols-1';
     case 2: return 'grid-cols-1 md:grid-cols-2';
-    case 3: return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
+    case 3: return 'grid-cols-1 md:grid-cols-3';
     case 4: return 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4';
     default: return 'grid-cols-1 md:grid-cols-2';
   }
 };
+
+// For 3 cards with 3 columns, we need to center them when there are fewer cards than columns
+const centerClass = centered || (cards.length === 3 && columns === 3) ? 'place-items-center' : '';
 ---
 
-<div class={`grid ${getColumnClass()} gap-6 md:gap-8`}>
+<div class={`grid ${getColumnClass()} gap-6 md:gap-8 ${centerClass}`}>
   {cards.map(card => (
-    <a href={card.link} class="group">
+    <a href={card.link} class="group w-full max-w-md">
       <div class="border border-neutral-300 rounded-lg overflow-hidden hover:border-primary transition-colors h-full flex flex-col">
         {card.image && (
           <div class="h-48 bg-neutral-200 flex items-center justify-center overflow-hidden">

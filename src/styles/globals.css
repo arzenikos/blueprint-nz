@@ -28,7 +28,7 @@
   
   /* UI colors - Light theme by default */
   --color-background: #ffffff;
-  --color-foreground: #333333;
+  --color-foreground: #13172a; /* Changed to dark blue */
   --color-border: #e2e8f0;
   --color-focus: #b9d6f2;
   --color-muted: #f1f5f9;
@@ -62,7 +62,7 @@
   --color-secondary-content: #111827;
   
   /* UI colors - Dark theme */
-  --color-background: #111827;
+  --color-background: #13172a;
   --color-foreground: #e5e7eb;
   --color-border: #374151;
   --color-focus: #3b82f6;
@@ -118,7 +118,7 @@
 
   a:not(.btn) {
     @apply underline transition hover:opacity-80;
-    color: var(--color-primary);
+    color: var(--color-secondary); /* Changed to dark blue */
   }
 
   pre {
@@ -132,6 +132,10 @@
     background-color: var(--color-muted);
     color: var(--color-foreground);
     font-size: 0.9em;
+  }
+  
+  p, span, div, li {
+    color: var(--color-foreground);
   }
 }
 
