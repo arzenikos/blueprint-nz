@@ -1,7 +1,7 @@
-<!-- ---
+---
 import Alert from './Alert.astro';
 import Markdown from './Markdown.astro';
-import { getNetlifyContext } from '../utils';
+import { getNetlifyContext } from '../lib/utils/netlify';
 
 const noNetlifyContextAlert = `
 For full functionality, either run this site locally via \`netlify dev\`
@@ -25,4 +25,4 @@ if (!ctx) {
             <Markdown content={markdownText} />
         </Alert>
     )
-} -->
+}

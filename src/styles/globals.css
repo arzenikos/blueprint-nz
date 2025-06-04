@@ -5,20 +5,30 @@
 :root {
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   
+  /* Core palette */
+  --color-primary: #05213b;
+  --color-secondary: #000f2e;
+  --color-accent: #3b82f6;
+  --color-neutral: #ffffff;
+  --color-semantic: #10b981;
+  
   /* Primary colors */
-  --color-primary: #b9d6f2;
-  --color-primary-light: #d4e5f7;
+  --color-primary-light: #3b82f6;
   --color-primary-dark: #8fb8e6;
   --color-primary-content: #000f2e;
   
-  /* Complementary colors */
-  --color-complementary: #000f2e;
-  --color-complementary-light: #001a52;
-  --color-complementary-dark: #00071a;
-  --color-complementary-content: #ffffff;
+  /* Secondary colors */
+  --color-secondary-light: #001a52;
+  --color-secondary-dark: #00071a;
+  --color-secondary-content: #ffffff;
+  
+  /* Accent colors */
+  --color-accent-light: #60a5fa;
+  --color-accent-dark: #2563eb;
+  --color-accent-content: #350404;
   
   /* UI colors */
-  --color-background: #ffffff;
+  --color-background: #000f2e;
   --color-foreground: #333333;
   --color-border: #e2e8f0;
   --color-focus: #b9d6f2;
@@ -51,17 +61,17 @@
 
   h1 {
     @apply text-4xl font-bold tracking-tight sm:text-5xl;
-    color: var(--color-complementary);
+    color: var(--color-secondary);
   }
 
   h2 {
     @apply text-2xl font-bold sm:text-3xl;
-    color: var(--color-complementary);
+    color: var(--color-secondary);
   }
 
   h3 {
     @apply text-xl font-semibold sm:text-2xl;
-    color: var(--color-complementary);
+    color: var(--color-secondary);
   }
 
   a:not(.btn) {
@@ -71,13 +81,13 @@
 
   pre {
     @apply p-6 overflow-x-auto rounded-lg;
-    background-color: var(--color-complementary);
-    color: var(--color-complementary-content);
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-content);
   }
 
   :not(pre) > code {
     @apply px-1 py-0.5 font-mono rounded;
-    background-color: var(--color-complementary);
+    background-color: var(--color-secondary);
     color: var(--color-primary);
     font-size: 0.9em;
   }
@@ -109,6 +119,24 @@
     }
   }
 
+  .btn-accent {
+    background-color: var(--color-accent);
+    color: var(--color-accent-content);
+
+    &:hover {
+      background-color: var(--color-accent-dark);
+    }
+  }
+
+  .btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-content);
+
+    &:hover {
+      background-color: var(--color-secondary-dark);
+    }
+  }
+
   .btn-lg {
     --btn-font-size: 1.125rem;
     --btn-px: 1.5rem;
@@ -127,7 +155,7 @@
   
   .card-title {
     @apply text-xl font-semibold mb-2;
-    color: var(--color-complementary);
+    color: var(--color-secondary);
   }
   
   .card-actions {
@@ -135,6 +163,24 @@
   }
   
   .bg-noise {
-    background-color: var(--color-complementary);
+    background-color: var(--color-secondary);
+  }
+  
+  .markdown {
+    > * {
+      @apply my-6;
+    }
+
+    :where(h1, h2) {
+      @apply mt-12 mb-6;
+    }
+
+    > :first-child {
+      @apply mt-0;
+    }
+
+    > :last-child {
+      @apply mb-0;
+    }
   }
 }

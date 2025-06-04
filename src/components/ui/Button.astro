@@ -1,9 +1,9 @@
 ---
-import { colors } from '../../styles/colors';
+import { colors } from '../../lib/theme/colors';
 
 interface Props {
   href?: string;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'accent' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   class?: string;
   [x: string]: any;
@@ -19,7 +19,8 @@ const {
 
 const variants = {
   primary: `bg-primary text-primary-content hover:bg-primary-dark`,
-  secondary: `bg-complementary text-complementary-content hover:bg-complementary-light`,
+  secondary: `bg-secondary text-secondary-content hover:bg-secondary-light`,
+  accent: `bg-accent text-accent-content hover:bg-accent-dark`,
   outline: `border border-primary text-primary hover:bg-primary/10`
 };
 

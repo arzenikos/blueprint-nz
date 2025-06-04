@@ -1,83 +1,31 @@
 ---
-import { siteData } from '../data/site';
-import { cssVariables } from '../styles/colors';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
 import '../styles/globals.css';
-import '@fontsource-variable/inter/wght.css';
-import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
-import Header from '../components/common/Header.astro';
-import Footer from '../components/common/Footer.astro';
-import ChatBox from '../components/ChatBox.astro';
-import MobileNavTooltip from '../components/MobileNavTooltip.astro';
-import BlueprintIcon from '../components/BlueprintIcon.astro';
 
 interface Props {
-    title?: string;
-    description?: string;
-    image?: string;
+  title: string;
+  description?: string;
 }
 
-const { site } = siteData;
-
-const { 
-  title = site.title,
-  description = site.description,
-  image = '/images/social-image.jpg'
-} = Astro.props;
-
-const fullTitle = title === site.title ? title : `${title} | ${site.title}`;
-
-// Convert CSS variables to inline style for the :root element
-const cssVarsStyle = Object.entries(cssVariables)
-  .map(([key, value]) => `${key}: ${value}`)
-  .join('; ');
+const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{fullTitle}</title>
-        <meta name="description" content={description} />
-        <meta name="generator" content={Astro.generator} />
-        
-        <!-- Favicon -->
-         <!-- <link rel="icon" type="image/svg+xml" href="/src/assets/blueprint.svg.astro" /> -->
-          <!-- <BlueprintIcon class="h-7 w-7" /> -->
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        
-        <!-- Preload font -->
-        <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
-        
-        <!-- Open Graph / Social Media -->
-        <meta property="og:title" content={fullTitle} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={site.title} />
-        
-        <!-- Twitter -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={fullTitle} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
-        
-        <!-- Apply CSS variables -->
-        <style is:inline set:html={`:root { ${cssVarsStyle} }`}></style>
-    </head>
-    <body class="antialiased min-h-screen flex flex-col">
-        <div class="flex flex-col min-h-screen w-full bg-noise">
-            <Header />
-            <main class="flex-grow">
-                <slot />
-            </main>
-            <Footer />
-        </div>
-        
-        <!-- Virtual Agent Chat Box -->
-        <ChatBox />
-        
-        <!-- Mobile Navigation Tooltips -->
-        <MobileNavTooltip />
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
