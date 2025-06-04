@@ -26,7 +26,13 @@ const headerMarginBottom = componentSpacing.header.margin.bottom;
           <img 
             src="/src/assets/images/logo-dark.png" 
             alt={siteData.site.title} 
-            class="max-h-full object-contain"
+            class="max-h-full object-contain dark:hidden"
+            style={`height: ${logoSizes.mobile};`}
+          />
+          <img 
+            src="/src/assets/images/logo-light.png" 
+            alt={siteData.site.title} 
+            class="max-h-full object-contain hidden dark:block"
             style={`height: ${logoSizes.mobile};`}
           />
         </a>

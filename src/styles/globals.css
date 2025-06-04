@@ -5,39 +5,82 @@
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   
   /* Core palette */
-  --color-primary: #05213b;
-  --color-secondary: #c0c8d8;
+  --color-primary: #b9d6f2;
+  --color-secondary: #000f2e;
   --color-accent: #3b82f6;
   --color-neutral: #ffffff;
   --color-semantic: #10b981;
   
   /* Primary colors */
-  --color-primary-light: #3b82f6;
+  --color-primary-light: #d4e5f7;
   --color-primary-dark: #8fb8e6;
   --color-primary-content: #000f2e;
   
   /* Secondary colors */
   --color-secondary-light: #001a52;
-  --color-secondary-dark: #70737a;
+  --color-secondary-dark: #00071a;
   --color-secondary-content: #ffffff;
   
   /* Accent colors */
   --color-accent-light: #60a5fa;
   --color-accent-dark: #2563eb;
-  --color-accent-content: #350404;
+  --color-accent-content: #ffffff;
   
-  /* UI colors */
-  --color-background: #000f2e;
-  --color-foreground: #b9b5b5;
+  /* UI colors - Light theme by default */
+  --color-background: #ffffff;
+  --color-foreground: #333333;
   --color-border: #e2e8f0;
   --color-focus: #b9d6f2;
   --color-muted: #f1f5f9;
+  --color-card: #ffffff;
+  --color-card-border: #e2e8f0;
   
   /* Feedback colors */
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
   --color-info: #3b82f6;
+}
+
+/* Dark theme variables */
+.dark {
+  /* Core palette - Dark theme */
+  --color-primary: #3b82f6;
+  --color-secondary: #c0c8d8;
+  --color-accent: #60a5fa;
+  --color-neutral: #1f2937;
+  --color-semantic: #10b981;
+  
+  /* Primary colors - Dark theme */
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #2563eb;
+  --color-primary-content: #ffffff;
+  
+  /* Secondary colors - Dark theme */
+  --color-secondary-light: #d1d5db;
+  --color-secondary-dark: #9ca3af;
+  --color-secondary-content: #111827;
+  
+  /* UI colors - Dark theme */
+  --color-background: #111827;
+  --color-foreground: #e5e7eb;
+  --color-border: #374151;
+  --color-focus: #3b82f6;
+  --color-muted: #1f2937;
+  --color-card: #1f2937;
+  --color-card-border: #374151;
+}
+
+/* Theme transition */
+:root {
+  --transition-speed: 0.3s;
+}
+
+* {
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease,
+              border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
 }
 
 @layer base {
@@ -75,19 +118,19 @@
 
   a:not(.btn) {
     @apply underline transition hover:opacity-80;
-    color: var(--color-primary-dark);
+    color: var(--color-primary);
   }
 
   pre {
     @apply p-6 overflow-x-auto rounded-lg;
-    background-color: var(--color-secondary);
-    color: var(--color-secondary-content);
+    background-color: var(--color-muted);
+    color: var(--color-foreground);
   }
 
   :not(pre) > code {
     @apply px-1 py-0.5 font-mono rounded;
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
+    background-color: var(--color-muted);
+    color: var(--color-foreground);
     font-size: 0.9em;
   }
 }
@@ -144,8 +187,8 @@
   
   .card {
     @apply rounded-lg overflow-hidden;
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
+    background-color: var(--color-card);
+    border: 1px solid var(--color-card-border);
   }
   
   .card-body {
@@ -162,7 +205,7 @@
   }
   
   .bg-noise {
-    background-color: var(--color-secondary);
+    background-color: var(--color-muted);
   }
   
   .markdown {

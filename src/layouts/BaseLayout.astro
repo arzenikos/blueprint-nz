@@ -1,7 +1,6 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import ChatBox from '../components/common/ChatBox.astro';
 import '../styles/globals.css';
 
 interface Props {
@@ -21,6 +20,25 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+    
+    <!-- Theme script to prevent flash of wrong theme -->
+    <script is:inline>
+      // Check for saved theme preference or use system preference
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      
+      // Apply theme immediately to prevent flash
+      const theme = getThemePreference();
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
@@ -28,6 +46,5 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
       <slot />
     </main>
     <Footer />
-    <ChatBox />
   </body>
 </html>

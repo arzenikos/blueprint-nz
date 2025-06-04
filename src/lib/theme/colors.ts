@@ -10,14 +10,38 @@
  * 5. semantic - For feedback states (success, error, etc.)
  */
 
-// Core 5-color palette
-const palette = {
-  primary: '#b9d6f2',    // Light blue - main brand color
-  secondary: '#000f2e',  // Dark blue - secondary brand color
-  accent: '#3b82f6',     // Bright blue - for highlights and CTAs
-  neutral: '#ffffff',    // White - for backgrounds
-  semantic: '#10b981',   // Green - base for semantic colors
+// Theme definitions
+export const themes = {
+  light: {
+    primary: '#b9d6f2',    // Light blue - main brand color
+    secondary: '#000f2e',  // Dark blue - secondary brand color
+    accent: '#3b82f6',     // Bright blue - for highlights and CTAs
+    neutral: '#ffffff',    // White - for backgrounds
+    semantic: '#10b981',   // Green - base for semantic colors
+    background: '#ffffff', // White background
+    foreground: '#333333', // Dark text
+    border: '#e2e8f0',     // Light border
+    muted: '#f1f5f9',      // Light muted background
+    card: '#ffffff',       // White card background
+    cardBorder: '#e2e8f0', // Light card border
+  },
+  dark: {
+    primary: '#3b82f6',    // Bright blue - main brand color in dark mode
+    secondary: '#c0c8d8',  // Light blue-gray - secondary color in dark mode
+    accent: '#60a5fa',     // Lighter blue - accent in dark mode
+    neutral: '#1f2937',    // Dark gray - neutral in dark mode
+    semantic: '#10b981',   // Green - semantic stays the same
+    background: '#111827', // Dark background
+    foreground: '#e5e7eb', // Light text
+    border: '#374151',     // Dark border
+    muted: '#1f2937',      // Dark muted background
+    card: '#1f2937',       // Dark card background
+    cardBorder: '#374151', // Dark card border
+  }
 };
+
+// Default theme (light)
+const palette = themes.light;
 
 // Extended color system based on the 5-color palette
 export const colors = {
@@ -47,11 +71,11 @@ export const colors = {
   
   // UI colors based on neutral
   ui: {
-    background: palette.neutral,
-    foreground: '#333333',
-    border: '#e2e8f0',
+    background: palette.background,
+    foreground: palette.foreground,
+    border: palette.border,
     focus: palette.primary,
-    muted: '#f1f5f9',
+    muted: palette.muted,
   },
   
   // Semantic/feedback colors
@@ -128,11 +152,13 @@ export const cssVariables = {
   '--color-accent-content': colors.accent.content,
   
   // UI colors
-  '--color-background': colors.ui.background,
-  '--color-foreground': colors.ui.foreground,
-  '--color-border': colors.ui.border,
-  '--color-focus': colors.ui.focus,
-  '--color-muted': colors.ui.muted,
+  '--color-background': palette.background,
+  '--color-foreground': palette.foreground,
+  '--color-border': palette.border,
+  '--color-focus': palette.primary,
+  '--color-muted': palette.muted,
+  '--color-card': palette.card,
+  '--color-card-border': palette.cardBorder,
   
   // Feedback colors
   '--color-success': colors.feedback.success,

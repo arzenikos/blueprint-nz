@@ -13,7 +13,7 @@ const footerMarginTop = componentSpacing.footer.margin.top;
 const footerDividerMargin = componentSpacing.footer.divider.margin.y;
 ---
 
-<footer class="w-full border-t border-secondary/20 bg-secondary" style={`
+<footer class="w-full border-t border-secondary/20 bg-secondary dark:bg-gray-900" style={`
   padding-top: ${footerPaddingY};
   padding-bottom: ${footerPaddingY};
   margin-top: ${footerMarginTop};
@@ -55,7 +55,7 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
     <hr class="border-primary/30" style={`margin-top: ${footerDividerMargin}; margin-bottom: ${footerDividerMargin};`}>
     
     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="text-xs text-center md:text-left text-neutral/60">
+      <div class="text-xs text-center md:text-left text-neutral/60 dark:text-gray-400">
         {footerLinks.copyright}
       </div>
       <SocialLinks links={footerLinks.socialLinks} />
@@ -71,5 +71,14 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
   
   .footer-link:hover {
     color: rgba(185, 214, 242, 1); /* primary color full opacity */
+  }
+  
+  /* Dark mode styles */
+  :global(.dark) .footer-link {
+    color: rgba(203, 213, 225, 0.6); /* light gray with opacity for dark mode */
+  }
+  
+  :global(.dark) .footer-link:hover {
+    color: rgba(203, 213, 225, 1); /* light gray full opacity for dark mode */
   }
 </style>
