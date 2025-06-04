@@ -15,6 +15,47 @@ const breadcrumbItems = [
     <div class="max-w-4xl mx-auto">
       <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">BlueNode Platform</h1>
       
+      <!-- Interactive Node Graph -->
+      <div class="bg-neutral-50 p-6 rounded-lg mb-8 min-h-[400px] flex flex-col items-center justify-center relative" id="node-container">
+        <!-- Starting Node -->
+        <div id="start-node" class="cursor-pointer transition-all duration-300 hover:scale-110">
+          <div class="w-16 h-16 rounded-full bg-accent flex items-center justify-center shadow-lg">
+            <span class="text-neutral font-semibold">Start here</span>
+          </div>
+        </div>
+        
+        <!-- Option Nodes (initially hidden) -->
+        <div id="option-nodes" class="hidden">
+          <!-- Option 1 -->
+          <div id="option-1" class="absolute transition-all duration-500 opacity-0">
+            <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-md">
+              <span class="text-secondary text-sm font-medium">Option 1</span>
+            </div>
+          </div>
+          
+          <!-- Option 2 -->
+          <div id="option-2" class="absolute transition-all duration-500 opacity-0">
+            <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-md">
+              <span class="text-secondary text-sm font-medium">Option 2</span>
+            </div>
+          </div>
+          
+          <!-- Option 3 -->
+          <div id="option-3" class="absolute transition-all duration-500 opacity-0">
+            <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-md">
+              <span class="text-secondary text-sm font-medium">Option 3</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pre-rendered SVG for connection lines -->
+        <svg class="absolute top-0 left-0 w-full h-full pointer-events-none hidden" id="connection-lines">
+          <line id="line-1" x1="50%" y1="50%" x2="40%" y2="30%" stroke="#3b82f6" stroke-width="2" class="opacity-0 transition-opacity duration-500" />
+          <line id="line-2" x1="50%" y1="50%" x2="60%" y2="30%" stroke="#3b82f6" stroke-width="2" class="opacity-0 transition-opacity duration-500" />
+          <line id="line-3" x1="50%" y1="50%" x2="70%" y2="40%" stroke="#3b82f6" stroke-width="2" class="opacity-0 transition-opacity duration-500" />
+        </svg>
+      </div>
+      
       <div class="bg-primary/10 p-6 rounded-lg mb-8">
         <h2 class="text-xl font-semibold mb-3 text-secondary">Powerful Health Data Management</h2>
         <p class="mb-4">
@@ -55,61 +96,80 @@ const breadcrumbItems = [
           </div>
         </div>
       </div>
-      
-      <h2 class="text-2xl font-bold mb-4 text-secondary">Key Features</h2>
-      
-      <div class="space-y-6 mb-10">
-        <div class="flex flex-col md:flex-row gap-4">
-          <div class="md:w-1/3 bg-neutral-100 rounded-lg p-4 flex items-center justify-center">
-            <span class="text-accent font-bold text-5xl">01</span>
-          </div>
-          <div class="md:w-2/3">
-            <h3 class="text-lg font-semibold text-secondary mb-2">Secure Data Management</h3>
-            <p>
-              BlueNode employs state-of-the-art encryption and security protocols to ensure your health data remains private and secure.
-              Our platform is compliant with all relevant healthcare data regulations and standards.
-            </p>
-          </div>
-        </div>
-        
-        <div class="flex flex-col md:flex-row gap-4">
-          <div class="md:w-1/3 bg-neutral-100 rounded-lg p-4 flex items-center justify-center">
-            <span class="text-accent font-bold text-5xl">02</span>
-          </div>
-          <div class="md:w-2/3">
-            <h3 class="text-lg font-semibold text-secondary mb-2">Seamless Integration</h3>
-            <p>
-              BlueNode integrates with existing healthcare systems and electronic health records, providing a unified platform for all your health data needs.
-              Our API-first approach ensures compatibility with a wide range of healthcare technologies.
-            </p>
-          </div>
-        </div>
-        
-        <div class="flex flex-col md:flex-row gap-4">
-          <div class="md:w-1/3 bg-neutral-100 rounded-lg p-4 flex items-center justify-center">
-            <span class="text-accent font-bold text-5xl">03</span>
-          </div>
-          <div class="md:w-2/3">
-            <h3 class="text-lg font-semibold text-secondary mb-2">Advanced Analytics</h3>
-            <p>
-              Our platform provides powerful analytics tools that help identify trends, predict outcomes, and improve healthcare delivery.
-              Customizable dashboards give you the insights you need to make informed decisions.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-secondary text-neutral p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-3">Ready to get started with BlueNode?</h3>
-        <p class="mb-4">
-          Join thousands of patients and healthcare providers who are already benefiting from our platform.
-          Sign up today for a free demo or contact our team to learn more about how BlueNode can help you.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <Button href="#" variant="primary" size="md">Request Demo</Button>
-          <Button href="/contact" variant="outline" size="md">Contact Us</Button>
-        </div>
-      </div>
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get elements once and cache them
+    const startNode = document.getElementById('start-node');
+    const optionNodes = document.getElementById('option-nodes');
+    const connectionLines = document.getElementById('connection-lines');
+    
+    if (startNode && optionNodes && connectionLines) {
+      // Pre-calculate positions
+      const positions = {
+        option1: { top: '-100px', left: '-50px' },
+        option2: { top: '-100px', left: '50px' },
+        option3: { top: '-50px', left: '100px' }
+      };
+      
+      // Handle start node click with optimized code
+      startNode.addEventListener('click', () => {
+        // Show options container and SVG lines
+        optionNodes.classList.remove('hidden');
+        connectionLines.classList.remove('hidden');
+        
+        // Get all option nodes at once
+        const option1 = document.getElementById('option-1');
+        const option2 = document.getElementById('option-2');
+        const option3 = document.getElementById('option-3');
+        const line1 = document.getElementById('line-1');
+        const line2 = document.getElementById('line-2');
+        const line3 = document.getElementById('line-3');
+        
+        // Use requestAnimationFrame for smoother animations
+        requestAnimationFrame(() => {
+          // Position and animate option nodes
+          if (option1) {
+            option1.style.top = positions.option1.top;
+            option1.style.left = positions.option1.left;
+            option1.classList.add('opacity-100');
+          }
+          
+          if (option2) {
+            option2.style.top = positions.option2.top;
+            option2.style.left = positions.option2.left;
+            option2.classList.add('opacity-100');
+          }
+          
+          if (option3) {
+            option3.style.top = positions.option3.top;
+            option3.style.left = positions.option3.left;
+            option3.classList.add('opacity-100');
+          }
+          
+          // Animate lines
+          if (line1) line1.classList.add('opacity-100');
+          if (line2) line2.classList.add('opacity-100');
+          if (line3) line3.classList.add('opacity-100');
+        });
+      });
+    }
+  });
+</script>
+
+<style>
+  #node-container {
+    overflow: hidden;
+  }
+  
+  #option-1, #option-2, #option-3 {
+    transform: translate(-50%, -50%);
+  }
+  
+  .opacity-100 {
+    opacity: 1 !important;
+  }
+</style>

@@ -9,23 +9,36 @@ export interface NavItem {
   icon: string;
   mobileOnly?: boolean;
   desktopOnly?: boolean;
+  isDropdown?: boolean;
+  dropdownItems?: {value: string, label: string}[];
 }
 
 export const mainNavItems: NavItem[] = [
   {
-    label: "Newsletter",
-    href: "#newsletter",
-    icon: "mail"
+    label: "Language",
+    href: "#",
+    icon: "globe",
+    isDropdown: true,
+    dropdownItems: [
+      { value: "en", label: "English" },
+      { value: "es", label: "Español" }
+    ]
   },
   {
-    label: "Settings",
-    href: "/settings",
-    icon: "settings"
+    label: "Font Size",
+    href: "#",
+    icon: "text-size",
+    isDropdown: true,
+    dropdownItems: [
+      { value: "small", label: "Small" },
+      { value: "medium", label: "Medium" },
+      { value: "large", label: "Large" }
+    ]
   },
   {
-    label: "Help",
-    href: "/help",
-    icon: "help"
+    label: "Theme",
+    href: "#",
+    icon: "theme"
   }
 ];
 

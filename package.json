@@ -23,6 +23,7 @@
     "astro-carousel": "^3.0.2",
     "astro-icon": "^1.1.5",
     "blobshape": "^1.0.0",
+    "d3": "^7.9.0",
     "decap-cms-app": "^3.6.3",
     "marked": "^13.0.0",
     "marked-shiki": "^1.2.0",

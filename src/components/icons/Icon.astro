@@ -46,9 +46,13 @@ const classes = `icon icon-${name} ${className}`.trim();
     aria-hidden={!title ? 'true' : undefined}
     role={title ? 'img' : undefined}
     fill="none"
-    set:html={icon.path}
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   >
     {title && <title>{title}</title>}
+    <path d={icon.path}></path>
   </svg>
 ) : (
   <span class="text-red-500">Icon "{name}" not found</span>
