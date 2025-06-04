@@ -3,7 +3,6 @@ import { siteData } from '../data/site';
 import { aboutData } from '../data/about';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/ui/Container.astro';
-import ContextAlert from '../components/ContextAlert.astro';
 import MainContent from '../components/about/MainContent.astro';
 import ImageComparison from '../components/about/ImageComparison.astro';
 import PixelRibbon from '../components/shared/PixelRibbon.astro';
@@ -15,7 +14,6 @@ const { title, description, mainContent } = aboutData;
 
 <BaseLayout title={`${title} | ${site.title}`} description={description}>
   <Container>
-    <ContextAlert class="mb-8" />
     <h1 class="mb-6">{title}</h1>
     <p class="text-lg mb-12">{description}</p>
     
