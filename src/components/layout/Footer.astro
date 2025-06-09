@@ -1,0 +1,86 @@
+---
+import { componentSpacing } from '../../styles/spacing';
+import { footerLinks } from '../../data/navigation';
+import PixelRibbon from '../shared/PixelRibbon.astro';
+import FooterSection from '../footer/FooterSection.astro';
+import NewsletterForm from '../footer/NewsletterForm.astro';
+import SocialLinks from '../footer/SocialLinks.astro';
+
+// Get spacing values from centralized file
+const footerPaddingX = componentSpacing.footer.padding.x;
+const footerPaddingY = componentSpacing.footer.padding.y;
+const footerMarginTop = componentSpacing.footer.margin.top;
+const footerDividerMargin = componentSpacing.footer.divider.margin.y;
+---
+
+<footer class="w-full border-t border-secondary/20 bg-secondary dark:bg-gray-900" style={`
+  padding-top: ${footerPaddingY};
+  padding-bottom: ${footerPaddingY};
+  margin-top: ${footerMarginTop};
+`}>
+  <PixelRibbon pixelSize={2} />
+  <div class="container mx-auto max-w-[2000px]" style={`
+    padding-left: ${footerPaddingX.mobile}; 
+    padding-right: ${footerPaddingX.mobile};
+    @media (min-width: 768px) {
+      padding-left: ${footerPaddingX.tablet}; 
+      padding-right: ${footerPaddingX.tablet};
+    }
+    @media (min-width: 1024px) {
+      padding-left: ${footerPaddingX.desktop}; 
+      padding-right: ${footerPaddingX.desktop};
+    }
+  `}>
+    <nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-10 lg:gap-16 pt-6">
+      <!-- Newsletter Section -->
+      <NewsletterForm 
+        title={footerLinks.newsletterSection.title}
+        description={footerLinks.newsletterSection.description}
+        placeholder={footerLinks.newsletterSection.placeholder}
+        buttonText={footerLinks.newsletterSection.buttonText}
+      />
+      
+      <!-- Footer Sections -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10">
+        {footerLinks.sections.map((section, index) => (
+          <FooterSection 
+            title={section.title} 
+            links={section.links} 
+            index={index} 
+          />
+        ))}
+      </div>
+    </nav>
+    
+    <hr class="border-primary/30" style={`margin-top: ${footerDividerMargin}; margin-bottom: ${footerDividerMargin};`}>
+    
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-center md:text-left text-neutral/60 dark:text-gray-400">
+        {footerLinks.copyright}
+      </div>
+      <SocialLinks links={footerLinks.socialLinks} />
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Light mode - white links for footer (since footer has dark background) */
+  .footer-link {
+    color: rgba(255, 255, 255, 0.8); /* Increased opacity for better visibility */
+    transition: color 0.2s ease;
+  }
+  
+  .footer-link:hover {
+    color: rgba(255, 255, 255, 1); /* Full opacity on hover */
+  }
+  
+  /* Dark mode styles */
+  :global(.dark) .footer-link {
+    color: rgba(203, 213, 225, 0.8); /* Increased opacity for better visibility */
+  }
+  
+  :global(.dark) .footer-link:hover {
+    color: rgba(203, 213, 225, 1); /* Full opacity for dark mode */
+  }
+</style>
+
