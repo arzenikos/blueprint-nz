@@ -10,7 +10,9 @@ export interface NavItem {
   mobileOnly?: boolean;
   desktopOnly?: boolean;
   isDropdown?: boolean;
+  isButtonGroup?: boolean;
   dropdownItems?: {value: string, label: string}[];
+  buttonItems?: {value: string, label: string, ariaLabel: string}[];
 }
 
 export const mainNavItems: NavItem[] = [
@@ -28,11 +30,11 @@ export const mainNavItems: NavItem[] = [
     label: "Font Size",
     href: "#",
     icon: "text-size",
-    isDropdown: true,
-    dropdownItems: [
-      { value: "small", label: "Small" },
-      { value: "medium", label: "Medium" },
-      { value: "large", label: "Large" }
+    isButtonGroup: true,
+    buttonItems: [
+      { value: "small", label: "A", ariaLabel: "Small Font Size" },
+      { value: "medium", label: "A", ariaLabel: "Medium Font Size" },
+      { value: "large", label: "A", ariaLabel: "Large Font Size" }
     ]
   },
   {
