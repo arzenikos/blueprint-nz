@@ -98,43 +98,43 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
         });
       }
       
-      buttons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          const value = button.getAttribute('data-value');
+      // buttons.forEach(button => {
+      //   button.addEventListener('click', (e) => {
+      //     const value = button.getAttribute('data-value');
           
-          // Handle different types
-          if (label === 'Language') {
-            console.log(`Language changed to: ${value}`);
-            // Implement language change logic here
-          } 
-          else if (label === 'Font Size') {
-            console.log(`Font size changed to: ${value}`);
+      //     // Handle different types
+      //     if (label === 'Language') {
+      //       console.log(`Language changed to: ${value}`);
+      //       // Implement language change logic here
+      //     } 
+      //     else if (label === 'Font Size') {
+      //       console.log(`Font size changed to: ${value}`);
             
-            // Remove existing font size classes
-            document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg');
+      //       // Remove existing font size classes
+      //       document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg');
             
-            // Add new font size class
-            switch(value) {
-              case 'small':
-                document.documentElement.classList.add('text-sm');
-                break;
-              case 'medium':
-                document.documentElement.classList.add('text-base');
-                break;
-              case 'large':
-                document.documentElement.classList.add('text-lg');
-                break;
-            }
+      //       // Add new font size class
+      //       switch(value) {
+      //         case 'small':
+      //           document.documentElement.classList.add('text-sm');
+      //           break;
+      //         case 'medium':
+      //           document.documentElement.classList.add('text-base');
+      //           break;
+      //         case 'large':
+      //           document.documentElement.classList.add('text-lg');
+      //           break;
+      //       }
             
-            // Update active state
-            buttons.forEach(btn => btn.classList.remove('bg-gray-100'));
-            button.classList.add('bg-gray-100');
+      //       // Update active state
+      //       buttons.forEach(btn => btn.classList.remove('bg-gray-100'));
+      //       button.classList.add('bg-gray-100');
             
-            // Store preference
-            localStorage.setItem('fontSizePreference', value);
-          }
-        });
-      });
+      //       // Store preference
+      //       localStorage.setItem('fontSizePreference', value);
+      //     }
+      //   });
+      // });
     }
   });
   
