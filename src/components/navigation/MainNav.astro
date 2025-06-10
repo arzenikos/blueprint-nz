@@ -9,7 +9,7 @@ interface Props {
 const { class: className = '' } = Astro.props;
 ---
 
-<div class={`flex items-center space-x-1 sm:space-x-4 ${className}`}>
+<div class={`flex items-center space-x-1 sm:space-x-5 ${className}`}>
   {mainNavItems.map(item => (
     <NavItem {...item} />
   ))}
