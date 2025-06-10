@@ -10,11 +10,11 @@ const chatGap = componentSpacing.chat.gap;
 ---
 
 <div id="chat-container" class="fixed bottom-4 right-4 z-50 flex flex-col">
-  <!-- Chat toggle button with primary color background -->
+  <!-- Chat toggle button with hardcoded hexadecimal color background -->
   <button 
     id="chat-toggle" 
-    class="ml-auto p-3 rounded-full shadow-lg transition-all duration-300 bg-primary dark:bg-accent text-secondary dark:text-neutral"
-    style={`margin-bottom: ${chatMarginBottom};`}
+    class="ml-auto p-3 rounded-full shadow-lg transition-all duration-300"
+    style={`margin-bottom: ${chatMarginBottom}; background-color: #b9d6f2; color: #000f2e;`}
     aria-label="Toggle chat"
   >
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -22,42 +22,45 @@ const chatGap = componentSpacing.chat.gap;
     </svg>
   </button>
   
-  <!-- Chat box (hidden by default) with background from theme -->
+  <!-- Chat box (hidden by default) with hardcoded background -->
   <div 
     id="chat-box" 
-    class="hidden rounded-lg shadow-xl w-80 md:w-96 overflow-hidden flex-col transition-all duration-300 max-h-[500px] bg-card border-card-border"
+    class="hidden rounded-lg shadow-xl w-80 md:w-96 overflow-hidden flex-col transition-all duration-300 max-h-[500px]"
+    style="background-color: #ffffff; border: 1px solid #e2e8f0;"
   >
-    <!-- Chat header -->
-    <div class="bg-primary dark:bg-secondary text-secondary dark:text-neutral flex justify-between items-center" style={`padding: ${chatPadding};`}>
+    <!-- Chat header with hardcoded colors -->
+    <div style={`padding: ${chatPadding}; background-color: #b9d6f2; color: #000f2e;`} class="flex justify-between items-center">
       <h3 class="font-medium">Prometheus</h3>
-      <button id="close-chat" class="text-secondary dark:text-neutral hover:opacity-80 transition-colors">
+      <button id="close-chat" style="color: #000f2e;" class="hover:opacity-80 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
     
-    <!-- Chat messages -->
-    <div id="chat-messages" class="flex-grow overflow-y-auto flex flex-col min-h-[250px] bg-background" style={`padding: ${chatPadding}; gap: ${chatGap};`}>
-      <div class="chat-message bg-muted self-start max-w-[80%] rounded-lg shadow-sm" style={`padding: ${chatMessagePadding};`}>
-        <p class="text-sm text-foreground">Hello! How can we help you today?</p>
-        <span class="text-xs opacity-70 mt-1 block text-foreground">Support team, just now</span>
+    <!-- Chat messages with hardcoded background -->
+    <div id="chat-messages" class="flex-grow overflow-y-auto flex flex-col min-h-[250px]" style={`padding: ${chatPadding}; gap: ${chatGap}; background-color: #f8fafc;`}>
+      <div class="chat-message self-start max-w-[80%] rounded-lg shadow-sm" style={`padding: ${chatMessagePadding}; background-color: #f1f5f9;`}>
+        <p class="text-sm" style="color: #1e293b;">Hello! How can we help you today?</p>
+        <span class="text-xs mt-1 block" style="color: #64748b; opacity: 0.7;">Support team, just now</span>
       </div>
     </div>
     
-    <!-- Chat input -->
-    <div class="border-t border-border bg-card" style={`padding: ${chatPadding};`}>
+    <!-- Chat input with hardcoded colors -->
+    <div style={`padding: ${chatPadding}; background-color: #ffffff; border-top: 1px solid #e2e8f0;`}>
       <form id="chat-form" class="flex gap-2">
         <input 
           type="text" 
           id="chat-input" 
-          class="flex-grow border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
+          class="flex-grow rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2"
+          style="border: 1px solid #e2e8f0; background-color: #f8fafc; color: #1e293b; focus-ring-color: #b9d6f2;"
           placeholder="Type your message..."
           required
         />
         <button 
           type="submit" 
-          class="bg-accent hover:bg-accent-dark text-accent-content px-4 py-2 rounded-lg text-sm transition-colors"
+          class="px-4 py-2 rounded-lg text-sm transition-colors"
+          style="background-color: #3b82f6; color: #ffffff; hover-background-color: #2563eb;"
         >
           Send
         </button>
@@ -132,25 +135,25 @@ const chatGap = componentSpacing.chat.gap;
       
       const messageDiv = document.createElement('div');
       
-      // Use CSS variables for styling to match theme
+      // Use hardcoded hex colors for styling
       if (sender === 'user') {
         messageDiv.className = 'chat-message rounded-lg max-w-[80%] shadow-sm self-end';
-        messageDiv.style.backgroundColor = 'var(--color-primary-light)';
+        messageDiv.style.backgroundColor = '#dbeafe'; // Light blue for user messages
       } else {
         messageDiv.className = 'chat-message rounded-lg max-w-[80%] shadow-sm self-start';
-        messageDiv.style.backgroundColor = 'var(--color-muted)';
+        messageDiv.style.backgroundColor = '#f1f5f9'; // Light gray for support messages
       }
       
       messageDiv.style.padding = '0.75rem';
       
       const messageText = document.createElement('p');
       messageText.className = 'text-sm';
-      messageText.style.color = 'var(--color-foreground)';
+      messageText.style.color = '#1e293b'; // Dark slate for text
       messageText.textContent = text;
       
       const messageTime = document.createElement('span');
       messageTime.className = 'text-xs mt-1 block';
-      messageTime.style.color = 'var(--color-foreground)';
+      messageTime.style.color = '#64748b'; // Slate for timestamp
       messageTime.style.opacity = '0.7';
       messageTime.textContent = sender === 'user' ? 'You, just now' : 'Support team, just now';
       
