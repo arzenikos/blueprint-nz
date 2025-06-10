@@ -90,6 +90,19 @@
     background-color: var(--color-background);
   }
   
+  /* Font size classes */
+  html.text-sm {
+    font-size: 0.875rem;
+  }
+  
+  html.text-base {
+    font-size: 1rem;
+  }
+  
+  html.text-xl {
+    font-size: 1.25rem;
+  }
+  
   /* Hide scrollbar for Chrome, Safari and Opera */
   ::-webkit-scrollbar {
     display: none;
