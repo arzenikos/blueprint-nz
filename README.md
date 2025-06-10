@@ -2,6 +2,14 @@
 
 [Live Demo](https://blueprintnz.netlify.app/)
 
+## Module dependency resolution
+```bash
+rm -rf node_modules
+rm -rf package-lock.json
+npm install
+```
+
+
 ## Project Structure
 
 Below is a comprehensive list of files in the `src` directory with descriptions:
