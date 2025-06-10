@@ -41,7 +41,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
     <div class="flex border border-gray-200 rounded-md overflow-hidden" id={id}>
       {buttonItems.map((item, index) => {
         // Adjust font sizes for the buttons themselves to make the difference more visible
-        const fontSize = item.value === 'small' ? 'text-xs' : item.value === 'medium' ? 'text-sm' : 'text-base font-bold';
+        const fontSize = item.value === 'small' ? 'text-xs' : item.value === 'medium' ? 'text-base' : 'text-xl font-bold';
         return (
           <button 
             class={`px-2 py-1 ${fontSize} hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
@@ -100,43 +100,43 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
         });
       }
       
-      // buttons.forEach(button => {
-      //   button.addEventListener('click', (e) => {
-      //     const value = button.getAttribute('data-value');
+      buttons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          const value = button.getAttribute('data-value');
           
-      //     // Handle different types
-      //     if (label === 'Language') {
-      //       console.log(`Language changed to: ${value}`);
-      //       // Implement language change logic here
-      //     } 
-      //     else if (label === 'Font Size') {
-      //       console.log(`Font size changed to: ${value}`);
+          // Handle different types
+          if (label === 'Language') {
+            console.log(`Language changed to: ${value}`);
+            // Implement language change logic here
+          } 
+          else if (label === 'Font Size') {
+            console.log(`Font size changed to: ${value}`);
             
-      //       // Remove existing font size classes
-      //       document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl');
+            // Remove existing font size classes
+            document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl');
             
-      //       // Add new font size class
-      //       switch(value) {
-      //         case 'small':
-      //           document.documentElement.classList.add('text-sm');
-      //           break;
-      //         case 'medium':
-      //           document.documentElement.classList.add('text-base');
-      //           break;
-      //         case 'large':
-      //           document.documentElement.classList.add('text-xl'); // Changed from text-lg to text-xl for larger size
-      //           break;
-      //       }
+            // Add new font size class
+            switch(value) {
+              case 'small':
+                document.documentElement.classList.add('text-sm');
+                break;
+              case 'medium':
+                document.documentElement.classList.add('text-base');
+                break;
+              case 'large':
+                document.documentElement.classList.add('text-xl'); // Using text-xl for larger size
+                break;
+            }
             
-      //       // Update active state
-      //       buttons.forEach(btn => btn.classList.remove('bg-gray-100'));
-      //       button.classList.add('bg-gray-100');
+            // Update active state
+            buttons.forEach(btn => btn.classList.remove('bg-gray-100'));
+            button.classList.add('bg-gray-100');
             
-      //       // Store preference
-      //       localStorage.setItem('fontSizePreference', value);
-      //     }
-      //   });
-      // });
+            // Store preference
+            localStorage.setItem('fontSizePreference', value);
+          }
+        });
+      });
     }
   });
   
