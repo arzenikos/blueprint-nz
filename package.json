@@ -1,0 +1,45 @@
+{
+  "name": "astro-netlify-platform-starter",
+  "type": "module",
+  "version": "0.2.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "edit-netlify-config": "code C:\\Users\\arsenie-sarmiento\\AppData\\Roaming\\netlify\\Config\\config.json"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "^6.3.4",
+    "@astrojs/react": "^4.3.0",
+    "@fontsource-variable/inter": "^5.2.5",
+    "@netlify/blobs": "^8.2.0",
+    "@netlify/functions": "^2.8.2",
+    "@tailwindcss/vite": "^4.0.14",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "astro": "^5.8.0",
+    "astro-carousel": "^3.0.2",
+    "astro-icon": "^1.1.5",
+    "blobshape": "^1.0.0",
+    "d3": "^7.9.0",
+    "decap-cms-app": "^3.6.3",
+    "marked": "^13.0.0",
+    "marked-shiki": "^1.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^4.0.14",
+    "unique-names-generator": "^4.7.1"
+  },
+  "devDependencies": {
+    "@types/blobshape": "^1.0.3",
+    "@types/node": "^20.12.7",
+    "lightningcss": "^1.30.1",
+    "netlify-cli": "^21.5.0",
+    "sass-embedded": "^1.89.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.41.1"
+  }
+}

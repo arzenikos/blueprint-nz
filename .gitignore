@@ -1,27 +1,77 @@
-# build output
+# Build output
 dist/
+.output/
+.vercel/
+.netlify/
 
-# generated types
+# Generated types and caches
 .astro/
+.cache/
+.temp/
+.vite/
 
-# dependencies
+# Dependencies
 node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
 
-# logs
+# Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# environment variables
+# Environment variables
 .env
+.env.*
+!.env.example
 .env.production
+.env.local
+.env.development
 
-# macOS-specific files
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 .DS_Store
+*.sublime-workspace
 
-# Local Netlify folder
-.netlify
+# Testing
+coverage/
+.nyc_output/
+cypress/videos/
+cypress/screenshots/
 
-# Vscode
-.vscode
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+*.bak
+*.swp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Specific to Astro/Netlify
+.netlify/
+functions/*.js
+functions/*.map

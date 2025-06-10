@@ -1,0 +1,53 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'accent' | 'neutral' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
+  class?: string;
+}
+
+const { 
+  href, 
+  variant = 'primary', 
+  size = 'md', 
+  fullWidth = false,
+  class: className = '' 
+} = Astro.props;
+
+// Define variant styles
+const variantStyles = {
+  primary: 'bg-primary hover:bg-primary/80 dark:bg-primary dark:text-white dark:hover:bg-primary/80',
+  secondary: 'bg-secondary text-neutral hover:bg-secondary/80 dark:bg-secondary dark:text-gray-900 dark:hover:bg-secondary/80',
+  accent: 'bg-accent text-neutral hover:bg-accent/80 dark:bg-accent dark:text-white dark:hover:bg-accent/80',
+  neutral: 'bg-neutral text-secondary hover:bg-neutral/90 dark:bg-gray-200 dark:text-gray-900 dark:hover:bg-gray-300',
+  outline: 'border border-secondary text-secondary hover:bg-secondary/10 dark:border-gray-300 dark:text-gray-300 dark:hover:bg-gray-700'
+};
+
+// Define size styles
+const sizeStyles = {
+  sm: 'py-2 px-4 text-sm',
+  md: 'py-3 px-5 md:py-3 md:px-6',
+  lg: 'py-3 px-6 md:py-4 md:px-8 text-lg'
+};
+
+// Combine all styles
+const styles = `
+  ${variantStyles[variant]} 
+  ${sizeStyles[size]} 
+  ${fullWidth ? 'w-full' : ''} 
+  rounded-lg text-center transition-colors
+  ${className}
+`.trim();
+
+// Determine if we're rendering a link or a button
+const Element = href ? 'a' : 'button';
+---
+
+<Element 
+  href={href} 
+  class={styles}
+  {...href ? {} : { type: 'button' }}
+>
+  <slot />
+</Element>

@@ -22,5 +22,9 @@
     "typescript.tsdk": "node_modules/typescript/lib",
     "files.associations": {
         "*.css": "tailwindcss"
+    },
+    "sonarlint.connectedMode.project": {
+        "connectionId": "arsenie-sarmiento",
+        "projectKey": "arsenie-sarmiento_BluePrintNZ"
     }
 }
