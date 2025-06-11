@@ -40,10 +40,13 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
     <div class="flex border border-gray-200 rounded-md overflow-hidden" id={id}>
       {buttonItems.map((item, index) => {
         // Adjust font sizes for the buttons themselves to make the difference more visible
-        const fontSize = item.value === 'small' ? 'text-xs' : item.value === 'medium' ? 'text-sm' : 'text-base font-bold';
+        const fontSize =
+        item.value === 'small' ? 'text-xs' :
+        item.value === 'medium' ? 'text-sm' :
+        'text-base font-bold';
         return (
           <button 
-            class={`px-2 py-1 ${fontSize} hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
+            class={`px-2 py-1 ${fontSize} transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
             data-value={item.value}
             aria-label={item.ariaLabel}
           >
@@ -55,7 +58,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
   </div>
 ) : isDropdown ? (
   <div class={`relative group ${visibilityClass}`}>
-    <button id={id} class="flex items-center text-secondary py-2 focus:outline-none">
+    <button id={id} class="flex items-center py-2 focus:outline-none">
       <span class="hidden sm:inline-block text-sm font-medium mr-2">{label}</span>
       <Icon name={icon} size={iconSize} class="sm:w-3 sm:h-3" />
       <Icon name="chevron-down" size={12} class="ml-1 mt-0.5" />
@@ -103,12 +106,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
         button.addEventListener('click', (e) => {
           const value = button.getAttribute('data-value');
           
-          // Handle different types
-          if (label === 'Language') {
-            console.log(`Language changed to: ${value}`);
-            // Implement language change logic here
-          } 
-          else if (label === 'Font Size') {
+          if (label === 'Font Size') {
             console.log(`Font size changed to: ${value}`);
             
             // Remove existing font size classes

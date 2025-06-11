@@ -60,20 +60,7 @@ const headerMarginBottom = componentSpacing.header.margin.bottom;
 </header>
 
 <script>
-  // Toggle mobile search
   document.addEventListener('DOMContentLoaded', () => {
-    const searchButton = document.querySelector('button[aria-label="Search"]');
-    const mobileSearch = document.getElementById('mobile-search');
-    
-    searchButton?.addEventListener('click', () => {
-      mobileSearch?.classList.toggle('hidden');
-      // Focus the search input when shown
-      if (mobileSearch && !mobileSearch.classList.contains('hidden')) {
-        const searchInput = mobileSearch.querySelector('input[type="search"]');
-        (searchInput as HTMLInputElement | null)?.focus();
-      }
-    });
-    
     // Responsive image sizing for max screen width
     const handleResize = () => {
       const isMaxWidth = window.innerWidth >= 1920;

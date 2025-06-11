@@ -44,7 +44,7 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'dark' : 'light';
       };
       
       // Apply theme immediately to prevent flash

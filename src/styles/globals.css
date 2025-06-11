@@ -32,9 +32,9 @@
   /* UI colors - Light theme by default */
   --color-background: #ffffff;
   --color-foreground: #13172a; /* Changed to dark blue */
-  --color-border: #e2e8f0;
-  --color-focus: #b9d6f2;
-  --color-muted: #f1f5f9;
+  --color-border: #67f326;
+  --color-focus: #13172a;
+  --color-muted: #f1f5f9; 
   --color-card: #ffffff;
   --color-card-border: #e2e8f0;
   
