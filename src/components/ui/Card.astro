@@ -4,61 +4,23 @@ interface Props {
   class?: string;
   bodyClass?: string;
   titleClass?: string;
-  height?: string;
 }
 
 const { 
   title, 
   class: className = '', 
   bodyClass = '',
-  titleClass = '',
-  height = 'h-full' // Default to full height
+  titleClass = ''
 } = Astro.props;
 ---
 
-<div class={`card bg-base-100 shadow-sm dark:bg-gray-800 dark:border-gray-700 ${height} flex flex-col ${className}`}>
-  <div class="card-image-container">
-    <slot name="image" />
-  </div>
+<div class={`card bg-base-100 shadow-sm dark:bg-gray-800 dark:border-gray-700 ${className}`}>
+  <slot name="image" />
   
-  <div class={`card-body flex-grow flex flex-col ${bodyClass}`}>
+  <div class={`card-body ${bodyClass}`}>
     {title && <h3 class={`card-title ${titleClass}`}>{title}</h3>}
-    <div class="flex-grow">
-      <slot />
-    </div>
+    <slot />
     
-    <div class="mt-auto">
-      <slot name="footer" />
-    </div>
+    <slot name="footer" />
   </div>
 </div>
-
-<style>
-  .card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  
-  /* Ensure images maintain aspect ratio */
-  .card-image-container {
-    overflow: hidden;
-  }
-  
-  .card-image-container :global(img) {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-</style>

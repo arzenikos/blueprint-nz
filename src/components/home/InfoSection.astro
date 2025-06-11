@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import { homeData } from '../../data/home';
+import Container from '../ui/Container.astro';
+import Card from '../ui/Card.astro';
+import placeholderImage from '../../assets/images/placeholder-image.jpg';
+
+const { infoSection } = homeData;
+---
+
+<section class="py-12">
+  <Container>
+    <div class="flex flex-col md:flex-row items-center gap-8">
+      <!-- Image Column (Left) -->
+      <div class="w-full md:w-1/2">
+        <Image
+          src={placeholderImage}
+          alt="Information section image"
+          class="w-full rounded-lg shadow-lg object-cover"
+          width={600}
+          height={450}
+          loading="lazy"
+          format="webp"
+          quality={80}
+        />
+      </div>
+      
+      <!-- Text Column (Right) -->
+      <div class="w-full md:w-1/2">
+        <h2 class="text-2xl font-bold mb-4 text-[var(--color-primary)]">{infoSection.title}</h2>
+        <p class="mb-6 text-lg">{infoSection.description}</p>
+        <a 
+          href={infoSection.ctaLink} 
+          class="inline-flex items-center px-4 py-2 bg-[var(--color-primary-light)] text-[var(--color-complementary)] font-semibold rounded hover:bg-[var(--color-primary)] transition-colors"
+        >
+          {infoSection.ctaText}
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.75rem;
+      margin-top: 1rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+</style>

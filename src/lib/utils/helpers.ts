@@ -1,3 +1,4 @@
+import { uniqueNamesGenerator, adjectives, colors, animals } from 'unique-names-generator';
 import type { BlobProps } from '../types';
 
 /**
@@ -15,13 +16,12 @@ export function randomInt(min: number, max: number): number {
  * @returns Unique name string
  */
 export function uniqueName(): string {
-  const adjectives = ['happy', 'sad', 'blue', 'red', 'green', 'yellow', 'purple', 'orange', 'big', 'small'];
-  const animals = ['dog', 'cat', 'bird', 'fish', 'lion', 'tiger', 'bear', 'elephant', 'monkey', 'zebra'];
-  
-  const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-  const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
-  
-  return `${randomAdjective}-${randomAnimal}-${randomInt(100, 999)}`;
+  const config = {
+    dictionaries: [adjectives, animals],
+    separator: '-',
+    length: 2
+  };
+  return uniqueNamesGenerator(config) + '-' + randomInt(100, 999);
 }
 
 /**
@@ -29,15 +29,19 @@ export function uniqueName(): string {
  * @returns BlobProps
  */
 export function generateBlob(): BlobProps {
-  const colors = ['#3b82f6', '#10b981', '#ef4444', '#f59e0b', '#8b5cf6'];
-  
+  const name = uniqueNamesGenerator({
+    dictionaries: [adjectives, colors, animals],
+    separator: '-',
+    style: 'lowerCase',
+  });
+
   return {
     parameters: {
-      name: uniqueName(),
-      color: colors[Math.floor(Math.random() * colors.length)],
-      complexity: randomInt(3, 8),
-      contrast: Math.random() * 10,
+      name,
       seed: randomInt(1, 1000),
+      extraPoints: randomInt(3, 8),
+      randomness: Math.random() * 10,
+      size: randomInt(100, 400),
     },
   };
 }

@@ -1,109 +1,109 @@
+/**
+ * Navigation data for the site
+ * Centralizes all navigation-related content
+ */
+
 export interface NavItem {
   label: string;
   href: string;
   icon: string;
   mobileOnly?: boolean;
   desktopOnly?: boolean;
-  customVisibility?: string;
   isDropdown?: boolean;
   isButtonGroup?: boolean;
-  dropdownItems?: {
-    label: string;
-    value: string;
-  }[];
-  buttonItems?: {
-    label: string;
-    value: string;
-    ariaLabel: string;
-  }[];
+  dropdownItems?: {value: string, label: string}[];
+  buttonItems?: {value: string, label: string, ariaLabel: string}[];
 }
 
 export const mainNavItems: NavItem[] = [
   // {
-  //   label: 'Home',
-  //   href: '/',
-  //   icon: 'home',
-  // },
-  // {
-  //   label: 'About',
-  //   href: '/about',
-  //   icon: 'info',
+  //   label: "Language",
+  //   href: "#",
+  //   icon: "globe",
+  //   isDropdown: true,
+  //   dropdownItems: [
+  //     { value: "en", label: "English" },
+  //     { value: "es", label: "Español" }
+  //   ]
   // },
   {
-    label: 'Theme',
-    href: '#',
-    icon: 'theme',
-  },
-  {
-    label: 'Font Size',
-    href: '#',
-    icon: 'settings',
+    label: "Font Size",
+    href: "#",
+    icon: "text-size",
     isButtonGroup: true,
-    customVisibility: 'hidden md:flex', // Custom visibility class for 769px+ (md breakpoint)
     buttonItems: [
-      {
-        label: 'A',
-        value: 'small',
-        ariaLabel: 'Small font size',
-      },
-      {
-        label: 'A',
-        value: 'medium',
-        ariaLabel: 'Medium font size',
-      },
-      {
-        label: 'A',
-        value: 'large',
-        ariaLabel: 'Large font size',
-      },
-    ],
+      { value: "small", label: "A", ariaLabel: "Small Font Size" },
+      { value: "medium", label: "A", ariaLabel: "Medium Font Size" },
+      { value: "large", label: "A", ariaLabel: "Large Font Size" }
+    ]
   },
+  {
+    label: "Theme",
+    href: "#",
+    icon: "theme"
+  }
+];
+
+export const mobileNavItems: NavItem[] = [
+  {
+    label: "Search",
+    href: "#",
+    icon: "search",
+    mobileOnly: true
+  },
+  ...mainNavItems
 ];
 
 export const footerLinks = {
+  newsletterSection: {
+    title: "Stay Updated",
+    description: "Subscribe to our newsletter for the latest updates and resources.",
+    placeholder: "Your email address",
+    buttonText: "Subscribe"
+  },
   sections: [
     {
-      title: 'About',
+      title: "Information",
       links: [
-        { label: 'Our Story', href: '/about' },
-        { label: 'Team', href: '/about#team' },
-        { label: 'Careers', href: '/about#careers' },
-      ],
+        { text: "About Us", url: "/about" },
+        { text: "Our Mission", url: "/mission" },
+        { text: "Team", url: "/team" },
+        { text: "Careers", url: "/careers" }
+      ]
     },
     {
-      title: 'Resources',
+      title: "Resources",
       links: [
-        { label: 'Documentation', href: '/docs' },
-        { label: 'Support', href: '/support' },
-      ],
+        { text: "Blog", url: "/blog" },
+        { text: "Research", url: "/research" },
+        { text: "Publications", url: "/publications" },
+        { text: "Media", url: "/media" }
+      ]
     },
     {
-      title: 'Legal',
+      title: "Support",
       links: [
-        { label: 'Privacy Policy', href: '/privacy' },
-        { label: 'Terms of Service', href: '/terms' },
-        { label: 'Cookie Policy', href: '/cookies' },
-      ],
+        { text: "Contact Us", url: "/contact" },
+        { text: "FAQs", url: "/faqs" },
+        { text: "Help Center", url: "/help" },
+        { text: "Accessibility", url: "/accessibility" }
+      ]
     },
     {
-      title: 'Contact',
+      title: "Shop & Services",
       links: [
-        { label: 'Contact Us', href: '/contact' },
-        { label: 'Support', href: '/support' },
-        { label: 'Feedback', href: '/feedback' },
-      ],
-    },
+        { text: "Shop", url: "/shop" },
+        { text: "Products", url: "/products" },
+        { text: "Resources", url: "/resources" },
+        { text: "Services", url: "/services" }
+      ]
+    }
   ],
-  newsletterSection: {
-    title: 'Stay Updated',
-    description: 'Subscribe to our newsletter for the latest updates and news.',
-    placeholder: 'Enter your email',
-    buttonText: 'Subscribe',
-  },
   socialLinks: [
-    { label: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
-    { label: 'GitHub', href: 'https://github.com', icon: 'github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
+    { platform: "facebook", url: "https://facebook.com", ariaLabel: "Follow us on Facebook" },
+    { platform: "twitter", url: "https://twitter.com", ariaLabel: "Follow us on Twitter" },
+    { platform: "instagram", url: "https://instagram.com", ariaLabel: "Follow us on Instagram" },
+    { platform: "linkedin", url: "https://linkedin.com", ariaLabel: "Connect with us on LinkedIn" }
   ],
-  copyright: '© 2023 BluePrintNZ. All rights reserved.',
+  copyright: "© 2025 BluePrintNZ. All rights reserved."
 };

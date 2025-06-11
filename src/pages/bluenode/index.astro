@@ -1,10 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-<<<<<<< HEAD
-import { bluenodeData } from '../../data/bluenode';
-=======
 // import { bluenodeData } from 'src/data/bluenode.ts';
->>>>>>> feature/iteration-001-content-customized
 ---
 
 <BaseLayout title="BlueNode - BluePrintNZ">
@@ -51,7 +47,7 @@ import { bluenodeData } from '../../data/bluenode';
           <!-- Root Node (Starting Point) -->
           <div id="node-root" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-105 node-element" data-node-id="root">
             <div class="rounded-lg bg-accent flex items-center justify-center shadow-lg px-4 py-2 min-w-[140px]">
-              <span class="text-primary font-semibold text-center">Getting Started</span>
+              <span class="text-neutral font-semibold text-center">Prostate Cancer</span>
             </div>
           </div>
         </div>
@@ -81,27 +77,10 @@ import { bluenodeData } from '../../data/bluenode';
   </div>
 </BaseLayout>
 
-<script lang="ts">
-  // Extend the Window interface to include bluenodeData
-  /**
-   * @typedef {Object} BlueNode
-   * @property {string} id
-   * @property {string} label
-   * @property {string} description
-   * @property {string[]} children
-   */
-  // @ts-ignore
-  window.bluenodeData = window.bluenodeData || {};
-
-  /**
-   * @type {Window & typeof globalThis & { bluenodeData: { nodes: BlueNode[] } }}
-   */
-  const win = window;
-
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     // Import the bluenode data from the window object (passed from Astro)
-    // @ts-ignore
-    const bluenodeData = win.bluenodeData;
+    const bluenodeData = window.bluenodeData;
     
     // Cache DOM elements
     const nodesViewport = document.getElementById('nodes-viewport');
@@ -317,17 +296,10 @@ import { bluenodeData } from '../../data/bluenode';
       const fromNodeBox = fromNode.querySelector('.node-box');
       const toNodeBox = toNode.querySelector('.node-box');
       
-<<<<<<< HEAD
-      const fromBoxHeight = fromNodeBox ? (/** @type {HTMLElement} */(fromNodeBox)).offsetHeight / currentScale / 2 : 20;
-      const fromBoxWidth = fromNodeBox ? (/** @type {HTMLElement} */(fromNodeBox)).offsetWidth / currentScale / 2 : 60;
-      const toBoxHeight = toNodeBox ? (/** @type {HTMLElement} */(toNodeBox)).offsetHeight / currentScale / 2 : 20;
-      const toBoxWidth = toNodeBox ? (/** @type {HTMLElement} */(toNodeBox)).offsetWidth / currentScale / 2 : 60;
-=======
       const fromBoxHeight = fromNodeBox ? (fromNodeBox as HTMLElement).offsetHeight / currentScale / 2 : 20;
       const fromBoxWidth = fromNodeBox ? (fromNodeBox as HTMLElement).offsetWidth / currentScale / 2 : 60;
       const toBoxHeight = toNodeBox ? (toNodeBox as HTMLElement).offsetHeight / currentScale / 2 : 20;
       const toBoxWidth = toNodeBox ? (toNodeBox as HTMLElement).offsetWidth / currentScale / 2 : 60;
->>>>>>> feature/iteration-001-content-customized
       
       // Calculate start point (from bottom of parent for downward connections)
       let startX = fromCenterX;
@@ -723,8 +695,6 @@ import { bluenodeData } from '../../data/bluenode';
   });
 </script>
 
-<<<<<<< HEAD
-=======
 <script>
 // Extend the Window interface to include bluenodeData
 declare global {
@@ -835,7 +805,6 @@ declare global {
   };
 </script>
 
->>>>>>> feature/iteration-001-content-customized
 <style>
   /* Set CSS variables for header and footer heights */
   :root {
