@@ -1,5 +1,8 @@
 ---
 // <!-- Referenced by: layouts/BaseLayout.astro -->
+// If the file exists with a different extension or path, update accordingly:
+// import { componentSpacing } from '/src/lib/themes-and-layout/spacing.ts';
+
 import { componentSpacing } from '../../../lib/themes-and-layout/spacing';
 import { footerLinks } from '../../../content/navigation';
 import FooterSection from './FooterSection.astro';
@@ -45,7 +48,11 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
       <div class="text-xs text-center md:text-left text-neutral/60 dark:text-gray-400">
         {footerLinks.copyright}
       </div>
-      <SocialLinks links={footerLinks.socialLinks} />
+      <SocialLinks links={footerLinks.socialLinks.map(link => ({
+        label: link.platform,
+        href: link.url,
+        icon: link.platform.toLowerCase()
+      }))} />
     </div>
   </div>
 </footer>
