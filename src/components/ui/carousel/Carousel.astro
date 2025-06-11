@@ -1,0 +1,132 @@
+---
+interface Props {
+  images: {
+    src: string;
+    alt: string;
+  }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="carousel-wrapper flex flex-col gap-4">
+  <div class="carousel-container relative overflow-hidden rounded-lg shadow-lg">
+    <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+      {images.map((image, index) => (
+        <div class="carousel-slide min-w-full">
+          <img 
+            src={image.src} 
+            alt={image.alt} 
+            class="w-full h-auto object-cover"
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
+    </div>
+    
+    <button 
+      class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full"
+      aria-label="Previous slide"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    
+    <button 
+      class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full"
+      aria-label="Next slide"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Carousel indicators moved below the carousel -->
+  <div class="carousel-controls flex justify-center gap-2 mt-2">
+    {images.map((_, index) => (
+      <button 
+        class="carousel-indicator w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 hover:bg-blue-500 transition-colors"
+        data-index={index}
+        aria-label={`Go to slide ${index + 1}`}
+      ></button>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('carousel');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const prevButton = document.querySelector('.carousel-prev');
+    const nextButton = document.querySelector('.carousel-next');
+    
+    if (!carousel || !slides.length) return;
+    
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    
+    // Set active indicator
+    const setActiveIndicator = (index) => {
+      indicators.forEach((indicator, i) => {
+        if (i === index) {
+          indicator.classList.add('bg-blue-500');
+          indicator.classList.remove('bg-gray-400', 'dark:bg-gray-600');
+        } else {
+          indicator.classList.remove('bg-blue-500');
+          indicator.classList.add('bg-gray-400', 'dark:bg-gray-600');
+        }
+      });
+    };
+    
+    // Move to slide
+    const goToSlide = (index) => {
+      currentIndex = index;
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      setActiveIndicator(currentIndex);
+    };
+    
+    // Initialize
+    setActiveIndicator(0);
+    
+    // Event listeners
+    prevButton?.addEventListener('click', () => {
+      const newIndex = (currentIndex - 1 + slideCount) % slideCount;
+      goToSlide(newIndex);
+    });
+    
+    nextButton?.addEventListener('click', () => {
+      const newIndex = (currentIndex + 1) % slideCount;
+      goToSlide(newIndex);
+    });
+    
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        goToSlide(index);
+      });
+    });
+    
+    // Auto-advance slides every 5 seconds
+    let interval = setInterval(() => {
+      const newIndex = (currentIndex + 1) % slideCount;
+      goToSlide(newIndex);
+    }, 5000);
+    
+    // Pause auto-advance when interacting with carousel
+    const pauseAutoAdvance = () => {
+      clearInterval(interval);
+      interval = setInterval(() => {
+        const newIndex = (currentIndex + 1) % slideCount;
+        goToSlide(newIndex);
+      }, 5000);
+    };
+    
+    prevButton?.addEventListener('click', pauseAutoAdvance);
+    nextButton?.addEventListener('click', pauseAutoAdvance);
+    indicators.forEach(indicator => {
+      indicator.addEventListener('click', pauseAutoAdvance);
+    });
+  });
+</script>
