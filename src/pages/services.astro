@@ -1,41 +1,40 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeroSection from '../components/ui/HeroSection.astro';
-import ServicesGrid from '../components/ui/ServicesGrid.astro';
-import ContentSection from '../components/ui/ContentSection.astro';
-import CTASection from '../components/ui/CTASection.astro';
-import { servicesContent } from '../content/services';
-import { siteData } from '../content/site';
+// import Layout from '../layouts/Layout.astro';
+// import HeroSection from '../components/ui/HeroSection.astro';
+// import ServicesGrid from '../components/ui/ServicesGrid.astro';
+// import ContentSection from '../components/ui/ContentSection.astro';
+// import CTASection from '../components/ui/CTASection.astro';
+// import { servicesContent } from '../content/services';
+// import { siteData } from '../content/site';
 
-const title = "Services - " + siteData.site.title;
+// const title = "Services - " + siteData.site.title;
 
 // Map the services to the format expected by ServicesGrid
-const services = servicesContent.servicesList.map(service => ({
-  id: service.id,
-  icon: service.icon,
-  title: service.title,
-  description: service.shortDescription
-}));
+// const services = servicesContent.servicesList.map(service => ({
+//   id: service.id,
+//   icon: service.icon,
+//   title: service.title,
+//   description: service.shortDescription
+// }));
 ---
-
-<Layout title={title}>
+<!-- <Layout title={title}> -->
   <!-- Hero Section -->
-  <HeroSection 
+  <!-- <HeroSection 
     title={servicesContent.hero.title}
     description={servicesContent.hero.description}
     image={servicesContent.hero.image}
     imageAlt={servicesContent.hero.imageAlt}
-  />
+  /> -->
 
   <!-- Services Grid -->
-  <ServicesGrid 
+  <!-- <ServicesGrid 
     title="What We Offer"
     services={services}
     linkToDetail={true}
-  />
+  /> -->
 
   <!-- Process Section -->
-  <section class="py-16 bg-blue-50 dark:bg-gray-800 theme-transition">
+  <!-- <section class="py-16 bg-blue-50 dark:bg-gray-800 theme-transition">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">{servicesContent.process.title}</h2>
       
@@ -53,13 +52,13 @@ const services = servicesContent.servicesList.map(service => ({
         ))}
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- CTA Section -->
-  <CTASection 
+  <!-- <CTASection 
     title={servicesContent.cta.title}
     description={servicesContent.cta.description}
     buttonText={servicesContent.cta.buttonText}
     buttonHref={servicesContent.cta.buttonHref}
-  />
-</Layout>
+  /> -->
+<!-- </Layout> -->
