@@ -1,3 +1,4 @@
+// Referenced by: components/common/navigation/MainNav.astro, components/common/navigation/NavItem.astro, components/layout/footer/Footer.astro, components/layout/header/Header.astro
 export interface NavItem {
   label: string;
   href: string;

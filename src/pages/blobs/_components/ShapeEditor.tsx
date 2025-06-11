@@ -1,3 +1,4 @@
+<!-- Referenced by: pages/blobs/index.astro -->
 import { useState } from 'react';
 import NewShape from './NewShape.tsx';
 import StoredShapes from './StoredShapes.tsx';

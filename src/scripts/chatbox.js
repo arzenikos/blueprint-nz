@@ -1,3 +1,4 @@
+// Referenced by: components/common/chatbox/ChatOverlay.astro, layouts/BaseLayout.astro
 // ChatBox functionality script
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,3 +1,4 @@
+// Referenced by: pages/services.astro
 export const servicesContent = {
   hero: {
     title: "Our Services",

@@ -1,3 +1,4 @@
+// Not referenced by any file
 // Mobile menu toggle functionality
 document.addEventListener('DOMContentLoaded', () => {
   const menuButton = document.getElementById('mobile-menu-button');

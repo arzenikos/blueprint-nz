@@ -1,3 +1,4 @@
+// Referenced by: components/layout/header/Header.astro
 // Image size configurations for consistent image sizing throughout the application
 
 export const imageSizes = {

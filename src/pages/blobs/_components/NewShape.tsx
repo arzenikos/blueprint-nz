@@ -1,3 +1,4 @@
+<!-- Referenced by: pages/blobs/_components/ShapeEditor.tsx -->
 import { useState, useEffect } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import ShapePreview from './ShapePreview.tsx';

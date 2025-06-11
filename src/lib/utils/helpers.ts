@@ -1,3 +1,4 @@
+// Referenced by: pages/blobs/_components/NewShape.tsx, pages/blobs/_components/ShapePreview.tsx, pages/blobs/_components/StoredShapes.tsx
 import type { BlobProps } from '../types';
 
 /**

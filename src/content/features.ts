@@ -1,3 +1,4 @@
+// Referenced by: pages/features.astro
 export const featuresContent = {
   bluenode: {
     title: "BlueNode - Interactive Knowledge Graph",

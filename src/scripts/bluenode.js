@@ -1,3 +1,4 @@
+// Referenced by: pages/bluenode/index.astro
 // BlueNode Interactive Knowledge Graph Script
 
 document.addEventListener('DOMContentLoaded', () => {

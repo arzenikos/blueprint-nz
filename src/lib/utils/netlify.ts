@@ -1,3 +1,4 @@
+// Referenced by: pages/blobs/_components/NewShape.tsx
 // Simple utility to check if uploads are disabled
 export function uploadDisabled(): boolean {
   return true; // Disable uploads by default

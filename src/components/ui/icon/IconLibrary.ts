@@ -1,3 +1,4 @@
+// Referenced by: components/ui/icon/Icon.astro
 // Icon library for the application
 // This file contains SVG path data for all icons used in the application
 

@@ -1,3 +1,4 @@
+// Referenced by: components/layout/footer/Footer.astro, components/layout/header/Header.astro, components/ui/ColorPalette.astro, pages/design-system.astro
 // Theme management script
 document.addEventListener('DOMContentLoaded', () => {
   // Check for saved theme preference or use OS preference

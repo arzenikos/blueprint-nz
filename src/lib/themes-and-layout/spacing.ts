@@ -1,3 +1,4 @@
+// Referenced by: components/layout/footer/Footer.astro, components/layout/header/Header.astro
 // Centralized spacing system for consistent spacing throughout the application
 
 // Component-specific spacing

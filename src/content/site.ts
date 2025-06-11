@@ -1,3 +1,4 @@
+// Referenced by: components/layout/header/Header.astro, pages/about.astro, pages/features.astro, pages/services.astro
 export const siteData = {
   site: {
     title: 'BluePrintNZ',

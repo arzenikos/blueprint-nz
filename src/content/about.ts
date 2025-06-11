@@ -1,3 +1,4 @@
+// Referenced by: pages/about.astro
 export const aboutData = {
   title: "About",
   description: "Learn more about BluePrintNZ and our mission.",

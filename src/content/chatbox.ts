@@ -1,3 +1,4 @@
+// Referenced by: components/common/chatbox/ChatOverlay.astro, layouts/BaseLayout.astro
 export const chatboxContent = {
   title: "Chat Support",
   initialMessage: "How can I help you today?",

@@ -1,3 +1,4 @@
+// Referenced by: components/ui/ColorPalette.astro, lib/themes-and-layout/theme.ts, pages/design-system.astro
 // Color system for the application
 
 // Main color palette
