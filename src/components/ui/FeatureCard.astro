@@ -1,5 +1,5 @@
-<!-- Referenced by: pages/features.astro -->
 ---
+// <!-- Referenced by: pages/features.astro -->
 import Button from './button/Button.astro';
 
 interface Props {
@@ -30,9 +30,11 @@ const { title, description, image, link, linkText, id } = Astro.props;
         {linkText}
       </Button>
     ) : (
-      <Button variant="primary" id={id}>
-        {linkText}
-      </Button>
+      <div id={id}>
+        <Button variant="primary">
+          {linkText}
+        </Button>
+      </div>
     )}
   </div>
 </div>
