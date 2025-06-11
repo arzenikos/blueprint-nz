@@ -1,7 +1,7 @@
 ---
 import Icon from '../../ui/icon/Icon.astro';
 import type { NavItem as NavItemType } from '../../../content/navigation';
-import ThemeToggle from '../ThemeToggle.astro';
+import ThemeToggle from './ThemeToggle.astro';
 
 interface Props extends NavItemType {
   iconSize?: number;
@@ -107,11 +107,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
           const value = button.getAttribute('data-value');
           
           // Handle different types
-          if (label === 'Language') {
-            console.log(`Language changed to: ${value}`);
-            // Implement language change logic here
-          } 
-          else if (label === 'Font Size') {
+          if (label === 'Font Size') {
             console.log(`Font size changed to: ${value}`);
             
             // Remove existing font size classes
