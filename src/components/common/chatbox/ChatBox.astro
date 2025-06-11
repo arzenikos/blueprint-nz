@@ -55,7 +55,24 @@ const { title, initialMessage, placeholder, buttonText } = chatboxContent;
 </div>
 
 <script>
-  // Make chatbox content available to the script
+  // Extend the Window interface to include chatboxContent
+  /**
+   * @typedef {Object} ChatboxResponses
+   * @property {string} greeting
+   * @property {string} help
+   * @property {string} services
+   * @property {string} contact
+   * @property {string} pricing
+   * @property {string} thanks
+   * @property {string} goodbye
+   * @property {string} default
+   */
+  /**
+   * @typedef {Object} ChatboxContent
+   * @property {ChatboxResponses} responses
+   */
+
+  // @ts-ignore
   window.chatboxContent = {
     responses: {
       greeting: "Hello! How can I help you today?",
