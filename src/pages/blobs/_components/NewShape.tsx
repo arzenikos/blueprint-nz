@@ -23,14 +23,16 @@ export default function NewShape(props: Props) {
         const response = await fetch('/api/blobs', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(blobData.parameters)
+            body: JSON.stringify(blobData?.parameters)
         });
         const data = await response.json();
         if (data.message) {
             console.log(data.message);
         }
         setWasUploaded(true);
-        setLastMutationTime(Date.now());
+        if (setLastMutationTime) {
+            setLastMutationTime(Date.now());
+        }
     };
 
     useEffect(() => {

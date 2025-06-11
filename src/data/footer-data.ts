@@ -45,8 +45,11 @@ export const footerLinks = {
     }
   ],
   socialLinks: [
-    { platform: "github", url: "https://github.com", ariaLabel: "Follow us on Facebook" },
-    { platform: "linkedin", url: "https://linkedin.com", ariaLabel: "Connect with us on LinkedIn" }
+    { platform: "video", url: "#", ariaLabel: "Tutorial/Demo in onedrive" },
+    { platform: "gmail", url: "mailto:cpt.iqhwa.vx7@gmail.com", ariaLabel: "Tutorial/Demo in onedrive" },
+    { platform: "hashnode", url: "https://hashnode.com/@arsenie", ariaLabel: "Tutorial/Demo in onedrive" },
+    { platform: "github", url: "https://github.com/arsenie-sarmiento", ariaLabel: "Check this on Github" },
+    { platform: "linkedin", url: "https://nz.linkedin.com/in/arsenie-sarmiento", ariaLabel: "Connect with us on LinkedIn" }
   ],
   copyright: "© 2025 BluePrintNZ. All rights reserved."
 };
