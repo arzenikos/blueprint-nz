@@ -16,7 +16,7 @@ const { hero } = homeData;
     <div class="hidden md:flex md:flex-row items-center gap-8 mb-10 w-full">
       <div class="w-full md:w-1/2">
         <div class="mb-6">
-          <h1 class="mb-2 text-[var(--color-primary)]">{hero.title}</h1>
+          <h1 class="mb-2">{hero.title}</h1>
         </div>
         <Markdown content={hero.slogan} class="mb-8 text-lg" />
         <Button href={hero.ctaLink} size="lg" class="custom-button">{hero.ctaText}</Button>

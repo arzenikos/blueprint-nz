@@ -38,11 +38,11 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
     <span class="hidden sm:inline-block text-sm font-medium mr-2">{label}</span>
     <div class="flex border border-gray-200 rounded-md overflow-hidden" id={id}>
       {buttonItems.map((item, index) => {
-        const fontSize = item.value === 'small' ? 'text-xs' : item.value === 'medium' ? 'text-sm' : 'text-base';
-        const fontWeight = item.value === 'large' ? 'font-bold' : item.value === 'medium' ? 'font-medium' : 'font-normal';
+        // Adjust font sizes for the buttons themselves to make the difference more visible
+        const fontSize = item.value === 'small' ? 'text-xs' : item.value === 'medium' ? 'text-sm' : 'text-base font-bold';
         return (
           <button 
-            class={`px-2 py-1 ${fontSize} ${fontWeight} hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
+            class={`px-2 py-1 ${fontSize} hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
             data-value={item.value}
             aria-label={item.ariaLabel}
           >
@@ -111,7 +111,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
             console.log(`Font size changed to: ${value}`);
             
             // Remove existing font size classes
-            document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg');
+            document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl');
             
             // Add new font size class
             switch(value) {
@@ -122,7 +122,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
                 document.documentElement.classList.add('text-base');
                 break;
               case 'large':
-                document.documentElement.classList.add('text-lg');
+                document.documentElement.classList.add('text-xl'); // Changed from text-lg to text-xl for larger size
                 break;
             }
             
@@ -149,7 +149,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
         document.documentElement.classList.add('text-base');
         break;
       case 'large':
-        document.documentElement.classList.add('text-lg');
+        document.documentElement.classList.add('text-xl'); // Changed from text-lg to text-xl for larger size
         break;
     }
   }

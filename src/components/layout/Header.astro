@@ -3,7 +3,7 @@ import { siteData } from '../../data/site';
 import { imageSizes } from '../../styles/images';
 import { componentSpacing } from '../../styles/spacing';
 import SearchBar from '../navigation/SearchBar.astro';
-import SearchButton from '../navigation/SearchButton.astro';
+// import SearchButton from '../navigation/SearchButton.astro';
 import MainNav from '../navigation/MainNav.astro';
 
 // Get logo sizes from centralized file
@@ -24,13 +24,13 @@ const headerMarginBottom = componentSpacing.header.margin.bottom;
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center">
           <img 
-            src="/src/assets/images/logo-light.png" 
+            src="/src/assets/images/logo-03045e-6985c0.png" 
             alt={siteData.site.title} 
             class="max-h-full object-contain dark:hidden"
             style={`height: ${logoSizes.mobile};`}
           />
           <img 
-            src="/src/assets/images/logo-dark.png" 
+            src="/src/assets/images/logo-13232A-6DA3C0.png" 
             alt={siteData.site.title} 
             class="max-h-full object-contain hidden dark:block"
             style={`height: ${logoSizes.mobile};`}
@@ -39,12 +39,12 @@ const headerMarginBottom = componentSpacing.header.margin.bottom;
       </div> 
       
       <!-- Search Bar (middle) - Hidden on mobile -->
-      <SearchBar />
+      <!-- <SearchBar /> -->
       
       <!-- Right Navigation Items -->
       <div class="flex items-center space-x-1 sm:space-x-4">
         <!-- Search Icon (Mobile Only) -->
-        <SearchButton />
+        <!-- <SearchButton /> -->
         
         <!-- Main Navigation Items -->
         <MainNav />
@@ -53,7 +53,7 @@ const headerMarginBottom = componentSpacing.header.margin.bottom;
   </div>
   
   <!-- Mobile Search (Hidden by default) -->
-  <SearchBar mobile={true} />
+  <!-- <SearchBar mobile={true} /> -->
   
   <!-- Spacer div for mobile bottom margin -->
   <div class="md:hidden" style={`margin-bottom: ${headerMarginBottom.mobile};`}></div>

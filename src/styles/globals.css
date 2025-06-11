@@ -5,6 +5,8 @@
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   
   /* Core palette */
+  --color-custom-main: #000f2e;
+  
   --color-primary: #b9d6f2;
   --color-secondary: #000f2e;
   --color-accent: #3b82f6;
@@ -46,7 +48,7 @@
 .dark {
   /* Core palette - Dark theme */
   --color-primary: #3b82f6;
-  --color-secondary: #c0c8d8;
+  --color-secondary: #1b2332;
   --color-accent: #60a5fa;
   --color-neutral: #1f2937;
   --color-semantic: #10b981;
@@ -90,6 +92,19 @@
     background-color: var(--color-background);
   }
   
+  /* Font size classes */
+  html.text-sm {
+    font-size: 0.875rem;
+  }
+  
+  html.text-base {
+    font-size: 1rem;
+  }
+  
+  html.text-xl {
+    font-size: 1.25rem;
+  }
+  
   /* Hide scrollbar for Chrome, Safari and Opera */
   ::-webkit-scrollbar {
     display: none;
@@ -103,22 +118,22 @@
 
   h1 {
     @apply text-4xl font-bold tracking-tight sm:text-5xl;
-    color: var(--color-secondary);
+    color: var(--color-primary);
   }
 
   h2 {
     @apply text-2xl font-bold sm:text-3xl;
-    color: var(--color-secondary);
+    color: var(--color-primary);
   }
 
   h3 {
     @apply text-xl font-semibold sm:text-2xl;
-    color: var(--color-secondary);
+    color: var(--color-primary);
   }
 
   a:not(.btn) {
     @apply underline transition hover:opacity-80;
-    color: var(--color-secondary); /* Changed to dark blue */
+    color: var(--color-primary); /* Changed to dark blue */
   }
 
   pre {

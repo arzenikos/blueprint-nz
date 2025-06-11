@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "close": "rm -rf node_modules && rm -rf package-lock.json",
     "edit-netlify-config": "code C:\\Users\\arsenie-sarmiento\\AppData\\Roaming\\netlify\\Config\\config.json"
   },
   "dependencies": {

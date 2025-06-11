@@ -1,38 +1,38 @@
 ---
-import { colors } from '../../lib/theme/colors';
+// import { colors } from '../../lib/theme/colors';
 
-interface Props {
-  pixelSize?: number;
-  class?: string;
-  colors?: string[];
-}
+// interface Props {
+//   pixelSize?: number;
+//   class?: string;
+//   colors?: string[];
+// }
 
-const { 
-  pixelSize = 2, 
-  class: className = "",
-  colors: customColors
-} = Astro.props;
+// const { 
+//   pixelSize = 2, 
+//   class: className = "",
+//   colors: customColors
+// } = Astro.props;
 
-// Use custom colors if provided, otherwise use the default ribbon colors from the central palette
-const ribbonColors = customColors || colors.ribbon;
-const pixelSizeInPx = `${pixelSize}px`;
-const totalHeight = pixelSize * ribbonColors.length;
+// // Use custom colors if provided, otherwise use the default ribbon colors from the central palette
+// const ribbonColors = customColors || colors.ribbon;
+// const pixelSizeInPx = `${pixelSize}px`;
+// const totalHeight = pixelSize * ribbonColors.length;
 ---
 The error occurs because the PixelRibbon component does not accept a prop named "class"; you should either add a "class" prop to PixelRibbon.astro or remove the class attribute from its usage.
 
-<div class={className}>
+<!-- <div class={className}> -->
   <!-- Your PixelRibbon markup here -->
-   {ribbonColors.map((color) => (
+   <!-- {ribbonColors.map((color) => (
     <div class="pixel-line" style={`background-color: ${color}; height: ${pixelSizeInPx};`}></div>
   ))}
 </div>
 <div class={`pixel-ribbon ${className}`} aria-hidden="true">
   {ribbonColors.map((color) => (
     <div class="pixel-line" style={`background-color: ${color}; height: ${pixelSizeInPx};`}></div>
-  ))}
-</div>
+  ))} -->
+<!-- </div> -->
 
-<style define:vars={{ totalHeight: `${totalHeight}px` }}>
+<!-- <style define:vars={{ totalHeight: `${totalHeight}px` }}>
   .pixel-ribbon {
     display: flex;
     flex-direction: column;
@@ -44,4 +44,4 @@ The error occurs because the PixelRibbon component does not accept a prop named 
   .pixel-line {
     width: 100%;
   }
-</style>
+</style> -->
