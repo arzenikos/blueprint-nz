@@ -5,16 +5,16 @@ export const siteData = {
   },
   navigation: {
     items: [
-      { text: "Help", href: "/help" },
-      { text: "Settings", href: "/settings" }
+      // { text: "Help", href: "/help" },
+      // { text: "Settings", href: "/settings" }
     ]
   },
   footer: {
     newsletterSection: {
-      title: "Let's keep in touch",
-      description: "Enter your email to stay up to date with the latest updates.",
-      placeholder: "your@email.com",
-      buttonText: "Subscribe"
+      // title: "Let's keep in touch",
+      // description: "Enter your email to stay up to date with the latest updates.",
+      // placeholder: "your@email.com",
+      // buttonText: "Subscribe"
     },
     sections: [
       {
@@ -27,38 +27,38 @@ export const siteData = {
         ]
       },
       {
-        title: "About",
-        links: [
-          { text: "Our Story", url: "#" },
-          { text: "Team", url: "#" },
-          { text: "Partners", url: "#" },
-          { text: "News", url: "#" }
-        ]
+        // title: "About",
+        // links: [
+        //   { text: "Our Story", url: "#" },
+        //   { text: "Team", url: "#" },
+        //   { text: "Partners", url: "#" },
+        //   { text: "News", url: "#" }
+        // ]
       },
       {
-        title: "Get Involved",
-        links: [
-          { text: "Donate", url: "#" },
-          { text: "Volunteer", url: "#" },
-          { text: "Events", url: "#" },
-          { text: "Fundraise", url: "#" }
-        ]
+        // title: "Get Involved",
+        // links: [
+        //   { text: "Donate", url: "#" },
+        //   { text: "Volunteer", url: "#" },
+        //   { text: "Events", url: "#" },
+        //   { text: "Fundraise", url: "#" }
+        // ]
       },
       {
-        title: "Legal",
-        links: [
-          { text: "Privacy Policy", url: "#" },
-          { text: "Terms of Service", url: "#" },
-          { text: "Cookie Policy", url: "#" }
-        ]
+        // title: "Legal",
+        // links: [
+        //   { text: "Privacy Policy", url: "#" },
+        //   { text: "Terms of Service", url: "#" },
+        //   { text: "Cookie Policy", url: "#" }
+        // ]
       }
     ],
-    copyright: "© 2025 BluePrintNZ. All rights reserved.",
-    socialLinks: [
-      { platform: "facebook", url: "#", ariaLabel: "Facebook" },
-      { platform: "twitter", url: "#", ariaLabel: "Twitter" },
-      { platform: "instagram", url: "#", ariaLabel: "Instagram" },
-      { platform: "linkedin", url: "#", ariaLabel: "LinkedIn" }
-    ]
+    // copyright: "© 2025 BluePrintNZ. All rights reserved.",
+    // socialLinks: [
+    //   { platform: "facebook", url: "#", ariaLabel: "Facebook" },
+    //   { platform: "twitter", url: "#", ariaLabel: "Twitter" },
+    //   { platform: "instagram", url: "#", ariaLabel: "Instagram" },
+    //   { platform: "linkedin", url: "#", ariaLabel: "LinkedIn" }
+    // ]
   }
 };
