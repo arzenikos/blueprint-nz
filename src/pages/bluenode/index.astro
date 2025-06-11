@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { bluenodeData } from '../../data/bluenode';
+// import { bluenodeData } from 'src/data/bluenode.ts';
 ---
 
 <BaseLayout title="BlueNode - BluePrintNZ">
@@ -220,7 +220,7 @@ import { bluenodeData } from '../../data/bluenode';
         childLinks.forEach(link => {
           link.addEventListener('click', (e) => {
             e.preventDefault();
-            const nodeId = link.dataset.nodeId;
+            const nodeId = (link as HTMLElement).dataset.nodeId;
             if (nodeId) {
               // Find and click the actual node
               const nodeElement = document.getElementById(`node-${nodeId}`);
@@ -246,7 +246,7 @@ import { bluenodeData } from '../../data/bluenode';
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.id = `line-${fromId}-${toId}`;
       path.setAttribute('stroke', '#3b82f6');
-      path.setAttribute('stroke-width', 2);
+      path.setAttribute('stroke-width', '2');
       path.setAttribute('fill', 'none');
       path.setAttribute('data-from', fromId);
       path.setAttribute('data-to', toId);
@@ -296,10 +296,10 @@ import { bluenodeData } from '../../data/bluenode';
       const fromNodeBox = fromNode.querySelector('.node-box');
       const toNodeBox = toNode.querySelector('.node-box');
       
-      const fromBoxHeight = fromNodeBox ? fromNodeBox.offsetHeight / currentScale / 2 : 20;
-      const fromBoxWidth = fromNodeBox ? fromNodeBox.offsetWidth / currentScale / 2 : 60;
-      const toBoxHeight = toNodeBox ? toNodeBox.offsetHeight / currentScale / 2 : 20;
-      const toBoxWidth = toNodeBox ? toNodeBox.offsetWidth / currentScale / 2 : 60;
+      const fromBoxHeight = fromNodeBox ? (fromNodeBox as HTMLElement).offsetHeight / currentScale / 2 : 20;
+      const fromBoxWidth = fromNodeBox ? (fromNodeBox as HTMLElement).offsetWidth / currentScale / 2 : 60;
+      const toBoxHeight = toNodeBox ? (toNodeBox as HTMLElement).offsetHeight / currentScale / 2 : 20;
+      const toBoxWidth = toNodeBox ? (toNodeBox as HTMLElement).offsetWidth / currentScale / 2 : 60;
       
       // Calculate start point (from bottom of parent for downward connections)
       let startX = fromCenterX;
@@ -696,6 +696,12 @@ import { bluenodeData } from '../../data/bluenode';
 </script>
 
 <script>
+// Extend the Window interface to include bluenodeData
+declare global {
+  interface Window {
+    bluenodeData: any;
+  }
+}
   // Pass the bluenode data to the client-side JavaScript
   window.bluenodeData = {
     nodes: [
