@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import { aboutData } from '../../data/about';
 import Markdown from '../Markdown.astro';
-import corgi from '../../assets/images/corgi.jpg';
+import placeholder from '../../assets/images/placeholder-image.jpg';
 
 const { mainContent } = aboutData;
 ---
@@ -11,8 +11,8 @@ const { mainContent } = aboutData;
   <Markdown content={mainContent} class="mb-8" />
   <figure>
     <Image 
-      src={corgi} 
-      alt="Corgi" 
+      src={placeholder} 
+      alt="placeholder-image" 
       class="border-2 border-white rounded-lg"
       width={1200}
       height={800}

@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { aboutData } from '../../data/about';
 import Markdown from '../Markdown.astro';
 import Diff from '../Diff.astro';
-import corgi from '../../assets/images/corgi.jpg';
+import placeholder from '../../assets/images/placeholder-image.jpg';
 
 const { imageComparison } = aboutData;
 
@@ -14,12 +14,12 @@ ${imageComparison.description}
 
 ~~~jsx
 // <== On the left, the original image
-<img src="/corgi.jpg" alt="Corgi" />
+<img src="/placeholder-image.jpg" alt="placeholder" />
 
 // ==> On the right, using Astro's built-in Image component
 <Image 
-  src={corgiImage}
-  alt="Corgi"
+  src={placeholder}
+  alt="placeholder"
   width={1200}
   height={800}
   format="webp"
@@ -36,7 +36,7 @@ ${imageComparison.description}
       <div>
         <div class="relative">
           <span class="hidden absolute py-1.5 px-2.5 text-sm rounded-md bg-gray-900/70 top-2.5 left-2.5"></span>
-          <img src={corgi.src} alt="Corgi" />
+          <img src={placeholder.src} alt="placeholder" />
         </div>
       </div>
     </Fragment>
@@ -45,8 +45,8 @@ ${imageComparison.description}
         <div class="relative">
           <span class="hidden absolute py-1.5 px-2.5 text-sm rounded-md bg-gray-900/70 top-2.5 right-2.5"></span>
           <Image 
-            src={corgi} 
-            alt="Corgi" 
+            src={placeholder} 
+            alt="placeholder" 
             width={1200}
             height={800}
             format="webp"
