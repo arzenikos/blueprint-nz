@@ -13,12 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
     default: "Thank you for your message. Our team will get back to you soon."
   };
   
+  // Check if chat was previously open
+  const chatWasOpen = localStorage.getItem('chatOpen') === 'true';
+  if (chatWasOpen) {
+    chatBox?.classList.remove('hidden');
+    chatToggle?.classList.add('translate-y-16');
+  }
+  
   // Toggle chat box visibility
   chatToggle?.addEventListener('click', () => {
     chatBox?.classList.toggle('hidden');
     chatToggle.classList.toggle('translate-y-16');
     
-    if (!chatBox?.classList.contains('hidden')) {
+    // Store chat state
+    const isOpen = !chatBox?.classList.contains('hidden');
+    localStorage.setItem('chatOpen', isOpen);
+    
+    if (isOpen) {
       chatInput?.focus();
     }
   });
@@ -27,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeChat?.addEventListener('click', () => {
     chatBox?.classList.add('hidden');
     chatToggle?.classList.remove('translate-y-16');
+    localStorage.setItem('chatOpen', 'false');
   });
   
   // Handle chat form submission
@@ -68,6 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Scroll to bottom
     chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Store chat history
+    storeChatHistory();
   }
   
   // Function to get contextual responses based on message content
@@ -100,4 +115,34 @@ document.addEventListener('DOMContentLoaded', () => {
       return responses.default;
     }
   }
+  
+  // Store chat history in localStorage
+  function storeChatHistory() {
+    const chatHistory = chatMessages?.innerHTML || '';
+    localStorage.setItem('chatHistory', chatHistory);
+  }
+  
+  // Load chat history from localStorage
+  function loadChatHistory() {
+    const chatHistory = localStorage.getItem('chatHistory');
+    if (chatHistory && chatMessages) {
+      chatMessages.innerHTML = chatHistory;
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  }
+  
+  // Load chat history on page load
+  loadChatHistory();
+  
+  // Add pulse animation to chat toggle button after a delay
+  setTimeout(() => {
+    if (chatBox?.classList.contains('hidden')) {
+      chatToggle?.classList.add('animate-pulse');
+      
+      // Remove pulse after user interacts with it
+      chatToggle?.addEventListener('click', () => {
+        chatToggle.classList.remove('animate-pulse');
+      }, { once: true });
+    }
+  }, 5000);
 });

@@ -41,12 +41,14 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
       }
     </script>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col theme-transition">
     <Header />
-    <main class="flex-grow">
+    <main class="flex-grow theme-transition">
       <slot />
     </main>
     <Footer />
     <ChatBox />
+    <script src="../scripts/theme.js"></script>
+    <script src="../scripts/chatbox.js"></script>
   </body>
 </html>

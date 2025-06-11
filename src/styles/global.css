@@ -1,169 +1,310 @@
-/* Add consistent container padding for all content sections */
-.container {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+@import 'tailwindcss';
+
+/* CSS variables are injected from colors.ts */
+:root {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  
+  /* Core palette */
+  --color-custom-main: #eff0f2;
+  
+  --color-primary: #b9d6f2;
+  --color-secondary: #000f2e;
+  --color-accent: #3b82f6;
+  --color-neutral: #ffffff;
+  --color-semantic: #10b981;
+  
+  /* Primary colors */
+  --color-primary-light: #d4e5f7;
+  --color-primary-dark: #8fb8e6;
+  --color-primary-content: #000f2e;
+  
+  /* Secondary colors */
+  --color-secondary-light: #001a52;
+  --color-secondary-dark: #00071a;
+  --color-secondary-content: #ffffff;
+  
+  /* Accent colors */
+  --color-accent-light: #60a5fa;
+  --color-accent-dark: #2563eb;
+  --color-accent-content: #ffffff;
+  
+  /* UI colors - Light theme by default */
+  --color-background: #ffffff;
+  --color-foreground: #13172a; /* Changed to dark blue */
+  --color-border: #e2e8f0;
+  --color-focus: #b9d6f2;
+  --color-muted: #f1f5f9;
+  --color-card: #ffffff;
+  --color-card-border: #e2e8f0;
+  
+  /* Feedback colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
 }
 
-/* Ensure content sections have consistent margins */
-section {
-  margin-left: auto;
-  margin-right: auto;
+/* Dark theme variables */
+.dark {
+  /* Core palette - Dark theme */
+  --color-primary: #3b82f6;
+  --color-secondary: #1b2332;
+  --color-accent: #60a5fa;
+  --color-neutral: #1f2937;
+  --color-semantic: #10b981;
+  
+  /* Primary colors - Dark theme */
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #2563eb;
+  --color-primary-content: #ffffff;
+  
+  /* Secondary colors - Dark theme */
+  --color-secondary-light: #d1d5db;
+  --color-secondary-dark: #9ca3af;
+  --color-secondary-content: #111827;
+  
+  /* UI colors - Dark theme */
+  --color-background: #13172a;
+  --color-foreground: #e5e7eb;
+  --color-border: #374151;
+  --color-focus: #3b82f6;
+  --color-muted: #030303;
+  --color-card: #1f2937;
+  --color-card-border: #374151;
 }
 
-/* Global styles */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Theme transition */
+:root {
+  --transition-speed: 0.3s;
+}
 
-/* Base styles */
+* {
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease,
+              border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+}
+
 @layer base {
+  html, body {
+    @apply w-full overflow-x-hidden;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+  }
+  
+  /* Font size classes */
+  html.text-sm {
+    font-size: 0.75rem; /* Smaller: changed from 0.875rem to 0.75rem */
+  }
+  
+  html.text-base {
+    font-size: 1rem; /* Medium: kept at 1rem */
+  }
+  
+  html.text-xl {
+    font-size: 1.5rem; /* Larger: changed from 1.25rem to 1.5rem */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
   html {
-    @apply scroll-smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
-  
-  body {
-    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
-  }
-  
+
   h1 {
-    @apply text-4xl md:text-5xl;
+    @apply text-4xl font-bold tracking-tight sm:text-5xl;
+    color: var(--color-foreground);
   }
-  
+
   h2 {
-    @apply text-3xl md:text-4xl;
+    @apply text-2xl font-bold sm:text-3xl;
+    color: var(--color-success);
   }
-  
+
   h3 {
-    @apply text-2xl md:text-3xl;
+    @apply text-xl font-semibold sm:text-2xl;
+    color: var(--color-success);
+  }
+
+  a:not(.btn) {
+    @apply underline transition hover:opacity-80;
+    color: var(--color-success); /* Changed to dark blue */
+  }
+
+  pre {
+    @apply p-6 overflow-x-auto rounded-lg;
+    background-color: var(--color-muted);
+    color: var(--color-foreground);
+  }
+
+  :not(pre) > code {
+    @apply px-1 py-0.5 font-mono rounded;
+    background-color: var(--color-muted);
+    color: var(--color-foreground);
+    font-size: 0.9em;
   }
   
-  h4 {
-    @apply text-xl md:text-2xl;
-  }
-  
-  h5 {
-    @apply text-lg md:text-xl;
-  }
-  
-  h6 {
-    @apply text-base md:text-lg;
-  }
-  
-  a {
-    @apply transition-colors duration-200;
-  }
-  
-  p {
-    @apply leading-relaxed;
+  p, span, div, li {
+    color: var(--color-foreground);
   }
 }
 
-/* Component styles */
 @layer components {
+  .container {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto;
+    max-width: 1280px;
+  }
+  
+  .container-fluid {
+    @apply w-full px-4 sm:px-6 lg:px-8 xl:px-12 max-w-[2000px] mx-auto;
+  }
+  
   .btn {
-    @apply inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center gap-2 cursor-pointer text-center font-semibold no-underline transition-colors rounded-md;
+    padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
+    font-size: var(--btn-font-size, 0.875rem);
+    background-color: var(--color-primary);
+    color: var(--color-primary-content);
+
+    &:hover {
+      background-color: var(--color-primary-dark);
+    }
+
+    &:disabled {
+      @apply text-gray-400 bg-gray-700;
+    }
   }
-  
-  .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500;
+
+  .btn-accent {
+    background-color: var(--color-accent);
+    color: var(--color-accent-content);
+
+    &:hover {
+      background-color: var(--color-accent-dark);
+    }
   }
-  
+
   .btn-secondary {
-    @apply bg-gray-200 text-gray-900 hover:bg-gray-300 focus-visible:ring-gray-500;
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-content);
+
+    &:hover {
+      background-color: var(--color-secondary-dark);
+    }
   }
-  
-  .btn-outline {
-    @apply border border-gray-300 bg-transparent hover:bg-gray-100 focus-visible:ring-gray-500;
+
+  .btn-lg {
+    --btn-font-size: 1.125rem;
+    --btn-px: 1.5rem;
+    --btn-py: 1.125rem;
   }
   
   .card {
-    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden;
+    @apply rounded-lg overflow-hidden;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-card-border);
   }
   
-  .form-input {
-    @apply block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50;
-  }
-}
-
-/* Utility classes */
-@layer utilities {
-  .container-fluid {
-    @apply w-full px-6;
+  .card-body {
+    @apply p-6;
   }
   
-  .text-balance {
-    text-wrap: balance;
+  .card-title {
+    @apply text-xl font-semibold mb-2;
+    color: var(--color-secondary);
+  }
+  
+  .card-actions {
+    @apply mt-4 flex items-center justify-end;
+  }
+  
+  .bg-noise {
+    background-color: var(--color-muted);
+  }
+  
+  .markdown {
+    > * {
+      @apply my-6;
+    }
+
+    :where(h1, h2) {
+      @apply mt-12 mb-6;
+    }
+
+    > :first-child {
+      @apply mt-0;
+    }
+
+    > :last-child {
+      @apply mb-0;
+    }
+  }
+  
+  /* BlueNode interactive elements */
+  .node {
+    @apply cursor-pointer transition-all duration-300;
+  }
+  
+  .node-line {
+    @apply transition-all duration-500 opacity-0;
+    stroke: var(--color-accent);
+    stroke-width: 2;
+  }
+  
+  .node-line.active {
+    @apply opacity-100;
   }
 }
+/* Responsive adjustments for tablet and mobile */
+@media (max-width: 768px) {
+  /* Mobile header adjustments */
+  /* .mobile-controls {
+    justify-content: center;
+  } */
+  
+  /* Hero section adjustments */
+  /* .carousel-container {
+    margin-bottom: 0;
+  } */
+   .hero h1, .hero p, .hero button {
+    color: var(--color-success);
+  }
 
-/* Dark mode styles */
-.dark .prose {
-  @apply text-gray-300;
+}
+/* Card grid styles for uniform heights */
+.grid-uniform-height {
+  display: grid;
+  grid-auto-rows: 1fr;
 }
 
-.dark .prose a {
-  @apply text-blue-400;
+.grid-uniform-height > * {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.dark .prose strong {
-  @apply text-white;
+/* Ensure card content fills available space */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.dark .prose h1, 
-.dark .prose h2, 
-.dark .prose h3, 
-.dark .prose h4, 
-.dark .prose h5, 
-.dark .prose h6 {
-  @apply text-white;
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Chat box styles */
-.chat-message {
-  @apply mb-4 flex;
+.card-body > *:not(.card-actions) {
+  flex: 1 1 auto;
 }
 
-.chat-message-content {
-  @apply max-w-[80%] rounded-lg px-4 py-2;
-}
-
-.chat-message-user .chat-message-content {
-  @apply bg-blue-100 dark:bg-blue-900 ml-auto;
-}
-
-.chat-message-bot .chat-message-content {
-  @apply bg-gray-100 dark:bg-gray-700;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes slideInRight {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.3s ease-in-out;
-}
-
-@keyframes slideInLeft {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.3s ease-in-out;
+.card-actions {
+  margin-top: auto;
 }
