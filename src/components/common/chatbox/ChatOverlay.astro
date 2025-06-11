@@ -59,7 +59,43 @@ const { title, initialMessage, placeholder, buttonText } = chatboxContent;
 </div>
 
 <script>
-  // Make chatbox content available to the script
+  // Extend the Window interface to include chatboxContent
+  /**
+   * @typedef {Object} ChatboxResponses
+   * @property {string} greeting
+   * @property {string} help
+   * @property {string} services
+   * @property {string} contact
+   * @property {string} pricing
+   * @property {string} thanks
+   * @property {string} goodbye
+   * @property {string} default
+   */
+  /**
+   * @typedef {Object} ChatboxContent
+   * @property {ChatboxResponses} responses
+   */
+
+  // TypeScript: declare chatboxContent on Window
+  // This makes TypeScript aware of window.chatboxContent
+  // @ts-ignore
+  declare global {
+    interface Window {
+      chatboxContent?: {
+        responses: {
+          greeting: string;
+          help: string;
+          services: string;
+          contact: string;
+          pricing: string;
+          thanks: string;
+          goodbye: string;
+          default: string;
+        };
+      };
+    }
+  }
+
   window.chatboxContent = {
     responses: {
       greeting: "Hello! How can I help you today?",
@@ -83,6 +119,13 @@ const { title, initialMessage, placeholder, buttonText } = chatboxContent;
     
     // Get responses from the content
     const responses = window.chatboxContent?.responses || {
+      greeting: "Hello! How can I help you today?",
+      help: "I'm here to help! You can ask me about our services, website features, or how to get started.",
+      services: "We offer web development, UI/UX design, and SEO optimization services. Would you like to know more about any of these?",
+      contact: "You can reach our team at contact@blueprintnz.com or call us at (555) 123-4567 during business hours.",
+      pricing: "Our pricing varies based on project requirements. Would you like to request a custom quote?",
+      thanks: "You're welcome! Is there anything else I can help you with?",
+      goodbye: "Thank you for chatting with us! Have a great day!",
       default: "Thank you for your message. Our team will get back to you soon."
     };
     
@@ -104,12 +147,12 @@ const { title, initialMessage, placeholder, buttonText } = chatboxContent;
     chatForm?.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const message = chatInput?.value.trim();
+      const message = (chatInput as HTMLInputElement)?.value.trim();
       if (!message) return;
       
       // Add user message
       addMessage(message, 'user');
-      chatInput.value = '';
+      (chatInput as HTMLInputElement).value = '';
       
       // Simulate response (replace with actual API call)
       setTimeout(() => {
