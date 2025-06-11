@@ -11,6 +11,7 @@ export default function ShapePreview(props: BlobProps) {
             <defs>
                 <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#b9d6f2" />
+<<<<<<< HEAD
                     <stop offset="100%" stopColor={parameters?.color || "#3b82f6"} />
                 </linearGradient>
             </defs>
@@ -19,20 +20,42 @@ export default function ShapePreview(props: BlobProps) {
                 fill={`url(#${gradientId})`}
                 transform={`translate(${size / 2}, ${size / 2})`}
             />
+=======
+                    <stop offset="100%" stopColor="#3b82f6" />
+                </linearGradient>
+            </defs>
+            {svgPath ? (
+                <path d={svgPath} fill={`url(#${gradientId})`} />
+            ) : (
+                <path
+                    d={generateBlobPath(parameters)}
+                    fill={`url(#${gradientId})`}
+                    transform={`translate(${parameters.size / 2}, ${parameters.size / 2})`}
+                />
+            )}
+>>>>>>> feature/iteration-001-content-customized
         </svg>
     );
 }
 
 function generateBlobPath(parameters) {
+<<<<<<< HEAD
     const seed = parameters?.seed || 123;
     const complexity = parameters?.complexity || 5;
     const contrast = parameters?.contrast || 1;
     const size = 70;
+=======
+    const { seed, extraPoints, randomness, size } = parameters;
+    const points = 5 + extraPoints;
+    const angle = (Math.PI * 2) / points;
+    const radius = size / 3;
+>>>>>>> feature/iteration-001-content-customized
     
     // Use seed to create deterministic randomness
     const rng = mulberry32(seed);
     
     // Generate points around a circle with some randomness
+<<<<<<< HEAD
     const points = complexity;
     const angle = (Math.PI * 2) / points;
     const radius = size;
@@ -41,6 +64,12 @@ function generateBlobPath(parameters) {
     for (let i = 0; i < points; i++) {
         const theta = i * angle;
         const randRadius = radius * (1 + (rng() - 0.5) * contrast * 0.2);
+=======
+    const blobPoints = [];
+    for (let i = 0; i < points; i++) {
+        const theta = i * angle;
+        const randRadius = radius * (1 + (rng() - 0.5) * randomness * 0.2);
+>>>>>>> feature/iteration-001-content-customized
         const x = Math.cos(theta) * randRadius;
         const y = Math.sin(theta) * randRadius;
         blobPoints.push([x, y]);
