@@ -92,9 +92,9 @@
     background-color: var(--color-background);
   }
   
-  /* Font size classes */
+  /* Font size classes with increased distinction */
   html.text-sm {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
   }
   
   html.text-base {
@@ -102,7 +102,7 @@
   }
   
   html.text-xl {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
   }
   
   /* Hide scrollbar for Chrome, Safari and Opera */

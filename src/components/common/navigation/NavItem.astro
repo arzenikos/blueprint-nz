@@ -43,7 +43,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
     <div class="flex border border-gray-200 rounded-md overflow-hidden" id={id}>
       {buttonItems.map((item, index) => {
         // Adjust font sizes for the buttons themselves to make the difference more visible
-        const fontSize = item.value === 'small' ? 'text-xs' : item.value === 'medium' ? 'text-base' : 'text-xl font-bold';
+        const fontSize = item.value === 'small' ? 'text-xs' : item.value === 'medium' ? 'text-base' : 'text-2xl font-bold';
         return (
           <button 
             class={`px-2 py-1 ${fontSize} hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
