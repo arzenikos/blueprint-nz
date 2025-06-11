@@ -10,9 +10,11 @@ export const siteData = {
     email: 'info@blueprintnz.com',
   },
   social: {
-    twitter: 'https://twitter.com/blueprintnz',
-    github: 'https://github.com/blueprintnz',
-    linkedin: 'https://linkedin.com/company/blueprintnz',
+    video: '#',
+    gmail: 'mailto:cpt.iqhwa.vx7@gmail.com',
+    hashnode: 'https://hashnode.com/@arsenie',
+    github: 'https://github.com/arsenie-sarmiento',
+    linkedin: 'https://nz.linkedin.com/in/arsenie-sarmiento',
   },
   analytics: {
     googleAnalyticsId: '',

@@ -1,4 +1,7 @@
-// Referenced by: components/common/navigation/MainNav.astro, components/common/navigation/NavItem.astro, components/layout/footer/Footer.astro, components/layout/header/Header.astro
+// Referenced by: components/common/navigation/MainNav.astro,
+// components/common/navigation/NavItem.astro,
+// components/layout/footer/Footer.astro,
+// components/layout/header/Header.astro
 export interface NavItem {
   label: string;
   href: string;
@@ -102,9 +105,11 @@ export const footerLinks = {
     buttonText: 'Subscribe',
   },
   socialLinks: [
-    { label: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
-    { label: 'GitHub', href: 'https://github.com', icon: 'github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
+    { platform: "video", url: "#", ariaLabel: "Tutorial/Demo in onedrive" },
+    { platform: "gmail", url: "mailto:cpt.iqhwa.vx7@gmail.com", ariaLabel: "Tutorial/Demo in onedrive" },
+    { platform: "hashnode", url: "https://hashnode.com/@arsenie", ariaLabel: "Tutorial/Demo in onedrive" },
+    { platform: "github", url: "https://github.com/arsenie-sarmiento", ariaLabel: "Check this on Github" },
+    { platform: "linkedin", url: "https://nz.linkedin.com/in/arsenie-sarmiento", ariaLabel: "Connect with us on LinkedIn" }
   ],
   copyright: '© 2023 BluePrintNZ. All rights reserved.',
 };
