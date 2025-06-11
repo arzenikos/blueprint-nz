@@ -1,3 +1,5 @@
+// Imported by: pages/api/blobs.ts,
+// pages/api/blobs/[key].ts
 import type { APIRoute } from 'astro';
 import { getStore } from '@netlify/blobs';
 

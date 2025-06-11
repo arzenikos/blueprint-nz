@@ -1,3 +1,4 @@
+// Imported by: components/layout/Header.astro, layouts/FullPageLayout.astro, pages/about.astro
 export const siteData = {
   site: {
     title: "BluePrintNZ",

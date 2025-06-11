@@ -1,3 +1,4 @@
+// Imported by: components/home/FoundationSection.astro, components/home/HeroSection.astro, components/home/InfoSection.astro, components/home/ServicesSection.astro
 export const homeData = {
   hero: {
     title: "BluePrintNZ",

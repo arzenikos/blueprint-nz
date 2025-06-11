@@ -1,3 +1,4 @@
+// Not imported by any file
 // import { getHighlighter } from 'shiki';
 
 // export async function getHighlighterInstance() {

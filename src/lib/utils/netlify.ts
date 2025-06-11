@@ -1,3 +1,10 @@
+// Imported by: components/common/ContextAlert.astro,
+// pages/api/blob.ts,
+// pages/api/blobs.ts,
+// pages/api/blobs/[key].ts,
+// pages/api/revalidate.ts,
+// pages/blobs/_components/NewShape.tsx,
+// pages/blobs/index.astro
 /**
  * Determine the current Netlify context
  * @returns 'dev' | 'preview' | 'prod' | 'unknown'

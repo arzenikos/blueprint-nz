@@ -1,3 +1,4 @@
+// Imported by: pages/bluenode/index.astro
 export const bluenodeData = {
   nodes: [
     {

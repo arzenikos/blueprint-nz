@@ -1,3 +1,4 @@
+// Not imported by any file
 export interface BlobParameters {
   name: string;
   seed: number;

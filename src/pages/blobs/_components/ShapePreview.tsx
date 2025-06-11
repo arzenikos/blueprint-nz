@@ -1,3 +1,4 @@
+// <!-- Imported by: pages/blobs/_components/NewShape.tsx, pages/blobs/_components/StoredShapes.tsx -->
 import { randomInt } from '../../../lib/utils/helpers';
 import type { BlobProps } from '../../../lib/types';
 

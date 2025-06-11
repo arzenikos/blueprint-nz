@@ -1,3 +1,4 @@
+// Imported by: components/layout/Header.astro, components/navigation/MainNav.astro, components/navigation/NavItem.astro
 /**
  * Navigation data for the site
  * Centralizes all navigation-related content

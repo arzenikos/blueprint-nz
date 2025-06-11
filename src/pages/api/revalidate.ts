@@ -1,3 +1,4 @@
+// Not imported by any file
 import type { APIRoute } from 'astro';
 import { purgeCache } from '@netlify/functions';
 

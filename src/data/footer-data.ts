@@ -1,3 +1,4 @@
+// Imported by: components/layout/Footer.astro
 export const footerLinks = {
   newsletterSection: {
     title: "Stay Updated",

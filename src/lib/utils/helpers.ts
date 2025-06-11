@@ -1,3 +1,6 @@
+// Imported by: pages/blobs/_components/NewShape.tsx,
+// pages/blobs/_components/ShapePreview.tsx,
+// pages/blobs/_components/StoredShapes.tsx
 import { uniqueNamesGenerator, adjectives, colors, animals } from 'unique-names-generator';
 import type { BlobProps } from '../types';
 

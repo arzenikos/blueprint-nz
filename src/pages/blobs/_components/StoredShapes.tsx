@@ -1,3 +1,4 @@
+// <!-- Imported by: pages/blobs/_components/ShapeEditor.tsx -->
 import { useState, useEffect } from 'react';
 import ShapePreview from './ShapePreview.tsx';
 import { generateBlob } from '../../../lib/utils/helpers';

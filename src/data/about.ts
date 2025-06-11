@@ -1,3 +1,4 @@
+// Imported by: components/about/ImageComparison.astro, components/about/MainContent.astro, pages/about.astro
 export const aboutData = {
   title: "About",
   description: "Learn more about BluePrintNZ and our mission.",

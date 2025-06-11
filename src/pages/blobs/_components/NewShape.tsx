@@ -1,10 +1,10 @@
+// <!-- Imported by: pages/blobs/_components/ShapeEditor.tsx -->
 import { useState, useEffect } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import ShapePreview from './ShapePreview.tsx';
 import { generateBlob } from '../../../lib/utils/helpers';
 import { uploadDisabled } from '../../../lib/utils/netlify';
 import type { BlobProps } from '../../../lib/types';
-
 interface Props {
     setLastMutationTime?: Dispatch<SetStateAction<number>>;
 }

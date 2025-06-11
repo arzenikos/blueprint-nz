@@ -1,3 +1,6 @@
+// Imported by: components/ui/PixelRibbon.astro,
+// layouts/FullPageLayout.astro,
+// lib/theme/theme-utils.ts
 /**
  * Central color palette for BluePrintNZ website
  * All colors used throughout the site should reference this file
