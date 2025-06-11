@@ -124,7 +124,10 @@
   h2 {
     @apply text-2xl font-bold sm:text-3xl;
     color: var(--color-foreground);
+  }
+
   h3 {
+    @apply text-xl font-semibold sm:text-2xl;
     color: var(--color-foreground);
   }
 
@@ -256,5 +259,4 @@
   .node-line.active {
     @apply opacity-100;
   }
-}
 }

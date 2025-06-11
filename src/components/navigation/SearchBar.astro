@@ -1,0 +1,36 @@
+<!-- ---
+import Icon from '../ui/icon/Icon.astro';
+
+interface Props {
+  placeholder?: string;
+  class?: string;
+  mobile?: boolean;
+}
+
+const { 
+  placeholder = "Search...", 
+  class: className = '',
+  mobile = false
+} = Astro.props;
+
+const containerClass = mobile 
+  ? "md:hidden hidden border-t border-neutral-300 dark:border-gray-700 py-4 px-5 bg-neutral dark:bg-gray-800" 
+  : "hidden md:flex flex-1 max-w-md mx-8";
+
+const id = mobile ? "mobile-search" : "";
+---
+
+<div id={id} class={`${containerClass} ${className}`}>
+  <form class="w-full">
+    <div class="relative">
+      <input 
+        type="search" 
+        placeholder={placeholder} 
+        class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-neutral-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-accent dark:bg-gray-700 dark:text-white"
+      />
+      <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+        <Icon name="search" size={16} class="text-secondary dark:text-gray-300" />
+      </div>
+    </div>
+  </form>
+</div> -->

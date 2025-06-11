@@ -1,7 +1,7 @@
 ---
-import Header from '../components/layout/header/Header.astro';
-import Footer from '../components/layout/footer/Footer.astro';
-import ChatOverlay from '../components/common/chatbox/ChatOverlay.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import ChatBox from '../components/common/chatbox/ChatOverlay.astro';
 import '../styles/globals.css';
 
 interface Props {
@@ -41,14 +41,12 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
       }
     </script>
   </head>
-  <body class="min-h-screen flex flex-col theme-transition">
+  <body class="min-h-screen flex flex-col">
     <Header />
-    <main class="flex-grow theme-transition">
+    <main class="flex-grow">
       <slot />
     </main>
     <Footer />
-    
-    <!-- Chat overlay component -->
-    <ChatOverlay />
+    <ChatBox />
   </body>
 </html>

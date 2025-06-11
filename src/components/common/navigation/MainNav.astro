@@ -1,18 +1,20 @@
 ---
-import { mainNavItems } from '../../../content/navigation';
+import { mainNavItems } from '../../../data/navigation';
 import NavItem from './NavItem.astro';
 
 interface Props {
-  class?: string;
+    class?: string;
 }
 
 const { class: className = '' } = Astro.props;
 ---
 
 <div class={`flex items-center space-x-1 sm:space-x-5 ${className}`}>
-  {mainNavItems.map(item => {
-    // For mobile controls, we need to hide the "Font Size" label
-    const isMobileControls = className.includes('mobile-controls');
-    return <NavItem {...item} hideLabelOnMobile={isMobileControls} />;
-  })}
+    {
+        mainNavItems.map((item) => {
+            // For mobile controls, we need to hide the "Font Size" label
+            const isMobileControls = className.includes('mobile-controls');
+            return <NavItem {...item} hideLabelOnMobile={isMobileControls} />;
+        })
+    }
 </div>
