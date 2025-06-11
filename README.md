@@ -12,68 +12,154 @@ npm install
 
 ## Project Structure
 
+Below is a comprehensive file structure tree of the `src` directory:
+
+```
+src/
+├── assets/
+│   ├── icons/
+│   │   ├── question-dark.svg
+│   │   ├── settings-dark.svg
+│   │   ├── switch-dark-theme.svg
+│   │   └── switch-light-theme.svg
+│   ├── images/
+│   │   ├── logo-03045e-6985c0.png
+│   │   ├── logo-13232A-6DA3C0.png
+│   │   ├── logo-b9d6f2-061a40.png
+│   │   ├── placeholder-image-1.jpg
+│   │   ├── placeholder-image-2.jpg
+│   │   ├── placeholder-image-3.jpg
+│   │   └── placeholder-image.jpg
+│   └── svg/
+│       └── icons.svg
+├── components/
+│   ├── about/
+│   │   ├── ImageComparison.astro
+│   │   └── MainContent.astro
+│   ├── common/
+│   │   ├── Alert.astro
+│   │   ├── ChatBox.astro
+│   │   ├── ContextAlert.astro
+│   │   ├── Diff.astro
+│   │   ├── EdgeFunctionExplainer.astro
+│   │   ├── Logo.astro
+│   │   ├── Markdown.astro
+│   │   ├── PrometheusAI.astro
+│   │   ├── SocialIcon.astro
+│   │   └── ThemeToggle.astro
+│   ├── footer/
+│   │   ├── FooterSection.astro
+│   │   ├── NewsletterForm.astro
+│   │   └── SocialLinks.astro
+│   ├── home/
+│   │   ├── FoundationSection.astro
+│   │   ├── HeroSection.astro
+│   │   ├── InfoSection.astro
+│   │   └── ServicesSection.astro
+│   ├── icons/
+│   │   ├── BlueprintIcon.astro
+│   │   ├── Icon.astro
+│   │   ├── IconLibrary.ts
+│   │   └── Icons.astro
+│   ├── layout/
+│   │   ├── Footer.astro
+│   │   └── Header.astro
+│   ├── navigation/
+│   │   ├── MainNav.astro
+│   │   ├── NavItem.astro
+│   │   ├── SearchBar.astro
+│   │   └── SearchButton.astro
+│   ├── shared/
+│   │   ├── Logo.astro
+│   │   ├── MobileNavTooltip.astro
+│   │   ├── NavIcons.astro
+│   │   ├── PixelRibbon.astro
+│   │   └── ThemeToggle.astro
+│   ├── ui/
+│   │   ├── Breadcrumbs.astro
+│   │   ├── Button.astro
+│   │   ├── Card.astro
+│   │   ├── CardGrid.astro
+│   │   ├── Carousel.astro
+│   │   ├── ColorPalette.astro
+│   │   ├── Container.astro
+│   │   ├── PixelRibbon.astro
+│   │   └── Section.astro
+│   ├── Diff.astro
+│   ├── Markdown.astro
+│   └── OptimizedImage.astro
+├── data/
+│   ├── about.ts
+│   ├── bluenode.ts
+│   ├── footer-data.ts
+│   ├── home.ts
+│   ├── navigation.ts
+│   └── site.ts
+├── layouts/
+│   ├── BaseLayout.astro
+│   ├── FullPageLayout.astro
+│   └── Layout.astro
+├── lib/
+│   ├── theme/
+│   │   ├── colors.ts
+│   │   ├── index.ts
+│   │   └── theme-utils.ts
+│   ├── types/
+│   │   └── index.ts
+│   ├── utils/
+│   │   ├── helpers.ts
+│   │   ├── highlighter.ts
+│   │   ├── index.ts
+│   │   └── netlify.ts
+│   └── index.ts
+├── pages/
+│   ├── api/
+│   │   ├── blobs/
+│   │   │   └── [key].ts
+│   │   ├── blob.ts
+│   │   ├── blobs.ts
+│   │   ├── newsletter.ts
+│   │   └── revalidate.ts
+│   ├── blobs/
+│   │   ├── _components/
+│   │   │   ├── NewShape.tsx
+│   │   │   ├── ShapeEditor.tsx
+│   │   │   ├── ShapePreview.tsx
+│   │   │   └── StoredShapes.tsx
+│   │   └── index.astro
+│   ├── bluenode/
+│   │   ├── d3-version.astro
+│   │   └── index.astro
+│   ├── get-involved/
+│   │   └── index.astro
+│   ├── help/
+│   │   └── index.astro
+│   ├── information-and-support/
+│   │   └── index.astro
+│   ├── news/
+│   │   └── index.astro
+│   ├── research/
+│   │   └── index.astro
+│   ├── settings/
+│   │   └── index.astro
+│   ├── shop/
+│   │   └── index.astro
+│   ├── _blueprint.svg.astro
+│   ├── about.astro
+│   ├── admin.html
+│   ├── blueprint-svg.astro
+│   ├── design-system.astro
+│   ├── index.astro
+│   └── newsletter.astro
+└── styles/
+    ├── chat-box.css
+    ├── globals.css
+    ├── images.ts
+    ├── spacing.ts
+    └── theme.ts
+```
+
 Below is a comprehensive list of files in the `src` directory with descriptions:
-
-### Assets
-
-- `/src/assets/icons/` - SVG icons used throughout the site
-- `/src/assets/images/` - Image assets including logos and placeholders
-- `/src/assets/svg/icons.svg` - SVG sprite sheet for optimized icon loading
-
-### Components
-
-- `/src/components/Diff.astro` - Component for displaying code differences
-- `/src/components/Markdown.astro` - Markdown rendering component
-- `/src/components/OptimizedImage.astro` - Image optimization wrapper
-
-#### About Components
-
-- `/src/components/about/ImageComparison.astro` - Before/after image comparison tool
-- `/src/components/about/MainContent.astro` - Main content for about page
-
-#### Common Components
-
-- `/src/components/common/` - Reusable UI components like alerts, chat boxes, and context notifications
-
-#### Footer Components
-
-- `/src/components/footer/FooterSection.astro` - Footer section layout component
-- `/src/components/footer/NewsletterForm.astro` - Newsletter subscription form
-- `/src/components/footer/SocialLinks.astro` - Social media links component
-
-#### Home Page Components
-
-- `/src/components/home/HeroSection.astro` - Hero banner for homepage
-- `/src/components/home/FoundationSection.astro` - Foundation information section
-- `/src/components/home/InfoSection.astro` - Information display section
-- `/src/components/home/ServicesSection.astro` - Services showcase section
-
-#### Icon Components
-
-- `/src/components/icons/Icon.astro` - Icon component wrapper
-- `/src/components/icons/IconLibrary.ts` - Icon definitions and mappings
-- `/src/components/icons/Icons.astro` - Icon collection component
-- `/src/components/icons/BlueprintIcon.astro` - Blueprint-specific icon component
-
-#### Layout Components
-
-- `/src/components/layout/Header.astro` - Site header with navigation
-- `/src/components/layout/Footer.astro` - Site footer with sections and links
-
-#### Navigation Components
-
-- `/src/components/navigation/MainNav.astro` - Main navigation menu
-- `/src/components/navigation/NavItem.astro` - Navigation item component
-- `/src/components/navigation/SearchBar.astro` - Search functionality
-- `/src/components/navigation/SearchButton.astro` - Search trigger button
-
-#### Shared Components
-
-- `/src/components/shared/` - Shared UI elements like logos, tooltips, and theme toggles
-
-#### UI Components
-
-- `/src/components/ui/` - Core UI components (buttons, cards, containers, etc.)
 
 ### Data
 
@@ -142,28 +228,6 @@ All commands are run from the root of the project, from a terminal:
 
 ## Deploying to Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-platform-starter)
-
-## Developing Locally
-
-| Prerequisites                                                                |
-| :--------------------------------------------------------------------------- |
-| [Node.js](https://nodejs.org/) v18.14+.                                      |
-| (optional) [nvm](https://github.com/nvm-sh/nvm) for Node version management. |
-
-1. Clone this repository, then run `npm install` in its root directory.
-
-2. For the starter to have full functionality locally (e.g. edge functions, blob store), please ensure you have an up-to-date version of Netlify CLI. Run:
-```npm install netlify-cli@latest -g```
-
-3. Link your local repository to the deployed Netlify site. This will ensure you're using the same runtime version for both local development and your deployed site.
-```netlify link```
-
-4. Then, run the Astro.js development server via Netlify CLI:
-```netlify dev```
-
-If your browser doesn't navigate to the site automatically, visit [localhost:8888](http://localhost:4321).
-
 ## Color System
 
 The site uses a centralized 5-color palette system:
@@ -175,6 +239,47 @@ The site uses a centralized 5-color palette system:
 5. **Semantic** (`#10b981`) - Base for feedback states
 
 To modify the color palette, edit the `palette` object in `/src/styles/colors.ts`.
+
+### Key Dependency Flows
+
+1. **Page Rendering Flow**:
+   - Pages (index.astro) → Layout.astro → Header/Footer → Navigation Components → Icons
+   - Example: `/src/pages/index.astro` imports `Layout.astro`, which imports `Header.astro` and `Footer.astro`
+   - `Header.astro` imports `MainNav.astro`, which imports `NavItem.astro`, which uses `Icon.astro`
+
+2. **Data Flow**:
+   - Data files (navigation.ts, site.ts) → Layout Components → UI Components
+   - Example: `/src/data/navigation.ts` defines navigation structure used by `MainNav.astro`
+   - `/src/data/site.ts` provides global configuration used across multiple components
+
+3. **Styling Flow**:
+   - Styles (globals.css, theme.ts) → Applied throughout all components
+   - Example: `/src/styles/globals.css` provides base styling for the entire application
+   - `/src/styles/theme.ts` defines theme variables used by styled components
+   - `/src/styles/spacing.ts` provides consistent spacing values used by layout components
+
+4. **Component Composition**:
+   - UI Components (Button.astro, Card.astro) → Used in Section Components → Used in Page Components
+   - Example: `/src/components/ui/Button.astro` is used in `NewsletterForm.astro` and `HeroSection.astro`
+   - `/src/components/ui/Card.astro` is used in `ServicesSection.astro` and feature pages
+
+5. **Feature-Specific Flows**:
+   - Feature pages → Feature-specific components → Shared UI components
+   - Example: `/src/pages/blobs/index.astro` uses components from `_components/` directory
+   - These components may further use shared UI components like `Button.astro` and `Container.astro`
+
+6. **API Integration Flow**:
+   - API endpoints → Client-side components → UI feedback
+   - Example: `/src/pages/api/newsletter.ts` processes form submissions from `NewsletterForm.astro`
+   - Form submission results are displayed using UI components like `Alert.astro`
+
+7. **Theme System Flow**:
+   - Theme configuration → Theme utilities → Component styling
+   - Example: `/src/lib/theme/colors.ts` defines color palette
+   - `/src/lib/theme/theme-utils.ts` provides utilities for applying theme colors
+   - Components use these utilities to maintain consistent styling
+
+This structure follows a modular architecture where components are organized by function and reused throughout the application. The data files provide centralized configuration that flows into the components, while utility functions support operations across the application.
 
 ## Project Structure Diagram
 
@@ -281,18 +386,59 @@ Below is a more detailed breakdown of component dependencies:
 +---------------------+     +---------------------+     +---------------------+
 ```
 
-### Key Dependency Flows
+## Component Usage Map
 
-1. **Page Rendering Flow**:
-   - Pages (index.astro) → Layout.astro → Header/Footer → Navigation Components → Icons
+Below is a detailed mapping of which components are used by other components:
 
-2. **Data Flow**:
-   - Data files (navigation.ts, site.ts) → Layout Components → UI Components
+### Layout Components
+- **Layout.astro**: Used by most page components (index.astro, about.astro, etc.)
+  - Imports: Header.astro, Footer.astro, globals.css
+  
+- **Header.astro**: Used by Layout.astro
+  - Imports: MainNav.astro, Logo.astro
+  
+- **Footer.astro**: Used by Layout.astro
+  - Imports: FooterSection.astro, NewsletterForm.astro, SocialLinks.astro
 
-3. **Styling Flow**:
-   - Styles (globals.css, theme.ts) → Applied throughout all components
+### UI Components
+- **Button.astro**: Used by NewsletterForm.astro, HeroSection.astro, various page components
+  - Imports: none (base component)
+  
+- **Card.astro**: Used by ServicesSection.astro, feature pages
+  - Imports: none (base component)
+  
+- **Carousel.astro**: Used by HeroSection.astro
+  - Imports: none (base component)
 
-4. **Component Composition**:
-   - UI Components (Button.astro, Card.astro) → Used in Section Components → Used in Page Components
+### Navigation Components
+- **MainNav.astro**: Used by Header.astro
+  - Imports: NavItem.astro, navigation.ts
+  
+- **NavItem.astro**: Used by MainNav.astro
+  - Imports: Icon.astro, ThemeToggle.astro
 
-This structure follows a modular architecture where components are organized by function and reused throughout the application. The data files provide centralized configuration that flows into the components, while utility functions support operations across the application.
+### Home Page Components
+- **HeroSection.astro**: Used by index.astro
+  - Imports: Button.astro, Carousel.astro
+  
+- **ServicesSection.astro**: Used by index.astro
+  - Imports: Card.astro, Icon.astro
+
+### Footer Components
+- **FooterSection.astro**: Used by Footer.astro
+  - Imports: none
+  
+- **NewsletterForm.astro**: Used by Footer.astro
+  - Imports: Button.astro
+  
+- **SocialLinks.astro**: Used by Footer.astro
+  - Imports: Icon.astro
+
+### Icon System
+- **Icon.astro**: Used by NavItem.astro, SocialLinks.astro, various UI components
+  - Imports: IconLibrary.ts
+  
+- **IconLibrary.ts**: Used by Icon.astro
+  - Imports: none (data file)
+
+This mapping shows how components are interconnected throughout the application, highlighting the modular architecture and component reuse patterns.
