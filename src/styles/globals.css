@@ -5,11 +5,7 @@
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   
   /* Core palette */
-<<<<<<< HEAD
-  --color-custom-main: #000f2e;
-=======
   --color-custom-main: #eff0f2;
->>>>>>> feature/iteration-001-content-customized
   
   --color-primary: #b9d6f2;
   --color-secondary: #000f2e;
@@ -72,11 +68,7 @@
   --color-foreground: #e5e7eb;
   --color-border: #374151;
   --color-focus: #3b82f6;
-<<<<<<< HEAD
-  --color-muted: #1f2937;
-=======
   --color-muted: #030303;
->>>>>>> feature/iteration-001-content-customized
   --color-card: #1f2937;
   --color-card-border: #374151;
 }
@@ -100,15 +92,9 @@
     background-color: var(--color-background);
   }
   
-<<<<<<< HEAD
-  /* Font size classes with increased distinction */
-  html.text-sm {
-    font-size: 0.8rem;
-=======
   /* Font size classes */
   html.text-sm {
     font-size: 0.875rem;
->>>>>>> feature/iteration-001-content-customized
   }
   
   html.text-base {
@@ -116,11 +102,7 @@
   }
   
   html.text-xl {
-<<<<<<< HEAD
-    font-size: 1.4rem;
-=======
     font-size: 1.25rem;
->>>>>>> feature/iteration-001-content-customized
   }
   
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -136,38 +118,19 @@
 
   h1 {
     @apply text-4xl font-bold tracking-tight sm:text-5xl;
-<<<<<<< HEAD
-    color: var(--color-primary);
-=======
     color: var(--color-foreground);
->>>>>>> feature/iteration-001-content-customized
   }
 
   h2 {
     @apply text-2xl font-bold sm:text-3xl;
-<<<<<<< HEAD
-    color: var(--color-primary);
-=======
     color: var(--color-foreground);
->>>>>>> feature/iteration-001-content-customized
-  }
-
   h3 {
-    @apply text-xl font-semibold sm:text-2xl;
-<<<<<<< HEAD
-    color: var(--color-primary);
-=======
     color: var(--color-foreground);
->>>>>>> feature/iteration-001-content-customized
   }
 
   a:not(.btn) {
     @apply underline transition hover:opacity-80;
-<<<<<<< HEAD
-    color: var(--color-primary); /* Changed to dark blue */
-=======
     color: var(--color-semantic); /* Changed to dark blue */
->>>>>>> feature/iteration-001-content-customized
   }
 
   pre {
@@ -293,8 +256,5 @@
   .node-line.active {
     @apply opacity-100;
   }
-<<<<<<< HEAD
 }
-=======
 }
->>>>>>> feature/iteration-001-content-customized
