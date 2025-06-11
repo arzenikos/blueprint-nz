@@ -1,0 +1,621 @@
+// BlueNode Interactive Knowledge Graph Script
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Import the bluenode data from the window object (passed from Astro)
+  const bluenodeData = window.bluenodeData;
+  if (!bluenodeData) return;
+  
+  // Cache DOM elements
+  const nodesViewport = document.getElementById('nodes-viewport');
+  const nodesContainer = document.getElementById('nodes-container');
+  const connectionLines = document.getElementById('connection-lines');
+  const infoPanel = document.getElementById('node-info-panel');
+  const infoTitle = document.getElementById('node-info-title');
+  const infoDescription = document.getElementById('node-info-description');
+  const zoomInBtn = document.getElementById('zoom-in');
+  const zoomOutBtn = document.getElementById('zoom-out');
+  const resetViewBtn = document.getElementById('reset-view');
+  const detailPanel = document.getElementById('detail-panel');
+  
+  // Pan and zoom state
+  let isPanning = false;
+  let startPoint = { x: 0, y: 0 };
+  let currentTranslate = { x: 0, y: 0 };
+  let startTranslate = { x: 0, y: 0 };
+  let currentScale = 1;
+  
+  // Track active nodes and history for navigation
+  const activeNodes = new Set(['root']);
+  const expandedNodes = new Set(['root']);
+  let currentActiveNode = 'root';
+  
+  // Node color configuration
+  const nodeColors = {
+    root: 'bg-accent',
+    parent: 'bg-primary',
+    child: 'bg-secondary text-white'
+  };
+  
+  // Find node data by ID
+  function findNodeById(id) {
+    return bluenodeData.nodes.find(node => node.id === id);
+  }
+  
+  // Create a node element
+  function createNodeElement(nodeData, nodeType = 'child') {
+    const nodeElement = document.createElement('div');
+    nodeElement.id = `node-${nodeData.id}`;
+    nodeElement.className = `absolute transition-all duration-500 opacity-0 cursor-pointer node-element`;
+    nodeElement.dataset.nodeId = nodeData.id;
+    
+    // Set node color based on type
+    const color = nodeColors[nodeType] || nodeColors.child;
+    
+    // Use rounded rectangles instead of circles
+    nodeElement.innerHTML = `
+      <div class="rounded-lg ${color} flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300 px-4 py-2 min-w-[120px] node-box">
+        <span class="text-sm font-medium text-center">${nodeData.label}</span>
+      </div>
+    `;
+    
+    // Add event listeners
+    nodeElement.addEventListener('click', (e) => {
+      // Only trigger node click if we're not panning
+      if (!isPanning) {
+        handleNodeClick(nodeData.id);
+      }
+      e.stopPropagation();
+    });
+    
+    nodeElement.addEventListener('mouseenter', () => showNodeInfo(nodeData));
+    nodeElement.addEventListener('mouseleave', hideNodeInfo);
+    
+    return nodeElement;
+  }
+  
+  // Show node information in the panel
+  function showNodeInfo(nodeData) {
+    if (infoPanel && infoTitle && infoDescription) {
+      infoTitle.textContent = nodeData.label;
+      infoDescription.textContent = nodeData.description;
+      infoPanel.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+    }
+  }
+  
+  // Hide node information panel
+  function hideNodeInfo() {
+    if (infoPanel) {
+      infoPanel.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+    }
+  }
+  
+  // Show node detail in the right panel
+  function showNodeDetail(nodeData) {
+    const detailTitle = document.getElementById('detail-title');
+    const detailSubtitle = document.getElementById('detail-subtitle');
+    const detailContent = document.getElementById('detail-content');
+    
+    if (detailTitle && detailSubtitle && detailContent) {
+      // Update title and subtitle
+      detailTitle.textContent = nodeData.label;
+      detailSubtitle.textContent = `Node ID: ${nodeData.id}`;
+      
+      // Create content
+      let content = `
+        <div class="bg-neutral-50 p-4 rounded-lg mb-6">
+          <h3 class="font-semibold text-secondary mb-2">Description</h3>
+          <p>${nodeData.description}</p>
+        </div>
+      `;
+      
+      // Add children section if applicable
+      if (nodeData.children && nodeData.children.length > 0) {
+        content += `
+          <div class="border-t border-neutral-200 pt-4">
+            <h3 class="font-semibold text-secondary mb-2">Related Topics</h3>
+            <ul class="space-y-2">
+        `;
+        
+        nodeData.children.forEach(childId => {
+          const childData = findNodeById(childId);
+          if (childData) {
+            content += `
+              <li>
+                <a href="#" class="text-accent hover:underline child-link" data-node-id="${childId}">
+                  ${childData.label}
+                </a>
+              </li>
+            `;
+          }
+        });
+        
+        content += `
+            </ul>
+          </div>
+        `;
+      }
+      
+      // Update content
+      detailContent.innerHTML = content;
+      
+      // Add event listeners to child links
+      const childLinks = detailContent.querySelectorAll('.child-link');
+      childLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const nodeId = link.dataset.nodeId;
+          if (nodeId) {
+            // Find and click the actual node
+            const nodeElement = document.getElementById(`node-${nodeId}`);
+            if (nodeElement) {
+              // Simulate a click on the node
+              handleNodeClick(nodeId);
+              showNodeDetail(findNodeById(nodeId));
+            }
+          }
+        });
+      });
+    }
+  }
+  
+  // Create a connection line between two nodes
+  function createConnectionLine(fromId, toId) {
+    const fromNode = document.getElementById(`node-${fromId}`);
+    const toNode = document.getElementById(`node-${toId}`);
+    
+    if (!fromNode || !toNode) return null;
+    
+    // Create a path element instead of a line for better control
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.id = `line-${fromId}-${toId}`;
+    path.setAttribute('stroke', '#3b82f6');
+    path.setAttribute('stroke-width', 2);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('data-from', fromId);
+    path.setAttribute('data-to', toId);
+    path.classList.add('connection-line', 'opacity-0', 'transition-opacity', 'duration-500');
+    
+    // Store references to the connected nodes
+    path.dataset.fromNode = fromId;
+    path.dataset.toNode = toId;
+    
+    // Initial update of the path
+    updateConnectionPath(path);
+    
+    return path;
+  }
+  
+  // Update a connection path between nodes
+  function updateConnectionPath(path) {
+    const fromId = path.dataset.fromNode;
+    const toId = path.dataset.toNode;
+    
+    const fromNode = document.getElementById(`node-${fromId}`);
+    const toNode = document.getElementById(`node-${toId}`);
+    
+    if (!fromNode || !toNode) return;
+    
+    // Get node positions and dimensions
+    const fromRect = fromNode.getBoundingClientRect();
+    const toRect = toNode.getBoundingClientRect();
+    const containerRect = nodesContainer.getBoundingClientRect();
+    
+    // Calculate center points relative to the container
+    const fromCenterX = (fromRect.left + fromRect.width / 2 - containerRect.left) / currentScale;
+    const fromCenterY = (fromRect.top + fromRect.height / 2 - containerRect.top) / currentScale;
+    const toCenterX = (toRect.left + toRect.width / 2 - containerRect.left) / currentScale;
+    const toCenterY = (toRect.top + toRect.height / 2 - containerRect.top) / currentScale;
+    
+    // Calculate the direction vector from parent to child
+    const dx = toCenterX - fromCenterX;
+    const dy = toCenterY - fromCenterY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    
+    // Normalize the direction vector
+    const nx = dx / distance;
+    const ny = dy / distance;
+    
+    // Calculate the start and end points (offset from center to edge of node)
+    const fromNodeBox = fromNode.querySelector('.node-box');
+    const toNodeBox = toNode.querySelector('.node-box');
+    
+    const fromBoxHeight = fromNodeBox ? fromNodeBox.offsetHeight / currentScale / 2 : 20;
+    const fromBoxWidth = fromNodeBox ? fromNodeBox.offsetWidth / currentScale / 2 : 60;
+    const toBoxHeight = toNodeBox ? toNodeBox.offsetHeight / currentScale / 2 : 20;
+    const toBoxWidth = toNodeBox ? toNodeBox.offsetWidth / currentScale / 2 : 60;
+    
+    // Calculate start point (from bottom of parent for downward connections)
+    let startX = fromCenterX;
+    let startY = fromCenterY + fromBoxHeight;
+    
+    // Calculate end point (to top of child)
+    let endX = toCenterX;
+    let endY = toCenterY - toBoxHeight;
+    
+    // Create a curved path
+    const controlPointX1 = startX;
+    const controlPointY1 = startY + distance * 0.2;
+    const controlPointX2 = endX;
+    const controlPointY2 = endY - distance * 0.2;
+    
+    // Define the path with a smooth curve
+    const d = `M ${startX} ${startY} C ${controlPointX1} ${controlPointY1}, ${controlPointX2} ${controlPointY2}, ${endX} ${endY}`;
+    
+    path.setAttribute('d', d);
+  }
+  
+  // Update all connection lines
+  function updateConnectionLines() {
+    // Clear existing lines
+    while (connectionLines.firstChild) {
+      connectionLines.removeChild(connectionLines.firstChild);
+    }
+    
+    // Create SVG group that will be transformed with the nodes container
+    const svgGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    connectionLines.appendChild(svgGroup);
+    
+    // Apply the same transform as the nodes container
+    svgGroup.setAttribute('transform', `translate(${currentTranslate.x} ${currentTranslate.y}) scale(${currentScale})`);
+    
+    // Recreate all lines
+    bluenodeData.nodes.forEach(node => {
+      if (node.children && node.children.length > 0) {
+        node.children.forEach(childId => {
+          if (activeNodes.has(childId)) {
+            const path = createConnectionLine(node.id, childId);
+            if (path) {
+              svgGroup.appendChild(path);
+              setTimeout(() => path.classList.add('opacity-100'), 10);
+            }
+          }
+        });
+      }
+    });
+  }
+  
+  // Update connection paths after transform
+  function updateAllConnectionPaths() {
+    const paths = connectionLines.querySelectorAll('path.connection-line');
+    paths.forEach(path => {
+      updateConnectionPath(path);
+    });
+  }
+  
+  // Position child nodes in a downward branching pattern
+  function positionChildNodes(parentId, childIds) {
+    const parentNode = document.getElementById(`node-${parentId}`);
+    if (!parentNode || !childIds.length) return;
+    
+    // Get parent node position and dimensions
+    const parentRect = parentNode.getBoundingClientRect();
+    const containerRect = nodesContainer.getBoundingClientRect();
+    
+    // Calculate parent center position relative to the container
+    const parentCenterX = (parentRect.left + parentRect.width / 2 - containerRect.left) / currentScale;
+    const parentCenterY = (parentRect.top + parentRect.height / 2 - containerRect.top) / currentScale;
+    const parentHeight = parentRect.height / currentScale;
+    
+    // Calculate vertical distance for child nodes
+    const verticalDistance = 100;
+    
+    // Calculate total width needed for children
+    const childSpacing = 120;
+    const totalWidth = Math.max((childIds.length - 1) * childSpacing, 0);
+    
+    // Create a fan-like arrangement below the parent
+    const fanAngle = Math.min(60, 30 * childIds.length); // Max 60 degrees, scales with number of children
+    const startAngle = 270 - (fanAngle / 2); // Center the fan below the parent
+    const angleStep = childIds.length > 1 ? fanAngle / (childIds.length - 1) : 0;
+    
+    // Position each child node in a downward branching pattern
+    childIds.forEach((childId, index) => {
+      const childNode = document.getElementById(`node-${childId}`);
+      if (!childNode) return;
+      
+      // Calculate angle for this child
+      const angle = startAngle + (index * angleStep);
+      const radians = angle * (Math.PI / 180);
+      
+      // Calculate position using polar coordinates
+      const distance = verticalDistance + (index % 2) * 20; // Add slight variation to distance
+      const x = parentCenterX + distance * Math.cos(radians);
+      const y = parentCenterY + distance * Math.sin(radians);
+      
+      // Set position
+      childNode.style.left = `${x}px`;
+      childNode.style.top = `${y}px`;
+      
+      // Store the parent ID for connection line updates
+      childNode.dataset.parentId = parentId;
+      
+      // Make visible with a staggered delay for a cascade effect
+      setTimeout(() => {
+        childNode.classList.add('opacity-100');
+      }, index * 50);
+    });
+    
+    // Update connection lines
+    updateConnectionLines();
+  }
+  
+  // Hide descendant nodes
+  function hideDescendants(nodeId) {
+    const nodeData = findNodeById(nodeId);
+    if (!nodeData || !nodeData.children || nodeData.children.length === 0) return;
+    
+    // Process each child
+    nodeData.children.forEach(childId => {
+      // First hide this child's descendants recursively
+      hideDescendants(childId);
+      
+      // Then hide the child itself
+      const childNode = document.getElementById(`node-${childId}`);
+      if (childNode) {
+        childNode.classList.remove('opacity-100');
+        childNode.classList.add('opacity-0');
+        
+        // After animation completes, remove the node
+        setTimeout(() => {
+          if (childNode.parentNode) {
+            childNode.parentNode.removeChild(childNode);
+          }
+          activeNodes.delete(childId);
+        }, 500);
+      }
+    });
+    
+    // Remove from expanded nodes
+    expandedNodes.delete(nodeId);
+  }
+  
+  // Hide sibling branches
+  function hideSiblingBranches(nodeId) {
+    // Find the parent node
+    const parentId = findParentId(nodeId);
+    if (!parentId) return;
+    
+    const parentData = findNodeById(parentId);
+    if (!parentData || !parentData.children) return;
+    
+    // Hide all siblings' descendants
+    parentData.children.forEach(childId => {
+      if (childId !== nodeId) {
+        hideDescendants(childId);
+      }
+    });
+    
+    // Update connection lines
+    updateConnectionLines();
+  }
+  
+  // Find parent ID of a node
+  function findParentId(nodeId) {
+    for (const node of bluenodeData.nodes) {
+      if (node.children && node.children.includes(nodeId)) {
+        return node.id;
+      }
+    }
+    return null;
+  }
+  
+  // Handle node click event
+  function handleNodeClick(nodeId) {
+    const nodeData = findNodeById(nodeId);
+    if (!nodeData) return;
+    
+    // Set as current active node
+    currentActiveNode = nodeId;
+    
+    // Show node detail in the right panel
+    showNodeDetail(nodeData);
+    
+    // Highlight the selected node
+    highlightSelectedNode(nodeId);
+    
+    // Hide sibling branches if this is not the root
+    if (nodeId !== 'root') {
+      hideSiblingBranches(nodeId);
+    }
+    
+    // If this node has children and they're not already displayed
+    if (nodeData.children && nodeData.children.length > 0 && !expandedNodes.has(nodeId)) {
+      // Create child nodes if they don't exist yet
+      const childrenToAdd = nodeData.children.filter(childId => !activeNodes.has(childId));
+      
+      if (childrenToAdd.length > 0) {
+        // Add child nodes to the DOM
+        childrenToAdd.forEach(childId => {
+          const childData = findNodeById(childId);
+          if (childData) {
+            const childElement = createNodeElement(childData);
+            nodesContainer.appendChild(childElement);
+            activeNodes.add(childId);
+          }
+        });
+        
+        // Position the child nodes below the parent
+        setTimeout(() => {
+          positionChildNodes(nodeId, nodeData.children);
+        }, 50);
+        
+        // Mark as expanded
+        expandedNodes.add(nodeId);
+      }
+    }
+  }
+  
+  // Highlight the selected node
+  function highlightSelectedNode(nodeId) {
+    // Remove highlight from all nodes
+    document.querySelectorAll('.node-element').forEach(node => {
+      const box = node.querySelector('.node-box');
+      if (box) {
+        box.classList.remove('ring-4', 'ring-accent', 'ring-opacity-50');
+      }
+    });
+    
+    // Add highlight to selected node
+    const selectedNode = document.getElementById(`node-${nodeId}`);
+    if (selectedNode) {
+      const box = selectedNode.querySelector('.node-box');
+      if (box) {
+        box.classList.add('ring-4', 'ring-accent', 'ring-opacity-50');
+      }
+    }
+  }
+  
+  // Apply transform to the nodes container
+  function applyTransform() {
+    if (nodesContainer) {
+      nodesContainer.style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px) scale(${currentScale})`;
+      
+      // Update SVG connection lines to match the transform
+      const svgGroup = connectionLines.querySelector('g');
+      if (svgGroup) {
+        svgGroup.setAttribute('transform', `translate(${currentTranslate.x} ${currentTranslate.y}) scale(${currentScale})`);
+        
+        // Update all connection paths to ensure they stay attached to nodes
+        updateAllConnectionPaths();
+      }
+    }
+  }
+  
+  // Initialize the root node
+  function initializeGraph() {
+    // Get the root node data
+    const rootNode = document.getElementById('node-root');
+    if (rootNode) {
+      const rootData = findNodeById('root');
+      if (rootData) {
+        // Set up event listeners for the root node
+        rootNode.addEventListener('click', (e) => {
+          if (!isPanning) {
+            handleNodeClick('root');
+            showNodeDetail(rootData);
+          }
+          e.stopPropagation();
+        });
+        rootNode.addEventListener('mouseenter', () => showNodeInfo(rootData));
+        rootNode.addEventListener('mouseleave', hideNodeInfo);
+        
+        // Show root node detail initially
+        showNodeDetail(rootData);
+      }
+    }
+  }
+  
+  // Pan functionality
+  function setupPanAndZoom() {
+    if (!nodesViewport || !nodesContainer) return;
+    
+    // Mouse down event to start panning
+    nodesViewport.addEventListener('mousedown', (e) => {
+      if (e.button === 0) { // Left mouse button
+        isPanning = true;
+        startPoint = { x: e.clientX, y: e.clientY };
+        startTranslate = { ...currentTranslate };
+        nodesViewport.style.cursor = 'grabbing';
+      }
+    });
+    
+    // Mouse move event to pan
+    window.addEventListener('mousemove', (e) => {
+      if (isPanning) {
+        const dx = e.clientX - startPoint.x;
+        const dy = e.clientY - startPoint.y;
+        
+        currentTranslate = {
+          x: startTranslate.x + dx,
+          y: startTranslate.y + dy
+        };
+        
+        applyTransform();
+      }
+    });
+    
+    // Mouse up event to stop panning
+    window.addEventListener('mouseup', () => {
+      if (isPanning) {
+        isPanning = false;
+        nodesViewport.style.cursor = 'default';
+      }
+    });
+    
+    // Mouse leave event to stop panning
+    nodesViewport.addEventListener('mouseleave', () => {
+      if (isPanning) {
+        isPanning = false;
+        nodesViewport.style.cursor = 'default';
+      }
+    });
+    
+    // Wheel event for zooming
+    nodesViewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      
+      // Get mouse position relative to container
+      const rect = nodesViewport.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      
+      // Calculate zoom direction and factor
+      const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
+      
+      // Limit zoom scale
+      const newScale = Math.max(0.5, Math.min(3, currentScale * zoomFactor));
+      
+      // Only proceed if scale changed
+      if (newScale !== currentScale) {
+        // Calculate new translate values to zoom toward mouse position
+        const scaleChange = newScale / currentScale;
+        
+        currentTranslate = {
+          x: mouseX - (mouseX - currentTranslate.x) * scaleChange,
+          y: mouseY - (mouseY - currentTranslate.y) * scaleChange
+        };
+        
+        currentScale = newScale;
+        applyTransform();
+      }
+    });
+    
+    // Zoom in button
+    if (zoomInBtn) {
+      zoomInBtn.addEventListener('click', () => {
+        const newScale = Math.min(3, currentScale * 1.2);
+        if (newScale !== currentScale) {
+          currentScale = newScale;
+          applyTransform();
+        }
+      });
+    }
+    
+    // Zoom out button
+    if (zoomOutBtn) {
+      zoomOutBtn.addEventListener('click', () => {
+        const newScale = Math.max(0.5, currentScale * 0.8);
+        if (newScale !== currentScale) {
+          currentScale = newScale;
+          applyTransform();
+        }
+      });
+    }
+    
+    // Reset view button
+    if (resetViewBtn) {
+      resetViewBtn.addEventListener('click', () => {
+        currentScale = 1;
+        currentTranslate = { x: 0, y: 0 };
+        applyTransform();
+      });
+    }
+  }
+  
+  // Initialize the graph and pan/zoom functionality
+  initializeGraph();
+  setupPanAndZoom();
+});
+
+// Make the bluenode data available to the script
+window.bluenodeData = window.bluenodeData || {};

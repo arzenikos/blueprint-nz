@@ -4,120 +4,151 @@
 
 ## Project Structure
 
-Below is a comprehensive list of files in the `src` directory with descriptions:
+Below is the directory structure of the project:
 
-### Assets
+```
+📁astro-blueprint-nz
+    └── 📁public
+    └── 📁src
+        ├──📁assets  # Project Assets
+        │   ├── 📁icons       # Icons (.svg)
+        │   ├── 📁images      # Image assets
+        ├──📁components  # Reusable UI components
+        │   ├── 📁common    # Common components
+        │   │   ├── 📁chatbox    # Chat interface components
+        │   │   └── 📁navigation # Navigation components
+        │   ├── 📁layout  # Layout components
+        │   │   ├── 📁header    # Header components
+        │   │   └── 📁footer    # Footer components
+        │   └── 📁ui      # UI components
+        │   │   ├── 📁icon    # Icon components
+        │   │   └── 📁button  # Button components
+        ├──📁content     # All the hardcoded texts for pages
+        ├──📁layouts     # Site layouts
+        │   ├── Layout.astro           # Main application layout
+        │   ├── BaseLayout.astro       # Base layout template
+        │   ├── MarkdownAbout.astro    # About-me page layout
+        │   ├── MarkdownPostLayout.astro # Posts page layout
+        │   └── ProjectLayout.astro    # Projects page layout
+        ├── 📁pages       # Site pages
+        │   ├── index.astro            # Home page
+        │   ├── about.astro            # About page
+        │   ├── services.astro         # Services page
+        │   ├── features.astro         # Features page
+        │   └── 📁bluenode             # BlueNode feature pages
+        ├── 📁scripts      # JavaScript files
+        │   ├── chatbox.js             # Chat functionality
+        │   ├── bluenode.js            # BlueNode visualization
+        │   ├── theme.js               # Theme management
+        │   └── menu.js                # Menu script
+        ├──📁styles     # Styling
+        │   └── global.css             # Global styles
+        ├──📁lib     # Utility libraries
+            ├── 📁utils             # Utility functions
+            │   └── languages.ts           
+            ├── 📁themes-and-layout  # Theme and layout configuration
+            │   ├── spacing.ts       # Spacing system
+            │   ├── color.ts         # Color system
+            │   ├── image.ts         # Image sizing
+            │   └── theme.ts         # Theme configuration
+            └── 📁types            # TypeScript type definitions
+    ├── .gitignore
+    ├── astro.config.mjs
+    ├── package-lock.json
+    ├── package.json
+    ├── README.md
+    └── tsconfig.json
+```
 
-- `/src/assets/icons/` - SVG icons used throughout the site
-- `/src/assets/images/` - Image assets including logos and placeholders
-- `/src/assets/svg/icons.svg` - SVG sprite sheet for optimized icon loading
+## Directory Descriptions
 
-### Components
+### `/public`
+Contains static assets that are copied directly to the build output without processing. This includes favicons, robots.txt, and other static files.
 
-- `/src/components/Diff.astro` - Component for displaying code differences
-- `/src/components/Markdown.astro` - Markdown rendering component
-- `/src/components/OptimizedImage.astro` - Image optimization wrapper
+### `/src/assets`
+Project assets used throughout the site:
+- **`/icons`**: SVG icon files used for UI elements
+- **`/images`**: Image assets including logos, backgrounds, and content images
 
-#### About Components
+### `/src/components`
+Reusable UI components organized by function:
 
-- `/src/components/about/ImageComparison.astro` - Before/after image comparison tool
-- `/src/components/about/MainContent.astro` - Main content for about page
+- **`/common`**: Shared components used across multiple pages
+  - **`/chatbox`**: Interactive chat interface components
+  - **`/navigation`**: Navigation components including main nav and nav items
 
-#### Common Components
+- **`/layout`**: Layout-specific components
+  - **`/header`**: Header components including logo and navigation
+  - **`/footer`**: Footer components including sections, newsletter form, and social links
 
-- `/src/components/common/` - Reusable UI components like alerts, chat boxes, and context notifications
+- **`/ui`**: Core UI components
+  - **`/icon`**: Icon system components
+  - **`/button`**: Button components with different variants
 
-#### Footer Components
+### `/src/content`
+Content data files that provide text and configuration for pages:
+- Content is separated from presentation to make updates easier
+- Includes navigation structure, site metadata, and page-specific content
+- Centralizes all hardcoded text in one location
 
-- `/src/components/footer/FooterSection.astro` - Footer section layout component
-- `/src/components/footer/NewsletterForm.astro` - Newsletter subscription form
-- `/src/components/footer/SocialLinks.astro` - Social media links component
+### `/src/layouts`
+Page layout templates that define the structure of different page types:
+- **`Layout.astro`**: Main application layout (wrapper for backward compatibility)
+- **`BaseLayout.astro`**: Base layout template with header and footer
+- **`MarkdownAbout.astro`**: Layout for about page content
+- **`MarkdownPostLayout.astro`**: Layout for blog posts
+- **`ProjectLayout.astro`**: Layout for project pages
 
-#### Home Page Components
+### `/src/pages`
+Astro pages that represent the routes of the site:
+- **`index.astro`**: Homepage
+- **`about.astro`**: About page
+- **`services.astro`**: Services page
+- **`features.astro`**: Features showcase page
+- **`/bluenode`**: BlueNode interactive visualization feature
 
-- `/src/components/home/HeroSection.astro` - Hero banner for homepage
-- `/src/components/home/FoundationSection.astro` - Foundation information section
-- `/src/components/home/InfoSection.astro` - Information display section
-- `/src/components/home/ServicesSection.astro` - Services showcase section
+### `/src/scripts`
+JavaScript files for interactive functionality:
+- **`chatbox.js`**: Chat interface functionality
+- **`bluenode.js`**: Interactive node graph visualization
+- **`theme.js`**: Theme management (light/dark mode)
+- **`menu.js`**: Mobile menu functionality
 
-#### Icon Components
+### `/src/styles`
+CSS styling for the site:
+- **`global.css`**: Global CSS styles and utility classes
 
-- `/src/components/icons/Icon.astro` - Icon component wrapper
-- `/src/components/icons/IconLibrary.ts` - Icon definitions and mappings
-- `/src/components/icons/Icons.astro` - Icon collection component
-- `/src/components/icons/BlueprintIcon.astro` - Blueprint-specific icon component
+### `/src/lib`
+Utility libraries and configuration:
+- **`/utils`**: Utility functions for common operations
+- **`/themes-and-layout`**: Configuration for theming and layout
+  - **`spacing.ts`**: Spacing system definitions
+  - **`color.ts`**: Color system definitions
+  - **`image.ts`**: Image size configurations
+  - **`theme.ts`**: Theme configuration
+- **`/types`**: TypeScript type definitions
 
-#### Layout Components
+## Key Features
 
-- `/src/components/layout/Header.astro` - Site header with navigation
-- `/src/components/layout/Footer.astro` - Site footer with sections and links
+### Content-Driven Architecture
+- All content is stored in the `/src/content` directory
+- Components consume content data rather than hardcoding text
+- Makes the site easier to maintain and update
 
-#### Navigation Components
+### Theme System
+- Supports light and dark mode with smooth transitions
+- Theme configuration centralized in `/src/lib/themes-and-layout`
+- Consistent color application throughout the site
 
-- `/src/components/navigation/MainNav.astro` - Main navigation menu
-- `/src/components/navigation/NavItem.astro` - Navigation item component
-- `/src/components/navigation/SearchBar.astro` - Search functionality
-- `/src/components/navigation/SearchButton.astro` - Search trigger button
+### Interactive Features
+- **BlueNode**: Interactive knowledge graph visualization
+- **ChatBox**: Interactive chat support interface
+- Both features are fully integrated with the theme system
 
-#### Shared Components
-
-- `/src/components/shared/` - Shared UI elements like logos, tooltips, and theme toggles
-
-#### UI Components
-
-- `/src/components/ui/` - Core UI components (buttons, cards, containers, etc.)
-
-### Data
-
-- `/src/data/about.ts` - About page content data
-- `/src/data/bluenode.ts` - Bluenode feature data
-- `/src/data/home.ts` - Homepage content data
-- `/src/data/navigation.ts` - Navigation structure and items
-- `/src/data/site.ts` - Global site configuration
-
-### Layouts
-
-- `/src/layouts/BaseLayout.astro` - Base layout template
-- `/src/layouts/FullPageLayout.astro` - Full page layout template
-- `/src/layouts/Layout.astro` - Standard page layout
-
-### Library
-
-- `/src/lib/theme/` - Theme configuration and utilities
-- `/src/lib/types/` - TypeScript type definitions
-- `/src/lib/utils/` - Utility functions for helpers, highlighting, and Netlify integration
-
-### Pages
-
-- `/src/pages/index.astro` - Homepage
-- `/src/pages/about.astro` - About page
-- `/src/pages/design-system.astro` - Design system documentation
-- `/src/pages/blueprint-svg.astro` - SVG blueprint generator
-- `/src/pages/newsletter.astro` - Newsletter subscription page
-
-#### API Endpoints
-
-- `/src/pages/api/` - API endpoints for blob storage, newsletter, and revalidation
-
-#### Feature Pages
-
-- `/src/pages/blobs/` - Blob storage demonstration
-- `/src/pages/bluenode/` - Bluenode visualization feature
-- `/src/pages/get-involved/` - Community involvement page
-- `/src/pages/help/` - Help and support page
-- `/src/pages/information-and-support/` - Information resources
-- `/src/pages/news/` - News and updates
-- `/src/pages/research/` - Research information
-- `/src/pages/settings/` - User settings page
-- `/src/pages/shop/` - E-commerce section
-
-### Styles
-
-- `/src/styles/globals.css` - Global CSS styles
-- `/src/styles/chat-box.css` - Chat interface styling
-- `/src/styles/images.ts` - Image size configurations
-- `/src/styles/spacing.ts` - Spacing system definitions
-- `/src/styles/theme.ts` - Theme configuration
+### Responsive Design
+- Mobile-first approach with responsive breakpoints
+- Consistent spacing and layout across all screen sizes
+- Optimized navigation for different devices
 
 ## Astro Commands
 
@@ -166,125 +197,16 @@ The site uses a centralized 5-color palette system:
 4. **Neutral** (`#ffffff`) - For backgrounds, text, and borders
 5. **Semantic** (`#10b981`) - Base for feedback states
 
-To modify the color palette, edit the `palette` object in `/src/styles/colors.ts`.
+To modify the color palette, edit the `palette` object in `/src/lib/themes-and-layout/color.ts`.
 
-## Project Structure Diagram
+## Component Architecture
 
-Below is a diagram showing the main dependencies between key files in the src directory:
+The project follows a modular component architecture with clear separation of concerns:
 
-```
-                                  +----------------+
-                                  |                |
-                                  |   index.astro  |
-                                  |   (Homepage)   |
-                                  |                |
-                                  +-------+--------+
-                                          |
-                                          | uses
-                                          v
-                +------------------------+----------------------------+
-                |                        |                            |
-    +-----------v-----------+  +---------v----------+    +-----------v-----------+
-    |                       |  |                    |    |                       |
-    |    Layout.astro       |  |  home/             |    |  navigation/          |
-    |    (Main Layout)      |  |  HeroSection.astro |    |  MainNav.astro        |
-    |                       |  |  InfoSection.astro |    |                       |
-    +-----------+-----------+  |  ServicesSection   |    +-----------+-----------+
-                |              |                    |                |
-                |              +--------------------+                |
-                v                                                    v
-    +-----------+-----------+                            +-----------+-----------+
-    |                       |                            |                       |
-    |  layout/              |                            |  navigation/          |
-    |  Header.astro         +<---------------------------+  NavItem.astro        |
-    |  Footer.astro         |                            |  SearchBar.astro      |
-    |                       |                            |  SearchButton.astro   |
-    +-----------+-----------+                            +-----------+-----------+
-                |                                                    |
-                v                                                    |
-    +-----------+-----------+                                        |
-    |                       |                                        |
-    |  footer/              |                                        |
-    |  FooterSection.astro  |                                        |
-    |  NewsletterForm.astro |                                        |
-    |  SocialLinks.astro    |                                        |
-    |                       |                                        |
-    +-----------+-----------+                                        |
-                                                                     v
-    +-----------+-----------+                            +-----------+-----------+
-    |                       |                            |                       |
-    |  data/                +<---------------------------+  icons/               |
-    |  navigation.ts        |                            |  Icon.astro           |
-    |  site.ts              |                            |  IconLibrary.ts       |
-    |  home.ts              |                            |                       |
-    |                       |                            +-----------------------+
-    +-----------+-----------+
-                |
-                v
-    +-----------+-----------+
-    |                       |
-    |  styles/              |
-    |  globals.css          |
-    |  images.ts            |
-    |  spacing.ts           |
-    |  theme.ts             |
-    |                       |
-    +-----------------------+
-```
+1. **Content/Data Layer**: Content files in `/src/content` provide the text and configuration
+2. **Presentation Layer**: Components in `/src/components` define how content is displayed
+3. **Layout Layer**: Layouts in `/src/layouts` define the page structure
+4. **Style Layer**: Styles in `/src/styles` and theme configuration in `/src/lib/themes-and-layout`
+5. **Interaction Layer**: JavaScript in `/src/scripts` provides interactive functionality
 
-This diagram shows the primary dependencies between key components. The main flow starts from the index.astro (homepage) which uses the Layout.astro component. The Layout component incorporates Header and Footer components, which in turn use navigation components and footer components respectively. Most components rely on data files for content and configuration, and many use the Icon system for visual elements.
-
-## Detailed Component Dependencies
-
-Below is a more detailed breakdown of component dependencies:
-```
-+---------------------+     +---------------------+     +---------------------+
-| Pages               |     | Layouts             |     | Components          |
-+---------------------+     +---------------------+     +---------------------+
-| index.astro         +---->| Layout.astro        +---->| Header.astro        |
-| about.astro         |     | BaseLayout.astro    |     | Footer.astro        |
-| design-system.astro |     | FullPageLayout.astro|     | MainNav.astro       |
-| blueprint-svg.astro |     |                     |     | NavItem.astro       |
-| newsletter.astro    |     |                     |     | HeroSection.astro   |
-+---------------------+     +---------------------+     | ServicesSection.astro|
-                                                        | InfoSection.astro    |
-                                                        +---------------------+
-                                                                 |
-                                                                 v
-+---------------------+     +---------------------+     +---------------------+
-| Data                |     | Styles              |     | UI Components       |
-+---------------------+     +---------------------+     +---------------------+
-| navigation.ts       |<----+ globals.css         |<----+ Button.astro        |
-| site.ts             |     | images.ts           |     | Card.astro          |
-| home.ts             |     | spacing.ts          |     | Container.astro     |
-| about.ts            |     | theme.ts            |     | Section.astro       |
-| bluenode.ts         |     |                     |     | Breadcrumbs.astro   |
-+---------------------+     +---------------------+     +---------------------+
-        ^                            ^                           ^
-        |                            |                           |
-        |                            |                           |
-+---------------------+     +---------------------+     +---------------------+
-| Icons               |     | Shared              |     | Utils               |
-+---------------------+     +---------------------+     +---------------------+
-| Icon.astro          |<----+ Logo.astro          |<----+ helpers.ts          |
-| IconLibrary.ts      |     | ThemeToggle.astro   |     | highlighter.ts      |
-| BlueprintIcon.astro |     | MobileNavTooltip    |     | netlify.ts          |
-| Icons.astro         |     | PixelRibbon.astro   |     |                     |
-+---------------------+     +---------------------+     +---------------------+
-```
-
-### Key Dependency Flows
-
-1. **Page Rendering Flow**:
-   - Pages (index.astro) → Layout.astro → Header/Footer → Navigation Components → Icons
-
-2. **Data Flow**:
-   - Data files (navigation.ts, site.ts) → Layout Components → UI Components
-
-3. **Styling Flow**:
-   - Styles (globals.css, theme.ts) → Applied throughout all components
-
-4. **Component Composition**:
-   - UI Components (Button.astro, Card.astro) → Used in Section Components → Used in Page Components
-
-This structure follows a modular architecture where components are organized by function and reused throughout the application. The data files provide centralized configuration that flows into the components, while utility functions support operations across the application.
+This architecture makes the site easy to maintain and extend with new features.

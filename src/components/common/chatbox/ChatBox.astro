@@ -80,12 +80,12 @@
     chatForm?.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const message = chatInput?.value.trim();
+      const message = (chatInput as HTMLInputElement)?.value.trim();
       if (!message) return;
       
       // Add user message
       addMessage(message, 'user');
-      chatInput.value = '';
+      if (chatInput) (chatInput as HTMLInputElement).value = '';
       
       // Simulate response (replace with actual API call)
       setTimeout(() => {
@@ -94,7 +94,7 @@
     });
     
     // Function to add a message to the chat
-    function addMessage(text, sender) {
+    function addMessage(text: string | null, sender: string) {
       const messageDiv = document.createElement('div');
       messageDiv.className = 'mb-3';
       
@@ -112,7 +112,9 @@
       chatMessages?.appendChild(messageDiv);
       
       // Scroll to bottom
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+      if (chatMessages) {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
     }
   });
 </script>
