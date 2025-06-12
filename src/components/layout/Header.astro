@@ -11,7 +11,6 @@ interface Props {
   class?: string;
 }
 
-
 // Get logo sizes from centralized file
 const logoSizes = imageSizes.logo.default.height;
 // Get header margin from centralized file
@@ -32,26 +31,21 @@ const { class: className = '' } = Astro.props;
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center">
           <img 
+            id="site-logo"
             src="/src/assets/images/logo-13232A-6DA3C0.png" 
             alt={siteData.site.title} 
-            class="max-h-full object-contain hidden dark:block"
+            class="max-h-full object-contain"
             style={`height: ${logoSizes.mobile};`}
           />
         </a>
       </div> 
       
       <!-- Right Navigation Items -->
-      <div class="flex items-center space-x-1 sm:space-x-8">
-        <!-- Main Navigation Items -->
-        <!-- <MainNav /> -->
-         
-        <div class={`flex items-center space-x-1 sm:space-x-8 ${className}`}>
+       <div class={`flex items-center space-x-1 sm:space-x-8 ${className}`}>
           {mainNavItems.map(item => (
             <NavItem {...item} />
           ))}
         </div>
-
-      </div>
     </div>
   </div>
   
@@ -63,6 +57,27 @@ const { class: className = '' } = Astro.props;
 </header>
 
 <script>
+  // Theme toggle for logo
+  const darkLogo  = '/src/assets/images/logo-13232A-6DA3C0.png';
+  const lightLogo = '/src/assets/images/logo-b9d6f2-061a40.png'; // Change this to your dark logo path
+
+  function setLogoByTheme(theme) {
+    const logo = document.getElementById('site-logo');
+    if (!logo) return;
+    if (theme === 'dark') {
+      (logo as HTMLImageElement).src = darkLogo;
+    } else {
+      (logo as HTMLImageElement).src = lightLogo;
+    }
+  }
+
+  function getPreferredTheme() {
+    if (window.localStorage.getItem('theme')) {
+      return window.localStorage.getItem('theme');
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     // Responsive image sizing for max screen width
     const handleResize = () => {
@@ -81,5 +96,19 @@ const { class: className = '' } = Astro.props;
     // Initial call and event listener
     handleResize();
     window.addEventListener('resize', handleResize);
+
+    // Set logo on load
+    setLogoByTheme(getPreferredTheme());
+
+    // Listen for theme changes (if you have a theme toggle event)
+    window.addEventListener('themechange', (e) => {
+      const customEvent = e as CustomEvent;
+      setLogoByTheme(customEvent.detail.theme);
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      setLogoByTheme(e.matches ? 'dark' : 'light');
+    });
   });
 </script>

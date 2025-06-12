@@ -17,16 +17,6 @@ export interface NavItem {
 }
 
 export const mainNavItems: NavItem[] = [
-  // {
-  //   label: "Language",
-  //   href: "#",
-  //   icon: "globe",
-  //   isDropdown: true,
-  //   dropdownItems: [
-  //     { value: "en", label: "English" },
-  //     { value: "es", label: "Español" }
-  //   ]
-  // },
   {
     label: "Font Size",
     href: "#",
