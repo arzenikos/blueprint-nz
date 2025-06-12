@@ -6,9 +6,14 @@ import { componentSpacing } from '../../styles/spacing';
 import { mainNavItems } from '../../data/navigation';
 // import MainNav from '../navigation/MainNav.astro';
 import NavItem from '../navigation/NavItem.astro';
+import type { NavItem as NavItemType } from '../../data/navigation';
 
-interface Props {
+
+interface Props extends NavItemType{
   class?: string;
+  iconSize?: number;
+  mobileOnly?: boolean;
+  desktopOnly?: boolean;
 }
 
 // Get logo sizes from centralized file
@@ -17,7 +22,19 @@ const logoSizes = imageSizes.logo.default.height;
 const headerMarginTop = componentSpacing.header.margin.top;
 const headerMarginBottom = componentSpacing.header.margin.bottom;
 
-const { class: className = '' } = Astro.props;
+
+const {
+  class: className = '' ,
+  // mobileOnly = false,
+  desktopOnly = true,
+} = Astro.props;
+
+const visibilityClass = desktopOnly ? 
+'justify-between' 
+: 
+'';
+
+const headerLayout = 'flex-row items-center justify-between';
 ---
 
 <header class="sticky top-0 z-40 w-full bg-transparent">
@@ -26,7 +43,7 @@ const { class: className = '' } = Astro.props;
   <div class="hidden md:block" style={`margin-top: ${headerMarginTop.desktop};`}></div>
 
   <div class="container mx-auto px-10 md:px-6 lg:px-8 max-w-[2000px]">
-    <div class="flex items-center justify-between h-16">
+    <div class=`flex flex-col md:flex-row ${visibilityClass} items-center h-16`>
       <!-- Logo (left) - Size from centralized file -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center">
@@ -82,15 +99,32 @@ const { class: className = '' } = Astro.props;
     // Responsive image sizing for max screen width
     const handleResize = () => {
       const isMaxWidth = window.innerWidth >= 1920;
-      const icons = document.querySelectorAll('header svg:not(.logo-svg)');
-      
-      icons.forEach(icon => {
+      const logoEl = document.getElementById('site-logo');
+      const navSetting = document.getElementById('nav-setting');
+      const navItemFontSize = document.getElementById('nav-item-font-size');
+      if (logoEl && navSetting && navItemFontSize) {
         if (isMaxWidth) {
-          icon.classList.add('scale-75');
-        } else {
-          icon.classList.remove('scale-75');
-        }
-      });
+            logoEl.style.height = '7em'; // Adjust height for max width
+            navSetting.style.height = '3em';
+            navItemFontSize.style.paddingInline = '5em';
+            // headerLayout = 'flex-row items-center justify-between';
+          } else {
+            logoEl.style.height = '3em'; // Reset to default height
+            navSetting.style.height = '1em';
+            navItemFontSize.style.paddingInline = '0em';
+            // headerLayout = 'flex-col items-center';
+
+          }
+      }
+      // const icons = document.querySelectorAll('site-logo');
+      
+      // icons.forEach(icon => {
+      //   if (isMaxWidth) {
+      //     icon.classList.add('scale-75');
+      //   } else {
+      //     icon.classList.remove('scale-75');
+      //   }
+      // });
     };
     
     // Initial call and event listener
