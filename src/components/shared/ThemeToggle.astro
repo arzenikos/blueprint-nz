@@ -70,6 +70,7 @@
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     
+    
     // Check for saved theme preference or use system preference
     const getThemePreference = () => {
       if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -90,6 +91,11 @@
         lightIcon?.classList.add('hidden');
       }
       localStorage.setItem('theme', theme);
+
+      // Emit themechange event
+      window.dispatchEvent(new CustomEvent('themechange', {
+        detail: { theme }
+      }));
     };
     
     // Set initial theme
