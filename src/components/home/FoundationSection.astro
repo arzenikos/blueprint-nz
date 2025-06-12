@@ -1,18 +1,18 @@
 ---
 // <!-- Not imported by any file -->
-import { Image } from 'astro:assets';
-import { homeData } from '../../data/home';
-import Container from '../ui/Container.astro';
-import placeholderImage from '../../assets/images/placeholder-image.jpg';
+// import { Image } from 'astro:assets';
+// import { homeData } from '../../data/home';
+// import Container from '../ui/Container.astro';
+// import placeholderImage from '../../assets/images/placeholder-image.jpg';
 
-const { foundationSection } = homeData;
+// const { foundationSection } = homeData;
 ---
-
+<!-- 
 <section class="py-16 bg-gray-50 my-12">
   <Container>
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex flex-col md:flex-row-reverse items-center gap-8">
-        <!-- Image Column (Right) -->
+        Image Column (Right)
         <div class="w-full md:w-1/2">
           <Image
             src={placeholderImage}
@@ -26,7 +26,7 @@ const { foundationSection } = homeData;
           />
         </div>
         
-        <!-- Text Column (Left) -->
+        Text Column (Left)
         <div class="w-full md:w-1/2">
           <h2 class="text-2xl font-bold mb-4 text-[var(--color-primary)]">{foundationSection.title}</h2>
           <p class="mb-6 text-lg">{foundationSection.description}</p>
@@ -57,4 +57,4 @@ const { foundationSection } = homeData;
       font-size: 1rem;
     }
   }
-</style>
+</style> -->

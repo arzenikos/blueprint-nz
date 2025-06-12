@@ -32,8 +32,8 @@ const centerClass = centered || (cards.length === 3 && columns === 3) ? 'place-i
 
 <div class={`grid ${getColumnClass()} gap-6 md:gap-8 ${centerClass}`}>
   {cards.map(card => (
-    <a href={card.link} class="group w-full max-w-md">
-      <div class="border border-neutral-300 rounded-lg overflow-hidden hover:border-primary transition-colors h-full flex flex-col">
+    <a href={card.link} class="group h-full w-full max-w-md">
+      <div class="border border-neutral-300 rounded-lg overflow-hidden hover:border-primary transition-colors h-full w-full flex flex-col">
         {card.image && (
           <div class="h-48 bg-neutral-200 flex items-center justify-center overflow-hidden">
             <img 

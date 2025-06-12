@@ -4,22 +4,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CardGrid from '../components/ui/CardGrid.astro';
 import Carousel from '../components/ui/Carousel.astro';
 import Button from '../components/ui/Button.astro';
+import { image } from 'd3';
 
 const mainCards = [
   {
     title: "Information and Support",
+    image: "/src/assets/images/placeholder-image-1.jpg",
     description: "Access comprehensive information and support resources to help you navigate your health journey.",
     link: "/information-and-support",
     buttonText: "Find Support"
   },
   {
     title: "Get Involved",
+    image: "/src/assets/images/placeholder-image-1.jpg",
     description: "Discover ways to contribute through volunteering, fundraising, and community events.",
     link: "/get-involved",
     buttonText: "Join Us"
   },
   {
     title: "Research",
+    image: "/src/assets/images/placeholder-image-1.jpg",
     description: "Learn about our research initiatives and how they're advancing knowledge and improving outcomes.",
     link: "/research",
     buttonText: "Explore Research"
@@ -62,7 +66,7 @@ const carouselImages = [
     </div>
     
     <!-- Desktop Layout (side by side) -->
-    <div class="hidden md:block mx-10 md:px-10 lg:px-20 px-0 py-8 lg:py-12">
+    <div class="hidden md:block mx-10 md:px-10 lg:px-30 px-0 py-8 lg:py-12">
       <div class="flex flex-row items-center">
         <!-- Left column: Text content -->
         <div class="w-12/12 pr-10 py-6">
