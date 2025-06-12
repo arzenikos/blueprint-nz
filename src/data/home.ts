@@ -1,4 +1,7 @@
-// Imported by: components/home/FoundationSection.astro, components/home/HeroSection.astro, components/home/InfoSection.astro, components/home/ServicesSection.astro
+// Imported by: components/home/FoundationSection.astro,
+// components/home/HeroSection.astro,
+// components/home/InfoSection.astro,
+// components/home/ServicesSection.astro
 export const homeData = {
   hero: {
     title: "BluePrintNZ",
@@ -7,15 +10,15 @@ export const homeData = {
     ctaLink: "/bluenode",
     carouselImages: [
       {
-        src: "placeholder-image.jpg",
+        src: "placeholder-image-1.jpg",
         alt: "Hero image 1"
       },
       {
-        src: "placeholder-image.jpg",
+        src: "placeholder-image-2.jpg",
         alt: "Hero image 2"
       },
       {
-        src: "placeholder-image.jpg",
+        src: "placeholder-image-3.jpg",
         alt: "Hero image 3"
       }
     ]
