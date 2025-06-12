@@ -14,7 +14,7 @@ const { hero } = homeData;
 <section class="py-12">
   <Container>
     <!-- Desktop layout (md and up) -->
-    <div class="hidden md:flex md:flex-row items-center gap-8 mb-10 w-full">
+    <div class="hidden md:flex flex-col md:flex-row items-center gap-8 mb-10 w-full">
       <div class="w-full md:w-1/2">
         <div class="mb-6">
           <h1 class="mb-2">{hero.title}</h1>
@@ -24,7 +24,7 @@ const { hero } = homeData;
       </div>
       <div class="w-full md:w-1/2 flex justify-center">
         <!-- Desktop Carousel -->
-        <div class="carousel-container w-full relative">
+        <div class="carousel-container w-full">
           <div class="carousel-slides">
             {hero.carouselImages.map((image, index) => (
               <div class="carousel-slide" data-index={index}>
@@ -43,7 +43,7 @@ const { hero } = homeData;
           </div>
           
           <!-- Carousel Navigation -->
-          <div class="carousel-nav flex justify-center mt-4">
+          <!-- <div class="carousel-nav flex justify-center mt-4">
             {hero.carouselImages.map((_, index) => (
               <button 
                 class="carousel-dot w-3 h-3 mx-1 rounded-full bg-gray-300 hover:bg-gray-500 transition-colors" 
@@ -51,30 +51,30 @@ const { hero } = homeData;
                 aria-label={`Go to slide ${index + 1}`}
               ></button>
             ))}
-          </div>
+          </div> -->
           
           <!-- Carousel Controls -->
-          <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all z-10" aria-label="Previous slide">
+          <!-- <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all z-10" aria-label="Previous slide">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
-          </button>
-          <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all z-10" aria-label="Next slide">
+          </button> -->
+          <!-- <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all z-10" aria-label="Next slide">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
     
     <!-- Mobile layout (sm and below) with text overlay -->
-    <div class="md:hidden relative mb-10">
-      <div class="carousel-container relative">
+    <!-- <div class="mb-10">
+      <div class="carousel-container">
         <div class="carousel-slides">
           {hero.carouselImages.map((image, index) => (
             <div class="carousel-slide" data-index={index}>
-              <div class="relative flex justify-center">
+              <div class="flex flex-col justify-center">
                 <Image
                   src={placeholderImage}
                   alt={image.alt}
@@ -85,15 +85,15 @@ const { hero } = homeData;
                   format="webp"
                   quality={80}
                 />
-                <!-- Gradient overlay for better text visibility -->
+                Gradient overlay for better text visibility
                 <div class="absolute inset-0 bg-gradient-to-t from-[rgba(0,15,46,0.8)] to-transparent rounded-lg"></div>
               </div>
             </div>
           ))}
-        </div>
+        </div> -->
         
         <!-- Mobile Carousel Navigation -->
-        <div class="carousel-nav flex justify-center mt-2 absolute bottom-4 left-0 right-0 z-10">
+        <!-- <div class="carousel-nav flex justify-center mt-2 bottom-4 left-0 right-0 z-10">
           {hero.carouselImages.map((_, index) => (
             <button 
               class="carousel-dot w-2 h-2 mx-1 rounded-full bg-white bg-opacity-70 hover:bg-opacity-100 transition-colors" 
@@ -101,15 +101,15 @@ const { hero } = homeData;
               aria-label={`Go to slide ${index + 1}`}
             ></button>
           ))}
-        </div>
+        </div> -->
       </div>
       
       <!-- Text overlay positioned at the bottom of the image -->
-      <div class="absolute bottom-0 left-0 right-0 p-6">
+      <!-- <div class="absolute bottom-0 left-0 right-0 p-6">
         <h1 class="mb-2 text-[var(--color-primary)]">{hero.title}</h1>
         <Markdown content={hero.slogan} class="mb-4 text-white text-opacity-90" />
         <Button href={hero.ctaLink} size="lg" class="custom-button">{hero.ctaText}</Button>
-      </div>
+      </div> -->
     </div>
   </Container>
 </section>
@@ -122,8 +122,8 @@ const { hero } = homeData;
     carousels.forEach(carousel => {
       const slides: NodeListOf<Element> = carousel.querySelectorAll('.carousel-slide');
       const dots: NodeListOf<Element> = carousel.querySelectorAll('.carousel-dot');
-      const prevBtn: Element = carousel.querySelector('.carousel-prev');
-      const nextBtn: Element = carousel.querySelector('.carousel-next');
+      const prevBtn: Element | null = carousel.querySelector('.carousel-prev');
+      const nextBtn: Element | null = carousel.querySelector('.carousel-next');
       let currentIndex: number = 0;
       
       // Initialize the carousel
@@ -141,9 +141,9 @@ const { hero } = homeData;
           dot.classList.toggle('bg-gray-500', index === currentIndex);
           
           // For mobile dots with white background
-          dot.classList.toggle('bg-white', index !== currentIndex && window.innerWidth < 768);
-          dot.classList.toggle('bg-opacity-70', index !== currentIndex && window.innerWidth < 768);
-          dot.classList.toggle('bg-opacity-100', index === currentIndex && window.innerWidth < 768);
+          // dot.classList.toggle('bg-white', index !== currentIndex && window.innerWidth < 768);
+          // dot.classList.toggle('bg-opacity-70', index !== currentIndex && window.innerWidth < 768);
+          // dot.classList.toggle('bg-opacity-100', index === currentIndex && window.innerWidth < 768);
         });
       }
       
