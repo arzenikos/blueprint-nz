@@ -1,8 +1,10 @@
 ---
-// <!-- Imported by: components/home/HeroSection.astro, pages/bluenode/d3-version.astro, pages/index.astro -->
+// <!-- Imported by: components/home/HeroSection.astro,
+// pages/bluenode/d3-version.astro,
+// pages/index.astro -->
 interface Props {
   href?: string;
-  variant?: 'primary' | 'secondary' | 'accent' | 'neutral' | 'outline';
+  variant?: 'primary' | 'secondary' | 'accent' |  'mainbutton' | 'neutral' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   class?: string;
@@ -19,6 +21,7 @@ const {
 // Define variant styles
 const variantStyles = {
   primary: 'bg-primary text-secondary hover:bg-primary/80 dark:bg-primary dark:text-white dark:hover:bg-primary/80',
+  mainbutton: 'bg-blue-500 text-secondary hover:bg-primary/80 dark:bg-primary dark:text-white dark:hover:bg-primary/80',
   secondary: 'bg-secondary text-neutral hover:bg-secondary/80 dark:bg-secondary dark:text-gray-900 dark:hover:bg-secondary/80',
   accent: 'bg-accent text-neutral hover:bg-accent/80 dark:bg-accent dark:text-white dark:hover:bg-accent/80',
   neutral: 'bg-neutral text-secondary hover:bg-neutral/90 dark:bg-gray-200 dark:text-gray-900 dark:hover:bg-gray-300',
