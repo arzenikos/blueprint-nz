@@ -16,13 +16,6 @@ interface Props extends NavItemType{
   desktopOnly?: boolean;
 }
 
-// Get logo sizes from centralized file
-const logoSizes = imageSizes.logo.default.height;
-// Get header margin from centralized file
-const headerMarginTop = componentSpacing.header.margin.top;
-const headerMarginBottom = componentSpacing.header.margin.bottom;
-
-
 const {
   class: className = '' ,
   // mobileOnly = false,
@@ -33,6 +26,13 @@ const visibilityClass = desktopOnly ?
 'justify-between' 
 : 
 '';
+// Get logo sizes from centralized file
+const logoSizes = imageSizes.logo.default.height;
+// Get header margin from centralized file
+const headerMarginTop = componentSpacing.header.margin.top;
+const headerMarginBottom = componentSpacing.header.margin.bottom;
+
+
 
 const headerLayout = 'flex-row items-center justify-between';
 ---
@@ -43,15 +43,15 @@ const headerLayout = 'flex-row items-center justify-between';
   <div class="hidden md:block" style={`margin-top: ${headerMarginTop.desktop};`}></div>
 
   <div class="container mx-auto px-10 md:px-6 lg:px-8 max-w-[2000px]">
-    <div class=`flex flex-col md:flex-row ${visibilityClass} items-center h-16`>
+    <div class=`flex ${visibilityClass} items-center h-20`>
       <!-- Logo (left) - Size from centralized file -->
-      <div class="flex-shrink-0">
+      <div class="flex-shrink-0 w-45 md:w-65">
         <a href="/" class="flex items-center">
           <img 
             id="site-logo"
             src="/src/assets/images/logo-13232A-6DA3C0.png" 
             alt={siteData.site.title} 
-            class="max-h-full object-contain"
+            class="object-contain"
             style={`height: ${logoSizes.mobile};`}
           />
         </a>
@@ -72,6 +72,9 @@ const headerLayout = 'flex-row items-center justify-between';
   <div class="md:hidden" style={`margin-bottom: ${headerMarginBottom.mobile};`}></div>
   <div class="hidden md:block" style={`margin-bottom: ${headerMarginBottom.desktop};`}></div>
 </header>
+
+<script type="application/json" id="image-sizes">
+</script>
 
 <script>
   // Theme toggle for logo
@@ -95,43 +98,7 @@ const headerLayout = 'flex-row items-center justify-between';
     }
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
-
   document.addEventListener('DOMContentLoaded', () => {
-    // Responsive image sizing for max screen width
-    const handleResize = () => {
-      const isMaxWidth = window.innerWidth >= 1920;
-      const logoEl = document.getElementById('site-logo');
-      const navSetting = document.getElementById('nav-setting');
-      const navItemFontSize = document.getElementById('nav-item-font-size');
-      if (logoEl && navSetting && navItemFontSize) {
-        if (isMaxWidth) {
-            logoEl.style.height = '7em'; // Adjust height for max width
-            navSetting.style.height = '3em';
-            navItemFontSize.style.paddingInline = '5em';
-            // headerLayout = 'flex-row items-center justify-between';
-          } else {
-            logoEl.style.height = '3em'; // Reset to default height
-            navSetting.style.height = '1em';
-            navItemFontSize.style.paddingInline = '0em';
-            // headerLayout = 'flex-col items-center';
-
-          }
-      }
-      // const icons = document.querySelectorAll('site-logo');
-      
-      // icons.forEach(icon => {
-      //   if (isMaxWidth) {
-      //     icon.classList.add('scale-75');
-      //   } else {
-      //     icon.classList.remove('scale-75');
-      //   }
-      // });
-    };
-    
-    // Initial call and event listener
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
     // Set logo on load
     setLogoByTheme(getPreferredTheme());
 

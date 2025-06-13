@@ -16,7 +16,7 @@ const { links } = Astro.props;
 ---
 <div class="flex items-start gap-3">
   {links.map(social => (
-    <a href={social.url} class="text-semantic hover:text-semantic" aria-label={social.ariaLabel}>
+    <a href={social.url} aria-label={social.ariaLabel}>
       <span class="sr-only">{social.ariaLabel}</span>
       <Icon name={social.platform} size={16} />
     </a>

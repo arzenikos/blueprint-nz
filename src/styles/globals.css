@@ -10,9 +10,9 @@
   
   --color-primary: #b9d6f2;
   --color-secondary: #000f2e;
-  --color-accent: #3b82f6;
+  --color-accent: #10b981;
   --color-neutral: #ffffff;
-  --color-semantic: #10b981;
+  --color-semantic: #070ac9;
   --color-chatbox-background: #d2dfe7;
   
   /* Primary colors */
@@ -51,7 +51,7 @@
   /* Core palette - Dark theme */
   --color-primary: #3b82f6;
   --color-secondary: #1b2332;
-  --color-accent: #60a5fa;
+  --color-accent: #10b981;
   --color-neutral: #1f2937;
   --color-semantic: #10b981;
   --color-chatbox-background: #a6bfc5;
@@ -136,7 +136,7 @@
 
   a:not(.btn) {
     @apply underline transition hover:opacity-80;
-    color: var(--color-semantic); /* Changed to dark blue */
+    color: var(--color-accent); /* Changed to dark blue */
   }
 
   pre {
