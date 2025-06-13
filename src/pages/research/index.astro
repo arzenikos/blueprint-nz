@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 
 const breadcrumbItems = [
-  { label: 'Research', href: '/research', current: true }
+  { label: 'Research', href:'/research', current: true }
 ];
 
 const researchCategories = [
@@ -57,7 +57,7 @@ const researchCategories = [
           <div class="border border-neutral-300 rounded-lg p-6 hover:border-primary transition-colors">
             <h3 class="text-lg font-semibold mb-3 text-secondary">{category.title}</h3>
             <p class="text-sm mb-4">{category.description}</p>
-            <a href="#" class="text-accent hover:underline font-medium">Learn more →</a>
+            <a href="/empty" class="text-accent hover:underline font-medium">Learn more →</a>
           </div>
         ))}
       </div>
@@ -76,7 +76,7 @@ const researchCategories = [
           </p>
           <div class="flex items-center justify-between">
             <span class="text-xs text-neutral-600">Published: June 15, 2025</span>
-            <a href="#" class="text-accent hover:underline text-sm font-medium">Read the full study →</a>
+            <a href="/empty" class="text-accent hover:underline text-sm font-medium">Read the full study →</a>
           </div>
         </div>
         
@@ -88,7 +88,7 @@ const researchCategories = [
           </p>
           <div class="flex items-center justify-between">
             <span class="text-xs text-neutral-600">Published: May 3, 2025</span>
-            <a href="#" class="text-accent hover:underline text-sm font-medium">Read the full study →</a>
+            <a href="/empty" class="text-accent hover:underline text-sm font-medium">Read the full study →</a>
           </div>
         </div>
         
@@ -100,7 +100,7 @@ const researchCategories = [
           </p>
           <div class="flex items-center justify-between">
             <span class="text-xs text-neutral-600">Published: April 22, 2025</span>
-            <a href="#" class="text-accent hover:underline text-sm font-medium">Read the full study →</a>
+            <a href="/empty" class="text-accent hover:underline text-sm font-medium">Read the full study →</a>
           </div>
         </div>
       </div>
@@ -112,10 +112,10 @@ const researchCategories = [
           scientific understanding and improve outcomes for everyone.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#" class="bg-accent text-neutral py-2 px-4 rounded-lg text-center hover:bg-accent/80 transition-colors">
+          <a href="/empty" class="bg-accent text-neutral py-2 px-4 rounded-lg text-center hover:bg-accent/80 transition-colors">
             View Current Studies
           </a>
-          <a href="#" class="bg-accent text-neutral py-2 px-4 rounded-lg text-center hover:bg-accent/80 transition-colors">
+          <a href="/empty" class="bg-accent text-neutral py-2 px-4 rounded-lg text-center hover:bg-accent/80 transition-colors">
             Register as a Participant
           </a>
         </div>
