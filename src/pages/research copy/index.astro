@@ -1,0 +1,125 @@
+---
+// <!-- Not referenced by any file -->
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+
+const breadcrumbItems = [
+  { label: 'Research', href: '/research', current: true }
+];
+
+const researchCategories = [
+  {
+    title: "Clinical Trials",
+    description: "Information about ongoing and completed clinical trials, including eligibility criteria and results.",
+    icon: "flask"
+  },
+  {
+    title: "Scientific Publications",
+    description: "Peer-reviewed research papers and scientific publications from our research team and partners.",
+    icon: "document"
+  },
+  {
+    title: "Research Projects",
+    description: "Current research initiatives and projects funded by BluePrintNZ and our partners.",
+    icon: "microscope"
+  },
+  {
+    title: "Research Grants",
+    description: "Information about our research grant program and how to apply for funding.",
+    icon: "money"
+  }
+];
+---
+
+<BaseLayout title="Research - BluePrintNZ">
+  <div class="container mx-auto px-4 py-8">
+    <Breadcrumbs items={breadcrumbItems} />
+    
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">Research</h1>
+      
+      <div class="bg-primary/10 p-6 rounded-lg mb-8">
+        <h2 class="text-xl font-semibold mb-3 text-secondary">Advancing Knowledge Through Research</h2>
+        <p class="mb-4">
+          At BluePrintNZ, we're committed to advancing scientific understanding through rigorous research.
+          Our research initiatives aim to improve prevention, diagnosis, treatment, and support services.
+        </p>
+        <p>
+          We collaborate with leading researchers, institutions, and community partners to ensure our research
+          is relevant, ethical, and impactful.
+        </p>
+      </div>
+      
+      <h2 class="text-2xl font-bold mb-6 text-secondary">Research Areas</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6 mb-10">
+        {researchCategories.map(category => (
+          <div class="border border-neutral-300 rounded-lg p-6 hover:border-primary transition-colors">
+            <h3 class="text-lg font-semibold mb-3 text-secondary">{category.title}</h3>
+            <p class="text-sm mb-4">{category.description}</p>
+            <a href="#" class="text-accent hover:underline font-medium">Learn more →</a>
+          </div>
+        ))}
+      </div>
+      
+      <h2 class="text-2xl font-bold mb-4 text-secondary">Latest Research Highlights</h2>
+      <p class="mb-6">
+        Stay up to date with the latest findings and breakthroughs from our research programs.
+      </p>
+      
+      <div class="space-y-6 mb-10">
+        <div class="border border-neutral-300 rounded-lg p-6">
+          <h3 class="font-semibold text-lg text-secondary mb-2">New Study Reveals Promising Treatment Approach</h3>
+          <p class="text-sm mb-3">
+            A recent study conducted by our research team has identified a promising new approach to treatment
+            that shows significant improvements in patient outcomes.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-neutral-600">Published: June 15, 2025</span>
+            <a href="#" class="text-accent hover:underline text-sm font-medium">Read the full study →</a>
+          </div>
+        </div>
+        
+        <div class="border border-neutral-300 rounded-lg p-6">
+          <h3 class="font-semibold text-lg text-secondary mb-2">Risk Factor Analysis: New Insights</h3>
+          <p class="text-sm mb-3">
+            Our comprehensive analysis of risk factors has revealed new insights into prevention strategies
+            and early intervention opportunities.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-neutral-600">Published: May 3, 2025</span>
+            <a href="#" class="text-accent hover:underline text-sm font-medium">Read the full study →</a>
+          </div>
+        </div>
+        
+        <div class="border border-neutral-300 rounded-lg p-6">
+          <h3 class="font-semibold text-lg text-secondary mb-2">Quality of Life Improvements Through Support Services</h3>
+          <p class="text-sm mb-3">
+            This study examines the impact of comprehensive support services on quality of life metrics,
+            showing significant improvements across multiple domains.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-neutral-600">Published: April 22, 2025</span>
+            <a href="#" class="text-accent hover:underline text-sm font-medium">Read the full study →</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-accent/10 p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-3 text-secondary">Participate in Research</h3>
+        <p class="mb-4">
+          We're always looking for participants for our research studies. Your participation helps advance
+          scientific understanding and improve outcomes for everyone.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#" class="bg-accent text-neutral py-2 px-4 rounded-lg text-center hover:bg-accent/80 transition-colors">
+            View Current Studies
+          </a>
+          <a href="#" class="bg-accent text-neutral py-2 px-4 rounded-lg text-center hover:bg-accent/80 transition-colors">
+            Register as a Participant
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
