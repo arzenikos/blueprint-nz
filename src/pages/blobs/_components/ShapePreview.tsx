@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 // <!-- Imported by: pages/blobs/_components/NewShape.tsx, pages/blobs/_components/StoredShapes.tsx -->
-=======
 // <!-- Referenced by: pages/blobs/_components/NewShape.tsx, pages/blobs/_components/StoredShapes.tsx -->
->>>>>>> feature/iteration-002-gamified-bluenode
 import { randomInt } from '../../../lib/utils/helpers';
 import type { BlobProps } from '../../../lib/types';
 
