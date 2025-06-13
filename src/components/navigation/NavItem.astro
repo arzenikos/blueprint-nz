@@ -43,6 +43,12 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
         item.value === 'small' ? 'text-xs' :
         item.value === 'medium' ? 'text-sm' :
         'text-base font-bold';
+
+        const fontColor =
+        item.value === 'small' ? 'text-gray-600' :
+        item.value === 'large' ? 'text-gray-600' :
+        'text-blue-900';
+
         return (
           <button 
             class={`px-4 py-1 ${fontSize} transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
@@ -75,8 +81,10 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
         const storedFontSize = localStorage.getItem('fontSizePreference') || 'medium';
         buttons.forEach(button => {
           if (button.getAttribute('data-value') === storedFontSize) {
-            button.classList.add('bg-gray-100');
-          }
+            button.classList.add('bg-gray-100', 'text-blue-900');
+          } else {
+          button.classList.remove('bg-gray-600', 'text-blue-900');
+        }
         });
       }
       
