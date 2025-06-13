@@ -9,18 +9,18 @@ export const homeData = {
     ctaText: "Explore BluePrint",
     ctaLink: "/bluenode",
     carouselImages: [
-      {
-        src: "placeholder-image-1.jpg",
-        alt: "Hero image 1"
-      },
-      {
-        src: "placeholder-image-2.jpg",
-        alt: "Hero image 2"
-      },
-      {
-        src: "placeholder-image-3.jpg",
-        alt: "Hero image 3"
-      }
+      // {
+      //   src: "placeholder-image-1.jpg",
+      //   alt: "Hero image 1"
+      // },
+      // {
+      //   src: "placeholder-image-2.jpg",
+      //   alt: "Hero image 2"
+      // },
+      // {
+      //   src: "placeholder-image-3.jpg",
+      //   alt: "Hero image 3"
+      // }
     ]
   },
   infoSection: {

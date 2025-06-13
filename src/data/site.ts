@@ -18,15 +18,15 @@ export const siteData = {
       // buttonText: "Subscribe"
     },
     sections: [
-      {
-        title: "Resources",
-        links: [
-          { text: "Support", url: "#" },
-          { text: "Research", url: "#" },
-          { text: "Education", url: "#" },
-          { text: "Community", url: "#" }
-        ]
-      },
+      // {
+      //   title: "Resources",
+      //   links: [
+      //     { text: "Support", url: "#" },
+      //     { text: "Research", url: "#" },
+      //     { text: "Education", url: "#" },
+      //     { text: "Community", url: "#" }
+      //   ]
+      // },
       {
         // title: "About",
         // links: [
