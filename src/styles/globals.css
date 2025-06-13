@@ -13,10 +13,11 @@
   --color-accent: #3b82f6;
   --color-neutral: #ffffff;
   --color-semantic: #10b981;
+  --color-chatbox-background: #d2dfe7;
   
   /* Primary colors */
   --color-primary-light: #d4e5f7;
-  --color-primary-dark: #8fb8e6;
+--color-primary-dark: #8fb8e6;
   --color-primary-content: #000f2e;
   
   /* Secondary colors */
@@ -53,11 +54,12 @@
   --color-accent: #60a5fa;
   --color-neutral: #1f2937;
   --color-semantic: #10b981;
+  --color-chatbox-background: #a6bfc5;
   
   /* Primary colors - Dark theme */
   --color-primary-light: #60a5fa;
-  --color-primary-dark: #2563eb;
-  --color-primary-content: #ffffff;
+  --color-primary-dark: #091a3f;
+  --color-primary-content: #080202;
   
   /* Secondary colors - Dark theme */
   --color-secondary-light: #d1d5db;
@@ -66,7 +68,7 @@
   
   /* UI colors - Dark theme */
   --color-background: #13172a;
-  --color-foreground: #e5e7eb;
+  --color-foreground: #acb3c2;
   --color-border: #374151;
   --color-focus: #3b82f6;
   --color-muted: #030303;
@@ -153,6 +155,35 @@
   p, span, div, li {
     color: var(--color-foreground);
   }
+}
+
+#chat-box {
+  background-color: var(--color-chatbox-background);
+  border: 1px solid #e2e8f0;
+}
+
+.team-light-default {
+    @apply text-xl font-semibold sm:text-2xl;
+    color: var(--color-primary-light);
+  }
+
+.team-dark-default {
+  /* @apply text-xl font-semibold sm:text-2xl; */
+  @apply focus:ring focus:ring-[var(--color-primary-content)];
+  color: var(--color-primary-content);
+  border: 1px solid var(--color-primary-content);
+}
+.team-dark-default h3 {
+  /* @apply text-xl font-semibold sm:text-2xl; */
+  @apply focus:ring focus:ring-[var(--color-primary-content)];
+}
+.team-dark-default button:hover {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+}
+.team-dark-default button {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
 }
 
 @layer components {
