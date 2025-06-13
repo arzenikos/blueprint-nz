@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // <!-- Imported by: pages/blobs/_components/ShapeEditor.tsx -->
+=======
+// <!-- Referenced by: pages/blobs/_components/ShapeEditor.tsx -->
+>>>>>>> feature/iteration-002-gamified-bluenode
 import { useState, useEffect } from 'react';
 import ShapePreview from './ShapePreview.tsx';
 import { generateBlob } from '../../../lib/utils/helpers';

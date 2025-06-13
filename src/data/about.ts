@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/data/about.ts
 // Imported by: components/about/ImageComparison.astro, components/about/MainContent.astro, pages/about.astro
+=======
+// Referenced by: pages/about.astro
+>>>>>>> feature/iteration-002-gamified-bluenode:src/content/about.ts
 export const aboutData = {
   title: "About",
   description: "Learn more about BluePrintNZ and our mission.",

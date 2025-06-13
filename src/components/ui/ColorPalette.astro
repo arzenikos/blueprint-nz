@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD
 // <!-- Imported by: pages/design-system.astro -->
 import { palette } from '../../styles/theme';
+=======
+// <!-- Referenced by: pages/design-system.astro -->
+import { palette } from '../../lib/themes-and-layout/color';
+>>>>>>> feature/iteration-002-gamified-bluenode
 ---
 
 <div class="max-w-4xl mx-auto my-8 p-6 bg-neutral-100 rounded-lg">
@@ -48,13 +53,13 @@ import { palette } from '../../styles/theme';
       </div>
     </div>
     
-    <!-- Semantic Color -->
+    <!-- Semantic Color (Example: Success) -->
     <div class="flex flex-col">
-      <div class="h-24 rounded-t-lg" style={`background-color: ${palette.semantic};`}></div>
+      <div class="h-24 rounded-t-lg" style={`background-color: ${palette.success[500]};`}></div>
       <div class="bg-neutral-200 p-3 rounded-b-lg">
-        <h3 class="font-medium">Semantic</h3>
-        <p class="text-xs font-mono mt-1">{palette.semantic}</p>
-        <p class="text-xs mt-1">Feedback states</p>
+        <h3 class="font-medium">Success</h3>
+        <p class="text-xs font-mono mt-1">{palette.success[500]}</p>
+        <p class="text-xs mt-1">Feedback state: Success</p>
       </div>
     </div>
   </div>

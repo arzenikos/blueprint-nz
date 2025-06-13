@@ -1,0 +1,36 @@
+---
+// <!-- Referenced by: pages/services.astro -->
+import Button from './button/Button.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
+  bgClass?: string;
+}
+
+const { 
+  title, 
+  description, 
+  buttonText, 
+  buttonHref,
+  bgClass = "bg-white dark:bg-gray-900"
+} = Astro.props;
+---
+
+<section class={`py-16 ${bgClass} theme-transition`}>
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+      {description}
+    </p>
+    <Button 
+      variant="primary" 
+      size="lg" 
+      href={buttonHref}
+    >
+      {buttonText}
+    </Button>
+  </div>
+</section>

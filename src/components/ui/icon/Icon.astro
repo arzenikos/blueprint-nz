@@ -1,0 +1,54 @@
+---
+// <!-- Referenced by: components/common/navigation/NavItem.astro, components/common/navigation/ThemeToggle.astro, components/layout/footer/SocialLinks.astro, components/ui/ServiceCard.astro, pages/index.astro -->
+import { icons } from './IconLibrary';
+
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+  stroke?: number;
+  fill?: string;
+}
+
+const { 
+  name, 
+  size = 24, 
+  class: className = '', 
+  stroke = 1.5,
+  fill = 'none'
+} = Astro.props;
+
+// Get the SVG path from the icon library
+const icon = icons[name];
+
+// If the icon doesn't exist, show a placeholder
+const svgPath = icon || icons['placeholder'];
+---
+
+{svgPath ? (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill={fill}
+    stroke="currentColor" 
+    stroke-width={stroke} 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    class={className}
+    aria-hidden="true"
+  >
+    {typeof svgPath === 'string' ? (
+      <path d={svgPath} />
+    ) : (
+      <>
+        {svgPath.map((path) => (
+          <path d={path} />
+        ))}
+      </>
+    )}
+  </svg>
+) : (
+  <span class={`inline-block bg-gray-200 rounded ${className}`} style={`width: ${size}px; height: ${size}px;`}></span>
+)}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Imported by: components/common/ContextAlert.astro,
 // pages/api/blob.ts,
 // pages/api/blobs.ts,
@@ -35,6 +36,12 @@ export function getNetlifyContext(): string {
   }
   
   return 'unknown';
+=======
+// Referenced by: pages/blobs/_components/NewShape.tsx
+// Simple utility to check if uploads are disabled
+export function uploadDisabled(): boolean {
+  return true; // Disable uploads by default
+>>>>>>> feature/iteration-002-gamified-bluenode
 }
 
 /**

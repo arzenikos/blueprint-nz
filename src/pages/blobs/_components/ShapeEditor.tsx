@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // <!-- Imported by: pages/blobs/index.astro -->
+=======
+// <!-- Referenced by: pages/blobs/index.astro -->
+>>>>>>> feature/iteration-002-gamified-bluenode
 import { useState } from 'react';
 import NewShape from './NewShape.tsx';
 import StoredShapes from './StoredShapes.tsx';

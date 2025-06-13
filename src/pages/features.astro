@@ -1,0 +1,45 @@
+---
+// <!-- Not referenced by any file -->
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/ui/HeroSection.astro';
+import FeatureCard from '../components/ui/FeatureCard.astro';
+import { featuresContent } from '../content/features';
+import { siteData } from '../content/site';
+
+const title = "Features - " + siteData.site.title;
+---
+
+<Layout title={title}>
+  <HeroSection 
+    title="Interactive Features"
+    description="Explore our interactive features designed to enhance your experience and provide valuable information."
+    image="/src/assets/images/placeholder-image.jpg"
+    imageAlt="BluePrintNZ Features"
+  />
+  
+  <section class="py-16 bg-white dark:bg-gray-900 theme-transition">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Explore Our Features</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- BlueNode Feature -->
+        <FeatureCard 
+          title={featuresContent.bluenode.title}
+          description={featuresContent.bluenode.description}
+          image={featuresContent.bluenode.image}
+          link={featuresContent.bluenode.link}
+          linkText={featuresContent.bluenode.linkText}
+        />
+        
+        <!-- ChatBox Feature -->
+        <FeatureCard 
+          title={featuresContent.chatbox.title}
+          description={featuresContent.chatbox.description}
+          image={featuresContent.chatbox.image}
+          linkText={featuresContent.chatbox.linkText}
+          id="open-chat"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>

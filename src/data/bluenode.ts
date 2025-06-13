@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/data/bluenode.ts
 // Imported by: pages/bluenode/index.astro
+=======
+// Referenced by: pages/bluenode/index.astro
+>>>>>>> feature/iteration-002-gamified-bluenode:src/content/bluenode.ts
 export const bluenodeData = {
   nodes: [
     {

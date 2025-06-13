@@ -1,4 +1,4 @@
-// Not imported by any file
+// Not referenced by any file
 import { defineCollection, z } from 'astro:content';
 
 // Define a schema for each collection

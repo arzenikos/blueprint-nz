@@ -1,0 +1,157 @@
+---
+// <!-- Referenced by: components/common/navigation/MainNav.astro -->
+import Icon from '../../ui/icon/Icon.astro';
+import type { NavItem as NavItemType } from '../../../content/navigation';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props extends NavItemType {
+  iconSize?: number;
+  hideLabelOnMobile?: boolean;
+}
+
+const { 
+  label, 
+  href, 
+  icon, 
+  mobileOnly = false, 
+  desktopOnly = false,
+  customVisibility = '',
+  isDropdown = false,
+  isButtonGroup = false,
+  dropdownItems = [],
+  buttonItems = [],
+  iconSize = 16,
+  hideLabelOnMobile = false
+} = Astro.props;
+
+// Use customVisibility if provided, otherwise use the standard visibility logic
+const visibilityClass = customVisibility || (mobileOnly 
+  ? 'md:hidden' 
+  : desktopOnly 
+    ? 'hidden md:flex' 
+    : '');
+
+const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
+---
+
+{icon === 'theme' ? (
+  <div class={`flex items-center text-foreground ${visibilityClass} py-2 px-2`}>
+    <ThemeToggle />
+  </div>
+) : isButtonGroup ? (
+  <div class={`flex items-center ${visibilityClass}`}>
+    <span class={`${hideLabelOnMobile ? 'hidden' : ''} sm:inline-block text-sm font-medium mr-2`}>{label}</span>
+    <div class="flex border border-gray-200 rounded-md overflow-hidden" id={id}>
+      {buttonItems.map((item, index) => {
+        // Adjust font sizes for the buttons themselves to make the difference more visible
+        const fontSize = item.value === 'small' ? 'text-xs' : item.value === 'medium' ? 'text-base' : 'text-2xl font-bold';
+        return (
+          <button 
+            class={`px-2 py-1 ${fontSize} hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
+            data-value={item.value}
+            aria-label={item.ariaLabel}
+          >
+            {item.label}
+          </button>
+        );
+      })}
+    </div>
+  </div>
+) : isDropdown ? (
+  <div class={`relative group ${visibilityClass}`}>
+    <button id={id} class="flex items-center text-secondary py-2 focus:outline-none">
+      <span class="hidden sm:inline-block text-sm font-medium mr-2">{label}</span>
+      <Icon name={icon} size={iconSize} class="sm:w-3 sm:h-3" />
+      <Icon name="chevron-down" size={12} class="ml-1 mt-0.5" />
+    </button>
+    
+    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg overflow-hidden z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+      <div class="py-1">
+        {dropdownItems.map(item => (
+          <button 
+            class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors" 
+            data-value={item.value}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+) : (
+  <a href={href} class={`flex items-center text-secondary ${visibilityClass} py-2`}>
+    <span class="hidden sm:inline-block text-sm font-medium mr-2">{label}</span>
+    <Icon name={icon} size={iconSize} class="sm:w-3 sm:h-3" />
+  </a>
+)}
+
+<script define:vars={{ id, label }}>
+  // Add event listeners for dropdowns and button groups
+  document.addEventListener('DOMContentLoaded', () => {
+    const element = document.getElementById(id);
+    
+    if (element) {
+      const buttons = element.querySelectorAll('button[data-value]');
+      
+      // Set active state based on stored preference
+      if (label === 'Font Size') {
+        const storedFontSize = localStorage.getItem('fontSizePreference') || 'medium';
+        buttons.forEach(button => {
+          if (button.getAttribute('data-value') === storedFontSize) {
+            button.classList.add('bg-gray-100');
+          }
+        });
+      }
+      
+      buttons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          const value = button.getAttribute('data-value');
+          
+          // Handle different types
+          if (label === 'Font Size') {
+            console.log(`Font size changed to: ${value}`);
+            
+            // Remove existing font size classes
+            document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl');
+            
+            // Add new font size class
+            switch(value) {
+              case 'small':
+                document.documentElement.classList.add('text-sm');
+                break;
+              case 'medium':
+                document.documentElement.classList.add('text-base');
+                break;
+              case 'large':
+                document.documentElement.classList.add('text-xl'); // Using text-xl for larger size
+                break;
+            }
+            
+            // Update active state
+            buttons.forEach(btn => btn.classList.remove('bg-gray-100'));
+            button.classList.add('bg-gray-100');
+            
+            // Store preference
+            localStorage.setItem('fontSizePreference', value);
+          }
+        });
+      });
+    }
+  });
+  
+  // Initialize font size from stored preference
+  const storedFontSize = localStorage.getItem('fontSizePreference');
+  if (storedFontSize) {
+    switch(storedFontSize) {
+      case 'small':
+        document.documentElement.classList.add('text-sm');
+        break;
+      case 'medium':
+        document.documentElement.classList.add('text-base');
+        break;
+      case 'large':
+        document.documentElement.classList.add('text-xl'); // Changed from text-lg to text-xl for larger size
+        break;
+    }
+  }
+</script>

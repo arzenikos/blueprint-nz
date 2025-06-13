@@ -1,36 +1,26 @@
 ---
-// <!-- Imported by: components/layout/Footer.astro -->
-interface Link {
-  text: string;
-  url: string;
-}
-
+// <!-- Referenced by: components/layout/footer/Footer.astro -->
 interface Props {
   title: string;
-  links: Link[];
+  links: {
+    label: string;
+    href: string;
+  }[];
   index: number;
 }
 
 const { title, links, index } = Astro.props;
 ---
 
-<section class="flex flex-col">
-  <h2 id={`footerHeading${index}`} class="mb-4 text-neutral font-semibold text-sm dark:text-gray-300">
-    {title}
-  </h2>
-  <ul aria-labelledby={`footerHeading${index}`} class="flex flex-col gap-2.5">
+<div>
+  <h3 class="text-sm font-semibold text-white mb-3">{title}</h3>
+  <ul class="space-y-2">
     {links.map(link => (
       <li>
-        <a href={link.url} class="footer-link text-xs dark:text-gray-300">
-          {link.text}
+        <a href={link.href} class="text-xs text-neutral/80 dark:text-gray-300 hover:text-white transition-colors">
+          {link.label}
         </a>
       </li>
     ))}
   </ul>
-</section>
-
-<style>
-  h2 {
-    color: white;
-  }
-</style>
+</div>

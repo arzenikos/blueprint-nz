@@ -1,7 +1,11 @@
+<<<<<<< HEAD:src/data/home.ts
 // Imported by: components/home/FoundationSection.astro,
 // components/home/HeroSection.astro,
 // components/home/InfoSection.astro,
 // components/home/ServicesSection.astro
+=======
+// Not referenced by any file
+>>>>>>> feature/iteration-002-gamified-bluenode:src/content/home.ts
 export const homeData = {
   hero: {
     title: "BluePrintNZ",
