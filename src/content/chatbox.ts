@@ -1,7 +1,7 @@
 // Referenced by: components/common/chatbox/ChatOverlay.astro, layouts/BaseLayout.astro
 export const chatboxContent = {
-  title: "Chat Support",
-  initialMessage: "How can I help you today?",
+  title: "Prometheus AI",
+  initialMessage: "Hi, I’m Prometheus AI 😊\nHere to share trusted info about prostate cancer—ask me anything!",
   placeholder: "Type your message...",
   buttonText: "Send",
   responses: {
@@ -12,6 +12,6 @@ export const chatboxContent = {
     pricing: "Our pricing varies based on project requirements. Would you like to request a custom quote?",
     thanks: "You're welcome! Is there anything else I can help you with?",
     goodbye: "Thank you for chatting with us! Have a great day!",
-    default: "Thank you for your message. Our team will get back to you soon. In the meantime, feel free to explore our website or ask me another question."
+    // default: "🚧 This feature is still under development. In the meantime, feel free to explore our website or ask me another question. Thank you!"
   }
 };
