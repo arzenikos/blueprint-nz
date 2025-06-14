@@ -11,6 +11,7 @@
   --color-palette-five: #061a40;
   
   --color-palette-zero: #fbfdff;
+  --color-palette-gray: #fbfdff;
 
     --gradient-from-light: #b9d6f2; /* Light blue (from-blue-50) */
   --gradient-to-light: #b9d6f2;  /* White (to-white) */
@@ -55,6 +56,7 @@
   --color-warning: #f59e0b;
   --color-error: #ef4444;
   --color-info: #3b82f6;
+
 }
 
 /* Dark theme variables */
@@ -197,10 +199,12 @@
     }
 
     &:disabled {
-      @apply text-gray-400 bg-gray-700;
+      @apply
+       text-gray-400;
+      color: var(--color-palette-one);
+      background-color: var(--color-palette-five);
     }
   }
-
   .btn-accent {
     background-color: var(--color-accent);
     color: var(--color-accent-content);
