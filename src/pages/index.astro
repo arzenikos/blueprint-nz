@@ -1,107 +1,20 @@
 ---
 // <!-- Not referenced by any file -->
 import Layout from '../layouts/Layout.astro';
-import Button from '../components/ui/button/Button.astro';
-import Icon from '../components/ui/icon/Icon.astro';
-import HeroSection from '../components/ui/HeroSection.astro';
+import Home from './_home/Home.astro';
+// import Button from '../components/ui/button/Button.astro';
+// import Icon from '../components/ui/icon/Icon.astro';
+// import HeroSection from '../components/ui/HeroSection.astro';
 
-const title = "BluePrintNZ - Prostate Cancer Foundation of New Zealand";
+const title = "BluePrintNZ | Prostate Cancer Foundation of New Zealand";
 
-const heroImages = [
-  { src: "/src/assets/images/placeholder-image-1.jpg", alt: "BluePrintNZ Hero Image 1" },
-  { src: "/src/assets/images/placeholder-image-2.jpg", alt: "BluePrintNZ Hero Image 2" },
-  { src: "/src/assets/images/placeholder-image-3.jpg", alt: "BluePrintNZ Hero Image 3" }
-];
+// const heroImages = [
+//   { src: "/src/assets/images/placeholder-image-1.jpg", alt: "BluePrintNZ Hero Image 1" },
+//   { src: "/src/assets/images/placeholder-image-2.jpg", alt: "BluePrintNZ Hero Image 2" },
+//   { src: "/src/assets/images/placeholder-image-3.jpg", alt: "BluePrintNZ Hero Image 3" }
+// ];
 ---
 
 <Layout title={title}>
-  <HeroSection
-    title="Modern Web Solutions for New Zealand"
-    description="Building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture."
-    primaryButton={{
-      text: "Explore Bluenode",
-      href: "/bluenode"
-    }}
-    images={heroImages}
-    useCarousel={true}
-  />
-
-  <section class="py-16 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Services</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Service Card 1 -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-105">
-          <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-            <Icon name="code" class="text-blue-600 dark:text-blue-300" />
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Web Development</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Custom web development using modern frameworks and technologies.
-          </p>
-        </div>
-        
-        <!-- Service Card 2 -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-105">
-          <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-            <Icon name="layout" class="text-blue-600 dark:text-blue-300" />
-          </div>
-          <h3 class="text-xl font-semibold mb-3">UI/UX Design</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            User-centered design that creates intuitive and engaging experiences.
-          </p>
-        </div>
-        
-        <!-- Service Card 3 -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-105">
-          <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-            <Icon name="search" class="text-blue-600 dark:text-blue-300" />
-          </div>
-          <h3 class="text-xl font-semibold mb-3">SEO Optimization</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            Improve your site's visibility and ranking in search engine results.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 bg-blue-50 dark:bg-gray-800">
-    <div class="container mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/2">
-          <img 
-            src="/src/assets/images/placeholder-image.jpg" 
-            alt="About BluePrintNZ" 
-            class="rounded-lg shadow-lg w-full h-auto"
-          />
-        </div>
-        <div class="md:w-1/2">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">About BluePrintNZ</h2>
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            BluePrintNZ is a platform designed to showcase modern web development techniques and best practices using Astro and Netlify.
-          </p>
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Our mission is to provide a blueprint for building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture and Netlify's deployment platform.
-          </p>
-          <Button variant="primary" href="/about">
-            Learn More About Us
-          </Button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
-      <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-        Contact us today to discuss your project and how we can help you build a modern, fast, and accessible website.
-      </p>
-      <Button variant="primary" size="lg" href="/contact">
-        Contact Us
-      </Button>
-    </div>
-  </section>
+  <Home />
 </Layout>
