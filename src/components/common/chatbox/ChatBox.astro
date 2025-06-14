@@ -98,16 +98,16 @@ const { title, initialMessage, placeholder, buttonText } = chatboxContent;
   }
 
   window.chatboxContent = {
-    // responses: {
-    //   greeting: "Hello! How can I help you today?",
-    //   help: "I'm here to help! You can ask me about our services, website features, or how to get started.",
-    //   services: "We offer web development, UI/UX design, and SEO optimization services. Would you like to know more about any of these?",
-    //   contact: "You can reach our team at contact@blueprintnz.com or call us at (555) 123-4567 during business hours.",
-    //   pricing: "Our pricing varies based on project requirements. Would you like to request a custom quote?",
-    //   thanks: "You're welcome! Is there anything else I can help you with?",
-    //   goodbye: "Thank you for chatting with us! Have a great day!",
-    //   default: "🚧 This feature is still under development. Please check back later! In the meantime, feel free to explore our website. Thank you!"
-    // }
+    responses: {
+      greeting: "Hello! How can I help you today?",
+      help: "I'm here to help! You can ask me about our services, website features, or how to get started.",
+      services: "We offer web development, UI/UX design, and SEO optimization services. Would you like to know more about any of these?",
+      contact: "You can reach our team at contact@blueprintnz.com or call us at (555) 123-4567 during business hours.",
+      pricing: "Our pricing varies based on project requirements. Would you like to request a custom quote?",
+      thanks: "You're welcome! Is there anything else I can help you with?",
+      goodbye: "Thank you for chatting with us! Have a great day!",
+      default: "🚧 This feature is still under development. Please check back later! In the meantime, feel free to explore our website. Thank you!"
+    }
   };
   
   document.addEventListener('DOMContentLoaded', () => {
@@ -119,17 +119,7 @@ const { title, initialMessage, placeholder, buttonText } = chatboxContent;
     const chatMessages = document.getElementById('chat-messages');
     
     // Get responses from the content
-    const responses = window.chatboxContent.responses || {
-      greeting: "Hello! How can I help you today?",
-      help: "I'm here to help! You can ask me about our services, website features, or how to get started.",
-      services: "We offer web development, UI/UX design, and SEO optimization services. Would you like to know more about any of these?",
-      contact: "You can reach our team at contact@blueprintnz.com or call us at (555) 123-4567 during business hours.",
-      pricing: "Our pricing varies based on project requirements. Would you like to request a custom quote?",
-      thanks: "You're welcome! Is there anything else I can help you with?",
-      goodbye: "Thank you for chatting with us! Have a great day!",
-      default: "🚧 This feature is still under development. Please check back later! In the meantime, feel free to explore our website. Thank you!"
-    };
-    
+    const responses = window.chatboxContent.responses 
     // Toggle chat box visibility
     chatOverlayButton?.addEventListener('click', () => {
       chatBox?.classList.toggle('hidden');
@@ -191,6 +181,7 @@ const { title, initialMessage, placeholder, buttonText } = chatboxContent;
     // Function to get contextual responses based on message content
     function getContextualResponse(message) {
       message = message.toLowerCase();
+      // const defaultMessage = 'xxx'; 
       
       // Check for common questions or keywords
       if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
