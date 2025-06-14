@@ -5,11 +5,11 @@
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   /* MAIN */
   --color-palette-one: #b9d6f2;
-  --color-palette-two: #006daa;
+  --color-palette-two: #74b9e0;
   --color-palette-three: #0353a4;
-  --color-palette-four: #003559;
+  --color-palette-four: #1e2939;
   --color-palette-five: #061a40;
-  
+  /* dark:bg-gray-800  */
   --color-palette-zero: #fbfdff;
   --color-palette-gray: #fbfdff;
 
@@ -80,13 +80,16 @@
   
   /* UI colors - Dark theme */
   --color-palette-one: #13232A;
-  --color-palette-two: #3D5B6B;
+  --color-palette-two: rgb(8, 56, 82);
   --color-palette-three: #6DA3C0;
   --color-palette-four: #80A4B7;
   --color-palette-five: #B8D9EB;
-
-    --gradient-from-dark: #1a202c; /* Dark gray (from-gray-900) */
-  --gradient-to-dark: #2d3748;   /* Darker gray (to-gray-800) */
+    --gradient-from-light: #13232A; /* Light blue (from-blue-50) */
+  --gradient-to-light: #13232A;  /* White (to-white) */
+  /* Dark gray (from-gray-900) */
+  /* --gradient-from-dark: #1a202c;  */
+  /* Darker gray (to-gray-800) */
+  /* --gradient-to-dark: #2d3748; */
   /* --color-background: #13172a;
   --color-foreground: #e5e7eb;
   --color-border: #374151;

@@ -4,6 +4,7 @@ import { icons } from './IconLibrary';
 
 interface Props {
   name: string;
+  color: string;
   size?: number;
   class?: string;
   stroke?: number;
@@ -12,10 +13,11 @@ interface Props {
 
 const { 
   name, 
+  color,
   size = 24, 
   class: className = '', 
   stroke = 1.5,
-  fill = 'none'
+  fill = 'none',
 } = Astro.props;
 
 // Get the SVG path from the icon library
@@ -32,7 +34,7 @@ const svgPath = icon || icons['placeholder'];
     height={size} 
     viewBox="0 0 24 24" 
     fill={fill}
-    stroke="currentColor" 
+    stroke={color} 
     stroke-width={stroke} 
     stroke-linecap="round" 
     stroke-linejoin="round"
@@ -50,5 +52,5 @@ const svgPath = icon || icons['placeholder'];
     )}
   </svg>
 ) : (
-  <span class={`inline-block bg-gray-200 rounded ${className}`} style={`width: ${size}px; height: ${size}px;`}></span>
+  <span class={`inline-block rounded ${className}`} style={`width: ${size}px; height: ${size}px;`}></span>
 )}
