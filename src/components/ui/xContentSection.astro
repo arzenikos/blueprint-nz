@@ -1,34 +1,34 @@
 ---
 // <!-- Referenced by: pages/services.astro -->
-import Button from './button/Button.astro';
+// import Button from './button/Button.astro';
 
-interface Props {
-  title: string;
-  content: string | string[];
-  buttonText?: string;
-  buttonHref?: string;
-  image?: string;
-  imageAlt?: string;
-  reversed?: boolean;
-  bgClass?: string;
-}
+// interface Props {
+//   title: string;
+//   content: string | string[];
+//   buttonText?: string;
+//   buttonHref?: string;
+//   image?: string;
+//   imageAlt?: string;
+//   reversed?: boolean;
+//   bgClass?: string;
+// }
 
-const { 
-  title, 
-  content, 
-  buttonText, 
-  buttonHref, 
-  image, 
-  imageAlt,
-  reversed = false,
-  bgClass = "bg-white dark:bg-gray-900"
-} = Astro.props;
+// const { 
+//   title, 
+//   content, 
+//   buttonText, 
+//   buttonHref, 
+//   image, 
+//   imageAlt,
+//   reversed = false,
+//   bgClass = "bg-white dark:bg-gray-900"
+// } = Astro.props;
 
 // Handle content as either a string or an array of strings
-const contentArray = Array.isArray(content) ? content : [content];
+// const contentArray = Array.isArray(content) ? content : [content];
 ---
 
-<section class={`py-16 ${bgClass} theme-transition`}>
+<!-- <section class={`py-16 ${bgClass} theme-transition`}>
   <div class="container mx-auto px-6">
     {image ? (
       <div class={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12`}>
@@ -69,4 +69,4 @@ const contentArray = Array.isArray(content) ? content : [content];
       </div>
     )}
   </div>
-</section>
+</section> -->
