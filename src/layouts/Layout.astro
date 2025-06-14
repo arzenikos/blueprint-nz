@@ -4,7 +4,7 @@
 // It's kept for backward compatibility with existing pages
 import Footer from '../components/layout/footer/Footer.astro';
 import Header from '../components/layout/header/Header.astro';
-import ChatOverlay from '../components/common/chatbox/ChatOverlay.astro';
+import ChatBox from '../components/common/chatbox/ChatBox.astro';
 // import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
 import '../styles/globals.css';
 
@@ -56,6 +56,6 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
       <slot />
     </main>
     <Footer />
-    <ChatOverlay />
+    <ChatBox />
   </body>
 </html>
