@@ -1,8 +1,8 @@
 ---
 // <!-- Referenced by: components/common/navigation/MainNav.astro -->
-import Icon from '../../ui/icon/Icon.astro';
-import type { NavItem as NavItemType } from '../../../content/navigation';
-import ThemeToggle from '../ThemeToggle.astro';
+import Icon from '../../../ui/icon/Icon.astro';
+import type { NavItem as NavItemType } from '../../../../content/navigation';
+import ThemeToggle from '../../../common/ThemeToggle.astro';
 
 interface Props extends NavItemType {
   iconSize?: number;
@@ -35,12 +35,12 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
 ---
 
 {icon === 'theme' ? (
-  <div class={`flex items-center text-foreground ${visibilityClass} py-2 px-2`}>
+  <div className={`flex items-center text-foreground ${visibilityClass} py-2 px-2`}>
     <ThemeToggle />
   </div>
 ) : isButtonGroup ? (
-  <div class={`flex items-center ${visibilityClass}`}>
-    <span class={`${hideLabelOnMobile ? 'hidden' : ''} sm:inline-block text-sm font-medium mr-2`}>{label}</span>
+  <div className={`flex items-center ${visibilityClass}`}>
+    <span className={`${hideLabelOnMobile ? 'hidden' : ''} sm:inline-block text-sm font-medium mr-2`}>{label}</span>
     <div class="flex border border-gray-200 rounded-md overflow-hidden" id={id}>
       {buttonItems.map((item, index) => {
         // Adjust font sizes for the buttons themselves to make the difference more visible
