@@ -1,15 +1,14 @@
 ---
-// <!-- Referenced by: layouts/BaseLayout.astro -->
-// If the file exists with a different extension or path, update accordingly:
-// import { componentSpacing } from '/src/lib/themes-and-layout/spacing.ts';
-
-import FooterSection from './FooterSection.astro';
-import { footerLinks } from '../../../content/navigation';
+// <!-- Imported by: layouts/BaseLayout.astro -->
 import { componentSpacing } from '../../../lib/themes-and-layout/spacing';
-import NewsletterForm from './NewsletterForm.astro';
-import SocialLinks from './SocialLinks.astro';
+import { footerLinks } from '../../../data/footer-data';
+// import PixelRibbon from '../shared/PixelRibbon.astro';
+import FooterSection from '../footer/FooterSection.astro';
+import NewsletterForm from '../footer/NewsletterForm.astro';
+import SocialLinks from '../footer/SocialLinks.astro';
 
 // Get spacing values from centralized file
+const footerPaddingX = componentSpacing.footer.padding.x;
 const footerPaddingY = componentSpacing.footer.padding.y;
 const footerMarginTop = componentSpacing.footer.margin.top;
 const footerDividerMargin = componentSpacing.footer.divider.margin.y;
@@ -20,7 +19,19 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
   padding-bottom: ${footerPaddingY};
   margin-top: ${footerMarginTop};
 `}>
-  <div class="container mx-auto px-6 max-w-[2000px]">
+  <!-- <PixelRibbon pixelSize={2} /> -->
+  <div class="container mx-auto max-w-[2000px]" style={`
+    padding-left: ${footerPaddingX.mobile}; 
+    padding-right: ${footerPaddingX.mobile};
+    @media (min-width: 768px) {
+      padding-left: ${footerPaddingX.tablet}; 
+      padding-right: ${footerPaddingX.tablet};
+    }
+    @media (min-width: 1024px) {
+      padding-left: ${footerPaddingX.desktop}; 
+      padding-right: ${footerPaddingX.desktop};
+    }
+  `}>
     <nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-10 lg:gap-16 pt-6">
       <!-- Newsletter Section -->
       <NewsletterForm 
@@ -35,7 +46,7 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
         {footerLinks.sections.map((section, index) => (
           <FooterSection 
             title={section.title} 
-            links={section.links} 
+            // links={section.links} 
             index={index} 
           />
         ))}
