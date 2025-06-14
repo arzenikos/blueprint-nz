@@ -11,12 +11,22 @@
   --color-palette-five: #061a40;
   /* dark:bg-gray-800  */
   --color-palette-zero: #fbfdff;
-  --color-palette-gray: #fbfdff;
+  --color-palette-gray: #565d64;
 
     --gradient-from-light: #b9d6f2; /* Light blue (from-blue-50) */
   --gradient-to-light: #b9d6f2;  /* White (to-white) */
   /* var(--color-primary-content) */
 
+  /* Default stroke color */
+  /* .icon {
+    stroke: var(--icon-color, #000); 
+    transition: stroke 0.3s ease;
+  } */
+
+  /* Hover effect: Change stroke color on hover */
+  /* .icon:hover {
+    stroke: var(--icon-hover-color, #FF5733);
+  } */
 
   /* Core palette */
   /* --color-custom-main: #000f2e;

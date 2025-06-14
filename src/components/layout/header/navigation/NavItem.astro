@@ -1,6 +1,6 @@
 ---
 // <!-- Imported by: components/navigation/MainNav.astro -->
-import Icon from '../../../ui/icon/Icon.astro';
+import Icon from '../../../ui/Icon.astro';
 import type { NavItem as NavItemType } from '../../../../content/navigation';
 import ThemeToggle from '../../../common/ThemeToggle.astro';
 
@@ -58,7 +58,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
     {/* <!-- Desktop button group --> */}
     <div class={`hidden md:flex items-center ${visibilityClass}`} id="nav-setting-desktop">
       <span class="text-sm font-medium mr-4">{label}</span>
-      <div class="flex border border-gray-200 rounded-md overflow-hidden" id={id}>
+      <div class="flex borde rounded-md overflow-hidden" id={id}>
         {buttonItems.map((item) => {
           const fontSize =
             item.value === 'small' ? 'text-xs' :
@@ -69,6 +69,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
               class={`px-4 py-1 ${fontSize} transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
               data-value={item.value}
               aria-label={item.ariaLabel}
+              style="border-color: var(--color-palette-one);"
             >
               {item.label}
             </button>
@@ -79,8 +80,8 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
   </>
 ): (
   <a href={href} class={`flex items-center text-secondary ${visibilityClass} py-2`}>
-    <span class="hidden sm:inline-block text-sm font-medium mr-2">{label}</span>
-    <Icon name={icon} size={iconSize} class="sm:w-3 sm:h-3" />
+    {/* <span class="hidden sm:inline-block text-sm font-medium mr-2">{label}</span>
+    <Icon name={icon} size={iconSize} class="sm:w-3 sm:h-3" color="var(--color-palette-three)"/> */}
   </a>
 )}
 

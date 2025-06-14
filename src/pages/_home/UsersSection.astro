@@ -1,5 +1,5 @@
 ---
-import Icon from '../../components/ui/icon/Icon.astro';
+import Icon from '../../components/ui/Icon.astro';
 // const numbers = [0, 1, 2, 3, 4];
 const numbers = [
   { label: 'Patient', icon: '0' },
@@ -32,11 +32,11 @@ const {} = Astro.props
         <div class="relative group w-10 h-10 flex items-center justify-center">
           <button
             type="button"
-            class="w-full h-full flex items-center justify-center rounded-full bg-gray-200 text-blue-900 text-xl transition-all duration-200 hover:scale-110 hover:bg-blue-900 hover:text-white"
+            class="w-full h-full flex items-center justify-center rounded-full text-xl transition-all duration-200 hover:scale-110 " style="background: var(--color-palette-four); color: var(--color-palette-one);"
           >
           {icon}
           </button>
-          <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+          <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm  rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
             {label}
           </div>
         </div>
@@ -60,12 +60,12 @@ const {} = Astro.props
       <div class="relative group w-10 h-10 flex items-center justify-center">
         <button
           type="button"
-          class="w-full h-full flex items-center justify-center rounded-full bg-gray-200 text-xl transition-all duration-200 hover:scale-110 hover:bg-blue-900 hover:text-white"
+          class="w-full h-full flex items-center justify-center rounded-full text-xl transition-all duration-200 hover:scale-110" style="background: var(--color-palette-four);"
         >
           {/* {icon} */}
-          <Icon name={icon} class="text-blue-300 dark:text-blue-900  hover:text-white" />
+          <Icon name={icon} class="hover:text-white" color="var(--color-palette-one)"/>
         </button>
-        <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+        <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
           {label}
         </div>
       </div>
