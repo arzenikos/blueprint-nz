@@ -1,5 +1,4 @@
 ---
-<<<<<<< HEAD
 // <!-- Not imported by any file -->
 // import BaseLayout from '../layouts/BaseLayout.astro';
 // import ContextAlert from '../components/ContextAlert.astro';
@@ -43,7 +42,7 @@
 <!-- 
 <BaseLayout title="Newsletter">
 =======
-// <!-- Not referenced by any file -->
+// Not referenced by any file
 // import BaseLayout from '../layouts/BaseLayout.astro';
 // import Markdown from '../components/common/Markdown.astro';
 // import { cacheHeaders, randomInt } from '../lib/utils';
@@ -77,18 +76,15 @@
 
 // const exampleTag = tags[randomInt(0, tags.length - 1)];
 ---
-
-<!-- <BaseLayout title="Newsletter">
->>>>>>> feature/iteration-002-gamified-bluenode
+<BaseLayout title="Newsletter">
     <h1 class="mb-10">Newsletter</h1>
     <Markdown content={explainer} class="mb-10" />
     <div class="flex flex-wrap gap-4">
         <button class="newsletter-button btn" data-tag={exampleTag}>Invalidate tag: {exampleTag}</button>
         <button class="btn" onclick="location.reload()">Reload page</button>
     </div>
-</BaseLayout> -->
-
-<!-- <script>
+</BaseLayout>
+<script>
     function revalidate(tag: string) {
         fetch('/api/newsletter', {
             method: 'POST',
@@ -105,4 +101,4 @@
         const tag = (e.target as HTMLButtonElement).getAttribute('data-tag');
         revalidate(tag);
     });
-</script> -->
+</script>

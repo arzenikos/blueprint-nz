@@ -5,7 +5,12 @@
 import Footer from '../components/footer/Footer.astro';
 import Header from '../components/header/Header.astro';
 import ChatOverlay from '../components/common/chatbox/ChatOverlay.astro';
+// import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
 import '../styles/globals.css';
+
+// const breadcrumbItems = [
+//   { label: 'Blue Node', href: '/bluenode', current: true }
+// ];
 
 interface Props {
   title: string;
@@ -46,6 +51,7 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
   </head>
   <body class="min-h-screen flex flex-col">
     <Header label="Home" href="/" icon="home" />
+    <!-- <Breadcrumbs items={breadcrumbItems} /> -->
     <main class="flex-grow">
       <slot />
     </main>
