@@ -1,40 +1,40 @@
 ---
 // <!-- Imported by: components/navigation/MainNav.astro -->
-import Icon from '../icons/Icon.astro';
-import type { NavItem as NavItemType } from '../../data/navigation';
-import ThemeToggle from '../shared/ThemeToggle.astro';
+// import Icon from '../icons/Icon.astro';
+// import type { NavItem as NavItemType } from '../../data/navigation';
+// import ThemeToggle from '../shared/ThemeToggle.astro';
 
-interface Props extends NavItemType {
-  iconSize?: number;
-}
+// interface Props extends NavItemType {
+//   iconSize?: number;
+// }
 
-const { 
-  label, 
-  href, 
-  icon, 
-  mobileOnly = false, 
-  desktopOnly = false,
-  isButtonGroup = false,
-  // dropdownItems = [],
-  buttonItems = [],
-  iconSize = 16
-} = Astro.props;
+// const { 
+//   label, 
+//   href, 
+//   icon, 
+//   mobileOnly = false, 
+//   desktopOnly = false,
+//   isButtonGroup = false,
+//   // dropdownItems = [],
+//   buttonItems = [],
+//   iconSize = 16
+// } = Astro.props;
 
-const visibilityClass = mobileOnly 
-  ? 'md:flex' 
-  : desktopOnly 
-    ? 'hidden md:flex' 
-    : '';
+// const visibilityClass = mobileOnly 
+//   ? 'md:flex' 
+//   : desktopOnly 
+//     ? 'hidden md:flex' 
+//     : '';
 
-const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
+// const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
 ---
-{icon === 'theme' ? (
+<!-- {icon === 'theme' ? (
   <div class={`flex items-center text-secondary ${visibilityClass} py-2`}>
     <ThemeToggle />
   </div>
 ) : isButtonGroup ? (
   <>
-    {/* <!-- Mobile dropdown --> */}
+    {/* Mobile dropdown */}
     {!desktopOnly && (
       <div class={`md:hidden flex items-center ${visibilityClass}`} id="nav-setting-mobile">
         {/* <label for="font-size-dropdown" class="text-sm font-medium mr-2">{label}</label> */}
@@ -55,7 +55,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
       </div>
     )}
 
-    <!-- Desktop button group -->
+    Desktop button group
     <div class={`hidden md:flex items-center ${visibilityClass}`} id="nav-setting-desktop">
       <span class="text-sm font-medium mr-4">{label}</span>
       <div class="flex border border-gray-200 rounded-md overflow-hidden" id={id}>
@@ -82,8 +82,8 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
     <span class="hidden sm:inline-block text-sm font-medium mr-2">{label}</span>
     <Icon name={icon} size={iconSize} class="sm:w-3 sm:h-3" />
   </a>
-)}
-
+)} -->
+<!-- 
 <script define:vars={{ id, label }}>
   // Add event listeners for dropdowns and button groups
   document.addEventListener('DOMContentLoaded', () => {
@@ -185,5 +185,4 @@ if (dropdown && label === 'Font Size') {
     localStorage.setItem('fontSizePreference', value);
   });
 }
-
-</script>
+</script> -->
