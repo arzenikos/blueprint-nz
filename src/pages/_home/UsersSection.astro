@@ -1,52 +1,75 @@
 ---
-const numbers = [0, 1, 2, 3, 4];
-const icons = [
-  { label: 'Caregiver', icon: '🧑‍⚕️' },
-  { label: 'Researcher', icon: '🔬' },
+import Icon from '../../components/ui/icon/Icon.astro';
+// const numbers = [0, 1, 2, 3, 4];
+const numbers = [
+  { label: 'Patient', icon: '0' },
+  { label: 'Patient', icon: '1' },
+  { label: 'Patient', icon: '2' },
+  { label: 'Patient', icon: '3' },
+  { label: 'Patient', icon: '4' },
 ];
+
+const icons = [
+  { label: 'Caregiver', icon: 'caregiver' },
+  { label: 'Researcher', icon: 'researcher' },
+];
+
+const {} = Astro.props
 ---
 
-<div class="flex items-center gap-4">
+<div class="container flex items-center justify-center gap-4 w-full px-4">
   <!-- Left Label -->
-  <div class="text-lg font-semibold text-gray-800 min-w-[80px]">Patient</div>
+  <!-- <div class="text-lg font-semibold text-gray-800 min-w-[80px]">Patient</div> -->
 
   <!-- Number Buttons with Horizontal Line -->
-  <div class="relative">
+  <div class="relative ">
     <!-- Connecting Line -->
     <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-300 -z-10 translate-y-1/2"></div>
 
     <!-- Fixed-size Button Containers -->
-    <div class="flex gap-2">
-      {numbers.map((num) => (
-        <div class="w-10 h-10 flex items-center justify-center">
+     <div class="flex relative">
+      {numbers.map(({ label, icon }) => (
+        <div class="relative group w-10 h-10 flex items-center justify-center">
           <button
             type="button"
-            class="w-full h-full flex items-center justify-center rounded-full bg-gray-200 text-gray-700 transition-all duration-200 transform hover:scale-110 hover:bg-blue-500 hover:text-white"
+            class="w-full h-full flex items-center justify-center rounded-full bg-gray-200 text-blue-900 text-xl transition-all duration-200 hover:scale-110 hover:bg-blue-900 hover:text-white"
           >
-            {num}
+          {icon}
           </button>
+          <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+            {label}
+          </div>
         </div>
+      <div class="flex items-center justify-center">
+        <div class="h-0.5 w-7 bg-gray-300"></div>
+      </div>
       ))}
     </div>
   </div>
 
   <!-- Separator -->
-  <div class="h-6 w-px bg-gray-300 mx-3"></div>
+  <div class="h-12 w-0.5 bg-gray-300"></div>
 
   <!-- Icon Buttons with Tooltip -->
-  <div class="flex gap-4 relative">
-    {icons.map(({ label, icon }) => (
+  <div class="flex relative">
+    {
+      icons.map(({ label, icon }) => (
+      <div class="flex items-center justify-center">
+        <div class="h-0.5 w-7 bg-gray-300"></div>
+      </div>
       <div class="relative group w-10 h-10 flex items-center justify-center">
         <button
           type="button"
-          class="w-full h-full flex items-center justify-center rounded-full bg-gray-200 text-xl transition-all duration-200 hover:scale-110 hover:bg-blue-500 hover:text-white"
+          class="w-full h-full flex items-center justify-center rounded-full bg-gray-200 text-xl transition-all duration-200 hover:scale-110 hover:bg-blue-900 hover:text-white"
         >
-          {icon}
+          {/* {icon} */}
+          <Icon name={icon} class="text-blue-300 dark:text-blue-900  hover:text-white" />
         </button>
         <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
           {label}
         </div>
       </div>
-    ))}
+    ))
+    }
   </div>
 </div>

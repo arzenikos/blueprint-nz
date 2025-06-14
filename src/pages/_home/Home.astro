@@ -1,6 +1,6 @@
 ---
 
-import Button from '../../components/ui/button/Button.astro';
+// import Button from '../../components/ui/button/Button.astro';
 import HeroSection from './HeroSection.astro';
 import UsersSection from './UsersSection.astro';
 import ResourceSection from './ResourceSection.astro';
@@ -8,25 +8,25 @@ import ContextSection from './ContextSection.astro';
 import GetStartedSection from './GetStartedSection.astro';
 
 
-const heroImages = [
-  { src: "/src/assets/images/placeholder-image-1.jpg", alt: "BluePrintNZ Hero Image 1" },
-  { src: "/src/assets/images/placeholder-image-2.jpg", alt: "BluePrintNZ Hero Image 2" },
-  { src: "/src/assets/images/placeholder-image-3.jpg", alt: "BluePrintNZ Hero Image 3" }
-];
+// const heroImages = [
+//   { src: "/src/assets/images/placeholder-image-1.jpg", alt: "BluePrintNZ Hero Image 1" },
+//   { src: "/src/assets/images/placeholder-image-2.jpg", alt: "BluePrintNZ Hero Image 2" },
+//   { src: "/src/assets/images/placeholder-image-3.jpg", alt: "BluePrintNZ Hero Image 3" }
+// ];
 ---
 <div>
-    <HeroSection
+  <HeroSection
     title="Modern Web Solutions for New Zealand"
     description="Building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture."
     primaryButton={{
       text: "Explore Bluenode",
       href: "/bluenode"
     }}
-    images={heroImages}
     useCarousel={true}
   />
-
-  <UsersSection/>
+  <section class="bg-white dark:bg-gray-900 w-full">
+    <UsersSection/>
+  </section>
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <ResourceSection/>

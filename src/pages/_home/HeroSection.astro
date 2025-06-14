@@ -3,7 +3,7 @@
 // pages/index.astro,
 // pages/services.astro -->
 import Button from '../../components/ui/button/Button.astro';
-import Carousel from '../../components/ui/carousel/Carousel.astro';
+import Carousel from '../../components/ui/Carousel.astro';
 
 interface Props {
   title: string;
@@ -43,7 +43,7 @@ const {
       alt: "Hero image 3"
     }
   ],
-  useCarousel = false,
+  // useCarousel = false,
   reversed = false 
 } = Astro.props;
 ---
