@@ -10,42 +10,42 @@ export const footerLinks = {
     {
       title: "Information",
       links: [
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" }
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" }
       ]
     },
     {
       title: "Resources",
       links: [
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" }
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" }
       ]
     },
     {
       title: "Support",
       links: [
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" }
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" }
       ]
     },
     {
       title: "Shop & Services",
       links: [
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" },
-        { text: "Link", url: "#" }
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" },
+        { text: "Link", url: "empty" }
       ]
     }
   ],
   socialLinks: [
-    { platform: "video", url: "#", ariaLabel: "Tutorial/Demo in onedrive" },
+    { platform: "video", url: "empty", ariaLabel: "Tutorial/Demo in onedrive" },
     { platform: "gmail", url: "mailto:cpt.iqhwa.vx7@gmail.com", ariaLabel: "Tutorial/Demo in onedrive" },
     { platform: "hashnode", url: "https://hashnode.com/@arsenie", ariaLabel: "Tutorial/Demo in onedrive" },
     { platform: "github", url: "https://github.com/arsenie-sarmiento", ariaLabel: "Check this on Github" },
