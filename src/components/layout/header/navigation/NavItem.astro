@@ -1,12 +1,12 @@
 ---
 // <!-- Imported by: components/navigation/MainNav.astro -->
-import Icon from '../../../ui/Icon.astro';
-import type { NavItem as NavItemType } from '../../../../content/navigation';
-import ThemeToggle from '../../../common/ThemeToggle.astro';
+// import Icon from '../../../ui/Icon.astro';
+// import type { NavItem as NavItemType } from '../../../../content/navigation';
+// import ThemeToggle from '../../../common/ThemeToggle.astro';
 
-interface Props extends NavItemType {
-  iconSize?: number;
-}
+// interface Props extends NavItemType {
+//   iconSize?: number;
+// }
 
 const { 
   label, 
@@ -17,7 +17,7 @@ const {
   isButtonGroup = false,
   // dropdownItems = [],
   buttonItems = [],
-  iconSize = 16
+  // iconSize = 16
 } = Astro.props;
 
 const visibilityClass = mobileOnly 
@@ -30,7 +30,7 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
 ---
 {icon === 'theme' ? (
   <div class={`flex items-center text-secondary ${visibilityClass} py-2`}>
-    <ThemeToggle />
+    {/* <ThemeToggle /> */}
   </div>
 ) : isButtonGroup ? (
   <>
