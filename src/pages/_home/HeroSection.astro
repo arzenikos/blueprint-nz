@@ -5,17 +5,21 @@
 import Button from '../../components/ui/Button.astro';
 import Carousel from '../../components/ui/Carousel.astro';
 
+import { homeData } from '../../content/home.ts';
+
 interface Props {
   title: string;
   description: string;
-  primaryButton?: {
-    text: string;
-    href: string;
-  };
-  secondaryButton?: {
-    text: string;
-    href: string;
-  };
+  exploreButton: string;
+  exploreLink: string;
+  // primaryButton: {
+  //   text: string;
+  //   href: string;
+  // };
+  // secondaryButton?: {
+  //   text: string;
+  //   href: string;
+  // };
   carouselImages?: {
     src: string;
     alt: string;
@@ -25,10 +29,12 @@ interface Props {
 }
 
 const { 
-  title, 
-  description, 
-  primaryButton, 
-  secondaryButton, 
+  title = homeData.hero.title,
+  description = homeData.hero.description,
+  exploreButton = homeData.hero.exploreButton,
+  exploreLink = homeData.hero.exploreLink,
+  // primaryButton, 
+  // secondaryButton, 
   carouselImages = [
     {
       src: "/assets/images/placeholder-image-1.jpg",
@@ -62,20 +68,11 @@ const {
         <p class="text-lg md:text-xl mb-8" style="color: var(--color-palette-four);">
           {description}
         </p>
-        {(primaryButton || secondaryButton) && (
-          <div class="flex flex-wrap gap-4">
-            {primaryButton && (
-              <Button variant="primary" size="lg" href={primaryButton.href}>
-                {primaryButton.text}
-              </Button>
-            )}
-            {secondaryButton && (
-              <Button variant="outline" size="lg" href={secondaryButton.href}>
-                {secondaryButton.text}
-              </Button>
-            )}
-          </div>
-        )}
+        <div class="flex flex-wrap gap-4">
+          <Button variant="primary" size="lg" href={exploreLink}>
+            {exploreButton}
+          </Button>
+        </div>
       </div>
     </div>
   </div>
