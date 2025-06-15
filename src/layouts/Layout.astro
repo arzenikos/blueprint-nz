@@ -9,7 +9,7 @@ import ChatBox from '../components/common/ChatBox.astro';
 import '../styles/globals.css';
 
 // const breadcrumbItems = [
-//   { label: 'Blue Node', href: '/bluenode', current: true }
+//   { label: '', href: '/', current: true }
 // ];
 
 interface Props {
@@ -52,6 +52,7 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
   <body class="min-h-screen flex flex-col">
     <Header label="Home" href="/" icon="home" />
     <!-- <Breadcrumbs items={breadcrumbItems} /> -->
+
     <main class="flex-grow">
       <slot />
     </main>

@@ -23,7 +23,7 @@ const visibilityClass = desktopOnly ?
     <!-- Logo (left) - Size from centralized file -->
      <Logo/>
     <!-- Right Navigation Items -->
-    <div class={`flex items-center ${visibilityClass} py-2`}>
+    <div class={`flex items-center ${visibilityClass} py-2 gap-4`}>
         {mainNavItems.map(item => (
           <FontSizeToggle {...item} />
         ))}
