@@ -2,17 +2,17 @@
 // <!-- Imported by: layouts/BaseLayout.astro, layouts/FullPageLayout.astro -->
 // import { componentSpacing } from '../../../styles/spacing';
 import Logo from './Logo.astro';
+import FontSizeToggle from './FontSizeToggle.astro';
 import ThemeToggle from './ThemeToggle.astro';
 // import MainNav from '../navigation/MainNav.astro';
 import { mainNavItems } from '../../../content/navigation';
-import NavItem from './navigation/NavItem.astro';
 import type { NavItem as NavItemType } from '../../../content/navigation';
-interface Props extends NavItemType{
-  class?: string;
-  iconSize?: number;
-  mobileOnly?: boolean;
-  desktopOnly?: boolean;
-}
+// interface Props extends NavItemType{
+//   class?: string;
+//   iconSize?: number;
+//   mobileOnly?: boolean;
+//   desktopOnly?: boolean;
+// }
 
 const {
   class: 
@@ -31,7 +31,7 @@ const visibilityClass = desktopOnly ?
 // const headerMarginBottom = componentSpacing.header.margin.bottom;
 ---
 
-<header class="sticky top-0 z-40 w-full bg-transparent">
+<header class="sticky top-0 my-5 z-40 w-full bg-transparent">
   <!-- Spacer div for mobile top margin -->
   <!-- <div class="md:hidden" style={`margin-top: ${headerMarginTop.mobile};`}></div> -->
   <!-- <div class="hidden md:block" style={`margin-top: ${headerMarginTop.desktop};`}></div> -->
@@ -40,9 +40,9 @@ const visibilityClass = desktopOnly ?
     <!-- Logo (left) - Size from centralized file -->
      <Logo/>
     <!-- Right Navigation Items -->
-    <div class={`flex items-center text-secondary ${visibilityClass} py-2`}>
+    <div class={`flex items-center ${visibilityClass} py-2`}>
         {mainNavItems.map(item => (
-          <NavItem {...item} />
+          <FontSizeToggle {...item} />
         ))}
         <div class={`flex items-center space-x-1 sm:space-x-8 ${className}`}>
           <ThemeToggle />

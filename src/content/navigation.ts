@@ -28,9 +28,9 @@ export const mainNavItems: NavItem[] = [
       { value: "large", label: "A", ariaLabel: "Large Font Size" }
     ]
   },
-  {
-    label: "Theme",
-    href: "#",
-    icon: "theme"
-  }
+  // {
+  //   label: "Theme",
+  //   href: "#",
+  //   icon: "theme"
+  // }
 ];
