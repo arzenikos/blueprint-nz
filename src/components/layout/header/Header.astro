@@ -1,18 +1,9 @@
 ---
 // <!-- Imported by: layouts/BaseLayout.astro, layouts/FullPageLayout.astro -->
-// import { componentSpacing } from '../../../styles/spacing';
 import Logo from './Logo.astro';
 import FontSizeToggle from './FontSizeToggle.astro';
 import ThemeToggle from './ThemeToggle.astro';
-// import MainNav from '../navigation/MainNav.astro';
 import { mainNavItems } from '../../../content/navigation';
-import type { NavItem as NavItemType } from '../../../content/navigation';
-// interface Props extends NavItemType{
-//   class?: string;
-//   iconSize?: number;
-//   mobileOnly?: boolean;
-//   desktopOnly?: boolean;
-// }
 
 const {
   class: 
@@ -25,17 +16,9 @@ const visibilityClass = desktopOnly ?
 'justify-between' 
 : 
 '';
-// Get logo sizes from centralized file
-// Get header margin from centralized file
-// const headerMarginTop = componentSpacing.header.margin.top;
-// const headerMarginBottom = componentSpacing.header.margin.bottom;
 ---
 
 <header class="sticky top-0 my-5 z-40 w-full bg-transparent">
-  <!-- Spacer div for mobile top margin -->
-  <!-- <div class="md:hidden" style={`margin-top: ${headerMarginTop.mobile};`}></div> -->
-  <!-- <div class="hidden md:block" style={`margin-top: ${headerMarginTop.desktop};`}></div> -->
-
   <div class=`container mx-auto px-10 md:px-6 lg:px-8 max-w-[2000px] flex ${visibilityClass} items-center h-20`>
     <!-- Logo (left) - Size from centralized file -->
      <Logo/>
@@ -49,15 +32,55 @@ const visibilityClass = desktopOnly ?
         </div>
       </div>
   </div>
-  
-  <!-- Spacer div for mobile bottom margin -->
-  <!-- <div class="md:hidden" style={`margin-bottom: ${headerMarginBottom.mobile};`}></div>
-  <div class="hidden md:block" style={`margin-bottom: ${headerMarginBottom.desktop};`}></div> -->
 </header>
 
-<script type="application/json" id="image-sizes">
-</script>
 
 <script>
-  
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    // Check for saved theme preference or use OS preference
+    const getThemePreference = () => {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        return localStorage.getItem('theme');
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    
+    // Apply the current theme
+    const applyTheme = (theme) => {
+        const darkLogo  = '/assets/images/logo-13232A-6DA3C0.png';
+        const lightLogo = '/assets/images/logo-b9d6f2-061a40.png'; // Change this to your dark logo path
+        const logo = document.getElementById('site-logo');
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        if (logo instanceof HTMLImageElement) {
+          logo.src = darkLogo;
+        }
+
+      } else {
+        document.documentElement.classList.remove('dark');
+        if (logo instanceof HTMLImageElement) {
+          logo.src = lightLogo;
+        }
+      }
+    };
+    
+    // Initialize theme
+    const currentTheme = getThemePreference();
+    applyTheme(currentTheme);
+    
+    // Toggle theme on click
+    themeToggle?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      
+      // Save preference
+      localStorage.setItem('theme', newTheme);
+      
+      // Apply new theme
+      applyTheme(newTheme);
+    });
+  });
 </script>
