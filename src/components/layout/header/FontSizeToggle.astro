@@ -10,11 +10,11 @@
 
 const { 
   label, 
-  href, 
-  icon, 
+  // href, 
+  // icon, 
   mobileOnly = false, 
   desktopOnly = false,
-  isButtonGroup = false,
+  // isButtonGroup = false,
   // dropdownItems = [],
   buttonItems = [],
   // iconSize = 16
@@ -35,9 +35,9 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
         {/* <label for="font-size-dropdown" class="text-sm font-medium mr-2">{label}</label> */}
         <select 
           id="font-size-dropdown" 
-          class="text-sm border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-accent"
+          class="text-sm border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-accent"
+          style="border-color: var(--color-palette-four);"
         >
-
           {buttonItems.map((item) => {
             const dropFontSize = 
               item.value === 'small' ? 'text-xs' : 
