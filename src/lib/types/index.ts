@@ -21,10 +21,6 @@ export interface BlobProps {
   
 }
 
-// export interface BlobProps {
-//   parameters?: BlobParameters;
-// }
-
 // Legacy types kept for compatibility
 export type BlobParameterProps = {
   seed: number;

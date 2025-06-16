@@ -1,51 +1,37 @@
 ---
-// <!-- Imported by: components/navigation/MainNav.astro -->
-// import Icon from '../../../ui/Icon.astro';
-// import type { NavItem as NavItemType } from '../../../../content/navigation';
-// import ThemeToggle from '../../../common/ThemeToggle.astro';
-
-// interface Props extends NavItemType {
-//   iconSize?: number;
-// }
-
 const { 
   label, 
-  // href, 
-  // icon, 
   mobileOnly = false, 
   desktopOnly = false,
-  // isButtonGroup = false,
-  // dropdownItems = [],
   buttonItems = [],
-  // iconSize = 16
 } = Astro.props;
 
 const visibilityClass = mobileOnly 
-  ? 'md:flex' 
+  ? 'md:flex hidden' 
   : desktopOnly 
     ? 'hidden md:flex' 
-    : '';
-
+    : 'flex';
+const fontSizeClass = (fontSize) => fontSize === 'small' ? 'text-xs' : fontSize === 'medium' ? 'text-sm' : 'text-base font-bold';
 const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
+
+function getFontSizeClass(value) {
+  return value === 'small' ? 'text-xs'
+       : value === 'medium' ? 'text-sm'
+       : 'text-base font-bold';
+}
 ---
   <div>
     {/* <!-- Mobile dropdown --> */}
     {!desktopOnly && (
       <div class={`md:hidden flex items-center ${visibilityClass}`} id="nav-setting-mobile">
-        {/* <label for="font-size-dropdown" class="text-sm font-medium mr-2">{label}</label> */}
         <select 
           id="font-size-dropdown" 
           class="text-sm border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-accent"
-          style="border-color: var(--color-palette-four);"
+          style="border-color: var(--color-palette-four); background: var(--color-palette-one); opacity: 0.8"
         >
-          {buttonItems.map((item) => {
-            const dropFontSize = 
-              item.value === 'small' ? 'text-xs' : 
-              item.value === 'medium' ? 'text-sm' :
-              'text-base font-bold';
-            return (<option class={`${dropFontSize}`} value={item.value}>{item.label}</option>)
-          }
-          )}
+        {buttonItems.map(item => (
+          <option class={fontSizeClass(item.value)} value={item.value}>{item.label}</option>
+        ))}
         </select>
       </div>
     )}
@@ -54,22 +40,16 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
     <div class={`hidden md:flex items-center ${visibilityClass}`} id="nav-setting-desktop">
       <span class="text-sm font-medium mr-4">{label}</span>
       <div class="flex borde rounded-md overflow-hidden" id={id}>
-        {buttonItems.map((item) => {
-          const fontSize =
-            item.value === 'small' ? 'text-xs' :
-            item.value === 'medium' ? 'text-sm' :
-            'text-base font-bold';
-          return (
-            <button 
-              class={`px-4 py-1 ${fontSize} transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
-              data-value={item.value}
-              aria-label={item.ariaLabel}
-              style="border-color: var(--color-palette-one);"
-            >
-              {item.label}
-            </button>
-          );
-        })}
+        {buttonItems.map(item => (
+          <button
+            class={`px-4 py-1 ${getFontSizeClass(item.value)} transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
+            data-value={item.value}
+            aria-label={item.ariaLabel}
+            style="border-color: var(--color-palette-one);"
+          >
+          {item.label}
+          </button>
+          ))}
       </div>
     </div>
   </div>
@@ -87,9 +67,9 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
         const storedFontSize = localStorage.getItem('fontSizePreference') || 'medium';
         buttons.forEach(button => {
           if (button.getAttribute('data-value') === storedFontSize) {
-            button.classList.add('bg-red-100', 'text-blue-900');
+            // button.classList.add('bg-red-100', 'text-blue-900');
           } else {
-          button.classList.remove('bg-red-600', 'text-blue-900');
+          // button.classList.remove('bg-red-600', 'text-blue-900');
         }
         });
       }
@@ -115,17 +95,17 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
                 document.documentElement.classList.add('text-base');
                 break;
               case 'large':
-                document.documentElement.classList.add('text-xl'); // Changed from text-lg to text-xl for larger size
+                document.documentElement.classList.add('text-xl');
                 break;
             }
             
             // Update active state
-            // buttons.forEach(btn =>{
-            // btn.classList.remove('bg-gray-100')
-            // btn.classList.remove('text-blue-900')
+          //   buttons.forEach(btn =>{
+          //   btn.classList.remove('bg-gray-100')
+          //   btn.classList.remove('text-blue-900')
           // });
-            // button.classList.add('bg-gray-100');
-            // button.classList.add('text-blue-900');
+          //   button.classList.add('bg-gray-100');
+          //   button.classList.add('text-blue-900');
             
             // Store preference
             localStorage.setItem('fontSizePreference', value);
@@ -173,7 +153,6 @@ const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
           document.documentElement.classList.add('text-xl');
           break;
       }
-
       localStorage.setItem('fontSizePreference', value);
     });
   }
