@@ -17,7 +17,7 @@ const icons = [
 const {} = Astro.props
 ---
 
-<div class="container flex items-center justify-center gap-4 w-full px-4">
+<div class="container flex items-center justify-center w-full">
   <!-- Left Label -->
   <!-- <div class="text-lg font-semibold text-gray-800 min-w-[80px]">Patient</div> -->
 
@@ -29,7 +29,7 @@ const {} = Astro.props
     <!-- Fixed-size Button Containers -->
      <div class="flex relative">
       {numbers.map(({ label, icon }) => (
-        <div class="relative group w-10 h-10 flex items-center justify-center">
+        <div class="relative group w-10 h-10 hover:scale-110 hover:mx-3 flex items-center justify-center">
           <button
             type="button"
             class="w-full h-full flex p-5 items-center justify-center rounded-full md: text-xl text-s transition-all duration-200 hover:scale-110 " style="background: var(--color-palette-four); color: var(--color-palette-one);"
@@ -51,16 +51,16 @@ const {} = Astro.props
   <!-- <div class="h-12 w-0.5" style="background-color: var(--color-palette-five);"></div> -->
 
   <!-- Icon Buttons with Tooltip -->
-  <div class="flex relative">
+  <div class="flex relative py-5">
     {
       icons.map(({ label, icon }) => (
       <div class="flex items-center justify-center">
         <div class="h-0.5 w-4 md:w-10" style="background-color: var(--color-palette-five);"></div>
       </div>
-      <div class="relative group w-10 h-10 flex items-center justify-center">
+      <div class="relative group w-10 h-10 flex items-center justify-center hover:scale-110 hover:mx-3">
         <button
           type="button"
-          class="w-full h-full flex items-center justify-center rounded-full text-xl transition-all duration-200 hover:scale-110" style="background: var(--color-palette-four);"
+          class="w-full h-full flex items-center justify-center rounded-full text-xl transition-all duration-200" style="background: var(--color-palette-four);"
         >
           {/* {icon} */}
           <Icon name={icon} class="hover:text-white" color="var(--color-palette-one)"/>

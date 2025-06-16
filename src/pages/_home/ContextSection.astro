@@ -1,8 +1,15 @@
 ---
 import Button from '../../components/ui/Button.astro';
-const {} = Astro.props
+const {
+    bodyPanWidth = 'px-15 ',
+    sectionTitle = 'About BluePrintNZ',
+    sectionBody = {
+        paragraph1: "BluePrintNZ is a platform designed to showcase modern web development techniques and best practices using Astro and Netlify.",
+        paragraph2: "Our mission is to provide a blueprint for building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture and Netlify's deployment platform."
+    }
+} = Astro.props
 ---
-<div class="container mx-auto px-6">
+<div class=`container mx-auto ${bodyPanWidth} text-center`>
     <div class="flex flex-col md:flex-row items-center gap-12">
     <div class="md:w-1/2">
         <img 
@@ -12,14 +19,14 @@ const {} = Astro.props
         />
     </div>
     <div class="md:w-1/2">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--color-palette-five);">About BluePrintNZ</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--color-palette-five);">{sectionTitle}</h2>
         <p class="text-lg  mb-6" style="color: var(--color-palette-five);">
-        BluePrintNZ is a platform designed to showcase modern web development techniques and best practices using Astro and Netlify.
+        {sectionBody.paragraph1}
         </p>
         <p class="text-lg  mb-6" style="color: var(--color-palette-five);">
-        Our mission is to provide a blueprint for building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture and Netlify's deployment platform.
+        {sectionBody.paragraph2}
         </p>
-        <Button variant="primary" href="/about">
+        <Button class="text-center md:text-start" variant="primary" href="/about">
         Learn More About Us
         </Button>
     </div>

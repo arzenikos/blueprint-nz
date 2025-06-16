@@ -67,7 +67,7 @@ const breadcrumbItems = [
     
     <!-- Detail Panel (1/3 width) -->
     <div class="w-full md:w-3/5 h-full overflow-y-auto p-6" id="detail-panel">
-      <div class="sticky top-0 bg-red pb-4 mb-4 border-b border-neutral-100">
+      <div class="sticky top-0 pb-4 mb-4 border-b border-neutral-100" style="background: var(--color-palette-one);">
         <h2 class="text-2xl font-bold text-secondary mb-1" id="detail-title">Select a node</h2>
         <p class="text-neutral-500 text-sm" id="detail-subtitle">Click on any node to view details</p>
       </div>
@@ -187,7 +187,7 @@ const breadcrumbItems = [
         
         // Create content
         let content = `
-          <div class="p-4 rounded-lg mb-6" style="color: var(--color-palette-five);">
+          <div class="p-4 rounded-lg mb-6" style="color: var(--color-palette-five); ">
             <h3 class="font-semibold mb-2">Description</h3>
             <p>${nodeData.description}</p>
           </div>

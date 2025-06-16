@@ -7,41 +7,28 @@ import ResourceSection from './ResourceSection.astro';
 import ContextSection from './ContextSection.astro';
 import GetStartedSection from './GetStartedSection.astro';
 
-import { homeData } from '../../content/home.ts';
-// const heroImages = [
-//   { src: "/src/assets/images/placeholder-image-1.jpg", alt: "BluePrintNZ Hero Image 1" },
-//   { src: "/src/assets/images/placeholder-image-2.jpg", alt: "BluePrintNZ Hero Image 2" },
-//   { src: "/src/assets/images/placeholder-image-3.jpg", alt: "BluePrintNZ Hero Image 3" }
-// ];
-
-const {
-  title = homeData.hero.title,
-  description = homeData.hero.description,
-  exploreButton = homeData.hero.exploreButton,
-  exploreLink = homeData.hero.exploreLink,
-} = Astro.props;
 ---
 <div>
-  <HeroSection
-    title={title}
-    description={description},
-    exploreButton={exploreButton},
-    exploreLink={exploreLink},
-    useCarousel={true}
-  />
-  <section class=" w-full" style="background: none">
+  <HeroSection/>
+  <section class="homeSection mx-3 scale-90 md:scale-140">
     <UsersSection/>
   </section>
-
-  <section class="py-16" style="background: none">
+  <section class="homeSection">
     <ResourceSection/>
   </section>
-
-  <section class="py-16" style="background: none">
+  <section class="homeSection">
     <ContextSection/>
   </section>
-
-  <section class="py-16 " style="background: none">
+  <section class="homeSection">
     <GetStartedSection/>
   </section>
 </div>
+
+<style>
+  .homeSection {
+    /* background: none; */
+    width: auto;
+    padding: 6rem 0;
+
+  }
+</style>

@@ -7,34 +7,11 @@ import Carousel from '../../components/ui/Carousel.astro';
 
 import { homeData } from '../../content/home.ts';
 
-interface Props {
-  title: string;
-  description: string;
-  exploreButton: string;
-  exploreLink: string;
-  // primaryButton: {
-  //   text: string;
-  //   href: string;
-  // };
-  // secondaryButton?: {
-  //   text: string;
-  //   href: string;
-  // };
-  carouselImages?: {
-    src: string;
-    alt: string;
-  }[];
-  useCarousel?: boolean;
-  reversed?: boolean;
-}
-
 const { 
   title = homeData.hero.title,
   description = homeData.hero.description,
   exploreButton = homeData.hero.exploreButton,
   exploreLink = homeData.hero.exploreLink,
-  // primaryButton, 
-  // secondaryButton, 
   carouselImages = [
     {
       src: "/assets/images/placeholder-image-1.jpg",
@@ -61,14 +38,14 @@ const {
       <div class="w-6/7 md:w-2/3">
         <Carousel images={carouselImages} />
       </div>
-      <div class="md:w-1/2">
+      <div class="md:w-1/2 text-center md:text-start">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
           {title}
         </h1>
         <p class="text-lg md:text-xl mb-8" style="color: var(--color-palette-four);">
           {description}
         </p>
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
           <Button variant="primary" size="lg" href={exploreLink}>
             {exploreButton}
           </Button>
