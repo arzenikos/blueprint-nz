@@ -5,28 +5,14 @@
 import Button from '../../components/ui/Button.astro';
 import Carousel from '../../components/ui/Carousel.astro';
 
-import { homeData } from '../../content/home.ts';
+import { heroContent } from '../../content/home-hero.ts';
 
 const { 
-  title = homeData.hero.title,
-  description = homeData.hero.description,
-  exploreButton = homeData.hero.exploreButton,
-  exploreLink = homeData.hero.exploreLink,
-  carouselImages = [
-    {
-      src: "/assets/images/placeholder-image-1.jpg",
-      alt: "Hero image 1"
-    },
-    {
-      src: "/assets/images/placeholder-image-2.jpg",
-      alt: "Hero image 2"
-    },
-    {
-      src: "/assets/images/placeholder-image-3.jpg",
-      alt: "Hero image 3"
-    }
-  ],
-  // useCarousel = false,
+  title = heroContent.title,
+  description = heroContent.description,
+  exploreButton = heroContent.exploreButton,
+  exploreLink = heroContent.exploreLink,
+  carouselImages = heroContent.carouselImages,
   reversed = false 
 } = Astro.props;
 ---

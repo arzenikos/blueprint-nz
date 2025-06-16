@@ -24,10 +24,10 @@ const {
 <div class="container mx-auto px-6" >
   <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">{sectionTitle}</h2>
   
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
   {sectionCards.map(({ heading, content, cardLink }) => (
     <div class="rounded-lg shadow-md p-6 transition-transform hover:scale-105" style="background: var(--color-palette-four);">
-      <div class=" p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
+      <div class=" p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
         <Icon name="code" color="var(--color-palette-five)"/>
       </div>
       <h3 class="text-xl font-semibold mb-3" style="color: var(--color-palette-one);">{heading}</h3>
@@ -38,7 +38,3 @@ const {
     ))}
   </div>
 </div>
-
-<style>
-
-</style>
