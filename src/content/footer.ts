@@ -51,5 +51,5 @@ export const footerLinks = {
     { platform: "github", url: "https://github.com/arsenie-sarmiento", ariaLabel: "Check this on Github" },
     { platform: "linkedin", url: "https://nz.linkedin.com/in/arsenie-sarmiento", ariaLabel: "Connect with us on LinkedIn" }
   ],
-  copyright: "© 2025 BluePrintNZ. All rights reserved."
+  copyright: "© 2025 BluePrintNZ — designed & developed by Arsenie Sarmiento"
 };

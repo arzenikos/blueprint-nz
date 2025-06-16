@@ -1,36 +1,16 @@
 ---
 // <!-- Imported by: layouts/BaseLayout.astro -->
 import { footerLinks } from '../../../content/footer';
-import { componentSpacing } from '../../../lib/themes-and-layout/spacing';
 import FooterSection from '../footer/FooterSection.astro';
 import NewsletterForm from '../footer/NewsletterForm.astro';
 import SocialLinks from '../footer/SocialLinks.astro';
 
 // Get spacing values from centralized file
-const footerPaddingX = componentSpacing.footer.padding.x;
-const footerPaddingY = componentSpacing.footer.padding.y;
-const footerMarginTop = componentSpacing.footer.margin.top;
-const footerDividerMargin = componentSpacing.footer.divider.margin.y;
 ---
 
 <footer class="w-full border-t border-secondary/20 bg-secondary dark:bg-gray-900" style={`
-  padding-top: ${footerPaddingY};
-  padding-bottom: ${footerPaddingY};
-  margin-top: ${footerMarginTop};
 `}>
-  <!-- <PixelRibbon pixelSize={2} /> -->
-  <div class="container mx-auto max-w-[2000px]" style={`
-    padding-left: ${footerPaddingX.mobile}; 
-    padding-right: ${footerPaddingX.mobile};
-    @media (min-width: 768px) {
-      padding-left: ${footerPaddingX.tablet}; 
-      padding-right: ${footerPaddingX.tablet};
-    }
-    @media (min-width: 1024px) {
-      padding-left: ${footerPaddingX.desktop}; 
-      padding-right: ${footerPaddingX.desktop};
-    }
-  `}>
+  <div class="container mx-auto max-w-[2000px]">
     <nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-10 lg:gap-16 pt-6">
       <!-- Newsletter Section -->
       <NewsletterForm 
@@ -52,7 +32,7 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
       </div>
     </nav>
     
-    <hr class="border-primary/30" style={`margin-top: ${footerDividerMargin}; margin-bottom: ${footerDividerMargin}; border-color: var(--color-palette-four);`}>
+    <hr class="border-primary/30 my-6" style="border-color: var(--color-palette-four);">
     
     <div class="flex flex-col md:flex-row items-center gap-4">
       <div class="text-xs text-center md:text-left" style="color: var(--color-palette-gray);">
@@ -68,3 +48,31 @@ const footerDividerMargin = componentSpacing.footer.divider.margin.y;
     </div>
   </div>
 </footer>
+
+<style>
+  footer .container{
+    margin-top: 2rem;
+    /* padding-top: 2rem; */
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    footer .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    footer .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* footer hr {
+    padding-top: 2.5rem;
+    padding-bottom: 0.5rem;
+  } */
+</style>
