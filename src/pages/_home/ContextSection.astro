@@ -3,6 +3,8 @@ import Button from '../../components/ui/Button.astro';
 const {
     bodyPanWidth = 'px-15 ',
     sectionTitle = 'About BluePrintNZ',
+    ctaLink = '/about',
+    ctaText = 'Learn More About Us',
     sectionBody = {
         paragraph1: "BluePrintNZ is a platform designed to showcase modern web development techniques and best practices using Astro and Netlify.",
         paragraph2: "Our mission is to provide a blueprint for building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture and Netlify's deployment platform."
@@ -26,8 +28,8 @@ const {
         <p class="text-lg  mb-6" style="color: var(--color-palette-five);">
         {sectionBody.paragraph2}
         </p>
-        <Button class="text-center md:text-start" variant="primary" href="/about">
-        Learn More About Us
+        <Button class="text-center md:text-start" variant="primary" href={ctaLink}>
+        {ctaText}
         </Button>
     </div>
     </div>

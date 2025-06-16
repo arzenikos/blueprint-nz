@@ -1,14 +1,19 @@
 ---
 import Button from '../../components/ui/Button.astro';
-const {} = Astro.props
+const {
+    sectionTitle = 'Ready to Get Started?',
+    sectionBody = 'Contact us today to discuss your project and how we can help you build a modern, fast, and accessible website.',
+    ctaLink = '/contact',
+    ctaText = 'Contact Us',
+} = Astro.props
 ---
 <div class="container mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--color-palette-five);">Ready to Get Started?</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--color-palette-five);">{sectionTitle}</h2>
     <p class="text-lgmb-8 max-w-2xl mx-auto" style="color: var(--color-palette-five);">
-    Contact us today to discuss your project and how we can help you build a modern, fast, and accessible website.
+    {sectionBody}
     </p>
     <br>
-    <Button variant="primary" size="lg" href="/contact">
-    Contact Us
+    <Button variant="primary" size="lg" href={ctaLink}>
+    {ctaText}
     </Button>
 </div>

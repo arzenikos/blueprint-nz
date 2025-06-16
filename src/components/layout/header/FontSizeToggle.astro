@@ -27,7 +27,7 @@ function getFontSizeClass(value) {
         <select 
           id="font-size-dropdown" 
           class="text-sm border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-accent"
-          style="border-color: var(--color-palette-four); background: var(--color-palette-one); opacity: 0.8"
+          style="border-color: var(--color-palette-four); background: var(--color-palette-three);"
         >
         {buttonItems.map(item => (
           <option class={fontSizeClass(item.value)} value={item.value}>{item.label}</option>
@@ -77,25 +77,25 @@ function getFontSizeClass(value) {
       buttons.forEach(button => {
         button.addEventListener('click', (e) => {
           const value = button.getAttribute('data-value');
-          button.style.backgroundColor = 'var(--color-palette-one)';
+          button.style.backgroundColor = 'var(--color-palette-three)';
           button.style.color = 'var(--color-palette-five)';
           
           if (label === 'Font Size') {
-            console.log(`Font size changed to: ${value}`);
+            // console.log(`Font size changed to: ${value}`);
             
             // Remove existing font size classes
-            document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl');
+            document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl', 'selected');
             
             // Add new font size class
             switch(value) {
               case 'small':
-                document.documentElement.classList.add('text-sm');
+                document.documentElement.classList.add('text-sm', 'selected');
                 break;
               case 'medium':
-                document.documentElement.classList.add('text-base');
+                document.documentElement.classList.add('text-base', 'selected');
                 break;
               case 'large':
-                document.documentElement.classList.add('text-xl');
+                document.documentElement.classList.add('text-xl', 'selected');
                 break;
             }
             
@@ -120,13 +120,13 @@ function getFontSizeClass(value) {
   if (storedFontSize) {
     switch(storedFontSize) {
       case 'small':
-        document.documentElement.classList.add('text-sm');
+        document.documentElement.classList.add('text-sm', 'selected');
         break;
       case 'medium':
-        document.documentElement.classList.add('text-base');
+        document.documentElement.classList.add('text-base', 'selected');
         break;
       case 'large':
-        document.documentElement.classList.add('text-xl'); // Changed from text-lg to text-xl for larger size
+        document.documentElement.classList.add('text-xl', 'selected'); // Changed from text-lg to text-xl for larger size
         break;
     }
   }
@@ -140,20 +140,26 @@ function getFontSizeClass(value) {
       const value = dropdown.value;
       console.log(`Font size changed to: ${value}`);
 
-      document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl');
+      document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl', 'selected');
 
       switch (value) {
         case 'small':
-          document.documentElement.classList.add('text-sm');
+          document.documentElement.classList.add('text-sm', 'selected');
           break;
         case 'medium':
-          document.documentElement.classList.add('text-base');
+          document.documentElement.classList.add('text-base', 'selected');
           break;
         case 'large':
-          document.documentElement.classList.add('text-xl');
+          document.documentElement.classList.add('text-xl', 'selected');
           break;
       }
       localStorage.setItem('fontSizePreference', value);
     });
   }
 </script>
+
+<style>
+  .selected {
+    background-color: var(--color-palette-three);
+  }
+</style>
