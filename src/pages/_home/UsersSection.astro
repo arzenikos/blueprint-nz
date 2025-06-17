@@ -4,61 +4,75 @@ import { userContent } from '../../content/home-user-tab';
 
 const {
   id,
-  description,
+  sectionTitle = userContent.title,
+  description = userContent.description,
   patients = userContent.users,
   others = userContent.other
 } = Astro.props
 ---
-<section class="container flex items-center justify-center w-full mb-15 md:my-32 lg:my-35">
-  <!-- Number Buttons with Horizontal Line -->
-  <div class="relative ">
-    <!-- Connecting Line -->
-    <div class="absolute top-1/2 left-0 w-full h-0.5-z-10 translate-y-1/2"></div>
-
-    <!-- Fixed-size Button Containers -->
-     <div class="flex relative" id={id}>
-       {patients.map(({ label, icon, type }) => (
-       <div class="relative group w-10 h-10 hover:scale-110 hover:mx-3 flex items-center justify-center">
+<!-- <div class="w-full my-5 h-0.5-z-10 translate-y-1/2">
+<hr>
+</div>
+<br> -->
+<section class="mb-15 md:my-10 lg:my-10 scale-80">
+  <div class="text-center px-60">
+      <p class="font-bold mb-2" style="color: var(--color-palette-five);">{sectionTitle}</p>
+      <p class="text-center mb-6" style="color: var(--color-palette-five);">
+      {description}
+      </p>
+  </div>
+  <div class="container flex items-center justify-center w-full">
+    <!-- Number Buttons with Horizontal Line -->
+  
+    <div class="relative ">
+      <!-- Connecting Line -->
+      <!-- <div class="absolute top-1/2 left-0 w-full h-0.5-z-10 translate-y-1/2"></div> -->
+  
+      <!-- Fixed-size Button Containers -->
+       <div class="flex relative" id={id}>
+         {patients.map(({ label, icon, type }) => (
+         <div class="relative group w-10 h-10 hover:scale-110 hover:mx-3 flex items-center justify-center">
+            <button
+              id={label}
+              type="button"
+              data-label={label}
+              class="user-btn w-full h-full flex p-5 items-center justify-center rounded-full md: text-xl text-s transition-all duration-200 hover:scale-110 " style="background: var(--color-palette-four); color: var(--color-palette-one);"
+            >
+              {icon}
+              </button>
+            <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm  rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+              {type}
+            </div>
+          </div>
+          <div class="flex items-center justify-center">
+            <div class="h-0.5 w-4 md:w-10"  style="background-color: var(--color-palette-five);"></div>
+          </div>
+          ))}
+      </div>
+    </div>
+  
+    <!-- Icon Buttons with Tooltip -->
+    <div class="flex relative py-5">
+      {others.map(({ label, icon }) => (
+        <div class="flex items-center justify-center">
+          <div class="h-0.5 w-4 md:w-10" style="background-color: var(--color-palette-five);"></div>
+        </div>
+        <div class="relative group w-10 h-10 flex items-center justify-center hover:scale-110 hover:mx-3">
           <button
-            id={label}
             type="button"
             data-label={label}
-            class="user-btn w-full h-full flex p-5 items-center justify-center rounded-full md: text-xl text-s transition-all duration-200 hover:scale-110 " style="background: var(--color-palette-four); color: var(--color-palette-one);"
+            class="user-btn w-full h-full flex items-center justify-center rounded-full text-xl transition-all duration-200" style="background: var(--color-palette-four);"
           >
-            {icon}
-            </button>
-          <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm  rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-            {type}
+            {/* {icon} */}
+            <Icon name={icon} class="hover:text-white" color="var(--color-palette-one)"/>
+          </button>
+          <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+            {label}
           </div>
         </div>
-        <div class="flex items-center justify-center">
-          <div class="h-0.5 w-4 md:w-10"  style="background-color: var(--color-palette-five);"></div>
-        </div>
-        ))}
+        ))
+      }
     </div>
-  </div>
-
-  <!-- Icon Buttons with Tooltip -->
-  <div class="flex relative py-5">
-    {others.map(({ label, icon }) => (
-      <div class="flex items-center justify-center">
-        <div class="h-0.5 w-4 md:w-10" style="background-color: var(--color-palette-five);"></div>
-      </div>
-      <div class="relative group w-10 h-10 flex items-center justify-center hover:scale-110 hover:mx-3">
-        <button
-          type="button"
-          data-label={label}
-          class="user-btn w-full h-full flex items-center justify-center rounded-full text-xl transition-all duration-200" style="background: var(--color-palette-four);"
-        >
-          {/* {icon} */}
-          <Icon name={icon} class="hover:text-white" color="var(--color-palette-one)"/>
-        </button>
-        <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-          {label}
-        </div>
-      </div>
-      ))
-    }
   </div>
 </section>
 
@@ -84,7 +98,7 @@ const {
           yOffset = -270;
         } else {
           // Large screens (e.g., desktops)
-          yOffset = -295;
+          yOffset = -320;
         }
 
         const y = cardSection.getBoundingClientRect().top + window.pageYOffset + yOffset;

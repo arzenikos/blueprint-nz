@@ -54,6 +54,7 @@ function getFontSizeClass(value) {
     // Add event listeners for dropdowns and button groups
     document.addEventListener('DOMContentLoaded', () => {
         const element = document.getElementById(id);
+        const carouselHero = document.getElementById('hero-carousel');
 
         if (element) {
             const buttons = element.querySelectorAll('button[data-value]');
@@ -74,35 +75,40 @@ function getFontSizeClass(value) {
                 button.addEventListener('click', (e) => {
                     const value = button.getAttribute('data-value');
                     // button.style.backgroundColor = 'var(--color-palette-three)';
-                    button.style.color = 'var(--color-palette-five)';
+                    button.style.color = 'var(--color-palette-three)';
 
                     if (label === 'Font Size') {
                         // console.log(`Font size changed to: ${value}`);
 
                         // Remove existing font size classes
-                        document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl', 'selected');
+                        document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl',
+                        //  'scale-5', 'scale-10', 'scale-30'
+                        );
 
                         // Add new font size class
                         switch (value) {
                             case 'small':
                                 document.documentElement.classList.add('text-sm');
+                                // carouselHero.documentElement.classList.add('scale-5');
                                 break;
                             case 'medium':
                                 document.documentElement.classList.add('text-base');
+                                // carouselHero.documentElement.classList.add('scale-10');
                                 break;
                             case 'large':
                                 document.documentElement.classList.add('text-xl');
+                                // carouselHero.documentElement.classList.add('scale-30');
                                 break;
                         }
 
                         // Update active state
                         buttons.forEach((btn) => {
-                            btn.classList.remove('bg-blue-500');
-                            btn.classList.remove('text-blue-100');
+                            // btn.classList.remove('bg-red-100');
+                            // btn.classList.remove('text-blue-900');
                         });
 
-                        button.classList.add('bg-blue-500');
-                        button.classList.add('text-blue-100');
+                        // button.classList.add('bg-red-100');
+                        // button.classList.add('text-blue-900');
 
                         // Store preference
                         localStorage.setItem('fontSizePreference', value);
@@ -118,12 +124,15 @@ function getFontSizeClass(value) {
         switch (storedFontSize) {
             case 'small':
                 document.documentElement.classList.add('text-sm', 'selected');
+                // carouselHero.documentElement.classList.add('scale-5');
                 break;
             case 'medium':
                 document.documentElement.classList.add('text-base', 'selected');
+                // carouselHero.documentElement.classList.add('scale-10');
                 break;
             case 'large':
-                document.documentElement.classList.add('text-xl', 'selected'); // Changed from text-lg to text-xl for larger size
+                document.documentElement.classList.add('text-xl', 'selected'); // 
+                // carouselHero.documentElement.classList.add('scale-30');
                 break;
         }
     }
