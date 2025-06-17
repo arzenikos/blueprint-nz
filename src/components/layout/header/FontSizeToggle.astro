@@ -1,165 +1,162 @@
 ---
-const { 
-  label, 
-  mobileOnly = false, 
-  desktopOnly = false,
-  buttonItems = [],
-} = Astro.props;
+const { label, mobileOnly = false, desktopOnly = false, buttonItems = [] } = Astro.props;
 
-const visibilityClass = mobileOnly 
-  ? 'md:flex hidden' 
-  : desktopOnly 
-    ? 'hidden md:flex' 
-    : 'flex';
-const fontSizeClass = (fontSize) => fontSize === 'small' ? 'text-xs' : fontSize === 'medium' ? 'text-sm' : 'text-base font-bold';
+const visibilityClass = mobileOnly ? 'md:flex hidden' : desktopOnly ? 'hidden md:flex' : 'flex';
+const fontSizeClass = (fontSize) => (fontSize === 'small' ? 'text-xs' : fontSize === 'medium' ? 'text-sm' : 'text-base font-bold');
 const id = `nav-item-${label.toLowerCase().replace(/\s+/g, '-')}`;
 
 function getFontSizeClass(value) {
-  return value === 'small' ? 'text-xs'
-       : value === 'medium' ? 'text-sm'
-       : 'text-base';
+    return value === 'small' ? 'text-xs' : value === 'medium' ? 'text-sm' : 'text-base';
 }
 ---
-  <div>
+
+<div>
     {/* <!-- Mobile dropdown --> */}
-    {!desktopOnly && (
-      <div class={`md:hidden flex items-center ${visibilityClass}`} id="nav-setting-mobile">
-        <select 
-          id="font-size-dropdown" 
-          class="text-sm border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-accent"
-          style="border-color: var(--color-palette-four); background: var(--color-palette-three);"
-        >
-        {buttonItems.map(item => (
-          <option class={fontSizeClass(item.value)} value={item.value}>{item.label}</option>
-        ))}
-        </select>
-      </div>
-    )}
+    {
+        !desktopOnly && (
+            <div class={`md:hidden flex items-center ${visibilityClass}`} id="nav-setting-mobile">
+                <select
+                    id="font-size-dropdown"
+                    class="text-sm border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-accent"
+                    style="border-color: var(--color-palette-four); background: var(--color-palette-three);"
+                >
+                    {buttonItems.map((item) => (
+                        <option class={fontSizeClass(item.value)} value={item.value}>
+                            {item.label}
+                        </option>
+                    ))}
+                </select>
+            </div>
+        )
+    }
 
     {/* <!-- Desktop button group --> */}
     <div class={`hidden md:flex items-center ${visibilityClass}`} id="nav-setting-desktop">
-      <span class="text-sm font-medium mr-4">{label}</span>
-      <div class="flex borde rounded-md overflow-hidden" id={id}>
-        {buttonItems.map(item => (
-          <button
-            class={`px-4 py-1 ${getFontSizeClass(item.value)} transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
-            data-value={item.value}
-            aria-label={item.ariaLabel}
-            style="border-color: var(--color-palette-one);"
-          >
-          {item.label}
-          </button>
-          ))}
-      </div>
+        <span class="text-sm font-medium mr-4">{label}</span>
+        <div class="flex borde rounded-md overflow-hidden" id={id}>
+            {
+                buttonItems.map((item) => (
+                    <button
+                        class={`px-4 py-1 ${getFontSizeClass(item.value)} transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50`}
+                        data-value={item.value}
+                        aria-label={item.ariaLabel}
+                        style="border-color: var(--color-palette-one);"
+                    >
+                        {item.label}
+                    </button>
+                ))
+            }
+        </div>
     </div>
-  </div>
+</div>
 
 <script define:vars={{ id, label }}>
-  // Add event listeners for dropdowns and button groups
-  document.addEventListener('DOMContentLoaded', () => {
-    const element = document.getElementById(id);
-    
-    if (element) {
-      const buttons = element.querySelectorAll('button[data-value]');
-      
-      // Set active state based on stored preference
-      if (label === 'Font Size') {
-        const storedFontSize = localStorage.getItem('fontSizePreference') || 'medium';
-        buttons.forEach(button => {
-          if (button.getAttribute('data-value') === storedFontSize) {
-            // button.classList.add('bg-red-100', 'text-blue-900');
-          } else {
-          // button.classList.remove('bg-red-600', 'text-blue-900');
+    // Add event listeners for dropdowns and button groups
+    document.addEventListener('DOMContentLoaded', () => {
+        const element = document.getElementById(id);
+
+        if (element) {
+            const buttons = element.querySelectorAll('button[data-value]');
+
+            // Set active state based on stored preference
+            if (label === 'Font Size') {
+                const storedFontSize = localStorage.getItem('fontSizePreference') || 'medium';
+                buttons.forEach((button) => {
+                    if (button.getAttribute('data-value') === storedFontSize) {
+                        // button.classList.add('bg-red-100', 'text-blue-900');
+                    } else {
+                        // button.classList.remove('bg-red-600', 'text-blue-900');
+                    }
+                });
+            }
+
+            buttons.forEach((button) => {
+                button.addEventListener('click', (e) => {
+                    const value = button.getAttribute('data-value');
+                    // button.style.backgroundColor = 'var(--color-palette-three)';
+                    button.style.color = 'var(--color-palette-five)';
+
+                    if (label === 'Font Size') {
+                        // console.log(`Font size changed to: ${value}`);
+
+                        // Remove existing font size classes
+                        document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl', 'selected');
+
+                        // Add new font size class
+                        switch (value) {
+                            case 'small':
+                                document.documentElement.classList.add('text-sm');
+                                break;
+                            case 'medium':
+                                document.documentElement.classList.add('text-base');
+                                break;
+                            case 'large':
+                                document.documentElement.classList.add('text-xl');
+                                break;
+                        }
+
+                        // Update active state
+                        buttons.forEach((btn) => {
+                            btn.classList.remove('bg-blue-500');
+                            btn.classList.remove('text-blue-100');
+                        });
+
+                        button.classList.add('bg-blue-500');
+                        button.classList.add('text-blue-100');
+
+                        // Store preference
+                        localStorage.setItem('fontSizePreference', value);
+                    }
+                });
+            });
         }
-        });
-      }
-      
-      buttons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          const value = button.getAttribute('data-value');
-          button.style.backgroundColor = 'var(--color-palette-three)';
-          button.style.color = 'var(--color-palette-five)';
-          
-          if (label === 'Font Size') {
-            // console.log(`Font size changed to: ${value}`);
-            
-            // Remove existing font size classes
-            document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl', 'selected');
-            
-            // Add new font size class
-            switch(value) {
-              case 'small':
+    });
+
+    // Initialize font size from stored preference
+    const storedFontSize = localStorage.getItem('fontSizePreference');
+    if (storedFontSize) {
+        switch (storedFontSize) {
+            case 'small':
                 document.documentElement.classList.add('text-sm', 'selected');
                 break;
-              case 'medium':
+            case 'medium':
                 document.documentElement.classList.add('text-base', 'selected');
                 break;
-              case 'large':
-                document.documentElement.classList.add('text-xl', 'selected');
+            case 'large':
+                document.documentElement.classList.add('text-xl', 'selected'); // Changed from text-lg to text-xl for larger size
                 break;
+        }
+    }
+
+    const dropdown = document.getElementById('font-size-dropdown');
+    if (dropdown && label === 'Font Size') {
+        const storedFontSize = localStorage.getItem('fontSizePreference') || 'medium';
+        dropdown.value = storedFontSize;
+
+        dropdown.addEventListener('change', (e) => {
+            const value = dropdown.value;
+            console.log(`Font size changed to: ${value}`);
+
+            document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl', 'selected');
+
+            switch (value) {
+                case 'small':
+                    document.documentElement.classList.add('text-sm', 'selected');
+                    break;
+                case 'medium':
+                    document.documentElement.classList.add('text-base', 'selected');
+                    break;
+                case 'large':
+                    document.documentElement.classList.add('text-xl', 'selected');
+                    break;
             }
-            
-            // Update active state
-          //   buttons.forEach(btn =>{
-          //   btn.classList.remove('bg-gray-100')
-          //   btn.classList.remove('text-blue-900')
-          // });
-          //   button.classList.add('bg-gray-100');
-          //   button.classList.add('text-blue-900');
-            
-            // Store preference
             localStorage.setItem('fontSizePreference', value);
-          }
         });
-      });
     }
-  });
-  
-  // Initialize font size from stored preference
-  const storedFontSize = localStorage.getItem('fontSizePreference');
-  if (storedFontSize) {
-    switch(storedFontSize) {
-      case 'small':
-        document.documentElement.classList.add('text-sm', 'selected');
-        break;
-      case 'medium':
-        document.documentElement.classList.add('text-base', 'selected');
-        break;
-      case 'large':
-        document.documentElement.classList.add('text-xl', 'selected'); // Changed from text-lg to text-xl for larger size
-        break;
-    }
-  }
-
-  const dropdown = document.getElementById('font-size-dropdown');
-  if (dropdown && label === 'Font Size') {
-    const storedFontSize = localStorage.getItem('fontSizePreference') || 'medium';
-    dropdown.value = storedFontSize;
-
-    dropdown.addEventListener('change', (e) => {
-      const value = dropdown.value;
-      console.log(`Font size changed to: ${value}`);
-
-      document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl', 'selected');
-
-      switch (value) {
-        case 'small':
-          document.documentElement.classList.add('text-sm', 'selected');
-          break;
-        case 'medium':
-          document.documentElement.classList.add('text-base', 'selected');
-          break;
-        case 'large':
-          document.documentElement.classList.add('text-xl', 'selected');
-          break;
-      }
-      localStorage.setItem('fontSizePreference', value);
-    });
-  }
 </script>
 
 <style>
-  .selected {
-    background-color: var(--color-palette-three);
-  }
+    .selected {
+        background-color: var(--color-palette-three);
+    }
 </style>

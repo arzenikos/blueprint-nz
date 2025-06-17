@@ -1,40 +1,65 @@
 ---
 import Icon from '../../components/ui/Icon.astro';
-const {
-  sectionTitle = 'Prostate Cancer Resource Hub',
-  sectionCards = [
-    {
-      heading: 'Heading 1',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      cardLink: '/#'
-    },
-    {
-      heading: 'Heading 2',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      cardLink: '/#'
-    },
-        {
-      heading: 'Heading3',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      cardLink: '/#'
-    },
-  ],
-} = Astro.props
+import { resourceContent } from '../../content/home-resource'
+
+const { sectionTitle, sectionSubtitle, contentByCategory } = resourceContent;
+let selectedCategory = 'patient0';
+let selectedCards = contentByCategory[selectedCategory];
 ---
 <div class="container mx-auto px-6" >
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">{sectionTitle}</h2>
+  <h2 id="selected-heading" class="text-2xl font-bold text-center my-4 text-gray-700">
+    <!-- Empty until a button is clicked -->
+  </h2>
+
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-1">{sectionTitle}</h2>
+  <h4 class="text-center mb-12">{sectionSubtitle}</h4>
   
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
-  {sectionCards.map(({ heading, content, cardLink }) => (
+  {selectedCards.map(({ heading, content, cardLink }) => (
     <div class="rounded-lg shadow-md p-6 transition-transform hover:scale-105" style="background: var(--color-palette-four);">
       <div class=" p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
         <Icon name="code" color="var(--color-palette-five)"/>
       </div>
-      <h3 class="text-xl font-semibold mb-3" style="color: var(--color-palette-one);">{heading}</h3>
-      <p style="color: var(--color-palette-two);">
+      <h3 class="card-heading text-xl font-semibold mb-3" style="color: var(--color-palette-one);">{heading}</h3>
+      <p class="card-content"  style="color: var(--color-palette-two);">
         {content}
       </p>
+      <a class="card-link" href={cardLink}>Learn more</a>
     </div>
     ))}
   </div>
 </div>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    // const storedUser = localStorage.getItem('currentUser') || '0';
+
+    // const headingEl = document.getElementById('selected-heading');
+    // const cardsContainer = document.getElementById('cards-container');
+    // const rawContent = JSON.parse(`<!--#-->${JSON.stringify(contentByCategory)}<!--#-->`);
+
+    // document.querySelectorAll('[data-label]').forEach(button => {
+    //   button.addEventListener('click', () => {
+    //     const selected = button.getAttribute('data-label');
+    //     headingEl.textContent = selected;
+        
+    //     selectedCategory = localStorage.getItem('currentUser') || 'patient0';
+    //     selectedCards = contentByCategory[selectedCategory];
+
+        // const match = rawContent.find(c => c.category === selected);
+        // const newCards = match ? match.contents : [];
+        // cardsContainer.innerHTML = newCards.map(card => `
+        //   <div class="rounded-lg shadow-md p-6 transition-transform hover:scale-105" style="background: var(--color-palette-four);">
+        //     <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
+        //       <svg width="24" height="24" fill="currentColor" style="color: var(--color-palette-five);">
+        //         <use href="#icon-code" />
+        //       </svg>
+        //     </div>
+        //     <h3 class="text-xl font-semibold mb-3" style="color: var(--color-palette-one);">${card.heading}</h3>
+        //     <p style="color: var(--color-palette-two);">${card.content}</p>
+        //   </div>
+        // `).join('');
+      // });
+    // });
+  });
+</script>

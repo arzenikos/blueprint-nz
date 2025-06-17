@@ -1,33 +1,33 @@
 export const userContent = {
     patient: [
         {
-        label: 'Patient',
+        type: 'Patient',
         icon: '0',
-        stage: 'patient0'
+        label: 'patient0'
         },
         {
-        label: 'Patient',
+        type: 'Patient',
         icon: '1',
-        stage: 'patient1'
+        label: 'patient1'
         },
         {
-        label: 'Patient',
+        type: 'Patient',
         icon: '2',
-        stage: 'patient2'
+        label: 'patient2'
         },
         {
-        label: 'Patient',
+        type: 'Patient',
         icon: '3',
-        stage: 'patient3'
+        label: 'patient3'
         },              
         {
-        label: 'Patient',
+        type: 'Patient',
         icon: '4',
-        stage: 'patient4'
+        label: 'patient4'
         },         
     ],
     other: [
-        { label: 'Caregiver', icon: 'caregiver' },
-        { label: 'Researcher', icon: 'researcher' },
+        { label: 'Caregiver', icon: 'caregiver', type:  'Others' },
+        { label: 'Researcher', icon: 'researcher', type:  'Others' },
     ],
 }
