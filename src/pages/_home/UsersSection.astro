@@ -80,10 +80,8 @@ const {
         localStorage.setItem('currentUser', labelText);
         const items = document.querySelectorAll('.card-heading');
         items.forEach((item, i)=> {
-          item.textContent = JSON.stringify(selectedCards[i].heading);
+          item.textContent = `${contentByCategory[labelText][i].heading}`;
         });
-        // const output = document.getElementById('selected-heading');
-        // if (output) output.textContent = labelText;
       });
     });
   });
