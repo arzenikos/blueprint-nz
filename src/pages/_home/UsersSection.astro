@@ -9,7 +9,7 @@ const {
   others = userContent.other
 } = Astro.props
 ---
-<section class="container flex items-center justify-center w-full mb-50 md:mb-60">
+<section class="container flex items-center justify-center w-full mb-15 md:my-32 lg:my-35">
   <!-- Number Buttons with Horizontal Line -->
   <div class="relative ">
     <!-- Connecting Line -->
@@ -84,7 +84,7 @@ const {
           yOffset = -270;
         } else {
           // Large screens (e.g., desktops)
-          yOffset = -300;
+          yOffset = -295;
         }
 
         const y = cardSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
