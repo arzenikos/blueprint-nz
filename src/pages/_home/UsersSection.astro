@@ -100,22 +100,22 @@ const {
           // Large screens (e.g., desktops)
           yOffset = -320;
         }
-
         const y = cardSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
-
+        const cardMainTitle = document.getElementById('card-title');
         const cardHeadingElement = document.querySelectorAll('.card-heading');
         const cardContentElement = document.querySelectorAll('.card-content');
         const cardLinkElement = document.querySelectorAll('.card-link');
+        cardMainTitle.textContent = `${contentByCategory[labelText].title}`;
         cardHeadingElement.forEach((heading, i)=> {
-          heading.textContent = `${contentByCategory[labelText][i].heading}`;
+          heading.textContent = `${contentByCategory[labelText].data[i].heading}`;
         });
         cardContentElement.forEach((content, i)=> {
-          content.textContent = `${contentByCategory[labelText][i].content}`;
+          content.textContent = `${contentByCategory[labelText].data[i].content}`;
         });
         cardLinkElement.forEach((link, i)=> {
-          link.setAttribute('href', `${contentByCategory[labelText][i].cardLink}`);
+          link.setAttribute('href', `${contentByCategory[labelText].data[i].cardLink}`);
         });
       });
     });
