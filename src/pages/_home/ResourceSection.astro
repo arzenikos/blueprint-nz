@@ -6,11 +6,7 @@ const { sectionTitle, sectionSubtitle, contentByCategory } = resourceContent;
 let selectedCategory = 'patient0';
 let selectedCards = contentByCategory[selectedCategory];
 ---
-<div class="container mx-auto px-6" >
-  <h2 id="selected-heading" class="text-2xl font-bold text-center my-4 text-gray-700">
-    <!-- Empty until a button is clicked -->
-  </h2>
-
+<section id="card-section" class="container px-6" >
   <h2 class="text-3xl md:text-4xl font-bold text-center mb-1">{sectionTitle}</h2>
   <h4 class="text-center mb-12">{sectionSubtitle}</h4>
   
@@ -28,38 +24,4 @@ let selectedCards = contentByCategory[selectedCategory];
     </div>
     ))}
   </div>
-</div>
-
-<script type="module">
-  document.addEventListener('DOMContentLoaded', () => {
-    // const storedUser = localStorage.getItem('currentUser') || '0';
-
-    // const headingEl = document.getElementById('selected-heading');
-    // const cardsContainer = document.getElementById('cards-container');
-    // const rawContent = JSON.parse(`<!--#-->${JSON.stringify(contentByCategory)}<!--#-->`);
-
-    // document.querySelectorAll('[data-label]').forEach(button => {
-    //   button.addEventListener('click', () => {
-    //     const selected = button.getAttribute('data-label');
-    //     headingEl.textContent = selected;
-        
-    //     selectedCategory = localStorage.getItem('currentUser') || 'patient0';
-    //     selectedCards = contentByCategory[selectedCategory];
-
-        // const match = rawContent.find(c => c.category === selected);
-        // const newCards = match ? match.contents : [];
-        // cardsContainer.innerHTML = newCards.map(card => `
-        //   <div class="rounded-lg shadow-md p-6 transition-transform hover:scale-105" style="background: var(--color-palette-four);">
-        //     <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
-        //       <svg width="24" height="24" fill="currentColor" style="color: var(--color-palette-five);">
-        //         <use href="#icon-code" />
-        //       </svg>
-        //     </div>
-        //     <h3 class="text-xl font-semibold mb-3" style="color: var(--color-palette-one);">${card.heading}</h3>
-        //     <p style="color: var(--color-palette-two);">${card.content}</p>
-        //   </div>
-        // `).join('');
-      // });
-    // });
-  });
-</script>
+</section>

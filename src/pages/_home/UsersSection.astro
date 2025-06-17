@@ -9,8 +9,7 @@ const {
   others = userContent.other
 } = Astro.props
 ---
-<div class="container flex items-center justify-center w-full">
-
+<section class="container flex items-center justify-center w-full">
   <!-- Number Buttons with Horizontal Line -->
   <div class="relative ">
     <!-- Connecting Line -->
@@ -59,77 +58,52 @@ const {
       ))
     }
   </div>
-</div>
+</section>
 
 <script>
   import { resourceContent } from '../../content/home-resource'
   const { contentByCategory } = resourceContent;
 
-  let selectedCategory = 'patient0';
-  let selectedCards = contentByCategory[selectedCategory];
-  
   document.addEventListener('DOMContentLoaded', () => {
-    // const container = document.getElementById(id);
-    // const output = document.getElementById('selected-heading');
+    const userButtonTabs = document.querySelectorAll('.user-btn[data-label]');
+    const cardSection = document.getElementById('card-section');
 
-    // Repeat for the "others" group
-    const otherButtons = document.querySelectorAll('.user-btn[data-label]');
-    otherButtons.forEach(button => {
+    userButtonTabs.forEach(button => {
       button.addEventListener('click', () => {
         const labelText = button.getAttribute('data-label');
-        localStorage.setItem('currentUser', labelText);
-        const items = document.querySelectorAll('.card-heading');
-        items.forEach((item, i)=> {
-          item.textContent = `${contentByCategory[labelText][i].heading}`;
+        // localStorage.setItem('currentUser', labelText);
+
+       // Responsive offset scroll
+      if (cardSection) {
+        let yOffset;
+        if (window.innerWidth < 640) {
+          // Small screens (e.g., mobile)
+          yOffset = -140;
+        } else if (window.innerWidth < 1024) {
+          // Medium screens (e.g., tablets)
+          yOffset = -270;
+        } else {
+          // Large screens (e.g., desktops)
+          yOffset = -300;
+        }
+
+        const y = cardSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+
+        const cardHeadingElement = document.querySelectorAll('.card-heading');
+        const cardContentElement = document.querySelectorAll('.card-content');
+        const cardLinkElement = document.querySelectorAll('.card-link');
+        cardHeadingElement.forEach((heading, i)=> {
+          heading.textContent = `${contentByCategory[labelText][i].heading}`;
+        });
+        cardContentElement.forEach((content, i)=> {
+          content.textContent = `${contentByCategory[labelText][i].content}`;
+        });
+        cardLinkElement.forEach((link, i)=> {
+          link.setAttribute('href', `${contentByCategory[labelText][i].cardLink}`);
         });
       });
     });
   });
-</script>
-
-
-<script define:vars={{ id, label }}>
-  
-  // Add event listeners for dropdowns and button groups
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   const element = document.getElementById(id);
-  //   const output = document.getElementById('output');
-  //   if (element && output) {
-  //     const buttons = element.querySelectorAll('button[data-label]');
-  //     buttons.forEach(button => {
-  //       button.addEventListener('click', () => {
-  //         const labelText = button.getAttribute('button[data-label]');
-  //         output.textContent = `Selected: ${labelText}`;
-  //         localStorage.setItem('currentUser', labelText);
-  //       })
-  //     })
-  //   }
-
-    // const selector = document.getElementById('user-type-selector');
-    // const btnGroup = selector.querySelectorAll('#button-group button');
-
-    // const storedUser = localStorage.getItem('currentUser') || 'patient0';
-
-    // btnGroup.forEach(button => {
-    //   // const userType = button.data-user.value;
-    //   // if(userType === storedUser) {
-    //   //   button.classList.add('bg-accent', 'text-blue-100')
-    //   // } else {
-    //   //   button.classList.remove('bg-accent', 'text-blue-100')
-    //   // }
-    //   button.addEventListener('click', () => {
-    //     const output = document.getElementById('output');
-    //     const label = button.getAttribute('data-label');
-    //     output.textContent = `Selected ${label}`;
-    //     // const selectedType = btn.data-user.value;
-    //     // localStorage.setItem('currentUser', selectedType);
-
-    //     // btnGroup.forEach(b => b.classList.remove('ring', 'ring-offset-2', 'ring-accent'))
-    //     // btn.classList.add('ring', 'ring-offset-2', 'ring-accent');
-    //     // console.log(`Current user: ${selectedType}`)
-    //     // location.reload();
-    //   })
-    // })
-
-  // })
 </script>
