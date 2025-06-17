@@ -4,8 +4,8 @@ import { userContent } from '../../content/home-user-tab';
 
 const {
   id,
-  label,
-  patients = userContent.patient,
+  description,
+  patients = userContent.users,
   others = userContent.other
 } = Astro.props
 ---
@@ -24,7 +24,9 @@ const {
             type="button"
             data-label={label}
             class="user-btn w-full h-full flex p-5 items-center justify-center rounded-full md: text-xl text-s transition-all duration-200 hover:scale-110 " style="background: var(--color-palette-four); color: var(--color-palette-one);"
-          >{icon}</button>
+          >
+            {icon}
+            </button>
           <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm  rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
             {type}
           </div>
@@ -71,8 +73,6 @@ const {
     userButtonTabs.forEach(button => {
       button.addEventListener('click', () => {
         const labelText = button.getAttribute('data-label');
-        // localStorage.setItem('currentUser', labelText);
-
        // Responsive offset scroll
       if (cardSection) {
         let yOffset;
