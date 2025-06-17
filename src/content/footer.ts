@@ -8,41 +8,42 @@ export const footerLinks = {
   },
   sections: [
     {
-      title: "Information",
+      title: "User Guide",
       links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
+        { text: "How to Use This Site", url: "empty" },
+        { text: "FAQ", url: "empty" },
+        { text: "Glossary", url: "empty" },
+        { text: "Privacy Policy", url: "empty" },
+        { text: "Terms of Use", url: "empty" }
       ]
     },
     {
-      title: "Resources",
+      title: "Events & Newsletters",
       links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
-      ]
-    },
-    {
-      title: "Support",
-      links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
+        { text: "Latest Updates", url: "empty" },
+        { text: "Upcoming Events", url: "empty" },
+        { text: "Newsletter Signup", url: "empty" },
+        { text: "Community Stories", url: "empty" }
       ]
     },
     {
       title: "Shop & Services",
       links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
+        { text: "Health Guides", url: "empty" },
+        { text: "Wellness Kits", url: "empty" },
+        { text: "Screening Bookings", url: "empty" },
+        { text: "Donate or Volunteer", url: "empty" }
+      ]
+    },
+        {
+      title: "More",
+      links: [
+        { text: "Donate", url: "empty" },
+        { text: "Volunteer", url: "empty" },
         { text: "Link", url: "empty" },
         { text: "Link", url: "empty" }
       ]
-    }
+    },
   ],
   socialLinks: [
     { platform: "video", url: "empty", ariaLabel: "Tutorial/Demo in onedrive" },
