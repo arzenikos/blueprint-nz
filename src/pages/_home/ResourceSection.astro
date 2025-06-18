@@ -1,6 +1,8 @@
 ---
 import Icon from '../../components/ui/Icon.astro';
 import { resourceContent } from '../../content/home-resource'
+// import Main from '../../components/layout/Main.astro';
+
 
 const { sectionTitle, sectionSubtitle, contentByCategory } = resourceContent;
 let selectedCategory = 'patient0';
@@ -29,3 +31,7 @@ let selectedCards = contentByCategory[selectedCategory].data;
     ))}
   </div>
 </section>
+
+  <!-- <section>
+    <Main label="Home" href="/stage0" icon="home" />
+  </section> -->

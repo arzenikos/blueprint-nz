@@ -3,17 +3,19 @@
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 
-import { content } from '../../content/rsc01-what-you-need-to-know.ts';
-
-const breadcrumbItems = [
-  { label: content.stageNum , href: content.breadcrumbs.href, current: content.breadcrumbs.current }
-];
+import { content } from '../../content/rsc0-what-you-need-to-know.ts';
 
 const {
-  heading = content.title,
-  title = `Stage ${content.stageNum} - ${heading} | BluePrintNZ`,
-  description = content.description,
+  heading = content.stage0.heading1.title,
+  title = `Stage ${content.stage0.heading1.stageNum} - ${heading} | BluePrintNZ`,
+  description = content.stage0.heading1.description,
+  // link = content.stage0.heading1.description,
+  breadcrumb = content.stage0.heading1.breadcrumbs,
 } = Astro.props
+
+const breadcrumbItems = [
+  { label: heading , link: breadcrumb.link, current: breadcrumb.current }
+];
 ---
 <Layout title=`${title}`>
   <div class="container mx-auto px-4 pt-10 pb-25">
