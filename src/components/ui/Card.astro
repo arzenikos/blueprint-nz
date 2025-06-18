@@ -1,20 +1,22 @@
 ---
 import Icon from '../../components/ui/Icon.astro';
 import Button from '../../components/ui/Button.astro';
-const { ctaButton, heading, content, cardLink } = Astro.props;
+const { ctaButton, heading, content, href, icon } = Astro.props;
 ---
 
 <div class="rounded-lg shadow-md p-6 transition-transform hover:scale-105" style="background: var(--color-palette-four);">
-    <div class=" p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
-    <Icon name="code" color="var(--color-palette-five)"/>
-    </div>
-    <h3 class="card-heading text-xl font-semibold mb-3" style="color: var(--color-palette-one);">{heading}</h3>
-    <p class="card-content"  style="color: var(--color-palette-two);">
-    {content}
-    </p>
-    <div class="mt-20 background-color: var(--color-palette-one);">
-    <Button variant="link" size="lg" href={cardLink}>
-        {ctaButton}
-    </Button>
-    </div>
+    <a href={href} class="no-underline block" style={{ textDecoration: 'none' }}>
+        <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
+            <Icon class="card-icon" name={icon} color="var(--color-palette-five)"/>
+        </div>
+        <h3 class="card-heading text-xl font-semibold mb-3 no-underline" style="color: var(--color-palette-one);">{heading}</h3>
+        <p class="card-content"  style="color: var(--color-palette-two); no-underline">
+        {content}
+        </p>
+        <div class="mt-20 background-color: var(--color-palette-one);">
+            <Button variant="link" size="lg" href={href}>
+                {ctaButton}
+            </Button>
+        </div>
+    </a>
 </div>

@@ -26,10 +26,10 @@ const icon = icons[name];
 
 // If the icon doesn't exist, show a placeholder
 const svgPath = icon || icons['placeholder'];
-const isTheme = name==='theme';
+const isTheme = name==='sun-moon';
 ---
 
-{isTheme ? (
+{!isTheme ? (
     <svg
       xmlns="http://www.w3.org/2000/svg" 
       width={size} 

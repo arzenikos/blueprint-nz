@@ -66,12 +66,8 @@ const {
             data-label={label}
             class="user-btn w-full h-full flex items-center justify-center rounded-full text-xl transition-all duration-200" style="background: var(--color-palette-four);"
           >
-            {/* {icon} */}
             <Icon name={icon} class="hover:text-white" color="var(--color-palette-one)"/>
           </button>
-          {/* <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-            {label}
-          </div> */}
         </div>
         ))
       }
@@ -107,9 +103,11 @@ const {
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
         const cardMainTitle = document.getElementById('card-title');
+        const cardElement = document.querySelectorAll('.card');
         const cardHeadingElement = document.querySelectorAll('.card-heading');
         const cardContentElement = document.querySelectorAll('.card-content');
         const cardLinkElement = document.querySelectorAll('.card-link');
+        const cardIconElement = document.querySelectorAll('.card-icon');
         cardMainTitle.textContent = `${contentByCategory[labelText].title}`;
         cardHeadingElement.forEach((heading, i)=> {
           heading.textContent = `${contentByCategory[labelText].data[i].heading}`;
@@ -119,6 +117,13 @@ const {
         });
         cardLinkElement.forEach((link, i)=> {
           link.setAttribute('href', `${contentByCategory[labelText].data[i].cardLink}`);
+        });
+        cardElement.forEach((card, i)=> {
+          const iconName = contentByCategory[labelText].data[i].icon;
+          if (iconName) {
+            card.setAttribute('icon', iconName);
+          }
+          // icon.setAttribute('name', `${contentByCategory[labelText].data[i].icon}`);
         });
       });
     });
