@@ -123,10 +123,14 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
           heading.textContent = `${contentByCategory[labelText].data[i].heading}`;
         });
         cardContentElement.forEach((content, i)=> {
+          // content.textContent = `${labelText}/${contentByCategory[labelText].data[i].heading}`;
+          // link.setAttribute('href', `stage-${labelText}/${contentByCategory[labelText].data[i].heading}`);
           content.textContent = `${contentByCategory[labelText].data[i].content}`;
         });
         cardElement.forEach((link, i)=> {
-          link.setAttribute('href', `stage-${labelText}/${contentByCategory[labelText].data[i].heading}`);
+          // link.setAttribute('href', `${contentByCategory[labelText].data[i].title}`);
+          // link.setAttribute('href', `${labelText}/${contentByCategory[labelText].data[i].heading}`);
+          // link.textContent = `${contentByCategory[labelText].data[i].content}`;
         });
       });
     });

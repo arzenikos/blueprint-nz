@@ -28,11 +28,11 @@ export const userContent = {
     title: 'A Path Just for You',
     description: ' Understanding where you stand is the first step to healing and helping. Let’s begin your journey with care that’s made for you.',
     users: [
-        { icon: '0', label: '0', type: 'Patient'},
-        { icon: '1', label: '1', type: 'Patient'},
-        { icon: '2', label: '2', type: 'Patient'},
-        { icon: '3', label: '3', type: 'Patient'},              
-        { icon: '4', label: '4', type: 'Patient'},         
+        { icon: '0', label: 'stage-0', type: 'Patient'},
+        { icon: '1', label: 'stage-1', type: 'Patient'},
+        { icon: '2', label: 'stage-2', type: 'Patient'},
+        { icon: '3', label: 'stage-3', type: 'Patient'},              
+        { icon: '4', label: 'stage-4', type: 'Patient'},         
     ],
     other: [
         { icon: 'caregiver', label: 'Caregiver', type:  'Caregiver' },
@@ -45,7 +45,7 @@ export const resourceContent = {
     sectionSubtitle: 'Prostate Cancer Resource Hub',
     ctaButton: 'Learn More',
     contentByCategory: {
-        '0': {
+        'stage-0': {
             // title: 'Stage 0 – What You Need to Know Early',
             title: 'Stage 0 – What You Need to Know Early',
             data: [
@@ -69,7 +69,7 @@ export const resourceContent = {
             }
         ],
     },
-        '1': {
+        'stage-1': {
             // title: 'Stage 1 – You Caught It Early. That’s Power',
             title: 'Stage 1 – You Caught It Early. That’s Power',
             data: [
@@ -93,7 +93,7 @@ export const resourceContent = {
             }
             ],
         },
-        '2': {
+        'stage-2': {
             // title: 'Stage 2 – You’re Not in This Alone',
             title: 'Stage 2 – You’re Not in This Alone',
             data: [
@@ -117,7 +117,7 @@ export const resourceContent = {
             }
             ],
         },
-        '3':{
+        'stage-3':{
                 // title: 'Stage 3 – It’s a Lot. We’ll Walk It With You',
                     title: 'Stage 3 – It’s a Lot. We’ll Walk It With You',
                 data: [
@@ -141,7 +141,7 @@ export const resourceContent = {
                 }
             ],
         },
-        '4': {
+        'stage-4': {
                 // title: 'Stage 4 – Comfort. Dignity. You.',
                     title: 'Stage 4 – Comfort. Dignity. You.',
                 data: [

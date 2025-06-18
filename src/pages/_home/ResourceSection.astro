@@ -22,7 +22,7 @@ const {
   other=config.cards.other} = config;
 
 
-let selectedCategory = '0';
+let selectedCategory = 'stage-0';
 let selectedCards = contentByCategory[selectedCategory].data;
 ---
 <section id="card-section" class=`${margin} ${padding} ${other} ${scale}`>
@@ -30,13 +30,17 @@ let selectedCards = contentByCategory[selectedCategory].data;
   <h4 class="text-center mb-12">{sectionSubtitle}</h4>
   
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
-  {selectedCards.map(({ heading, content, cardLink }, i) => (
+  {selectedCards.map(({ heading, content }, i) => (
     <Card
+      class="card"
       ctaButton={ctaButton}
       heading={heading}
       content={content}
-      href={`stage-${selectedCategory}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
-      icon={contentByCategory[selectedCategory].data[i]?.icon}
+      // cardLink={i}
+      // href={`${i}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
+      // href={`s/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
+      // href={`${i}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
+      // icon={contentByCategory[selectedCategory].data[i]?.icon}
     />
   ))}
   </div>
