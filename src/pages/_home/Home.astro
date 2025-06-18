@@ -1,0 +1,33 @@
+---
+
+// import Button from '../../components/ui/Button.astro';
+import HeroSection from './HeroSection.astro';
+import UsersSection from './UsersSection.astro';
+import ResourceSection from './ResourceSection.astro';
+import ContextSection from './ContextSection.astro';
+import GetStartedSection from './GetStartedSection.astro';
+
+---
+<div>
+  <HeroSection/>
+  <section class="homeSection mx-3 scale-90 md:scale-140">
+    <UsersSection/>
+  </section>
+  <section class="homeSection">
+    <ResourceSection/>
+  </section>
+  <section class="homeSection">
+    <ContextSection/>
+  </section>
+  <!-- <section class="homeSection">
+    <GetStartedSection/>
+  </section> -->
+</div>
+
+<style>
+  .homeSection {
+    /* background: none; */
+    width: auto;
+    /* margin: 7em 0; */
+  }
+</style>

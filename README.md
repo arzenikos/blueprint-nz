@@ -442,3 +442,7 @@ Below is a detailed mapping of which components are used by other components:
   - Imports: none (data file)
 
 This mapping shows how components are interconnected throughout the application, highlighting the modular architecture and component reuse patterns.
+
+# Install TailwindCSS
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p

@@ -75,3 +75,8 @@ Thumbs.db
 .netlify/
 functions/*.js
 functions/*.map
+
+
+# Amazon Q
+amazon-q.deb
+*.deb
