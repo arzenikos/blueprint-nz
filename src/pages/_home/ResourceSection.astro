@@ -12,11 +12,7 @@ let selectedCards = contentByCategory[selectedCategory].data;
   
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
   {selectedCards.map(({ heading, content, cardLink }) => (
-    <Card ctaButton={ctaButton} heading={heading} content={content} cardLink />
+    <Card ctaButton={ctaButton} heading={heading} content={content} cardLink={cardLink} />
     ))}
   </div>
 </section>
-
-  <!-- <section>
-    <Main label="Home" href="/stage0" icon="home" />
-  </section> -->
