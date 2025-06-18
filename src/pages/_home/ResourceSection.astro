@@ -1,27 +1,40 @@
 ---
-import { resourceContent } from '../../content/home-resource'
 import Card from '../../components/ui/Card.astro';
 
-const { sectionTitle, sectionSubtitle, contentByCategory, ctaButton } = resourceContent;
+const {
+  content,
+  config
+} = Astro.props;
+
+const {
+  sectionTitle,
+  sectionSubtitle,
+  contentByCategory,
+  ctaButton,
+} = content;
+
+  
+const {
+  margin=config.cards.margin,
+  padding=config.cards.padding,
+  scale=config.cards.scale,
+  other=config.cards.other} = config;
+
 
 let selectedCategory = 'patient1';
 let selectedCards = contentByCategory[selectedCategory].data;
-// const {
-//   icon = contentByCategory[selectedCategory].data[0].icon
-// } = Astro.props;
 ---
-<section id="card-section" class="container px-6 mt-10 md:mt-30" >
-  <h6></h6>
+<section id="card-section" class=`${margin} ${padding} ${other} ${scale}`>
   <h2 id="card-title" class="text-3xl md:text-4xl font-bold text-center mb-1">{sectionTitle}</h2>
   <h4 class="text-center mb-12">{sectionSubtitle}</h4>
   
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
-  {selectedCards.map(({ heading, content, cardLink }, i) => (
+  {selectedCards.map(({ heading, content }, i) => (
     <Card
       ctaButton={ctaButton}
       heading={heading}
       content={content}
-      href={cardLink}
+      href={`${selectedCategory}-${i}`}
       icon={contentByCategory[selectedCategory].data[i]?.icon}
     />
   ))}

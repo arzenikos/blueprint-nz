@@ -2,13 +2,34 @@
 // Centralized spacing system for consistent spacing throughout the application
 
 // Component-specific spacing
-export const componentSpacing = {
-  header:{},
-  hero: {},
-  user:{},
-  cards:{},
-  about:{},
-  footer:{},
+export const componentConfiguration = {
+  hero:{
+    margin: 'mb-7 md:my-0 mx-auto',
+    padding: 'px-6',
+    scale: '40%',
+    other: 'theme-transition container'
+  },
+  user:{
+    margin: 'my-10 lg:mt-5 md:my-7 lg:my-15 ',
+    padding: 'py-7',
+    scale: 'scale-100 md:scale-80'
+  },
+  cards:{
+    margin: 'mt-10 md:mt-30',
+    padding: ' px-6',
+    scale: '',
+    other: 'container'
+  },
+  about:{
+    margin: '',
+    padding: '',
+    scale: ''
+  },
+  footer:{
+    margin: '',
+    padding: '',
+    scale: ''
+  },
 
 
   // Header spacing
