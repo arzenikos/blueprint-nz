@@ -2,14 +2,14 @@
 // <!-- Not imported by any file -->
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
-import { content } from '../../content/rsc0-what-you-need-to-know.ts';
+import { content } from '../../content/page-content.ts';
 
 const {
-  heading = content.stage0.heading1.title,
-  title = `Stage ${content.stage0.heading1.stageNum} - ${heading} | BluePrintNZ`,
-  description = content.stage0.heading1.description,
-  // link = content.stage0.heading1.description,
-  breadcrumb = content.stage0.heading1.breadcrumbs,
+  heading = content.stage1.heading1.title,
+  title = `Stage ${content.stage1.heading1.stageNum} - ${heading} | BluePrintNZ`,
+  description = content.stage1.heading1.description,
+  // link = content.stage1.heading1.description,
+  breadcrumb = content.stage1.heading1.breadcrumbs,
 } = Astro.props
 
 const breadcrumbItems = [

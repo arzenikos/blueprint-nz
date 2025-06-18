@@ -28,11 +28,11 @@ export const userContent = {
     title: 'A Path Just for You',
     description: ' Understanding where you stand is the first step to healing and helping. Let’s begin your journey with care that’s made for you.',
     users: [
-        { icon: '0', label: 'patient0', type: 'Patient'},
-        { icon: '1', label: 'patient1', type: 'Patient'},
-        { icon: '2', label: 'patient2', type: 'Patient'},
-        { icon: '3', label: 'patient3', type: 'Patient'},              
-        { icon: '4', label: 'patient4', type: 'Patient'},         
+        { icon: '0', label: '0', type: 'Patient'},
+        { icon: '1', label: '1', type: 'Patient'},
+        { icon: '2', label: '2', type: 'Patient'},
+        { icon: '3', label: '3', type: 'Patient'},              
+        { icon: '4', label: '4', type: 'Patient'},         
     ],
     other: [
         { icon: 'caregiver', label: 'Caregiver', type:  'Caregiver' },
@@ -45,31 +45,31 @@ export const resourceContent = {
     sectionSubtitle: 'Prostate Cancer Resource Hub',
     ctaButton: 'Learn More',
     contentByCategory: {
-        'patient0': {
+        '0': {
             // title: 'Stage 0 – What You Need to Know Early',
             title: 'Stage 0 – What You Need to Know Early',
             data: [
             {
                 heading: 'What You Need to Know Early',
                 content: 'Intro to prostate basics, risks, symptoms\n-What prostate cancer is (and isn\’t).\n-Why screening matter\n-What the PSA test actually tells you',
-                cardLink: '/stage0',
+                cardLink: 'empty',
                 icon: ''
             },
             {
                 heading: 'Should I Get Screened?',
                 content: 'PSA test info, who screening is for, etc. What “watchful waiting” means. Next steps & questions to ask. How to track changes without stress',
-                cardLink: '/stage0',
+                cardLink: '/stage-0/',
                 icon: ''
             },
             {
                 heading: 'Small Choices, Big Impact',
                 content: 'Nutrition tips to support prostate health, Building healthy sleep & fitness habits, How lifestyle influences your risk',
-                cardLink: '/stage0',
+                cardLink: '/stage-0/',
                 icon: ''
             }
         ],
     },
-        'patient1': {
+        '1': {
             // title: 'Stage 1 – You Caught It Early. That’s Power',
             title: 'Stage 1 – You Caught It Early. That’s Power',
             data: [
@@ -93,7 +93,7 @@ export const resourceContent = {
             }
             ],
         },
-        'patient2': {
+        '2': {
             // title: 'Stage 2 – You’re Not in This Alone',
             title: 'Stage 2 – You’re Not in This Alone',
             data: [
@@ -117,7 +117,7 @@ export const resourceContent = {
             }
             ],
         },
-        'patient3':{
+        '3':{
                 // title: 'Stage 3 – It’s a Lot. We’ll Walk It With You',
                     title: 'Stage 3 – It’s a Lot. We’ll Walk It With You',
                 data: [
@@ -141,7 +141,7 @@ export const resourceContent = {
                 }
             ],
         },
-        'patient4': {
+        '4': {
                 // title: 'Stage 4 – Comfort. Dignity. You.',
                     title: 'Stage 4 – Comfort. Dignity. You.',
                 data: [
@@ -221,8 +221,9 @@ export const overviewContent = {
     description: "",
     mainButton: 'Learn More About Us',
     link: '/about',
+    carouselImages: [],
     paragraph1: "BluePrintNZ is a platform designed to showcase modern web development techniques and best practices using Astro and Netlify.",
     paragraph2: "Our mission is to provide a blueprint for building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture and Netlify's deployment platform.",
     mediaSource: "http://player.vimeo.com/video/41406753?byline=0&amp;portrait=0",
     // mediaSource: "https://youtu.be/Jr5Lb-amQDY"
-}
+};

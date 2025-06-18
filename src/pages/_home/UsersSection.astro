@@ -125,15 +125,8 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
         cardContentElement.forEach((content, i)=> {
           content.textContent = `${contentByCategory[labelText].data[i].content}`;
         });
-        cardLinkElement.forEach((link, i)=> {
-          link.setAttribute('href', `${contentByCategory[labelText].data[i].cardLink}`);
-        });
-        cardElement.forEach((card, i)=> {
-          const iconName = contentByCategory[labelText].data[i].icon;
-          if (iconName) {
-            card.setAttribute('icon', iconName);
-          }
-          // icon.setAttribute('name', `${contentByCategory[labelText].data[i].icon}`);
+        cardElement.forEach((link, i)=> {
+          link.setAttribute('href', `stage-${labelText}/${contentByCategory[labelText].data[i].heading}`);
         });
       });
     });
