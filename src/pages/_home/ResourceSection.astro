@@ -20,7 +20,11 @@ let selectedCards = contentByCategory[selectedCategory].data;
       <p class="card-content"  style="color: var(--color-palette-two);">
         {content}
       </p>
-      <a class="card-link" href={cardLink}>Learn more</a>
+      <div class="background-color: var(--color-palette-one);">
+        <button>
+          <a class="mt-5 card-link" href={cardLink}>Learn more</a>
+        </button>
+      </div>
     </div>
     ))}
   </div>
