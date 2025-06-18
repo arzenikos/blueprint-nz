@@ -1,7 +1,7 @@
 ---
 // <!-- Not referenced by any file -->
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+// import BaseLayout from '../../layouts/BaseLayout.astro';
+// import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 
 const breadcrumbItems = [
   { label: 'News', href: '/news', current: true }
@@ -55,9 +55,9 @@ const newsArticles = [
 const categories = [...new Set(newsArticles.map(article => article.category))];
 ---
 
-<BaseLayout title="News - BluePrintNZ">
+<!-- <BaseLayout title="News - BluePrintNZ"> -->
   <div class="container mx-auto px-4 py-8">
-    <Breadcrumbs items={breadcrumbItems} />
+    <!-- <Breadcrumbs items={breadcrumbItems} /> -->
     
     <div class="max-w-6xl mx-auto">
       <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">Latest News</h1>
@@ -122,4 +122,4 @@ const categories = [...new Set(newsArticles.map(article => article.category))];
       </div>
     </div>
   </div>
-</BaseLayout>
+<!-- </BaseLayout> -->

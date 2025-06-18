@@ -21,7 +21,7 @@ export const footerLinks = {
       links: [
         { text: "Latest Updates", url: "empty" },
         { text: "Upcoming Events", url: "empty" },
-        { text: "Newsletter Signup", url: "empty" },
+        { text: "Webinars & Talks", url: "empty" },
         { text: "Community Stories", url: "empty" },
       ]
     },

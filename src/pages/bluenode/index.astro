@@ -4,6 +4,7 @@
 import Layout from '../../layouts/Layout.astro';
 // import { bluenodeData } from 'src/data/bluenode.ts';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import MapCanvas  from '../../components/MapCanvas.astro'
 
 const breadcrumbItems = [
   { label: 'Blue Node', href: '/bluenode', current: true }
@@ -82,6 +83,9 @@ const breadcrumbItems = [
         </div>
       </div>
     </div>
+  </div>
+  <div>
+    <MapCanvas />
   </div>
 </Layout>
 
