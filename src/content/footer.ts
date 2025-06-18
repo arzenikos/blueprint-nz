@@ -10,7 +10,7 @@ export const footerLinks = {
     {
       title: "User Guide",
       links: [
-        { text: "How to Use This Site", url: "empty" },
+        { text: "How to Use This Site", url: "/user-guide" },
         { text: "FAQ", url: "empty" },
         { text: "Terms of Use", url: "empty" },
         { text: "Privacy Policy", url: "empty" }
