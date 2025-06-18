@@ -3,10 +3,10 @@ export const resourceContent = {
     sectionSubtitle: 'Prostate Cancer Resource Hub',
     contentByCategory: {
         'patient0': {
-            title: '',
+            title: 'Stage 0 – What You Need to Know Early',
             data: [
             {
-                heading: 'Stage 0 – What You Need to Know Early',
+                heading: 'What You Need to Know Early',
                 content: 'Intro to prostate basics, risks, symptoms\n-What prostate cancer is (and isn\’t).\n-Why screening matter\n-What the PSA test actually tells you',
                 cardLink: '/patient0'
             },

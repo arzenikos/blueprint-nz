@@ -8,41 +8,41 @@ export const footerLinks = {
   },
   sections: [
     {
-      title: "Information",
+      title: "User Guide",
       links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
+        { text: "How to Use This Site", url: "empty" },
+        { text: "FAQ", url: "empty" },
+        { text: "Terms of Use", url: "empty" },
+        { text: "Privacy Policy", url: "empty" }
       ]
     },
     {
-      title: "Resources",
+      title: "News & Events",
       links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
-      ]
-    },
-    {
-      title: "Support",
-      links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
+        { text: "Latest Updates", url: "empty" },
+        { text: "Upcoming Events", url: "empty" },
+        { text: "Newsletter Signup", url: "empty" },
+        { text: "Community Stories", url: "empty" },
       ]
     },
     {
       title: "Shop & Services",
       links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
+        { text: "Health & Diet Guides", url: "empty" },
+        { text: "Wellbeing Kits", url: "empty" },
+        { text: "Donate", url: "empty" },
+        { text: "Volunteer", url: "empty" }
       ]
-    }
+    },
+    // {
+    //   title: "x",
+    //   links: [
+    //     { text: "Link", url: "empty" },
+    //     { text: "Link", url: "empty" },
+    //     { text: "Link", url: "empty" },
+    //     { text: "Link", url: "empty" }
+    //   ]
+    // }
   ],
   socialLinks: [
     { platform: "video", url: "empty", ariaLabel: "Tutorial/Demo in onedrive" },
