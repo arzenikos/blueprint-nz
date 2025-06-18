@@ -1,10 +1,8 @@
 ---
-import Icon from '../../components/ui/Icon.astro';
 import { resourceContent } from '../../content/home-resource'
-// import Main from '../../components/layout/Main.astro';
+import Card from '../../components/ui/Card.astro';
 
-
-const { sectionTitle, sectionSubtitle, contentByCategory } = resourceContent;
+const { sectionTitle, sectionSubtitle, contentByCategory, ctaButton } = resourceContent;
 let selectedCategory = 'patient0';
 let selectedCards = contentByCategory[selectedCategory].data;
 ---
@@ -14,20 +12,7 @@ let selectedCards = contentByCategory[selectedCategory].data;
   
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
   {selectedCards.map(({ heading, content, cardLink }) => (
-    <div class="rounded-lg shadow-md p-6 transition-transform hover:scale-105" style="background: var(--color-palette-four);">
-      <div class=" p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
-        <Icon name="code" color="var(--color-palette-five)"/>
-      </div>
-      <h3 class="card-heading text-xl font-semibold mb-3" style="color: var(--color-palette-one);">{heading}</h3>
-      <p class="card-content"  style="color: var(--color-palette-two);">
-        {content}
-      </p>
-      <div class="background-color: var(--color-palette-one);">
-        <button>
-          <a class="mt-5 card-link" href={cardLink}>Learn more</a>
-        </button>
-      </div>
-    </div>
+    <Card ctaButton={ctaButton} heading={heading} content={content} cardLink />
     ))}
   </div>
 </section>

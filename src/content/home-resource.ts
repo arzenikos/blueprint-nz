@@ -1,6 +1,7 @@
 export const resourceContent = {
     sectionTitle: 'Stage 0 - Stay Ahead, Stay Informed',
     sectionSubtitle: 'Prostate Cancer Resource Hub',
+    ctaButton: 'Learn More',
     contentByCategory: {
         'patient0': {
             title: 'Stage 0 – What You Need to Know Early',
