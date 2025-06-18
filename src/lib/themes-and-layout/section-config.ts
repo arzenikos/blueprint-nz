@@ -1,13 +1,16 @@
-// Referenced by: components/layout/footer/Footer.astro, components/layout/header/Header.astro
 // Centralized spacing system for consistent spacing throughout the application
-
 // Component-specific spacing
 export const componentConfiguration = {
+  header:{
+    margin: '',
+    padding: '',
+    scale: ''
+  },
   hero:{
     margin: 'mb-7 md:my-0 mx-auto',
     padding: 'px-6',
     scale: '40%',
-    other: 'theme-transition container'
+    other: 'container'
   },
   user:{
     margin: 'my-10 lg:mt-5 md:my-7 lg:my-15 ',
@@ -20,10 +23,11 @@ export const componentConfiguration = {
     scale: '',
     other: 'container'
   },
-  about:{
-    margin: '',
-    padding: '',
-    scale: ''
+  context:{
+    margin: 'my-70 scroll-mt-28',
+    padding: 'px-6 md:px-3',
+    scale: '',
+    other: 'container text-center'
   },
   footer:{
     margin: '',

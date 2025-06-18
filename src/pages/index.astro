@@ -8,7 +8,7 @@ import ResourceSection from './_home/ResourceSection.astro';
 import ContextSection from './_home/ContextSection.astro';
 // import GetStartedSection from './_home/GetStartedSection.astro';
 
-import { heroContent, userContent, resourceContent } from '../content/home.ts';
+import { heroContent, userContent, resourceContent, overviewContent } from '../content/home.ts';
 import { componentConfiguration } from '../lib/themes-and-layout/section-config';
 
 ---
@@ -27,7 +27,10 @@ import { componentConfiguration } from '../lib/themes-and-layout/section-config'
         content={resourceContent}
         config={componentConfiguration}
     />
-    <ContextSection/>
+    <ContextSection
+      content={overviewContent}
+      config={componentConfiguration}
+    />
   <!-- <section class="homeSection">
     <GetStartedSection/>
   </section> -->
