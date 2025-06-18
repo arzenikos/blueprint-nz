@@ -36,12 +36,13 @@ let selectedCards = contentByCategory[selectedCategory].data;
       ctaButton={ctaButton}
       heading={heading}
       content={content}
-      // cardLink={i}
-      // href={`${i}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
-      // href={`s/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
-      // href={`${i}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
-      // icon={contentByCategory[selectedCategory].data[i]?.icon}
-    />
-  ))}
+      href={`${selectedCategory}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
+      />
+    ))}
   </div>
 </section>
+<!-- // cardLink={i}
+// href={`${i}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
+// href={`s/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
+// href={`${i}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
+// icon={contentByCategory[selectedCategory].data[i]?.icon} -->
