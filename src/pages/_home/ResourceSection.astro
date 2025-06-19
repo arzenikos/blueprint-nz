@@ -9,10 +9,21 @@ const {
 const {
   sectionTitle,
   sectionSubtitle,
-  contentByCategory,
-  cardLink,
-  ctaButton,
+  contentByCategory
 } = content;
+
+let selectedCategory = 'stage-0';
+let selectedCards = contentByCategory[selectedCategory].data;
+let parentLink = contentByCategory[selectedCategory].parentLink;
+
+// const {
+//   sectionTitle = content.sectionTitle,
+//   sectionSubtitle = content.sectionSubtitle,
+//   heading = selectedCards.data[0],
+//   cardLink,
+//   ctaButton,
+//   icon,
+// } = content;
 
   
 const {
@@ -21,28 +32,17 @@ const {
   scale=config.cards.scale,
   other=config.cards.other} = config;
 
-
-let selectedCategory = 'stage-0';
-let selectedCards = contentByCategory[selectedCategory].data;
 ---
 <section id="card-section" class=`${margin} ${padding} ${other} ${scale}`>
   <h2 id="card-title" class="text-3xl md:text-4xl font-bold text-center mb-1">{sectionTitle}</h2>
   <h4 class="text-center mb-12">{sectionSubtitle}</h4>
   
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
-  {selectedCards.map(({ heading, content }, i) => (
+  {selectedCards.map((card) => (
     <Card
-      class="card"
-      ctaButton={ctaButton}
-      heading={heading}
-      content={content}
-      href={`${selectedCategory}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
+      heading={card.heading}
+      content={card.content}
       />
     ))}
   </div>
 </section>
-<!-- // cardLink={i}
-// href={`${i}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
-// href={`s/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
-// href={`${i}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
-// icon={contentByCategory[selectedCategory].data[i]?.icon} -->

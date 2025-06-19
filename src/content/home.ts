@@ -35,181 +35,139 @@ export const userContent = {
         { icon: '4', label: 'stage-4', type: 'Patient'},         
     ],
     other: [
-        { icon: 'caregiver', label: 'Caregiver', type:  'Caregiver' },
-        { icon: 'researcher', label: 'Researcher', type:  'Researcher' },
+        { icon: 'caregiver', label: 'caregiver', type:  'Caregiver' },
+        { icon: 'researcher', label: 'researcher', type:  'Researcher' },
     ],
 };
 
 export const resourceContent = {
-    sectionTitle: 'Stage 0 - Stay Ahead, Stay Informed',
+    sectionTitle: 'Stage 0 – Stay Ahead, Stay Informed',
     sectionSubtitle: 'Prostate Cancer Resource Hub',
     ctaButton: 'Learn More',
     contentByCategory: {
         'stage-0': {
-            // title: 'Stage 0 – What You Need to Know Early',
-            title: 'Stage 0 – What You Need to Know Early',
+            parentLink: 'stage-0',
+            title: 'Stage 0 – Stay Ahead, Stay Informed',
             data: [
-            {
-                heading: 'What You Need to Know Early',
-                content: 'Intro to prostate basics, risks, symptoms\n-What prostate cancer is (and isn\’t).\n-Why screening matter\n-What the PSA test actually tells you',
-                cardLink: 'empty',
-                icon: ''
-            },
-            {
-                heading: 'Should I Get Screened?',
-                content: 'PSA test info, who screening is for, etc. What “watchful waiting” means. Next steps & questions to ask. How to track changes without stress',
-                cardLink: '/stage-0/',
-                icon: ''
-            },
-            {
-                heading: 'Small Choices, Big Impact',
-                content: 'Nutrition tips to support prostate health, Building healthy sleep & fitness habits, How lifestyle influences your risk',
-                cardLink: '/stage-0/',
-                icon: ''
-            }
-        ],
-    },
+                {
+                    heading: 'What You Need to Know Early',
+                    content: 'Intro to prostate basics, risks, symptoms\n-What prostate cancer is (and isn\’t).\n-Why screening matter\n-What the PSA test actually tells you',
+                },
+                {
+                    heading: 'Should I Get Screened?',
+                    content: 'PSA test info, who screening is for, etc. What “watchful waiting” means. Next steps & questions to ask. How to track changes without stress',
+                },
+                {
+                    heading: 'Small Choices, Big Impact',
+                    content: 'Nutrition tips to support prostate health, Building healthy sleep & fitness habits, How lifestyle influences your risk',
+                }
+            ],
+        },
         'stage-1': {
-            // title: 'Stage 1 – You Caught It Early. That’s Power',
+            parentLink: 'stage-1',
             title: 'Stage 1 – You Caught It Early. That’s Power',
             data: [
-            {
-                heading: 'Understanding Your Diagnosis',
-                content: 'What Stage 1 means, in plain terms.First-line treatment options explained.What staying on active surveillance looks like',
-                cardLink: '/stage1',
-                icon: ''
-            },
-            {
-                heading: 'Strength Starts with Care',
-                content: 'Eating to support recovery. Sleep hygiene during stress. Safe movement & light fitness',
-                cardLink: '/stage1',
-                icon: ''
-            },
-            {
-                heading: 'Managing the Mental Load',
-                content: 'How to cope with “what if” thoughts. Support networks and simple tools. When and how to ask for help.',
-                cardLink: '/stage1',
-                icon: ''
-            }
+                {
+                    heading: 'Understanding Your Diagnosis',
+                    content: 'What Stage 1 means, in plain terms.First-line treatment options explained.What staying on active surveillance looks like',
+                },
+                {
+                    heading: 'Strength Starts with Care',
+                    content: 'Eating to support recovery. Sleep hygiene during stress. Safe movement & light fitness',
+                },
+                {
+                    heading: 'Managing the Mental Load',
+                    content: 'How to cope with “what if” thoughts. Support networks and simple tools. When and how to ask for help.',
+                }
             ],
         },
         'stage-2': {
-            // title: 'Stage 2 – You’re Not in This Alone',
+            parentLink: 'stage-2',
             title: 'Stage 2 – You’re Not in This Alone',
             data: [
-            {
-                heading: 'Navigating Your Options',
-                content: 'Treatment paths: surgery, radiation, hormone therapy. What to expect during and after. Working with your medical team.',
-                cardLink: '/stage2',
-                icon: ''
-            },
-            {
-                heading: 'Your Body, Your Needs',
-                content: 'Managing side effects through food & rest. Handling fatigue & disrupted sleep. Keeping active within your limits.',
-                cardLink: '/stage2',
-                icon: ''
-            },
-            {
-                heading: 'Staying Emotionally Steady',
-                content: 'Mental health check-ins. Talking to family, friends, or a counselor. Guided tools to reduce overwhelm.',
-                cardLink: '/stage2',
-                icon: ''
-            }
+                {
+                    heading: 'Navigating Your Options',
+                    content: 'Treatment paths: surgery, radiation, hormone therapy. What to expect during and after. Working with your medical team.',
+                },
+                {
+                    heading: 'Staying Emotionally Steady',
+                    content: 'Mental health check-ins. Talking to family, friends, or a counselor. Guided tools to reduce overwhelm.',
+                },
+                {
+                    heading: 'Your Body, Your Needs',
+                    content: 'Managing side effects through food & rest. Handling fatigue & disrupted sleep. Keeping active within your limits.',
+                },
             ],
         },
-        'stage-3':{
-                // title: 'Stage 3 – It’s a Lot. We’ll Walk It With You',
-                    title: 'Stage 3 – It’s a Lot. We’ll Walk It With You',
-                data: [
+        'stage-3': {
+            parentLink: 'stage-3',
+            title: 'Stage 3 – It’s a Lot. We’ll Walk It With You',
+            data: [
                 {
                     heading: 'What to Expect Now',
                     content: 'Stage 3 treatment landscape. Coordinating care across teams. Understanding more complex symptoms.',
-                    cardLink: '/stage3',
-                    icon: ''
                 },
                 {
                     heading: 'Caring for a Tired Body',
                     content: 'Gentle nutrition and hydration tips.Fatigue, sleep disruption, and what helps. Movement when you can — or resting when you need.',
-                    cardLink: '/stage3',
-                    icon: ''
                 },
                 {
                     heading: 'Finding Your Ground',
                     content: 'Naming difficult emotions. Support groups that feel real. Keeping some control in the chaos',
-                    cardLink: '/stage3',
-                    icon: ''
                 }
             ],
         },
         'stage-4': {
-                // title: 'Stage 4 – Comfort. Dignity. You.',
-                    title: 'Stage 4 – Comfort. Dignity. You.',
-                data: [
+            parentLink: 'stage-4',
+            title: 'Stage 4 – Comfort. Dignity. You.',
+            data: [
                 {
                     heading: 'The Care That Fits You',
                     content: 'Treatment vs. comfort decisions. What palliative support actually means. Being heard by your team',
-                    cardLink: '/stage4',
-                    icon: ''
                 },
                 {
                     heading: 'Support for the Day-to-Day',
                     content: 'Eating what feels right. Sleep, pain relief, and symptom tools. Movement, touch, or stillness — what works for you.',
-                    cardLink: '/stage4',
-                    icon: ''
                 },
                 {
                     heading: 'Honouring Your Life',
                     content: 'Processing what matters to you. Creative legacy & joy in small things. Support for family & chosen whānau',
-                    cardLink: '/stage4',
-                    icon: ''
                 }
             ],
         },
-        'Caregiver': {
-                // title: 'Caregiver – You’re Helping. Don’t Forget You Matter Too.',
-                    title: 'Caregiver – You’re Helping. Don’t Forget You Matter Too.',
-                data: [
+        'caregiver': {
+            parentLink: 'researcher',
+            title: 'Caregiver – You’re Helping. Don’t Forget You Matter Too.',
+            data: [
                 {
                     heading: 'The Basics You Need',
                     content: 'What’s happening in your loved one’s body. How to assist with treatment & symptoms. Clear answers to tough questions.',
-                    cardLink: '/caregiver',
-                    icon: ''
                 },
                 {
                     heading: 'You’re Part of This — But You’re Still You',
                     content: 'Managing burnout, sleep loss, and food fatigue. Fitness or rest — what your body asks for. Emotional weight & how to put it down sometimes.',
-                    cardLink: '/caregiver',
-                    icon: ''
                 },
                 {
                     heading: 'Real Support for Real People',
                     content: 'Who to call, where to go. Practical guides, appointment planners. Honest voices from other caregivers.',
-                    cardLink: '/caregiver',
-                    icon: ''
                 }
             ],
         },
-        'Researcher': {
-                // title: 'Researcher – Explore. Understand. Advance.',
-                    title: 'Researcher – Explore. Understand. Advance.',
+        'researcher': {
+                parentLink: 'researcher',
+                title: 'Researcher – Explore. Understand. Advance.',
                 data: [
                 {
                     heading: 'Structured Understanding + Statistics',
                     content: 'Disease progression: staging, grading, biomarkers. Diagnostic pathways: PSA, biopsy, imaging. Cross-system comparisons (NZ, AUS, US, EU). Population data & cohort breakdowns',
-                    cardLink: '/researcher',
-                    icon: ''
                 },
                 {
                     heading: 'Trials, Treatment & Innovation',
                     content: 'Ongoing trials & novel therapies (NZ/international). Treatment outcomes by demographic & stage. Health equity & access gaps. NZ-specific research themes (rural, Māori, Pacific populations).',
-                    cardLink: '/researcher',
-                    icon: ''
                 },
                 {
                     heading: 'Tools, Grants & Collaboration',
                     content: 'Active and upcoming grant opportunities (HRC, MBIE, etc.). Submission guidelines & funding timelines. Participant recruitment tools. Data-sharing agreements & ethics resources. Researcher contact networks & collaboration portals',
-                    cardLink: '/researcher',
-                    icon: ''
                 }
             ]
         }

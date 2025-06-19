@@ -41,18 +41,17 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
   
       <!-- Fixed-size Button Containers -->
        <div class="flex relative" id={id}>
-         {patients.map(({ label, icon, type }) => (
+         {patients.map(({ label, icon }) => (
          <div class="relative group w-10 h-10 hover:scale-110 hover:mx-3 flex items-center justify-center">
-          <Button >
-            <button
-              id={label}
-              type="button"
-              data-label={label}
-              class="user-btn w-full h-full flex p-5 items-center justify-center rounded-full md: text-xl text-s transition-all duration-200 hover:scale-110 " style="background: var(--color-palette-four); color: var(--color-palette-one);"
-            >
-              {icon}
-              </button>
-          </Button>
+          <button
+            id={label}
+            type="button"
+            data-label={label}
+            class="user-btn w-full h-full flex p-5 items-center justify-center rounded-full md: text-xl text-s transition-all duration-200 hover:scale-110 "
+            style="background: var(--color-palette-four); color: var(--color-palette-one);"
+          >
+            {icon}
+            </button>
             {/* <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm  rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
               {type}
             </div> */}
@@ -95,7 +94,6 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
 
     userButtonTabs.forEach(button => {
       button.addEventListener('click', () => {
-        const labelText = button.getAttribute('data-label');
        // Responsive offset scroll
       if (cardSection) {
         let yOffset;
@@ -109,30 +107,35 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
           // Large screens (e.g., desktops)
           yOffset = -320;
         }
+
         const y = cardSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
-        const cardMainTitle = document.getElementById('card-title');
-        const cardElement = document.querySelectorAll('.card');
-        const cardHeadingElement = document.querySelectorAll('.card-heading');
-        const cardContentElement = document.querySelectorAll('.card-content');
-        const cardLinkElement = document.querySelectorAll('.card-link');
-        const cardIconElement = document.querySelectorAll('.card-icon');
-        cardMainTitle.textContent = `${contentByCategory[labelText].title}`;
-        cardHeadingElement.forEach((heading, i)=> {
-          heading.textContent = `${contentByCategory[labelText].data[i].heading}`;
-        });
-        cardContentElement.forEach((content, i)=> {
-          // content.textContent = `${labelText}/${contentByCategory[labelText].data[i].heading}`;
-          // link.setAttribute('href', `stage-${labelText}/${contentByCategory[labelText].data[i].heading}`);
-          content.textContent = `${contentByCategory[labelText].data[i].content}`;
-        });
-        cardElement.forEach((link, i)=> {
-          link.setAttribute('href', `s`);
-          // link.setAttribute('href', `s/${contentByCategory[labelText].data[i].title}`);
-          // link.setAttribute('href', `${labelText}/${contentByCategory[labelText].data[i].heading}`);
-          // link.textContent = `${contentByCategory[labelText].data[i].content}`;
-        });
+      // const cardElement = document.querySelectorAll('.card');
+      // stage-0
+        const labelText = button.getAttribute('data-label');
+      // Stage X - Lorem Ipsum
+      const cardMainTitle = document.getElementById('card-title');
+      cardMainTitle.textContent = `${contentByCategory[labelText].title}`;
+
+      // (Stage 0 Heading 1) What You Need to Know Early
+      const cardHeadingElement = document.querySelectorAll('.card-heading');
+      cardHeadingElement.forEach((heading, i)=> {
+        heading.textContent = `${contentByCategory[labelText].data[i].heading}`;
+      });
+
+      // Details
+      const cardContentElement = document.querySelectorAll('.card-content');
+      cardContentElement.forEach((content, i)=> {
+        const x =  `${contentByCategory[labelText].data[i].content}`;
+        content.textContent = x;
+      });
+      
+      const cardLinkElement = document.querySelectorAll('.card-item');
+      cardLinkElement.forEach((link, i)=> {
+        // cardLink={`${contentByCategory[i]}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
+        link.setAttribute('href', `${labelText}/${contentByCategory[labelText].data[i].heading}`);
+      });
       });
     });
   });
