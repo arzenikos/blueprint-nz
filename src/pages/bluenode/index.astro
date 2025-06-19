@@ -24,9 +24,9 @@ const breadcrumbItems = [
     <!-- Main Graph Area (2/3 width) -->
     <div class="w-full md:w-3/5 h-full relative">
       <!-- Zoom Controls -->
-      <ZoomControls/>
+      <!-- <ZoomControls/> -->
       <!-- Reset View Button -->
-      <ResetButton/>
+      <!-- <ResetButton/> -->
       
       <!-- Dynamic Nodes Container with Pan and Zoom -->
       <GraphCanvas />
@@ -49,19 +49,19 @@ const breadcrumbItems = [
     const bluenodeData = window.bluenodeData;
     
     // Cache DOM elements
-    const nodesViewport = document.getElementById('nodes-viewport');
+    // const nodesViewport = document.getElementById('nodes-viewport');
     const nodesContainer = document.getElementById('nodes-container');
     const connectionLines = document.getElementById('connection-lines');
-    const zoomInBtn = document.getElementById('zoom-in');
-    const zoomOutBtn = document.getElementById('zoom-out');
-    const resetViewBtn = document.getElementById('reset-view');
+    // const zoomInBtn = document.getElementById('zoom-in');
+    // const zoomOutBtn = document.getElementById('zoom-out');
+    // const resetViewBtn = document.getElementById('reset-view');
     // const detailPanel = document.getElementById('detail-panel');
     
     // Pan and zoom state
-    let isPanning = false;
-    let startPoint = { x: 0, y: 0 };
+    // let isPanning = false;
+    // let startPoint = { x: 0, y: 0 };
     let currentTranslate = { x: 0, y: 0 };
-    let startTranslate = { x: 0, y: 0 };
+    // let startTranslate = { x: 0, y: 0 };
     let currentScale = 1;
   
     // Show node detail in the right panel
@@ -163,126 +163,127 @@ const breadcrumbItems = [
     }
 
     // Pan functionality
-    function setupPanAndZoom() {
-      if (!nodesViewport || !nodesContainer) return;
+    // function setupPanAndZoom() {
+    //   if (!nodesViewport || !nodesContainer) return;
       
-      // Mouse down event to start panning
-      nodesViewport.addEventListener('mousedown', (e) => {
-        if (e.button === 0) { // Left mouse button
-          isPanning = true;
-          startPoint = { x: e.clientX, y: e.clientY };
-          startTranslate = { ...currentTranslate };
-          nodesViewport.style.cursor = 'grabbing';
-        }
-      });
+    //   // Mouse down event to start panning
+    //   nodesViewport.addEventListener('mousedown', (e) => {
+    //     if (e.button === 0) { // Left mouse button
+    //       isPanning = true;
+    //       startPoint = { x: e.clientX, y: e.clientY };
+    //       startTranslate = { ...currentTranslate };
+    //       nodesViewport.style.cursor = 'grabbing';
+    //     }
+    //   });
       
-      // Mouse move event to pan
-      window.addEventListener('mousemove', (e) => {
-        if (isPanning) {
-          const dx = e.clientX - startPoint.x;
-          const dy = e.clientY - startPoint.y;
+    //   // Mouse move event to pan
+    //   window.addEventListener('mousemove', (e) => {
+    //     if (isPanning) {
+    //       const dx = e.clientX - startPoint.x;
+    //       const dy = e.clientY - startPoint.y;
           
-          currentTranslate = {
-            x: startTranslate.x + dx,
-            y: startTranslate.y + dy
-          };
+    //       currentTranslate = {
+    //         x: startTranslate.x + dx,
+    //         y: startTranslate.y + dy
+    //       };
           
-          applyTransform();
-        }
-      });
+    //       applyTransform();
+    //     }
+    //   });
       
-      // Mouse up event to stop panning
-      window.addEventListener('mouseup', () => {
-        if (isPanning) {
-          isPanning = false;
-          nodesViewport.style.cursor = 'default';
-        }
-      });
+    //   // Mouse up event to stop panning
+    //   window.addEventListener('mouseup', () => {
+    //     if (isPanning) {
+    //       isPanning = false;
+    //       nodesViewport.style.cursor = 'default';
+    //     }
+    //   });
       
-      // Mouse leave event to stop panning
-      nodesViewport.addEventListener('mouseleave', () => {
-        if (isPanning) {
-          isPanning = false;
-          nodesViewport.style.cursor = 'default';
-        }
-      });
+    //   // Mouse leave event to stop panning
+    //   nodesViewport.addEventListener('mouseleave', () => {
+    //     if (isPanning) {
+    //       isPanning = false;
+    //       nodesViewport.style.cursor = 'default';
+    //     }
+    //   });
       
-      // Wheel event for zooming
-      nodesViewport.addEventListener('wheel', (e) => {
-        e.preventDefault();
+    //   // Wheel event for zooming
+    //   nodesViewport.addEventListener('wheel', (e) => {
+    //     e.preventDefault();
         
-        // Get mouse position relative to container
-        const rect = nodesViewport.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
+    //     // Get mouse position relative to container
+    //     const rect = nodesViewport.getBoundingClientRect();
+    //     const mouseX = e.clientX - rect.left;
+    //     const mouseY = e.clientY - rect.top;
         
-        // Calculate zoom direction and factor
-        const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
+    //     // Calculate zoom direction and factor
+    //     const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
         
-        // Limit zoom scale
-        const newScale = Math.max(0.5, Math.min(3, currentScale * zoomFactor));
+    //     // Limit zoom scale
+    //     const newScale = Math.max(0.5, Math.min(3, currentScale * zoomFactor));
         
-        // Only proceed if scale changed
-        if (newScale !== currentScale) {
-          // Calculate new translate values to zoom toward mouse position
-          const scaleChange = newScale / currentScale;
+    //     // Only proceed if scale changed
+    //     if (newScale !== currentScale) {
+    //       // Calculate new translate values to zoom toward mouse position
+    //       const scaleChange = newScale / currentScale;
           
-          currentTranslate = {
-            x: mouseX - (mouseX - currentTranslate.x) * scaleChange,
-            y: mouseY - (mouseY - currentTranslate.y) * scaleChange
-          };
+    //       currentTranslate = {
+    //         x: mouseX - (mouseX - currentTranslate.x) * scaleChange,
+    //         y: mouseY - (mouseY - currentTranslate.y) * scaleChange
+    //       };
           
-          currentScale = newScale;
-          applyTransform();
-        }
-      });
+    //       currentScale = newScale;
+    //       applyTransform();
+    //     }
+    //   });
       
-      // Zoom in button
-      if (zoomInBtn) {
-        zoomInBtn.addEventListener('click', () => {
-          const newScale = Math.min(3, currentScale * 1.2);
-          if (newScale !== currentScale) {
-            currentScale = newScale;
-            applyTransform();
-          }
-        });
-      }
+    //   // Zoom in button
+    //   if (zoomInBtn) {
+    //     zoomInBtn.addEventListener('click', () => {
+    //       const newScale = Math.min(3, currentScale * 1.2);
+    //       if (newScale !== currentScale) {
+    //         currentScale = newScale;
+    //         applyTransform();
+    //       }
+    //     });
+    //   }
       
-      // Zoom out button
-      if (zoomOutBtn) {
-        zoomOutBtn.addEventListener('click', () => {
-          const newScale = Math.max(0.5, currentScale * 0.8);
-          if (newScale !== currentScale) {
-            currentScale = newScale;
-            applyTransform();
-          }
-        });
-      }
+    //   // Zoom out button
+    //   if (zoomOutBtn) {
+    //     zoomOutBtn.addEventListener('click', () => {
+    //       const newScale = Math.max(0.5, currentScale * 0.8);
+    //       if (newScale !== currentScale) {
+    //         currentScale = newScale;
+    //         applyTransform();
+    //       }
+    //     });
+    //   }
       
-      // Reset view button
-      if (resetViewBtn) {
-        resetViewBtn.addEventListener('click', () => {
-          currentScale = 1;
-          currentTranslate = { x: 0, y: 0 };
-          applyTransform();
-        });
-      }
-    }
+    //   // Reset view button
+    //   if (resetViewBtn) {
+    //     resetViewBtn.addEventListener('click', () => {
+    //       currentScale = 1;
+    //       currentTranslate = { x: 0, y: 0 };
+    //       applyTransform();
+    //     });
+    //   }
+    // }
     
     // Initialize the graph and pan/zoom functionality
     // initializeGraph();
-    setupPanAndZoom();
+    // setupPanAndZoom();
   });
 </script>
-<script>
-// import { bluenodeDataContent } from '../../content/bluenode';
 
-// Extend the Window interface to include bluenodeData
-// declare global {
-//   interface Window {
-//     bluenodeData: any;
-//   }
-// }
-//   // Pass the bluenode data to the client-side JavaScript
-//   // window.bluenodeData  = bluenodeDataContent;
-// </script>
+<!-- <script>
+import { bluenodeDataContent } from '../../content/bluenode';
+
+Extend the Window interface to include bluenodeData
+declare global {
+  interface Window {
+    bluenodeData: any;
+  }
+}
+  // Pass the bluenode data to the client-side JavaScript
+  // window.bluenodeData  = bluenodeDataContent;
+</script> -->

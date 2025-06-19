@@ -1,9 +1,6 @@
 ---
 // <!-- Code from: https://gojs.net/latest/samples/incrementalTree.html -->
 const { label, childCount } = Astro.props;
-// import { bluenodeBranchData } from '../../content/bluenode';
-
-// const {bluenodeBranchData} = Astro.props;
 ---
 <script src="https://cdn.jsdelivr.net/npm/gojs@3.0.24/release/go.js"></script>
 
@@ -12,13 +9,9 @@ const { label, childCount } = Astro.props;
 </div>
 
 <script id="code">
-  // import { bluenodeBranchData } from '../../content/bluenode';
-
   function init() {
 
-    var blues = ['#E1F5FE', '#B3E5FC', '#81D4FA', '#4FC3F7', '#29B6F6', '#03A9F4', '#039BE5', '#0288D1', '#0277BD', '#01579B'];
-
-    myDiagram = new go.Diagram('blueNodeDiagram', {
+    bluenode = new go.Diagram('blueNodeDiagram', {
       initialContentAlignment: go.Spot.TopCenter,
       layout: new go.TreeLayout({
         angle: 90,              // expands downward (0 = right, 90 = down, 180 = left, 270 = up)
@@ -26,15 +19,13 @@ const { label, childCount } = Astro.props;
         layerSpacing: 40,
         nodeSpacing: 40
       }),
-      'commandHandler.copiesTree': true,
-      'commandHandler.deletesTree': true,
-      'draggingTool.dragsTree': true,
-      'undoManager.isEnabled': true
+      // 'commandHandler.copiesTree': true,
+      // 'commandHandler.deletesTree': true,
+      // 'draggingTool.dragsTree': false,
+      // 'undoManager.isEnabled': true
     });
     // Define the Node template.
-    // This uses a Spot Panel to position a button relative
-    // to the ellipse surrounding the text.
-    myDiagram.nodeTemplate = new go.Node('Spot', {
+    bluenode.nodeTemplate = new go.Node('Spot', {
       selectionObjectName: 'PANEL',
       isTreeExpanded: false,
       isTreeLeaf: false,
@@ -45,52 +36,32 @@ const { label, childCount } = Astro.props;
     })
     // the node's outer shape, which will surround the text
     .add(
-    new go.Panel('Auto', { name: 'PANEL' })
+    new go.Panel('Auto')
       .add(
-      new go.Shape('RoundedRectangle',{
-        name: 'NODE_SHAPE',
-        width: 150,
-        height: 40,
-        fill: 'whitesmoke',
-        stroke: 'white'
-      })
-      // .bind('figure', 'RoundedRectangle')
-      .bind('fill', 'rootdistance', (dist) => {
-          dist = Math.min(blues.length - 1, dist);
-          return blues[dist];
-      }),
-      new go.TextBlock({
-        font: '10pt sans-serif',
-        margin: 1,
-        overflow: go.TextBlock.OverflowEllipsis,
-        wrap: go.TextBlock.WrapFit
-      })
-        .bind('text', 'key')
-    ),
+        new go.Shape('RoundedRectangle', { height: 30, fill: 'whitesmoke', stroke: 'white' }),
+        new go.TextBlock({ font: '10pt sans-serif', margin: 1, overflow: go.TextBlock.OverflowEllipsis, wrap: go.TextBlock.WrapFit, textAlign: 'center'})
+          // .bind('text', 'key')
+          .bind('text', '', (data) => data.text || data.key)
+      ),
+      // go.GraphObject.make("TreeExpanderButton")
     );
-    // const rootKey = Object.keys(window.bluenodeBranchData)[0];
-    // const rootNodeData = bluenodeBranchData[rootKey];
 
-    // create the model with a root node data
-    // myDiagram.model = new go.TreeModel([{
-    //   key: rootNodeData.key,
-    //   text: rootNodeData.text,
-    //   everExpanded: false,
-    //   rootdistance: 0
-    // }]);
-    myDiagram.model = new go.TreeModel([{ key: "Prostate Cancer", color: blues[0], everExpanded: false }]);
-  }
-
-  // This helper function recursively finds a node in the dictionary tree by key
-  function findNodeInDict(treeNode, key) {
-    if (!treeNode) return null;
-    if (treeNode.key === key) return treeNode;
-    if (!treeNode.children) return null;
-    for (const child of treeNode.children) {
-      const found = findNodeInDict(child, key);
-      if (found) return found;
-    }
-    return null;
+    bluenode.model = new go.TreeModel(
+      [
+        {
+          key: "Prostate Cancer",
+          text: "What is Prostate Cancer?",
+          color: '#FFFF',
+          everExpanded: false
+        }
+      ]
+    );
+    var childdata = {
+      key: `Node ${model.nodeDataArray.length}`,
+      text: `Details for Node ${model.nodeDataArray.length}`,
+      parent: parentdata.key,
+      rootdistance: degrees
+    };
   }
 
   function expandNode(node) {
@@ -114,8 +85,8 @@ const { label, childCount } = Astro.props;
       diagram.model.setDataProperty(data, 'everExpanded', true);
       const numchildren = createSubTree(data);
       if (numchildren === 0) {
-        // const treeButton = node.findObject('TREEBUTTON');
-        // if (treeButton) treeButton.visible = false;
+        const treeButton = node.findObject('TREEBUTTON');
+        if (treeButton) treeButton.visible = false;
       }
     }
 
@@ -130,18 +101,18 @@ const { label, childCount } = Astro.props;
 
   function getChildCount() {
     const countAttr = document.getElementById('sample').dataset.childCount;
-    const parsed = parseInt(countAttr, 10);
-    return isNaN(parsed) ? 3 : parsed;
+    const parsed = parseInt(countAttr, 6);
+    return isNaN(parsed) ? 2 : parsed;
   }
 
   function createSubTree(parentdata) {
     var numchildren = getChildCount(); 
-    if (myDiagram.nodes.count <= 1) {
+    if (bluenode.nodes.count <= 1) {
       numchildren += 1; 
     }
     // create several node data objects and add them to the model
-    var model = myDiagram.model;
-    var parent = myDiagram.findNodeForData(parentdata);
+    var model = bluenode.model;
+    var parent = bluenode.findNodeForData(parentdata);
 
     var degrees = 1;
     var grandparent = parent.findTreeParentNode();
@@ -159,7 +130,7 @@ const { label, childCount } = Astro.props;
       // add to model.nodeDataArray and create a Node
       model.addNodeData(childdata);
       // position the new child node close to the parent
-      var child = myDiagram.findNodeForData(childdata);
+      var child = bluenode.findNodeForData(childdata);
       child.location = parent.location;
     }
     return numchildren;
