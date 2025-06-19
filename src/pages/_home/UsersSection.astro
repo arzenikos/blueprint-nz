@@ -92,6 +92,8 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
     const userButtonTabs = document.querySelectorAll('.user-btn[data-label]');
     const cardSection = document.getElementById('card-section');
 
+
+    /* SCROLLING  */
     userButtonTabs.forEach(button => {
       button.addEventListener('click', () => {
        // Responsive offset scroll
@@ -111,30 +113,44 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
         const y = cardSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
-      // const cardElement = document.querySelectorAll('.card');
+
+    /* CARD DYNAMIC  */
       // stage-0
-        const labelText = button.getAttribute('data-label');
+      const labelText = button.getAttribute('data-label');
+      localStorage.setItem('current', labelText)
+      const currentSet = contentByCategory[labelText];
       // Stage X - Lorem Ipsum
       const cardMainTitle = document.getElementById('card-title');
-      cardMainTitle.textContent = `${contentByCategory[labelText].title}`;
+      cardMainTitle.textContent = `${currentSet.title}`;
 
       // (Stage 0 Heading 1) What You Need to Know Early
+      const linkSet = [];
       const cardHeadingElement = document.querySelectorAll('.card-heading');
       cardHeadingElement.forEach((heading, i)=> {
-        heading.textContent = `${contentByCategory[labelText].data[i].heading}`;
+        heading.textContent = `${currentSet.data[i].heading}`;
+        const cleanSlug = heading.textContent
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, '-')      // Replace spaces with -
+            .replace(/[^\w-]/g, '');   // Remove punctuation
+
+        linkSet.push(`${cleanSlug}`);
       });
+      console.log(...linkSet);
 
       // Details
       const cardContentElement = document.querySelectorAll('.card-content');
       cardContentElement.forEach((content, i)=> {
-        const x =  `${contentByCategory[labelText].data[i].content}`;
+        const x =  `${currentSet.data[i].content}`;
         content.textContent = x;
       });
       
       const cardLinkElement = document.querySelectorAll('.card-item');
       cardLinkElement.forEach((link, i)=> {
-        // cardLink={`${contentByCategory[i]}/${heading.toLowerCase().replaceAll(' ','-').replaceAll('?', '').replaceAll(',', '')}`}
-        link.setAttribute('href', `${labelText}/${contentByCategory[labelText].data[i].heading}`);
+        
+        const current = localStorage.getItem('current');
+        link.setAttribute('href', `${current}/${linkSet[i-1]}`);
+        console.log()
       });
       });
     });

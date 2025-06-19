@@ -37,11 +37,11 @@ const {
   <h2 id="card-title" class="text-3xl md:text-4xl font-bold text-center mb-1">{sectionTitle}</h2>
   <h4 class="text-center mb-12">{sectionSubtitle}</h4>
   
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
-  {selectedCards.map((card) => (
+  <div class="card-item grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
+  {selectedCards.map(({heading, content }) => (
     <Card
-      heading={card.heading}
-      content={card.content}
+      heading={heading}
+      content={content}
       />
     ))}
   </div>
