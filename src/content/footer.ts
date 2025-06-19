@@ -34,15 +34,6 @@ export const footerLinks = {
         { text: "Volunteer", url: "empty" }
       ]
     },
-    // {
-    //   title: "x",
-    //   links: [
-    //     { text: "Link", url: "empty" },
-    //     { text: "Link", url: "empty" },
-    //     { text: "Link", url: "empty" },
-    //     { text: "Link", url: "empty" }
-    //   ]
-    // }
   ],
   socialLinks: [
     { platform: "video", url: "empty", ariaLabel: "Tutorial/Demo in onedrive" },

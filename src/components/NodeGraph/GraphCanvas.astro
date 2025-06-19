@@ -55,8 +55,7 @@ import { bluenodeData } from '../../content/bluenode.ts';
         }).bind('text', '', data => data.text || data.key)
       )
     );
-
-    // root model
+    
     bluenode.model = new go.TreeModel([
       {
         key: rootDict.key,

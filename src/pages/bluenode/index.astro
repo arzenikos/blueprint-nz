@@ -7,7 +7,7 @@ import DetailPanel from '../../components/NodeGraph/DetailPanel.astro';
 import GraphCanvas from '../../components/NodeGraph/GraphCanvas.astro';
 
 //Style
-import '../../styles/bluenode-style.css';
+// import '../../styles/bluenode-style.css';
 
 const breadcrumbItems = [
   { label: 'Blue Node', href: '/bluenode', current: true }
@@ -17,7 +17,7 @@ const breadcrumbItems = [
 <Layout title="BlueNode - BluePrintNZ">
   <Breadcrumbs items={breadcrumbItems} />
   <!-- Full-page Interactive Node Graph -->
-  <div class="flex flex-col md:flex-row w-full px-10 h-[calc(100vh-var(--header-height)-var(--footer-height))]" id="node-container">
+  <div class="flex flex-col md:flex-row w-full mb-30 px-10 h-[calc(100vh-var(--header-height)-var(--footer-height))]" id="node-container">
     <!-- Main Graph Area (2/3 width) -->
     <div class="w-full md:w-3/5 relative">
 
@@ -32,28 +32,3 @@ const breadcrumbItems = [
     
   </div>
 </Layout>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Cache DOM elements
-    const nodesContainer = document.getElementById('nodes-container');
-    const connectionLines = document.getElementById('connection-lines');
-
-    let currentTranslate = { x: 0, y: 0 };
-    let currentScale = 1;
-  
-    
-    // Apply transform to the nodes container
-    function applyTransform() {
-      if (nodesContainer) {
-        nodesContainer.style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px) scale(${currentScale})`;
-        
-        // Update SVG connection lines to match the transform
-        const svgGroup = connectionLines.querySelector('g');
-        if (svgGroup) {
-          svgGroup.setAttribute('transform', `translate(${currentTranslate.x} ${currentTranslate.y}) scale(${currentScale})`);
-        }
-      }
-    }
-  });
-</script>

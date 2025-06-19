@@ -13,8 +13,10 @@ const {
             <Icon class="card-icon" name="chevron-right" color="var(--color-palette-five)"/>
         </div>
         <p class="card-heading text-xl font-semibold mb-3 no-underline" style="color: var(--color-palette-one);">{heading}</p>
-        <p class="card-content"  style="color: var(--color-palette-two); no-underline">
-            {content}
-        </p>
+        <ul class="card-content" style="color: var(--color-palette-two); list-style-type: disc; padding-left: 1rem;">
+            {content.map((item) => (
+                <li>{item}</li>
+            ))}
+        </ul>
     </a>
 </div>
