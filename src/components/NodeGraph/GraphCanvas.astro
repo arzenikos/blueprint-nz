@@ -1,8 +1,6 @@
 ---
 import { bluenodeData } from '../../content/bluenode.ts';
-
 ---
-<!-- Nodes and SVG Lines -->
 <div class="w-full md:h-full relative">
   <div id="nodes-viewport" class="w-full md:h-full overflow-hidden">
     <div id="nodes-container" class="w-full md:h-full relative transform-gpu origin-center">
@@ -21,7 +19,6 @@ import { bluenodeData } from '../../content/bluenode.ts';
   const rootDict = JSON.parse(document.getElementById('bluenode-data').textContent);
 
   let bluenode;
-
   function init() {
     bluenode = new go.Diagram('blueNodeDiagram', {
       initialContentAlignment: go.Spot.TopCenter,
