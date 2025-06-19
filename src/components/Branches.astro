@@ -1,0 +1,87 @@
+---
+const { buttonLabel = "Show", branches = [], initiallyVisible = false } = Astro.props;
+---
+
+<style>
+  .hidden {
+    display: none;
+  }
+
+  .branch {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    background-color: #f3f4f6;
+    margin-bottom: 0.5rem;
+  }
+
+  .child {
+    margin-left: 1rem;
+    background-color: #e5e7eb;
+  }
+
+  .icon {
+    margin-right: 0.5rem;
+  }
+</style>
+
+<div>
+  <button id="toggle-button" type="button">{buttonLabel}</button>
+
+  <div id="toggle-target" class={!initiallyVisible ? 'hidden' : 'block'}>
+    {branches.map((branch, index) => (
+      <div class="branch">
+        <strong><span class="icon">{branch.icon ?? '📁'}</span>{branch.label}</strong>
+        <p>{branch.detail}</p>
+
+        {branch.children && (
+          <div class="child">
+            {branch.children.map((child) => (
+              <div class="branch">
+                <strong><span class="icon">{child.icon ?? '↪️'}</span>{child.label}</strong>
+                <p>{child.detail}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+<script type="module" is:inline>
+  const btn = document.getElementById('toggle-button');
+  const target = document.getElementById('toggle-target');
+
+  btn.addEventListener('click', () => {
+    target.classList.toggle('hidden');
+  });
+</script>
+
+
+<!-- ---
+const { buttonLabel = "Show", initiallyVisible = false } = Astro.props;
+---
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+
+<div>
+  <button id="toggle-button" type="button">{buttonLabel}</button>
+  <div id="toggle-target" class={!initiallyVisible ? 'hidden' : 'block'}>
+    <slot />
+  </div>
+</div>
+
+<script type="module" is:inline>
+  const btn = document.getElementById('toggle-button');
+  const target = document.getElementById('toggle-target');
+
+  btn.addEventListener('click', () => {
+    target.classList.toggle('hidden');
+        // initiallyVisible ? 'hidden' : 'block');
+  });
+</script> -->
