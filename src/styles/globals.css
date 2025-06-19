@@ -6,7 +6,7 @@
   /* MAIN */
   --color-palette-one: #b9d6f2;
   --color-palette-two: #69a8e8;
-  --color-palette-three: #41dbba;
+  --color-palette-three: #8281db7a;
   --color-palette-four: #082756;
   --color-palette-five: #061a40;
   --color-palette-zero: #fbfdff;
@@ -226,4 +226,11 @@
   opacity: 0.1 !important;
   pointer-events: none;
   user-select: none;
+}
+.user-btn[data-active="true"] {
+  transform: scale(1.25); /* bigger */
+  background-color: var(--color-palette-four) !important; /* different bg */
+  color: var(--color-palette-one) !important; /* adjust text color if needed */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 10;
 }
