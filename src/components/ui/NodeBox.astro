@@ -1,14 +1,19 @@
 ---
 // <!-- Code from: https://gojs.net/latest/samples/incrementalTree.html -->
-const { label, childCount } = Astro.props;
+import { bluenodeData } from '../../content/bluenode.ts';
+const {  } = Astro.props;
 ---
-<script src="https://cdn.jsdelivr.net/npm/gojs@3.0.24/release/go.js"></script>
-
-<div id="sample" data-child-count={childCount}>
-  <div id="blueNodeDiagram" style="background-color: var(--color-palette-one); width: 100%; height: 700px"></div>
+<div id="bluenode-data" class="hidden">
+  {JSON.stringify(bluenodeData)}
 </div>
 
+
+<script src="https://cdn.jsdelivr.net/npm/gojs@3.0.24/release/go.js"></script>
+
+<div id="blueNodeDiagram" style="background-color: var(--color-palette-one); width: 100%; height: 700px"></div>
+
 <script id="code">
+  const customTexts = JSON.parse(document.getElementById('bluenode-data').textContent);
   function init() {
 
     bluenode = new go.Diagram('blueNodeDiagram', {
@@ -19,21 +24,7 @@ const { label, childCount } = Astro.props;
         layerSpacing: 40,
         nodeSpacing: 40
       }),
-      // 'commandHandler.copiesTree': true,
-      // 'commandHandler.deletesTree': true,
-      // 'draggingTool.dragsTree': false,
-      // 'undoManager.isEnabled': true
     });
-    // Define the Node template.
-    // bluenode.nodeTemplate = new go.Node('Spot', {
-    //   selectionObjectName: 'PANEL',
-    //   isTreeExpanded: false,
-    //   isTreeLeaf: false,
-    //   click: (e, node) => {
-    //   e.handled = true;
-    //   expandNode(node);
-    // }
-    // })
     bluenode.nodeTemplate = new go.Node('Spot', {
       selectionObjectName: 'PANEL',
       isTreeExpanded: false,
@@ -58,25 +49,12 @@ const { label, childCount } = Astro.props;
         }).bind('text', '', data => data.text || data.key)
       )
     )
-    // the node's outer shape, which will surround the text
-    // .add(
-    // new go.Panel('Auto')
-    //   .add(
-    //     new go.Shape('RoundedRectangle', { height: 30, fill: 'whitesmoke', stroke: 'white' }),
-    //     new go.TextBlock({ font: '10pt sans-serif', margin: 1, overflow: go.TextBlock.OverflowEllipsis, wrap: go.TextBlock.WrapFit, textAlign: 'center'})
-    //       // .bind('text', 'key')
-    //       .bind('text', '', (data) => data.text || data.key)
-
-    //   ),
-    //   // go.GraphObject.make("TreeExpanderButton")
-    // );
 
     bluenode.model = new go.TreeModel(
       [
         {
           key: "Prostate Cancer",
           text: "What is Prostate Cancer?",
-          color: '#FFFF',
           everExpanded: false
         }
       ]
@@ -118,18 +96,11 @@ const { label, childCount } = Astro.props;
     diagram.commitTransaction('CollapseExpandTree');
   }
 
-  // function getChildCount() {
-  //   // const countAttr = customTexts[parentdata.key].length;
-  //   const countAttr = document.getElementById('sample').dataset.childCount;
-  //   const parsed = parseInt(countAttr, 6);
-  //   return isNaN(parsed) ? 2 : parsed;
-  // }
 
   function createSubTree(parentdata) {
-    var numchildren = customTexts[parentdata.key].length -1;//getChildCount(); 
-    if (bluenode.nodes.count <= 1) {
-      numchildren += 1; 
-    }
+    var titles = customTexts[parentdata.key] || [];
+    var numchildren = titles.length;
+
     // create several node data objects and add them to the model
     var model = bluenode.model;
     var parent = bluenode.findNodeForData(parentdata);
@@ -140,10 +111,6 @@ const { label, childCount } = Astro.props;
       degrees++;
       grandparent = grandparent.findTreeParentNode();
     }
-    
-    
-    var titles = customTexts[parentdata.key] || [];
-    
     for (var i = 0; i < numchildren; i++) {
       var label = titles[i] || `Unnamed child ${i + 1}`;
 
@@ -161,11 +128,4 @@ const { label, childCount } = Astro.props;
     return numchildren;
   }
   window.addEventListener('DOMContentLoaded', init);
-
-  const customTexts = {
-    "Prostate Cancer": ["Early Detection", "Treatment Options"],
-    "Prostate Cancer-1": ["PSA", "Digital Rectal Exam"],
-    "Prostate Cancer-2": ["Radiation", "Surgery"]
-  };
-
 </script>

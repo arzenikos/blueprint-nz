@@ -1,27 +1,34 @@
-export const bluenodeBranchData = {
-  "Prostate Cancer": {
-    key: "Prostate Cancer",
-    text: "XXXX",
-    children: [
-      {
-        key: "Early Stage",
-        text: "XXXX",
-
-        children: [
-          { key: "Screening", text: "XXXX"},
-          { key: "Lifestyle", text: "XXXX"}
-        ]
-      },
-      {
-        key: "Advanced Stage",
-        children: [
-          { key: "Treatment Options", text: "XXXX" },
-          { key: "Clinical Trials", text: "XXXX" }
-        ]
-      }
-    ]
-  }
+export const bluenodeData = {
+  "Prostate Cancer": ["Early Deteccccion", "Treatment Options"],
+  "Prostate Cancer-1": ["PSA", "Digital Rectal Exam"],
+  "Prostate Cancer-2": ["Radiation", "Surgery"]
 };
+
+
+// export const bluenodeBranchData = {
+//   "Prostate Cancer": {
+//     key: "Prostate Cancer",
+//     text: "XXXX",
+//     children: [
+//       {
+//         key: "Early Stage",
+//         text: "XXXX",
+
+//         children: [
+//           { key: "Screening", text: "XXXX"},
+//           { key: "Lifestyle", text: "XXXX"}
+//         ]
+//       },
+//       {
+//         key: "Advanced Stage",
+//         children: [
+//           { key: "Treatment Options", text: "XXXX" },
+//           { key: "Clinical Trials", text: "XXXX" }
+//         ]
+//       }
+//     ]
+//   }
+// };
 
 // // Referenced by: pages/bluenode/index.astro
 // export const bluenodeDataContent = {
