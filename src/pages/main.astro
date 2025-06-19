@@ -3,29 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
 import { content } from '../content/page-content.ts';
 
-
-const toKebabCase = (str) =>
-  str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-
-export async function getStaticPaths() {
-  const paths = [];
-
-  for (const stage in content) {
-    for (const headingKey in content[stage]) {
-      const title = content[stage][headingKey].title;
-      const slug = toKebabCase(title);
-
-      paths.push({
-        params: {
-          stage: stage.startsWith('stage') ? stage.replace('stage', 'stage-') : stage,
-          slug,
-        },
-      });
-    }
-  }
-
-  return paths;
-}
 // get the dynamic route param
 const { slug } = Astro.params;
 

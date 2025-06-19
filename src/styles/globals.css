@@ -229,8 +229,8 @@
 }
 .user-btn[data-active="true"] {
   transform: scale(1.25); /* bigger */
-  background-color: var(--color-palette-four) !important; /* different bg */
-  color: var(--color-palette-one) !important; /* adjust text color if needed */
+  background-color: var(--color-palette-three) !important; /* different bg */
+  color: var(--color-palette-five) !important; /* adjust text color if needed */
   transition: transform 0.3s ease, background-color 0.3s ease;
   z-index: 10;
 }
