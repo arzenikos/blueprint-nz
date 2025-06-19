@@ -1,6 +1,5 @@
 ---
 import Icon from '../../components/ui/Icon.astro';
-import Button from '../../components/ui/Button.astro';
 
 const {
     heading,
@@ -11,27 +10,11 @@ const {
 <div class="rounded-lg card-link shadow-md p-6 transition-transform hover:scale-105" style="background: var(--color-palette-four);">
     <a id="card-link" class="card-item no-underline block" style={{ textDecoration: 'none' }}>
         <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
-            <Icon class="card-icon" name="{icon}" color="var(--color-palette-five)"/>
+            <Icon class="card-icon" name="chevron-right" color="var(--color-palette-five)"/>
         </div>
         <p class="card-heading text-xl font-semibold mb-3 no-underline" style="color: var(--color-palette-one);">{heading}</p>
         <p class="card-content"  style="color: var(--color-palette-two); no-underline">
             {content}
         </p>
-        <!-- <div class="mt-20 background-color: var(--color-palette-one);">
-            <Button variant="link" size="lg" href="#">
-                Learn More
-            </Button>
-        </div> -->
     </a>
 </div>
-
-<!-- <script type="module">
-  document.addEventListener('DOMContentLoaded', () => {
-    const link = document.getElementById('card-link');
-    const current = localStorage.getItem('current') || "stage-0";
-    if (link) {
-      const slug = document.getElementById('card-heading');
-      link.href = `${current}/${slug.tex}`;
-    }
-  });
-</script> -->

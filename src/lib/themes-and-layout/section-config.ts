@@ -14,14 +14,14 @@ export const componentConfiguration = {
   },
   user:{
     margin: 'my-10 lg:mt-5 md:my-7 lg:my-15 ',
-    padding: 'py-7',
-    scale: 'scale-100 md:scale-80'
+    padding: 'py-15',
+    scale: 'scale-100 md:scale-90'
   },
   cards:{
     margin: 'mt-10 md:mt-30 mb-95',
     padding: ' px-6',
     scale: '',
-    other: 'container'
+    other: 'container hidden'
   },
   context:{
     margin: 'mt-50 my-70 scroll-mt-28',

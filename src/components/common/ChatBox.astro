@@ -8,7 +8,7 @@ const { title, initialMessage, placeholder, buttonText, responses } = chatboxCon
 
 <!-- Chat Overlay Button -->
 <div
-  id="chat-overlay"
+  id="button-overlay"
   class="fixed bottom-6 right-6 z-50"
   >
   <button 
@@ -20,6 +20,7 @@ const { title, initialMessage, placeholder, buttonText, responses } = chatboxCon
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
     </svg>
   </button>
+  
 </div>
 
 <!-- Chat Box -->
@@ -28,7 +29,7 @@ const { title, initialMessage, placeholder, buttonText, responses } = chatboxCon
     id="chat-box"
      class="hidden fixed rounded-lg shadow-lg overflow-hidden theme-transition
            w-[90%] h-[90%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-           md:w-80 md:h-96 md:translate-x-0 md:translate-y-0 md:left-auto md:top-auto md:right-6 md:bottom-6">
+           md:w-95 md:h-120 md:translate-x-0 md:translate-y-0 md:left-auto md:top-auto md:right-6 md:bottom-6">
     <iframe src="https://copilotstudio.microsoft.com/environments/Default-ef475ff3-7cd1-4fa3-ba77-f63824f7c37c/bots/cr4d1_prometheus/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%;"></iframe>
   </div>
 </div>
