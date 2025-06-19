@@ -39,53 +39,54 @@ import { bluenodeBranchData } from '../../content/bluenode';
     myDiagram.nodeTemplate = new go.Node('Spot', {
       selectionObjectName: 'PANEL',
       isTreeExpanded: false,
-      isTreeLeaf: false
+      isTreeLeaf: false,
+      click: (e, node) => {
+      e.handled = true;
+      expandNode(node);
+    }
     })
-      // the node's outer shape, which will surround the text
+    // the node's outer shape, which will surround the text
+    .add(
+    new go.Panel('Auto', { name: 'PANEL' })
       .add(
-        new go.Panel('Auto', { name: 'PANEL' })
-          .add(
-            new go.Shape('RoundedRectangle',{
-              name: 'NODE_SHAPE',
-              fill: 'whitesmoke',
-              stroke: 'white'
-            })
-            // .bind('figure', 'RoundedRectangle')
-            .bind('fill', 'rootdistance', (dist) => {
-                dist = Math.min(blues.length - 1, dist);
-                return blues[dist];
-            }),
-            new go.TextBlock({
-              font: '12pt sans-serif',
-              margin: 3
-            })
-              .bind('text', 'key')
-          ),
-        // the expand/collapse button, at the top-right corner
-        go.GraphObject.build('TreeExpanderButton', {
-          name: 'TREEBUTTON',
-          width: 20,
-          height: 20,
-          alignment: go.Spot.TopRight,
-          alignmentFocus: go.Spot.Center,
-          // customize the expander behavior to
-          // create children if the node has never been expanded
-          click: (e, obj) => {
-            // OBJ is the Button
-            var node = obj.part; // get the Node containing this Button
-            if (node === null) return;
-            e.handled = true;
-            expandNode(node);
-          }
-        }) // end TreeExpanderButton
-      ); // end Node
+      new go.Shape('RoundedRectangle',{
+        name: 'NODE_SHAPE',
+        fill: 'whitesmoke',
+        stroke: 'white'
+      })
+      // .bind('figure', 'RoundedRectangle')
+      .bind('fill', 'rootdistance', (dist) => {
+          dist = Math.min(blues.length - 1, dist);
+          return blues[dist];
+      }),
+      new go.TextBlock({
+        font: '12pt sans-serif',
+        margin: 3
+      })
+        .bind('text', 'key')
+    ),
+      // the expand/collapse button, at the top-right corner
+      // go.GraphObject.build('TreeExpanderButton', {
+      //   name: 'TREEBUTTON',
+      //   width: 20,
+      //   height: 20,
+      //   alignment: go.Spot.BottomCenter,
+      //   alignmentFocus: go.Spot.Center,
+      //   // customize the expander behavior to
+      //   // create children if the node has never been expanded
+      //   click: (e, obj) => {
+      //     // OBJ is the Button
+      //     var node = obj.part; // get the Node containing this Button
+      //     if (node === null) return;
+      //     e.handled = true;
+      //     expandNode(node);
+      //   }
+      // }) // end TreeExpanderButton
+    ); // end Node
 
     // create the model with a root node data
     myDiagram.model = new go.TreeModel([{ key: "Prostate Cancer", color: blues[0], everExpanded: false }]);
 
-    // document.getElementById('zoomToFit').addEventListener('click', () => myDiagram.zoomToFit());
-
-    // document.getElementById('expandAtRandom').addEventListener('click', () => expandAtRandom());
   }
   function expandNode(node) {
     const diagram = node.diagram;
@@ -121,7 +122,7 @@ import { bluenodeBranchData } from '../../content/bluenode';
     }
 
     diagram.commitTransaction('CollapseExpandTree');
-    myDiagram.zoomToFit();
+    // myDiagram.zoomToFit();
   }
 
 
