@@ -42,6 +42,7 @@ const { label, childCount } = Astro.props;
         new go.TextBlock({ font: '10pt sans-serif', margin: 1, overflow: go.TextBlock.OverflowEllipsis, wrap: go.TextBlock.WrapFit, textAlign: 'center'})
           // .bind('text', 'key')
           .bind('text', '', (data) => data.text || data.key)
+
       ),
       // go.GraphObject.make("TreeExpanderButton")
     );
@@ -99,14 +100,15 @@ const { label, childCount } = Astro.props;
     diagram.commitTransaction('CollapseExpandTree');
   }
 
-  function getChildCount() {
-    const countAttr = document.getElementById('sample').dataset.childCount;
-    const parsed = parseInt(countAttr, 6);
-    return isNaN(parsed) ? 2 : parsed;
-  }
+  // function getChildCount() {
+  //   // const countAttr = customTexts[parentdata.key].length;
+  //   const countAttr = document.getElementById('sample').dataset.childCount;
+  //   const parsed = parseInt(countAttr, 6);
+  //   return isNaN(parsed) ? 2 : parsed;
+  // }
 
   function createSubTree(parentdata) {
-    var numchildren = getChildCount(); 
+    var numchildren = customTexts[parentdata.key].length -1;//getChildCount(); 
     if (bluenode.nodes.count <= 1) {
       numchildren += 1; 
     }
@@ -121,19 +123,28 @@ const { label, childCount } = Astro.props;
       grandparent = grandparent.findTreeParentNode();
     }
 
+    var titles = customTexts[parentdata.key] || [];
+
     for (var i = 0; i < numchildren; i++) {
+      var label = titles[i] || `Unnamed child ${i + 1}`;
       var childdata = {
-        key: model.nodeDataArray.length,
+        key: `${parentdata.key}-${i + 1}`,
+        text: label,
         parent: parentdata.key,
         rootdistance: degrees
       };
-      // add to model.nodeDataArray and create a Node
       model.addNodeData(childdata);
-      // position the new child node close to the parent
       var child = bluenode.findNodeForData(childdata);
       child.location = parent.location;
     }
     return numchildren;
   }
   window.addEventListener('DOMContentLoaded', init);
+
+  const customTexts = {
+  "Prostate Cancer": ["Early Detection", "Treatment Options", "Support", "Groups", "XX"],
+  "Early Detection": ["PSA Test", "Biopsy Info"],
+  "Treatment Options": ["PSA Test", "Biopsy Info"],
+  "Support Groups": ["PSA Test", "Biopsy Info"],
+};
 </script>
