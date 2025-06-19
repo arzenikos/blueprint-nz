@@ -50,9 +50,6 @@ const breadcrumbItems = [
     const nodesViewport = document.getElementById('nodes-viewport');
     const nodesContainer = document.getElementById('nodes-container');
     const connectionLines = document.getElementById('connection-lines');
-    const infoPanel = document.getElementById('node-info-panel');
-    const infoTitle = document.getElementById('node-info-title');
-    const infoDescription = document.getElementById('node-info-description');
     const zoomInBtn = document.getElementById('zoom-in');
     const zoomOutBtn = document.getElementById('zoom-out');
     const resetViewBtn = document.getElementById('reset-view');
@@ -69,14 +66,7 @@ const breadcrumbItems = [
     const activeNodes = new Set(['root']);
     const expandedNodes = new Set(['root']);
     let currentActiveNode = 'root';
-    
-    // Node color configuration
-    // const nodeColors = {
-    //   root: ' var(--color-palette-five)',
-    //   parent: ' var(--color-palette-five)',
-    //   child: ' var(--color-palette-five)'
-    // };
-    
+
     // Find node data by ID
     function findNodeById(id) {
       return bluenodeData.nodes.find(node => node.id === id);
@@ -88,9 +78,6 @@ const breadcrumbItems = [
       nodeElement.id = `node-${nodeData.id}`;
       nodeElement.className = `absolute transition-all duration-500 opacity-0 cursor-pointer node-element`;
       nodeElement.dataset.nodeId = nodeData.id;
-      
-      // // Set node color based on type
-      // const color = nodeColors[nodeType] || nodeColors.child;
       
       // Use rounded rectangles instead of circles
       nodeElement.innerHTML = `
@@ -113,22 +100,6 @@ const breadcrumbItems = [
       
       return nodeElement;
     }
-    
-    // Show node information in the panel
-    // function showNodeInfo(nodeData) {
-    //   if (infoPanel && infoTitle && infoDescription) {
-    //     infoTitle.textContent = nodeData.label;
-    //     infoDescription.textContent = nodeData.description;
-    //     infoPanel.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-    //   }
-    // }
-    
-    // Hide node information panel
-    // function hideNodeInfo() {
-    //   if (infoPanel) {
-    //     infoPanel.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-    //   }
-    // }
     
     // Show node detail in the right panel
     function showNodeDetail(nodeData) {
@@ -537,8 +508,8 @@ const breadcrumbItems = [
             }
             e.stopPropagation();
           });
-          rootNode.addEventListener('mouseenter', () => showNodeInfo(rootData));
-          rootNode.addEventListener('mouseleave', hideNodeInfo);
+          // rootNode.addEventListener('mouseenter', () => showNodeInfo(rootData));
+          // rootNode.addEventListener('mouseleave', hideNodeInfo);
           
           // Show root node detail initially
           showNodeDetail(rootData);
