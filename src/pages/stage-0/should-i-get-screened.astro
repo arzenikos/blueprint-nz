@@ -8,6 +8,7 @@ const {
   heading = content.stage0.heading3.title,
   title = `Stage ${content.stage0.heading3.stageNum} - ${heading} | BluePrintNZ`,
   description = content.stage0.heading3.description,
+  body = content.stage0.heading3.body,
   // link = content.stage0.heading3.description,
   breadcrumb = content.stage0.heading3.breadcrumbs,
 } = Astro.props
@@ -21,8 +22,13 @@ const breadcrumbItems = [
     <Breadcrumbs items={breadcrumbItems} />
     <div class="max-w-4xl mx-auto">
       <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">{heading}</h1>
-      <br><hr><br>
-    <p>{description}</p>
+      <ul>
+      {Array.isArray(description) && description.map((p, i) => (
+          <li class="mb-4">{p}</li>
+        ))}
+      </ul>
+      <hr class="my-4 border-t border-gray-300" />
+      {body}
      <p style="font-style: italic;"></p>
   </div>
   </div>
