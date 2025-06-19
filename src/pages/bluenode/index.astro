@@ -1,31 +1,51 @@
 ---
 import Branches from '../../components/Branches.astro';
 
-const branches = [
+const level2 = [
   {
     label: 'Overview',
-    detail: 'Basic introduction and structure.',
+    detail: 'Basic intro and structure.',
     icon: '📘',
   },
   {
     label: 'Diagnosis',
-    detail: 'Explanation of diagnosis methods.',
+    detail: 'How diagnosis works.',
     icon: '🧪',
     children: [
-      { label: 'PSA Test', detail: 'Blood test for PSA level.', icon: '🩸' },
-      { label: 'Biopsy', detail: 'Tissue sample examination.', icon: '🔬' },
-    ]
+      {
+        label: 'PSA Test',
+        detail: 'Blood test for PSA levels.',
+        icon: '🩸',
+      },
+      {
+        label: 'Biopsy',
+        detail: 'Sample tissue exam.',
+        icon: '🔬',
+        children: [
+          {
+            label: 'Core Needle Biopsy',
+            detail: 'Using hollow needle for sample.',
+            icon: '🧷',
+          },
+          {
+            label: 'Transrectal Biopsy',
+            detail: 'Via rectal wall using ultrasound.',
+            icon: '📡',
+          },
+        ],
+      },
+    ],
   },
   {
     label: 'Treatment',
-    detail: 'Options depending on cancer stage.',
+    detail: 'Treatment options available.',
     icon: '💊',
     children: [
-      { label: 'Surgery', detail: 'Prostatectomy info.', icon: '🔧' },
-      { label: 'Radiation', detail: 'Targeted therapy overview.', icon: '☢️' },
+      { label: 'Radiation', detail: 'High-energy rays.', icon: '☢️' },
+      { label: 'Surgery', detail: 'Remove prostate gland.', icon: '🔧' },
     ]
   }
 ];
 ---
 
-<Branches buttonLabel="Reveal Info" branches={branches} />
+<Branches branches={level2} />

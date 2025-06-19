@@ -26,62 +26,77 @@ const { buttonLabel = "Show", branches = [], initiallyVisible = false } = Astro.
 </style>
 
 <div>
-  <button id="toggle-button" type="button">{buttonLabel}</button>
+  <!-- Level 2 -->
+  <button class="toggle-button" data-target="#level-2-a">Toggle A</button>
+  <button id="level-2-a" class="hidden toggle-button" data-target=".level-3a">Content A</button>
+  <button id="level-3a-a" class="hidden level-3a">Content A1</button>
+  <button id="level-3a-b" class="hidden level-3a">Content A2</button>
 
-  <div id="toggle-target" class={!initiallyVisible ? 'hidden' : 'block'}>
-    {branches.map((branch, index) => (
-      <div class="branch">
-        <strong><span class="icon">{branch.icon ?? '📁'}</span>{branch.label}</strong>
-        <p>{branch.detail}</p>
-
-        {branch.children && (
-          <div class="child">
-            {branch.children.map((child) => (
-              <div class="branch">
-                <strong><span class="icon">{child.icon ?? '↪️'}</span>{child.label}</strong>
-                <p>{child.detail}</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
+  <button class="toggle-button" data-target="#level-2-b">Toggle B</button>
+  <button id="level-2-b" class="hidden toggle-button" data-target=".level-3b">Content B</button>
+  <button id="level-3b-a" class="hidden level-3b">Content B1</button>
+  <button id="level-3b-b" class="hidden level-3b">Content B2</button>
+  <button id="level-3b-c" class="hidden level-3b">Content B3</button>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    function setupToggleButtons() {
+      const buttons = document.querySelectorAll('.toggle-button');
 
-<script type="module" is:inline>
-  const btn = document.getElementById('toggle-button');
-  const target = document.getElementById('toggle-target');
+      buttons.forEach((btn) => {
+        const selector = btn.getAttribute('data-target');
+        if (!selector) return;
 
-  btn.addEventListener('click', () => {
-    target.classList.toggle('hidden');
+        const targets = document.querySelectorAll(selector);
+
+        btn.addEventListener('click', () => {
+          targets.forEach((el) => {
+            el.classList.toggle('hidden');
+          });
+        });
+      });
+    }
+
+    setupToggleButtons();
   });
 </script>
 
 
-<!-- ---
-const { buttonLabel = "Show", initiallyVisible = false } = Astro.props;
----
+<!-- <div>
 
-<style>
-  .hidden {
-    display: none;
-  }
-</style>
+<button class="toggle-button-2" data-target="level-2-a">Toggle A</button>
+    <button id="level-2-a" class="hidden toggle-button-3" data-target="level-3a">Content A</button>
+        <button id="level-3a-a" class="hidden level-3a">Content A1</button>
+        <button id="level-3a-b" class="hidden level-3a">Content A2</button>
 
-<div>
-  <button id="toggle-button" type="button">{buttonLabel}</button>
-  <div id="toggle-target" class={!initiallyVisible ? 'hidden' : 'block'}>
-    <slot />
-  </div>
+<button class="toggle-button-2" data-target="level-2-b">Toggle B</button>
+    <button id="level-2-b" class="hidden toggle-button-3" data-target="level-3b">Content B</button>
+        <button id="level-3b-a" class="hidden level-3b">Content B1</button>
+        <button id="level-3b-b" class="hidden level-3b">Content B2</button>
+        <button id="level-3b-c" class="hidden level-3b">Content B3</button>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const L2buttons = document.querySelectorAll('.toggle-button-2');
+    const L3buttons = document.querySelectorAll('.toggle-button-3');
 
-<script type="module" is:inline>
-  const btn = document.getElementById('toggle-button');
-  const target = document.getElementById('toggle-target');
+    // A reusable handler for any group of buttons
+    function buttonExpand(butt) {
+        butt.forEach((btn) => {
+            const targetGroupSelector = btn.getAttribute('data-target');
+            // const targets = document.querySelectorAll(targetGroupSelector);
+            const targets = document.querySelectorAll(`#${targetGroupSelector}`);
+    
+            btn.addEventListener('click', () => {
+            targets.forEach((el) => {
+                el.classList.toggle('hidden');
+            });
+            });
+        });
+    }
+    buttonExpand(L2buttons);
+    buttonExpand(L3buttons);
+}); -->
 
-  btn.addEventListener('click', () => {
-    target.classList.toggle('hidden');
-        // initiallyVisible ? 'hidden' : 'block');
-  });
-</script> -->
+
+</script>
