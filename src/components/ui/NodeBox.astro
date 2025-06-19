@@ -1,26 +1,24 @@
-<!-- Code from: https://gojs.net/latest/samples/incrementalTree.html -->
 ---
+// <!-- Code from: https://gojs.net/latest/samples/incrementalTree.html -->
 const { label, childCount } = Astro.props;
-import { bluenodeBranchData } from '../../content/bluenode';
+// import { bluenodeBranchData } from '../../content/bluenode';
+
+// const {bluenodeBranchData} = Astro.props;
 ---
 <script src="https://cdn.jsdelivr.net/npm/gojs@3.0.24/release/go.js"></script>
-<!-- <div id="allSampleContent" class="p-4 w-full"> -->
-          
-
 
 <div id="sample" data-child-count={childCount}>
-  <div id="myDiagramDiv" style="background-color: var(--color-palette-one); width: 100%; height: 700px"></div>
-  
-  <!-- <button id="zoomToFit">Zoom to Fit</button>
-  <button id="expandAtRandom">Expand random Node</button> -->
+  <div id="blueNodeDiagram" style="background-color: var(--color-palette-one); width: 100%; height: 700px"></div>
 </div>
 
 <script id="code">
+  // import { bluenodeBranchData } from '../../content/bluenode';
+
   function init() {
 
     var blues = ['#E1F5FE', '#B3E5FC', '#81D4FA', '#4FC3F7', '#29B6F6', '#03A9F4', '#039BE5', '#0288D1', '#0277BD', '#01579B'];
 
-    myDiagram = new go.Diagram('myDiagramDiv', {
+    myDiagram = new go.Diagram('blueNodeDiagram', {
       initialContentAlignment: go.Spot.TopCenter,
       layout: new go.TreeLayout({
         angle: 90,              // expands downward (0 = right, 90 = down, 180 = left, 270 = up)
@@ -51,6 +49,8 @@ import { bluenodeBranchData } from '../../content/bluenode';
       .add(
       new go.Shape('RoundedRectangle',{
         name: 'NODE_SHAPE',
+        width: 150,
+        height: 40,
         fill: 'whitesmoke',
         stroke: 'white'
       })
@@ -60,34 +60,39 @@ import { bluenodeBranchData } from '../../content/bluenode';
           return blues[dist];
       }),
       new go.TextBlock({
-        font: '12pt sans-serif',
-        margin: 3
+        font: '10pt sans-serif',
+        margin: 1,
+        overflow: go.TextBlock.OverflowEllipsis,
+        wrap: go.TextBlock.WrapFit
       })
         .bind('text', 'key')
     ),
-      // the expand/collapse button, at the top-right corner
-      // go.GraphObject.build('TreeExpanderButton', {
-      //   name: 'TREEBUTTON',
-      //   width: 20,
-      //   height: 20,
-      //   alignment: go.Spot.BottomCenter,
-      //   alignmentFocus: go.Spot.Center,
-      //   // customize the expander behavior to
-      //   // create children if the node has never been expanded
-      //   click: (e, obj) => {
-      //     // OBJ is the Button
-      //     var node = obj.part; // get the Node containing this Button
-      //     if (node === null) return;
-      //     e.handled = true;
-      //     expandNode(node);
-      //   }
-      // }) // end TreeExpanderButton
-    ); // end Node
+    );
+    // const rootKey = Object.keys(window.bluenodeBranchData)[0];
+    // const rootNodeData = bluenodeBranchData[rootKey];
 
     // create the model with a root node data
+    // myDiagram.model = new go.TreeModel([{
+    //   key: rootNodeData.key,
+    //   text: rootNodeData.text,
+    //   everExpanded: false,
+    //   rootdistance: 0
+    // }]);
     myDiagram.model = new go.TreeModel([{ key: "Prostate Cancer", color: blues[0], everExpanded: false }]);
-
   }
+
+  // This helper function recursively finds a node in the dictionary tree by key
+  function findNodeInDict(treeNode, key) {
+    if (!treeNode) return null;
+    if (treeNode.key === key) return treeNode;
+    if (!treeNode.children) return null;
+    for (const child of treeNode.children) {
+      const found = findNodeInDict(child, key);
+      if (found) return found;
+    }
+    return null;
+  }
+
   function expandNode(node) {
     const diagram = node.diagram;
     diagram.startTransaction('CollapseExpandTree');
@@ -109,8 +114,8 @@ import { bluenodeBranchData } from '../../content/bluenode';
       diagram.model.setDataProperty(data, 'everExpanded', true);
       const numchildren = createSubTree(data);
       if (numchildren === 0) {
-        const treeButton = node.findObject('TREEBUTTON');
-        if (treeButton) treeButton.visible = false;
+        // const treeButton = node.findObject('TREEBUTTON');
+        // if (treeButton) treeButton.visible = false;
       }
     }
 
@@ -120,11 +125,8 @@ import { bluenodeBranchData } from '../../content/bluenode';
     } else {
       diagram.commandHandler.expandTree(node);
     }
-
     diagram.commitTransaction('CollapseExpandTree');
-    // myDiagram.zoomToFit();
   }
-
 
   function getChildCount() {
     const countAttr = document.getElementById('sample').dataset.childCount;
@@ -132,14 +134,10 @@ import { bluenodeBranchData } from '../../content/bluenode';
     return isNaN(parsed) ? 3 : parsed;
   }
 
-  // This dynamically creates the immediate children for a node.
-  // The sample assumes that we have no idea of whether there are any children
-  // for a node until we look for them the first time, which happens
-  // upon the first tree-expand of a node.
   function createSubTree(parentdata) {
-    var numchildren = getChildCount(); //Math.floor(Math.random() * 10);
+    var numchildren = getChildCount(); 
     if (myDiagram.nodes.count <= 1) {
-      numchildren += 1; // make sure the root node has at least one child
+      numchildren += 1; 
     }
     // create several node data objects and add them to the model
     var model = myDiagram.model;
@@ -166,50 +164,5 @@ import { bluenodeBranchData } from '../../content/bluenode';
     }
     return numchildren;
   }
-
-  // function expandAtRandom() {
-  //   var eligibleNodes = [];
-  //   myDiagram.nodes.each((n) => {
-  //     if (!n.isTreeExpanded) eligibleNodes.push(n);
-  //   });
-  //   var node = eligibleNodes[Math.floor(Math.random() * eligibleNodes.length)];
-  //   expandNode(node);
-  // }
   window.addEventListener('DOMContentLoaded', init);
 </script>
-
-<!-- 
-<div class="rounded-lg bg-accent flex items-center justify-center shadow-lg px-4 py-2 min-w-[140px]" style="background: var(--color-palette-four);">
-  <button class="toggle-button font-semibold text-center" data-target="#level-2-a" style="color: var(--color-palette-two);">{label}</button>
-</div>
-<div>
-  <button id="level-2-a" class="hidden toggle-button bg-white" data-target=".level-3a">Content A</button>
-</div>
-<div>
-  <button id="level-3a-a" class="hidden level-3a">Content A1</button>
-  <button id="level-3a-b" class="hidden level-3a">Content A2</button>
-</div>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    function setupToggleButtons() {
-      const buttons = document.querySelectorAll('.toggle-button');
-
-      buttons.forEach((btn) => {
-        const selector = btn.getAttribute('data-target');
-        if (!selector) return;
-
-        const targets = document.querySelectorAll(selector);
-
-        btn.addEventListener('click', () => {
-          targets.forEach((el) => {
-            el.classList.toggle('hidden');
-          });
-        });
-      });
-    }
-
-    setupToggleButtons();
-  });
-</script> -->

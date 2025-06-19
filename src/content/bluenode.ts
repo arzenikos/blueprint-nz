@@ -1,19 +1,22 @@
 export const bluenodeBranchData = {
   "Prostate Cancer": {
     key: "Prostate Cancer",
+    text: "XXXX",
     children: [
       {
         key: "Early Stage",
+        text: "XXXX",
+
         children: [
-          { key: "Screening" },
-          { key: "Lifestyle" }
+          { key: "Screening", text: "XXXX"},
+          { key: "Lifestyle", text: "XXXX"}
         ]
       },
       {
         key: "Advanced Stage",
         children: [
-          { key: "Treatment Options" },
-          { key: "Clinical Trials" }
+          { key: "Treatment Options", text: "XXXX" },
+          { key: "Clinical Trials", text: "XXXX" }
         ]
       }
     ]
