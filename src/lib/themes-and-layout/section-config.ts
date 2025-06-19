@@ -18,7 +18,7 @@ export const componentConfiguration = {
     scale: 'scale-100 md:scale-80'
   },
   cards:{
-    margin: 'mt-10 md:mt-30',
+    margin: 'mt-10 md:mt-30 mb-95',
     padding: ' px-6',
     scale: '',
     other: 'container'

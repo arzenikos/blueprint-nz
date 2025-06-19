@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+// import Button from '../../components/ui/Button.astro';
 
 // BlueNode components
 import ZoomControls from '../../components/NodeGraph/ZoomControls.astro';
@@ -29,6 +30,7 @@ const breadcrumbItems = [
       
       <!-- Dynamic Nodes Container with Pan and Zoom -->
       <GraphCanvas />
+
     </div>
 
       <!-- SVG for connection lines -->
@@ -41,7 +43,7 @@ const breadcrumbItems = [
   </div>
 </Layout>
 
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Import the bluenode data from the window object (passed from Astro)
     const bluenodeData = window.bluenodeData;
@@ -81,7 +83,7 @@ const breadcrumbItems = [
       
       // Use rounded rectangles instead of circles
       nodeElement.innerHTML = `
-        <div class="rounded-lg flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300 px-4 py-2 min-w-[120px] node-box">
+        <div class="rounded-lg flex items-center justify-center shadow-md hover:scale-80 transition-transform duration-300 px-4 py-2 min-w-[120px] node-box">
           <span class="text-sm font-medium text-center">${nodeData.label}</span>
         </div>
       `;
@@ -628,8 +630,8 @@ const breadcrumbItems = [
     initializeGraph();
     setupPanAndZoom();
   });
-</script>
-<script>
+</script> -->
+<!-- <script>
 import { bluenodeDataContent } from '../../content/bluenode';
 
 // Extend the Window interface to include bluenodeData
@@ -640,4 +642,4 @@ declare global {
 }
   // Pass the bluenode data to the client-side JavaScript
   window.bluenodeData  = bluenodeDataContent;
-</script>
+</script> -->
