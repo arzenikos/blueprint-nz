@@ -1,5 +1,5 @@
 // Referenced by: pages/bluenode/index.astro
-export const bluenodeData = {
+export const bluenodeDataContent = {
   nodes: [
     {
       id: "root",
