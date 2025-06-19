@@ -1,3 +1,4 @@
+<!-- Code from: https://gojs.net/latest/samples/incrementalTree.html -->
 ---
 const { label, childCount } = Astro.props;
 import { bluenodeBranchData } from '../../content/bluenode';
@@ -25,7 +26,7 @@ import { bluenodeBranchData } from '../../content/bluenode';
         angle: 90,              // expands downward (0 = right, 90 = down, 180 = left, 270 = up)
         arrangement: go.TreeLayout.ArrangementVertical,
         layerSpacing: 40,
-        nodeSpacing: 30
+        nodeSpacing: 40
       }),
       'commandHandler.copiesTree': true,
       'commandHandler.deletesTree': true,
