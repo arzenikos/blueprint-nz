@@ -1,9 +1,34 @@
-export const bluenodeData = {
-  "Prostate Cancer": ["Early Deteccccion", "Treatment Options"],
-  "Prostate Cancer-1": ["PSA", "Digital Rectal Exam"],
-  "Prostate Cancer-2": ["Radiation", "Surgery"]
-};
+// export const bluenodeData = {
+//   "Prostate Cancer": ["Early Deteccccion", "Treatment Options"],
+//   "Prostate Cancer-1": ["PSA", "Digital Rectal Exam"],
+//   "Prostate Cancer-2": ["Radiation", "Surgery"]
+// };
 
+export const bluenodeData = {
+  key: "Prostate Cancer",
+  text: "What is Prostate Cancer?",
+  info: "Prostate cancer is a disease where cells grow uncontrollably...",
+  children: [
+    {
+      key: "Detection",
+      text: "Early Detection",
+      info: "Detecting prostate cancer early improves outcomes.",
+      children: [
+        { key: "PSA", text: "PSA Test", info: "A PSA blood test checks antigen levels." },
+        { key: "MRI", text: "MRI Scan", info: "An MRI can help spot abnormalities." }
+      ]
+    },
+    {
+      key: "Treatment",
+      text: "Treatment Options",
+      info: "Common treatments include surgery and radiation.",
+      children: [
+        { key: "Surgery", text: "Surgery", info: "Surgical removal of the prostate." },
+        { key: "Radiation", text: "Radiation", info: "Uses radiation to kill cancer cells." }
+      ]
+    }
+  ]
+};
 
 // export const bluenodeBranchData = {
 //   "Prostate Cancer": {
