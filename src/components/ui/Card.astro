@@ -3,20 +3,28 @@ import Icon from '../../components/ui/Icon.astro';
 const {
     heading,
     content,
+    icon,
+    textClass,
+    color,
+    hoverFx
 } = Astro.props;
+
+const hoveredCardSize = hoverFx ? 'hover:scale-110' : 'hover:scale-100'
 ---
 
 <div
-    class="rounded-lg card-link shadow-md p-6 transition-transform hover:scale-110"
+    class={`rounded-lg card-link shadow-md p-6 transition-transform ${hoveredCardSize}`}
     style="background: var(--color-palette-four);"
 >
     <a id="card-link" class="card-item no-underline block">
-        <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
-            <Icon class="card-icon" name="chevron-right" color="var(--color-palette-five)"/>
+        <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style=`background: ${icon.bgColor};`>
+            <Icon class={icon.class} name={icon.name} color={icon.textColor}/>
         </div>
-        <p class="card-heading text-xl font-semibold mb-3 no-underline" style="color: var(--color-palette-one);">{heading}</p>
-        <ul class="card-content"  style="list-style: none;">
-            {content.map((item) => ( {item} ))}
+        <p class=`${textClass.heading} text-xl font-semibold mb-3 no-underline` style=`color: ${color.heading};`>{heading}</p>
+        <ul class=`${textClass.content}`  style="list-style: none;">
+            {content.map((item) => { 
+                <li>{item}</li>
+            })}
         </ul>
     </a>
 </div>

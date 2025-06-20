@@ -1,21 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
-
 // BlueNode components
 import DetailPanel from '../../components/NodeGraph/DetailPanel.astro';
 import GraphCanvas from '../../components/NodeGraph/GraphCanvas.astro';
 
-//Style
-// import '../../styles/bluenode-style.css';
-
-const breadcrumbItems = [
-  { label: 'Blue Node', href: '/bluenode', current: true }
-];
-
 ---
-<Layout title="BlueNode - BluePrintNZ">
-  <Breadcrumbs items={breadcrumbItems} />
   <!-- Full-page Interactive Node Graph -->
   <div class="flex flex-col md:flex-row mb-5 w-full px-10 h-[calc(100vh-var(--header-height)-var(--footer-height))]" id="node-container">
     <!-- Main Graph Area (2/3 width) -->
@@ -31,4 +19,3 @@ const breadcrumbItems = [
     </div>
     
   </div>
-</Layout>

@@ -28,7 +28,15 @@ import { bluenodeData } from '../../content/bluenode.ts';
         layerSpacing: 40,
         nodeSpacing: 40
       }),
+      // allowMove: false, // prevent dragging nodes individually
+      // allowSelect: false, // optional: prevent selection highlighting
+      // 'toolManager.dragSelectingTool.isEnabled': false,
+      // 'toolManager.panningTool.isEnabled': true, // ✅ enable panning
+      // 'toolManager.mouseWheelBehavior': go.ToolManager.WheelScroll,
+      // allowZoom: true // keep zooming if needed
     });
+
+    bluenode.animationManager.initialAnimationStyle = go.AnimationStyle.None;
 
     bluenode.nodeTemplate = new go.Node('Spot', {
       selectionObjectName: 'PANEL',
@@ -107,8 +115,64 @@ import { bluenodeData } from '../../content/bluenode.ts';
 
     // Center the expanded node after layout is complete
     diagram.commitTransaction('CollapseExpandTree');
-    diagram.zoomToFit(); // Optional: include if you want to scale view
-    diagram.scrollToRect(node.actualBounds);
+    // OPTION A
+    // diagram.zoomToFit(); // Optional: include if you want to scale view
+    // diagram.scrollToRect(node.actualBounds);
+
+    // // OPTION B
+    // //   // Ensure layout is done before panning
+      diagram.delayInitialization(() => {
+        const subtreeBounds = computeSubtreeBounds(node);
+        diagram.scrollToRect(subtreeBounds);
+      });
+  }
+  // function expandNode(node) {
+  //   const diagram = node.diagram;
+  //   diagram.startTransaction('CollapseExpandTree');
+
+  //   const data = node.data;
+  //   const parent = node.findTreeParentNode();
+
+  //   // Collapse other siblings
+  //   if (parent) {
+  //     parent.findTreeChildrenNodes().each((sibling) => {
+  //       if (sibling !== node && sibling.isTreeExpanded) {
+  //         diagram.commandHandler.collapseTree(sibling);
+  //       }
+  //     });
+  //   }
+
+  //   // Create children if not already expanded
+  //   if (!data.everExpanded) {
+  //     diagram.model.setDataProperty(data, 'everExpanded', true);
+  //     createSubTree(data);
+  //   }
+
+  //   // Toggle expand/collapse
+  //   if (node.isTreeExpanded) {
+  //     diagram.commandHandler.collapseTree(node);
+  //   } else {
+  //     diagram.commandHandler.expandTree(node);
+  //   }
+
+  //   diagram.commitTransaction('CollapseExpandTree');
+
+  //   // Ensure layout is done before panning
+  //   diagram.delayInitialization(() => {
+  //     const subtreeBounds = computeSubtreeBounds(node);
+  //     diagram.scrollToRect(subtreeBounds);
+  //   });
+  // }
+
+  function computeSubtreeBounds(node) {
+    let bounds = node.actualBounds.copy();
+    if (node.isTreeExpanded) {
+      node.findTreeChildrenNodes().each(child => {
+        const childBounds = computeSubtreeBounds(child);
+        bounds.unionRect(childBounds);
+      });
+    }
+    return bounds;
   }
 
   // Recursive function to find any node in the dict tree
@@ -154,5 +218,9 @@ import { bluenodeData } from '../../content/bluenode.ts';
   }
 
 window.addEventListener('DOMContentLoaded', init);
-
+window.addEventListener('keydown', (e) => {
+  if ((e.key === 'F5') || (e.ctrlKey && e.key === 'r')) {
+    e.preventDefault();
+  }
+});
 </script>

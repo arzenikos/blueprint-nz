@@ -7,7 +7,7 @@ export const heroContent = {
     description2: "Get the facts right on Prostate Cancer.",
 
     exploreButton: "Get Started with BluePrint",
-    exploreLink: "/bluenode",
+    exploreLink: "/blueprint",
     carouselImages: [
       {
         src: "/assets/images/placeholder-image-1.jpg",
