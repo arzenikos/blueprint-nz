@@ -3,7 +3,7 @@ export const resourceCardConfig = {
         name: ['chevron-right','chevron-right','chevron-right'],//'chevron-right',
         class: 'card-icon', // optional utility class
         textColor: 'var(--color-palette-five)',
-        bgColor: 'var(--color-palette-one)',
+        bgColor: 'background: var(--color-palette-one)',
     },
     textClass: {
         setVariant: 'card-rsc-item',
@@ -16,7 +16,7 @@ export const resourceCardConfig = {
     },
     extraConfig: {
         hoverFx: true,
-        layout: 'px-5 py-8'
+        layout: 'px-5 py-8 h-90'
     },
 };
 
