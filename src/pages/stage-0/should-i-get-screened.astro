@@ -30,23 +30,60 @@ const breadcrumbItems = [
               <li class="mb-4">{p}</li>
             ))}
           </ul>
+        Sources: <a href={main.PSATest.link} class="pt-2">{main.PSATest.link}</a>
       </details>
       <hr class="my-4 border-t border-gray-300" />
-      <span class="subheadings flex gap-3">
-        {main.x.subheading}
-        <a href=`${main.x.link}`>
-          <!-- <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);"> -->
-              <Icon class="card-icon" name="external-link" color="var(--color-palette-five)"/>
-          <!-- </div> -->
+      
+      <span class="subheadings mt-5 flex gap-3">
+        {main.PSATest.subheading}
+        <a href=`${main.PSATest.link}`>
+            <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)"/>
         </a>
       </span>
-      <p class="pt-2">{main.x.body[0]}</p>
-      <p class="pt-2">{main.x.body[1]}</p>
-      <ul>
-        {main.x.body[2].items.map((item, i) => (
-          <li class="pt-2 pl-4">{`- ${item}`}</li>
-        ))}  
-      </ul> 
+      <p class="pt-2">{main.PSATest.body[0]}</p>
+      <p class="pt-2">{main.PSATest.body[1]}</p>
+<!--  -->
+      <span class="subheadings mt-5 flex gap-3">
+        {main.PSARecom.subheading}
+        <a href=`${main.PSARecom.link}`>
+            <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)"/>
+        </a>
+      </span>
+      <p class="pt-2">{main.PSARecom.body[0]}</p>
+      <p class="pt-2">{main.PSARecom.body[1]}</p>
+  <!--  -->
+      <span class="subheadings mt-5 flex gap-3">
+        {main.PSAResult.subheading}
+        <a href=`${main.PSAResult.link}`>
+            <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)"/>
+        </a>
+      </span>
+      <p class="pt-2">{main.PSAResult.body[0]}</p>
+  <!--  -->
+      <span class="subheadings mt-5 flex gap-3">
+        {main.PSALimitations.subheading}
+        <a href=`${main.PSALimitations.link}`>
+            <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)"/>
+        </a>
+      </span>
+      <!-- <p class="pt-2">{main.PSALimitations.body[0]}</p>
+        -->
+      {main.PSALimitations.body.map((item, index) => {
+        if (typeof item === 'string') {
+          return <p class="pt-2">{item}</p>;
+        } else if (Array.isArray(item.items)) {
+          return (
+            <ul class="list-disc list-inside pt-2">
+              {item.items.map((subItem, subIndex) => (
+                <li>{subItem}</li>
+              ))}
+            </ul>
+          );
+        }
+      })}
+
+                        
+
   </div>
   </div>
   <script>

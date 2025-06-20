@@ -40,5 +40,4 @@ export const blueCardConfig = {
         hoverFx: false,
         layout:'h-60 rounded-lg w-full shadow-md flex items-center justify-center px-5',
     },
-    // cardLink:'/',
 };

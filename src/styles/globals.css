@@ -261,3 +261,15 @@
   pointer-events: none; /* prevent interaction */
 }
 
+.page-link-icon {
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+.page-link-icon:hover {
+  opacity: 1;
+  /* background-color: var(--color-palette-five); */
+  /* color: var(--color-palette-one); */
+  border-radius: 10em;
+  padding: 0.6em;
+}
