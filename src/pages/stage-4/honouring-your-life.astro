@@ -3,13 +3,15 @@
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 import { content } from '../../content/page-content.ts';
+import Icon from '../../components/ui/Icon.astro';
 
 const {
-  heading = content.stage4.heading1.title,
-  title = `Stage ${content.stage4.heading1.stageNum} - ${heading} | BluePrintNZ`,
-  description = content.stage4.heading1.description,
-  // link = content.stage4.heading1.description,
-  breadcrumb = content.stage4.heading1.breadcrumbs,
+  heading = content["stage-4"].heading3.title,
+  title = `Stage ${content["stage-4"].heading3.stageNum} - ${heading} | BluePrintNZ`,
+  description = content["stage-4"].heading3.description,
+  main = content["stage-4"].heading3.main,
+  // link = content["stage-4"].heading3.description,
+  breadcrumb = content["stage-4"].heading3.breadcrumbs,
 } = Astro.props
 
 const breadcrumbItems = [
@@ -21,9 +23,30 @@ const breadcrumbItems = [
     <Breadcrumbs items={breadcrumbItems} />
     <div class="max-w-4xl mx-auto">
       <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">{heading}</h1>
-      <br><hr><br>
-    <p>{description}</p>
-     <p style="font-style: italic;"></p>
+      <details class="group">
+      <summary class="cursor-pointer font-semibold">Summary</summary>
+          <ul style="padding-left:2rem" class="ml-4 mt-2 text-gray-700 group-open:animate-fade-in">
+          {Array.isArray(description) && description.map((p, i) => (
+              <li class="mb-4">{p}</li>
+            ))}
+          </ul>
+      </details>
+      <hr class="my-4 border-t border-gray-300" />
+      <span class="subheadings flex gap-3">
+        {main.x.subheading}
+        <a href=`${main.x.link}`>
+          <!-- <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);"> -->
+              <Icon class="card-icon" name="external-link" color="var(--color-palette-five)"/>
+          <!-- </div> -->
+        </a>
+      </span>
+      <p class="pt-2">{main.x.body[0]}</p>
+      <p class="pt-2">{main.x.body[1]}</p>
+      <ul>
+        {main.x.body[2].items.map((item, i) => (
+          <li class="pt-2 pl-4">{`- ${item}`}</li>
+        ))}  
+      </ul> 
   </div>
   </div>
   <script>

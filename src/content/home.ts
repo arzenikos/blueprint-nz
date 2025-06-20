@@ -59,6 +59,14 @@ export const resourceContent = {
                     ],
                 },
                 {
+                    heading: "Small Choices, Big Impact",
+                    content: [
+                        "➤ Nutrition tips to support prostate health",
+                        "➤ Building healthy sleep & fitness habits",
+                        "➤ How lifestyle influences your risk"
+                    ],
+                },
+                {
                     heading: "Should I Get Screened?",
                     content: [
                         "➤ PSA test info, who screening is for, etc.",
@@ -66,14 +74,6 @@ export const resourceContent = {
                         "➤ Next steps & questions to ask. How to track changes without stress"
                     ],
                 },
-                {
-                    heading: "Small Choices, Big Impact",
-                    content: [
-                        "➤ Nutrition tips to support prostate health",
-                        "➤ Building healthy sleep & fitness habits",
-                        "➤ How lifestyle influences your risk"
-                    ],
-                }
             ],
         },
         "stage-1": {
@@ -115,21 +115,24 @@ export const resourceContent = {
                     content: [
                         "➤ Treatment paths: surgery, radiation, hormone therapy.",
                         "➤ What to expect during and after.",
-                        "➤ Working with your medical team."],
+                        "➤ Working with your medical team."
+                    ],
                 },
                 {
                     heading: "Staying Emotionally Steady",
                     content: [
                         "➤ Mental health check-ins.",
                         "➤ Talking to family, friends, or a counselor.",
-                        "➤ Guided tools to reduce overwhelm."],
+                        "➤ Guided tools to reduce overwhelm."
+                    ],
                 },
                 {
                     heading: "Your Body, Your Needs",
                     content: [
                         "➤ Managing side effects through food & rest.",
                         "➤ Handling fatigue & disrupted sleep.",
-                        "➤ Keeping active within your limits."],
+                        "➤ Keeping active within your limits."
+                    ],
                 },
             ],
         },

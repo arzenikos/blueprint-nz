@@ -136,10 +136,14 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
       cardHeadingElement.forEach((heading, i)=> {
         heading.textContent = `${currentSet.data[i].heading}`;
         const cleanSlug = heading.textContent
-            .toLowerCase()
-            .trim()
-            .replace(/\s+/g, '-')      // Replace spaces with -
-            .replace(/[^\w-]/g, '');   // Remove punctuation
+          .toLowerCase()
+          .trim()
+          // Replace spaces, em dash, plus, ampersand with dash
+          .replace(/[\s—+&]+/g, '-') 
+          // Remove punctuation like commas, apostrophes, quotes, etc.
+          .replace(/[’'“”"?!,.():;]+/g, '') 
+          // Remove any characters except letters, numbers, dash, underscore
+          .replace(/[^\w-]/g, '');
 
         linkSet.push(`${cleanSlug}`);
       });
