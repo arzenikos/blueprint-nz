@@ -11,6 +11,8 @@ import ContextSection from './_home/ContextSection.astro';
 import { heroContent, userContent, resourceContent, overviewContent } from '../content/home.ts';
 import { componentConfiguration } from '../lib/themes-and-layout/section-config';
 
+import '../styles/globals.css';
+
 ---
 
 <Layout title={title}>
@@ -27,6 +29,14 @@ import { componentConfiguration } from '../lib/themes-and-layout/section-config'
         content={resourceContent}
         config={componentConfiguration}
     />
+    <div class="page-background-wrapper">
+      <img
+        class="page-background-image"
+        src="/assets/banner/hero-generic-banner-light.jpg"
+        alt="Background"
+      />
+    </div>
+
     <!-- <ContextSection
       content={overviewContent}
       config={componentConfiguration}

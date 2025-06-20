@@ -7,19 +7,19 @@ export const componentConfiguration = {
     scale: ''
   },
   hero:{
-    margin: 'mb-7 md:my-0 mx-auto',
-    padding: 'px-6',
-    scale: '40%',
-    other: 'container'
+    margin: 'mb-7 md:my-0',
+    padding: '',
+    scale: '',
+    other: 'container item-center justify-center'
   },
   user:{
-    margin: 'my-10 lg:mt-5 md:my-5 lg:my-15 ',
+    margin: 'md:mx-5 my-10 lg:mt-5 md:my-5 lg:my-15 ',
     padding: 'py-15 lg:py-10',
     scale: 'scale-100 md:scale-90',
     other: ''
   },
   cards:{
-    margin: 'mt-10 md:mt-30 mb-95',
+    margin: 'mt-15 md:mt-30 mb-95',
     padding: ' px-6',
     scale: '',
     other: 'container hidden'

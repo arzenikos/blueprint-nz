@@ -24,10 +24,14 @@ const {
 
 <section class=`${margin} ${padding} ${other} ${scale}` style="background: none">
   <div class={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between gap-4 h-1/5`}>
+    <!-- LEFT CAROUSEL -->
+    <div class="flex flex-col w-full md:w-4/9">
+      <Carousel images={carouselImages} />
+    </div>
 
-    <Carousel images={carouselImages} />
-    <div class="md:w-1/2 text-center px-5 md:px-0 md:text-start scale-78 md:scale-65 lg:scale-85">
-      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+    <!-- RIGHT: HERO TITLE -->
+    <div class="w-full md:w-5/9 text-center px-5 md:px-0 md:text-start scale-80 md:scale-75 lg:scale-75">
+      <h1 class="text-3xl md:text-6xl lg:text-6xl font-bold mb-6">
         {title}
       </h1>
       <p class="text-lg md:text-xl mb-8" style="color: var(--color-palette-four);">
