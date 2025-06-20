@@ -38,7 +38,7 @@ export const blueCardConfig = {
     },
     extraConfig: {
         hoverFx: false,
-        layout:'w-full max-w-sm h-60 md:h-64 bg-white rounded-lg shadow-md flex items-center justify-center px-5',
-        link:'/empty',
+        layout:'h-60 rounded-lg w-full shadow-md flex items-center justify-center px-5',
     },
+    // cardLink:'/',
 };

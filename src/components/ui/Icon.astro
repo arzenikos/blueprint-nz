@@ -5,7 +5,7 @@ import { icons } from '../../lib/types/IconLibrary';
 interface Props {
   id?: string
   name: string;
-  color: string;
+  color?: string;
   size?: number;
   class?: string;
   stroke?: number;
@@ -14,7 +14,7 @@ interface Props {
 
 const {
   name, 
-  color,
+  color = '#FFFF',
   size = 24, 
   class: className = '', 
   stroke = 1.5,

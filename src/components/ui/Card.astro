@@ -7,7 +7,8 @@ const {
     textClass,
     color,
     config,
-    index
+    index,
+    link
 } = Astro.props;
 
 const href = "#";
@@ -19,20 +20,26 @@ const hoveredCardSize = config.hoverFx ? 'hover:scale-110' : 'hover:scale-100'
     class={`rounded-lg shadow-md transition-transform ${hoveredCardSize} ${config.layout}`}
     style="background: var(--color-palette-four);"
 >
-    <a href={config.link} class=`${textClass.setVariant} no-underline block`>
+    <a href={link} class=`${textClass.setVariant} no-underline block`>
         <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style=`background: ${icon.bgColor};`>
             <Icon class={icon.class} name={icon.name[index]} color={icon.textColor}/>
         </div>
         <p class=`${textClass.heading} text-xl font-semibold mb-3 no-underline` style=`color: ${color.heading};`>{heading}</p>
         
         {Array.isArray(content) ? (
-            <ul class={`${textClass.content} text-red`} style={`color: ${color.heading};`}>
+            <ul class={`${textClass.content}`}>
                 {content.map((item) => (
                 <li>{item}</li>
                 ))}
             </ul>
         ) : (
-        <p class={`${textClass.content}`}>{content}</p>
+        <p>{content}</p>
         )}
     </a>
 </div>
+
+<style>
+    li {
+        color: var(--color-palette-one);
+    }
+</style>

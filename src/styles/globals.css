@@ -11,6 +11,7 @@
   --color-palette-five: #061a40;
   --color-palette-zero: #fbfdff;
   --color-palette-gray: #565d64;
+  --color-palette-accent: #0025a0;
 
     --gradient-from-light: #b9d6f2; /* Light blue (from-blue-50) */
   --gradient-to-light: #b9d6f2;  /* White (to-white) */
@@ -31,7 +32,9 @@
   --color-palette-four: #80A4B7;
   --color-palette-five: #B8D9EB;
     --gradient-from-light: #13232A; /* Light blue (from-blue-50) */
-  --gradient-to-light: #13232A;  /* White (to-white) */
+  --gradient-to-light: #13232A;
+  --color-palette-accent: #15effb;
+   /* White (to-white) */
 }
 /* Theme transition */
 :root {

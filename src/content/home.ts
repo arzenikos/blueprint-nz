@@ -10,16 +10,22 @@ export const heroContent = {
     exploreLink: "/blueprint",
     carouselImages: [
       {
-        src: "/assets/images/placeholder-image-1.jpg",
-        alt: "Hero image 1"
+        src: "/assets/images/blue/bluebeacon.png",
+        alt: "bluebeacon",
+        text: "Where’s my nearest clinics & support hub?",
+        link: "/blueprint/bluebeacon"
       },
       {
-        src: "/assets/images/placeholder-image-2.jpg",
-        alt: "Hero image 2"
+        src: "/assets/images/blue/bluenode.png",
+        alt: "bluenode",
+        text: "Prostate cancer demystified!",
+        link:"/blueprint/bluenode"
       },
       {
-        src: "/assets/images/placeholder-image-3.jpg",
-        alt: "Hero image 3"
+        src: "/assets/images/blue/bluestats.png",
+        alt: "bluestats",
+        text: "Know thy facts! Prostate stats",
+        link:"/blueprint/bluestats"
       }
     ],
 };
