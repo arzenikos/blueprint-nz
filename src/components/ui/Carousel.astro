@@ -17,13 +17,13 @@ const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
 
 <div class="flex flex-col">
   <div id={carouselId} class="relative w-full overflow-hidden">
-    <div id="hero-carousel" class="carousel-container flex my-5 transition-transform duration-500 ease-in-out h-[400px] aspect-[16/9]">
+    <div id="hero-carousel" class="carousel-container flex my-5 transition-transform duration-500 ease-in-out h-[250px] lg:h-[450px] aspect-[16/9]">
       {images.map((image, index) => (
-        <div class="carousel-slide min-w-full" data-index={index}>
+        <div class="carousel-slide min-w-full h-auto" data-index={index}>
           <img 
             src={image.src} 
             alt={image.alt} 
-            class="w-full h-full object-cover rounded-lg"
+            class="w-full h-full object-cover "
           />
         </div>
       ))}
