@@ -148,8 +148,16 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
       // Details
       const cardContentElement = document.querySelectorAll('.card-content');
       cardContentElement.forEach((content, i)=> {
-        const x =  `${currentSet.data[i].content}`;
-        content.textContent = x;
+        const items =  
+        currentSet.data[i].content;
+        const html = items.map(item => `
+          <li style="position: relative; padding-left: 0.75rem;" class="scale-85 md:scale-95 text-[var(--color-palette-two)]">
+              ${item}
+          </li>
+        `).join('');
+
+        content.innerHTML = html;
+        
       });
       
       const cardLinkElement = document.querySelectorAll('.card-item');

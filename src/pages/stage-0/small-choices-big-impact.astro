@@ -5,12 +5,12 @@ import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 import { content } from '../../content/page-content.ts';
 
 const {
-  heading = content.stage0.heading1.title,
-  title = `Stage ${content.stage0.heading1.stageNum} - ${heading} | BluePrintNZ`,
-  description = content.stage0.heading1.description,
-  body = content.stage0.heading1.body,
-  // link = content.stage0.heading1.description,
-  breadcrumb = content.stage0.heading1.breadcrumbs,
+  heading = content.stage0.heading2.title,
+  title = `Stage ${content.stage0.heading2.stageNum} - ${heading} | BluePrintNZ`,
+  description = content.stage0.heading2.description,
+  body = content.stage0.heading2.body,
+  // link = content.stage0.heading2.description,
+  breadcrumb = content.stage0.heading2.breadcrumbs,
 } = Astro.props
 
 const breadcrumbItems = [
