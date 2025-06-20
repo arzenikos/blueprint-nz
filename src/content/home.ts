@@ -103,13 +103,13 @@ export const resourceContent = {
                     ],
                 },
                 {
-                    heading: "Managing the Mental Load",
+                    heading: "Navigating Your Options",
                     content: [
-                        "➤ How to cope with “what if” thoughts.",
-                        "➤ Support networks and simple tools.",
-                        "➤ When and how to ask for help."
+                        "➤ Treatment paths: surgery, radiation, hormone therapy.",
+                        "➤ What to expect during and after.",
+                        "➤ Working with your medical team."
                     ],
-                }
+                },                
             ],
         },
         "stage-2": {
@@ -117,11 +117,11 @@ export const resourceContent = {
             title: "Stage 2 – You’re Not in This Alone",
             data: [
                 {
-                    heading: "Navigating Your Options",
+                    heading: "Managing the Mental Load",
                     content: [
-                        "➤ Treatment paths: surgery, radiation, hormone therapy.",
-                        "➤ What to expect during and after.",
-                        "➤ Working with your medical team."
+                        "➤ How to cope with “what if” thoughts.",
+                        "➤ Support networks and simple tools.",
+                        "➤ When and how to ask for help."
                     ],
                 },
                 {
