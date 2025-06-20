@@ -1,14 +1,18 @@
 ---
-import { bluenodeData } from '../../content/bluenode.ts';
+// import { bluenodeData } from '../../content/bluenode.ts';
+
+const {
+  data
+} = Astro.props;
 ---
 <div class="w-full md:h-full relative">
   <div id="nodes-viewport" class="w-full md:h-full overflow-hidden">
     <div id="nodes-container" class="w-full md:h-full relative transform-gpu origin-center">
          <div id="bluenode-data" class="hidden">
-            {JSON.stringify(bluenodeData)}
+            {JSON.stringify(data)}
           </div>
 
-          <div id="blueNodeDiagram" class="h-70 md:h-full w-full" style="background-color: var(--color-palette-one);"></div>
+          <div id="diagram" class="h-70 md:h-full w-full" style="background-color: var(--color-palette-one);"></div>
     </div>
   </div>
   <svg class="absolute top-0 left-0 w-full md:h-full pointer-events-none" id="connection-lines"></svg>
@@ -20,7 +24,7 @@ import { bluenodeData } from '../../content/bluenode.ts';
 
   let bluenode;
   function init() {
-    bluenode = new go.Diagram('blueNodeDiagram', {
+    bluenode = new go.Diagram('diagram', {
       initialContentAlignment: go.Spot.TopCenter,
       layout: new go.TreeLayout({
         angle: 90,
@@ -126,43 +130,6 @@ import { bluenodeData } from '../../content/bluenode.ts';
         diagram.scrollToRect(subtreeBounds);
       });
   }
-  // function expandNode(node) {
-  //   const diagram = node.diagram;
-  //   diagram.startTransaction('CollapseExpandTree');
-
-  //   const data = node.data;
-  //   const parent = node.findTreeParentNode();
-
-  //   // Collapse other siblings
-  //   if (parent) {
-  //     parent.findTreeChildrenNodes().each((sibling) => {
-  //       if (sibling !== node && sibling.isTreeExpanded) {
-  //         diagram.commandHandler.collapseTree(sibling);
-  //       }
-  //     });
-  //   }
-
-  //   // Create children if not already expanded
-  //   if (!data.everExpanded) {
-  //     diagram.model.setDataProperty(data, 'everExpanded', true);
-  //     createSubTree(data);
-  //   }
-
-  //   // Toggle expand/collapse
-  //   if (node.isTreeExpanded) {
-  //     diagram.commandHandler.collapseTree(node);
-  //   } else {
-  //     diagram.commandHandler.expandTree(node);
-  //   }
-
-  //   diagram.commitTransaction('CollapseExpandTree');
-
-  //   // Ensure layout is done before panning
-  //   diagram.delayInitialization(() => {
-  //     const subtreeBounds = computeSubtreeBounds(node);
-  //     diagram.scrollToRect(subtreeBounds);
-  //   });
-  // }
 
   function computeSubtreeBounds(node) {
     let bounds = node.actualBounds.copy();

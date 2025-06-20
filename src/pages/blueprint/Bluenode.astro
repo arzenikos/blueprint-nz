@@ -6,6 +6,8 @@ import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 import DetailPanel from '../../components/NodeGraph/DetailPanel.astro';
 import GraphCanvas from '../../components/NodeGraph/GraphCanvas.astro';
 
+import { bluenodeData } from '../../content/blueindex/bluenode.ts';
+
 const breadcrumbItems = [
   { label: 'BluePrint', href: '/bluprint', current: true }
 ];
@@ -19,7 +21,7 @@ const breadcrumbItems = [
     <div class="w-full md:w-3/5 relative">
 
       <!-- Dynamic Nodes Container with Pan and Zoom -->
-      <GraphCanvas />
+      <GraphCanvas data={bluenodeData} />
 
     </div>
     <div class="w-full md:w-2/5 relative">

@@ -12,7 +12,7 @@ export const resourceCardConfig = {
     },
     color: {
         heading: 'var(--color-palette-one)',
-        cardBg: 'var(--color-palette-four)',
+        cardBg: 'bg-[var(--color-palette-four)]',
     },
     extraConfig: {
         hoverFx: true,
@@ -25,19 +25,19 @@ export const blueCardConfig = {
         name: ['bluebeacon','bluenode','bluestats'],
         class: 'card-icon', // optional utility class
         textColor: 'var(--color-palette-five)',
-        bgColor: 'var(--color-palette-one)',
+        bgColor: 'background: var(--color-palette-one)',
     },
     textClass: {
         setVariant: 'card-blue-item',
         heading: 'card-blue-heading', // optional utility class
-        content: 'card-blue-content', // optional utility class
+        content: 'card-blue-content px-10', // optional utility class
     },
     color: {
-        heading: 'var(--color-palette-one)',
-        cardBg: 'var(--color-palette-four)',
+        heading: 'var(--color-palette-three)',
+        cardBg: 'bg-[var(--color-palette-four)] hover:bg-[var(--color-palette-five)]',
     },
     extraConfig: {
         hoverFx: false,
-        layout:'h-60 rounded-lg w-full shadow-md flex items-center justify-center px-5',
+        layout:'px-10 h-60 rounded-lg w-120 md:w-full shadow-md flex items-center justify-center',
     },
 };
