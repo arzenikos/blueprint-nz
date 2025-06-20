@@ -29,7 +29,7 @@ const {
   icon = resourceCardConfig.icon,
   textClass = resourceCardConfig.textClass,
   color = resourceCardConfig.color,
-  hoverFx=resourceCardConfig.hoverFx,
+  extraConfig=resourceCardConfig.extraConfig,
 } = resourceCardConfig;
 ---
 <section id="card-section" class=`${margin} ${padding} ${other} ${scale}`>
@@ -37,14 +37,15 @@ const {
   <h4 class="text-center mb-12">{sectionSubtitle}</h4>
   
   <div class="card-item grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
-  {selectedCards.map(({heading, content }) => (
+  {selectedCards.map(({heading, content}, index) => (
     <Card
       heading={heading}
       content={content}
       icon={icon}
       textClass={textClass}
       color={color}
-      hoverFx={hoverFx}
+      config={extraConfig}
+      index={index}
       />
     ))}
   </div>

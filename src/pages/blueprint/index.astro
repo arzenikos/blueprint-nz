@@ -12,22 +12,29 @@ const breadcrumbItems = [
 const {
   icon = blueCardConfig.icon,
   textClass = blueCardConfig.textClass,
-  color = blueCardConfig.color
+  color = blueCardConfig.color,
+  extraConfig = blueCardConfig.extraConfig,
 } = blueCardConfig;
-// const {
-//   cardHeading=blueCards.heading,
-//   content=blueCards.content
-// } = blueCards;
+
+const blueCardsContent = [
+  "BlueBeacon",
+  "BlueNode",
+  "TrueBlueStats",
+];
 ---
 <Layout title="BluePrint - BluePrintNZ">
   <Breadcrumbs items={breadcrumbItems} />
-   {blueCards.map(({heading, content }) => (
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-4 md:px-10 py-10 place-items-center">
+   {blueCards.map(({heading, content },index) => (
     <Card
       heading={heading}
       content={content}
       icon={icon}
       textClass={textClass}
       color={color}
+      config={extraConfig}
+      index={index}
       />
     ))}
+  </div>
 </Layout>

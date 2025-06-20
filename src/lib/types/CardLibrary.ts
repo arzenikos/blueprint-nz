@@ -1,11 +1,12 @@
 export const resourceCardConfig = {
     icon: {
-        name:'chevron-right',
+        name: ['chevron-right','chevron-right','chevron-right'],//'chevron-right',
         class: 'card-icon', // optional utility class
         textColor: 'var(--color-palette-five)',
         bgColor: 'var(--color-palette-one)',
     },
     textClass: {
+        setVariant: 'card-rsc-item',
         heading: 'card-heading', // optional utility class
         content: 'card-content', // optional utility class
     },
@@ -13,23 +14,31 @@ export const resourceCardConfig = {
         heading: 'var(--color-palette-one)',
         cardBg: 'var(--color-palette-four)',
     },
-    hoverFx: true,
+    extraConfig: {
+        hoverFx: true,
+        layout: 'px-5 py-8'
+    },
 };
 
 export const blueCardConfig = {
     icon: {
-        name:'bluestats',
+        name: ['bluebeacon','bluenode','bluestats'],
         class: 'card-icon', // optional utility class
         textColor: 'var(--color-palette-five)',
         bgColor: 'var(--color-palette-one)',
     },
     textClass: {
-        heading: 'card-heading', // optional utility class
-        content: 'card-content', // optional utility class
+        setVariant: 'card-blue-item',
+        heading: 'card-blue-heading', // optional utility class
+        content: 'card-blue-content', // optional utility class
     },
     color: {
         heading: 'var(--color-palette-one)',
         cardBg: 'var(--color-palette-four)',
     },
-    hoverFx: false,
+    extraConfig: {
+        hoverFx: false,
+        layout:'w-full max-w-sm h-60 md:h-64 bg-white rounded-lg shadow-md flex items-center justify-center px-5',
+        link:'/empty',
+    },
 };

@@ -164,11 +164,11 @@ class=`${margin} ${padding} ${other} ${scale} mb-25` style="background-color: va
         
       });
       
-      const cardLinkElement = document.querySelectorAll('.card-item');
+      const cardLinkElement = document.querySelectorAll('.card-rsc-item');
       cardLinkElement.forEach((link, i)=> {
         
         const current = localStorage.getItem('current');
-        link.setAttribute('href', `${current}/${linkSet[i-1]}`);
+        link.setAttribute('href', `${current}/${linkSet[i]}`);
       });
       });
     });
