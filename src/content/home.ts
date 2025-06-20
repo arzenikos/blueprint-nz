@@ -6,7 +6,7 @@ export const heroContent = {
 
     description2: "Get the facts right on Prostate Cancer.",
 
-    exploreButton: "Explore BluePrint",
+    exploreButton: "Get Started with BluePrint",
     exploreLink: "/bluenode",
     carouselImages: [
       {
