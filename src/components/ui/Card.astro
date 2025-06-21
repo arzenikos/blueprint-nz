@@ -10,7 +10,8 @@ const {
     color,
     config,
     index,
-    link
+    link,
+    image,
 } = Astro.props;
 
 const hoveredCardSize = config.hoverFx ? 'hover:scale-110' : 'hover:scale-100'
@@ -19,6 +20,17 @@ const hoveredCardSize = config.hoverFx ? 'hover:scale-110' : 'hover:scale-100'
 <div
     class={`justify-center rounded-lg shadow-md transition-transform ${hoveredCardSize} ${config.layout} ${color.cardBg}`}
 >
+    <div>
+        {image && (
+            <img
+                src={image}
+                alt={heading}
+                class={config.image}
+                loading="lazy"
+            />
+        )}
+
+    </div>
     <a href={link} class=`${textClass.setVariant} no-underline block`>
         <div class="rounded-full w-15 h-15 flex items-center justify-center mb-4" style=`${icon.bgColor};`>
             <!-- card icon -->
@@ -38,9 +50,3 @@ const hoveredCardSize = config.hoverFx ? 'hover:scale-110' : 'hover:scale-100'
         )}
     </a>
 </div>
-
-<style>
-    li {
-        color: var(--color-palette-one);
-    }
-</style>

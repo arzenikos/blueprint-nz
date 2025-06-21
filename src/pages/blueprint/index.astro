@@ -30,9 +30,10 @@ const blueCardsContent = [
       <h2>Choose a card to start learning about Prostate Cancer</h2>
     </div>
   
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:px-20 py-10 place-items-center">
-     {blueCards.map(({heading, content },index) => (
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full md:px-20 py-10 place-items-center">
+     {blueCards.map(({heading, content, image },index) => (
       <Card
+        id={`bluecard-${icon.name[index]}`}
         heading={heading}
         content={content}
         icon={icon}
@@ -41,6 +42,7 @@ const blueCardsContent = [
         config={extraConfig}
         index={index}
         link={`blueprint/${icon.name[index]}`}
+        image={image}
         />
       ))}
     </div>

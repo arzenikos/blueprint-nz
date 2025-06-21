@@ -31,4 +31,7 @@
   p, span, div, li {
     color: var(--color-palette-five);
   }
+  li {
+    color: var(--color-palette-one);
+  }
 }

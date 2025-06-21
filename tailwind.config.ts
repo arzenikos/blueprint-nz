@@ -64,6 +64,13 @@ export default {
         card: 'var(--color-card-border)',
       },
     },
+    screens: {
+      sm: '600px',
+      md: '800px',
+      lg: '1100px',
+      xl: '1300px',
+      '2xl': '1500px',
+    }
   },
   plugins: [],
 };

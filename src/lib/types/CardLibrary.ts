@@ -22,13 +22,18 @@ export const resourceCardConfig = {
 
 export const blueCardConfig = {
     icon: {
-        name: ['bluebeacon','bluenode','bluestats', 'blueguide'],
+        name: [
+            'blueguide',
+            'bluebeacon',
+            'bluenode',
+            'bluestats',
+        ],
         class: 'card-icon', // optional utility class
         textColor: 'var(--color-palette-five)',
         bgColor: 'background: var(--color-palette-one)',
     },
     textClass: {
-        setVariant: 'card-blue-item',
+        setVariant: 'card-blue-item w-65',
         heading: 'card-blue-heading', // optional utility class
         content: 'card-blue-content px-10', // optional utility class
     },
@@ -38,6 +43,7 @@ export const blueCardConfig = {
     },
     extraConfig: {
         hoverFx: false,
-        layout:'px-10 md:px-5 md:mt-1 h-75 rounded-lg w-90 md:w-full shadow-md flex items-center justify-center',
+        layout:'px-7 md:px-5 py-6 md:mt-1 w-100 md:w-full min-h-[35rem] max-h-[32rem] rounded-lg shadow-md flex flex-col items-center justify-start gap-6',
+        image: 'w-auto object-cover rounded-md mb-4 mr-3 sm:h-full md:h-45',
     },
 };
