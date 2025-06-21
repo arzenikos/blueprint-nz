@@ -2,6 +2,7 @@ import { resourceContent } from './home'
 
 export const content = {
     "stage-3": {
+        // what-to-expect-now
         heading1:{
             stageNum: `3`,
             headingNum: `1`,
@@ -26,6 +27,7 @@ export const content = {
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/stage-3/what-to-expect-now", current: true }
         },
+        // caring-for-a-tired-body
         heading2:{
             stageNum: `3`,
             headingNum: `2`,
@@ -50,6 +52,7 @@ export const content = {
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/stage-3/caring-for-a-tired-body", current: true }
         },
+        // finding-your-ground
         heading3:{
             stageNum: `3`,
             headingNum: `3`,

@@ -19,16 +19,16 @@ export const componentConfiguration = {
     other: ''
   },
   cards:{
-    margin: 'mt-15 md:mt-30 mb-95',
+    margin: 'mt-15 md:mt-30 mb-45 lg:mx-25 md:mx-15 sm:mx-5',
     padding: ' px-6',
     scale: '',
-    other: 'container hidden'
+    other: 'hidden'
   },
   context:{
     margin: 'mt-50 my-70 scroll-mt-28',
     padding: 'px-6 md:px-3',
     scale: '',
-    other: 'container text-center'
+    other: 'text-center'
   },
   footer:{
     margin: '',

@@ -17,4 +17,10 @@ export const blueCards = [
             "➤ View key statistics and insights about prostate cancer.",
         ],
     },
+    {
+        heading: "The Blue Guide",
+        content: [
+            "➤ View key statistics and insights about prostate cancer.",
+        ],
+    },    
 ];

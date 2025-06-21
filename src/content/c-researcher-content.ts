@@ -2,6 +2,7 @@ import { resourceContent } from './home'
 
 export const content = {
     "researcher": {
+        // structured-understanding-statistics
         heading1:{
             stageNum: `research`,
             headingNum: `1`,
@@ -26,6 +27,7 @@ export const content = {
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/research/structured-understanding-statistics", current: true }
         },
+        // trials-treatment-innovation
         heading2:{
             stageNum: `research`,
             headingNum: `2`,
@@ -50,6 +52,7 @@ export const content = {
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/research/trials-treatment-innovation", current: true }
         },
+        // tools-grants-collaboration
         heading3:{
             stageNum: `research`,
             headingNum: `3`,

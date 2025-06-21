@@ -2,6 +2,7 @@ import { resourceContent } from './home'
 
 export const content = {
     "caregiver": {
+        // the-basics-you-need
         heading1:{
             stageNum: `caregiver`,
             headingNum: `1`,
@@ -26,6 +27,7 @@ export const content = {
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/caregiving/the-basics-you-need", current: true }
         },
+        // youre-part-of-this-but-youre-still-you
         heading2:{
             stageNum: `caregiving`,
             headingNum: `2`,
@@ -50,6 +52,7 @@ export const content = {
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/caregiving/youre-part-of-this-but-youre-still-you", current: true }
         },
+        // real-support-for-real-people
         heading3:{
             stageNum: `caregiving`,
             headingNum: `3`,

@@ -2,6 +2,7 @@ import { resourceContent } from './home'
 
 export const content = {
     "stage-0": {
+        // what-you-need-to-know-early
         heading1:{
             stageNum: `0`,
             headingNum: `1`,
@@ -80,6 +81,7 @@ export const content = {
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/stage-0/what-you-need-to-know-early", current: true }
         },
+        // small-choices-big-impact
         heading2:{
             stageNum: `0`,
             headingNum: `2`,
@@ -104,6 +106,7 @@ export const content = {
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/stage-0/small-choices-big-impact", current: true }
         },
+        // should-i-get-screened
         heading3:{
             stageNum: `0`,
             headingNum: 3,

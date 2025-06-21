@@ -22,7 +22,7 @@ export const resourceCardConfig = {
 
 export const blueCardConfig = {
     icon: {
-        name: ['bluebeacon','bluenode','bluestats'],
+        name: ['bluebeacon','bluenode','bluestats', 'blueguide'],
         class: 'card-icon', // optional utility class
         textColor: 'var(--color-palette-five)',
         bgColor: 'background: var(--color-palette-one)',
@@ -38,6 +38,6 @@ export const blueCardConfig = {
     },
     extraConfig: {
         hoverFx: false,
-        layout:'px-10 md:px-5 md:mt-1 h-60 md:h-90 rounded-lg w-120 md:w-full shadow-md flex items-center justify-center',
+        layout:'px-10 md:px-5 md:mt-1 h-75 rounded-lg w-90 md:w-full shadow-md flex items-center justify-center',
     },
 };
