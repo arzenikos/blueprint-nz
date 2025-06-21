@@ -14,13 +14,19 @@ const {
     breadcrumb = content['researcher'].heading3.breadcrumbs
 } = Astro.props;
 
-const breadcrumbItems = [{ label: heading, link: breadcrumb.link, current: breadcrumb.current }];
+const breadcrumbItems = [
+    { label: heading, link: breadcrumb.link, current: breadcrumb.current }
+];
 ---
 
 <Layout title=`${title}`>
     <div class="container mx-auto px-4 pt-10 pb-25">
         <!-- 🧩 Header Component -->
-        <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
+        <MainPageHeading 
+            heading={heading}
+            description={description}
+            breadcrumbItems={breadcrumbItems}
+        />
 
         <span class="subheadings flex gap-3">
             {main.x.subheading}

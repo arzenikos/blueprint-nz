@@ -271,14 +271,32 @@ export const resourceContent = {
                 title: "General – Explore. Understand. Advance.",
                 data: [
                 {
-                    heading: "Structured Understanding + Statistics",
+                    heading: " ",
                     content: [
-                        "➤ Disease progression: staging, grading, biomarkers.",
-                        "➤ Diagnostic pathways: PSA, biopsy, imaging.",
-                        "➤ Cross-system comparisons (NZ, AUS, US, EU).",
-                        "➤ Population data & cohort breakdowns"
+                        "➤ ",
+                        "➤ ",
+                        "➤ ",
+                        "➤ "
                     ],
                 },
+                {
+                    heading: " ",
+                    content: [
+                        "➤ ",
+                        "➤ ",
+                        "➤ ",
+                        "➤ "
+                    ],
+                },
+                {
+                    heading: " ",
+                    content: [
+                        "➤ ",
+                        "➤ ",
+                        "➤ ",
+                        "➤ "
+                    ],
+                },                
             ]
         }
     }

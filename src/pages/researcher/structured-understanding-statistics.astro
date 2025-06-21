@@ -14,7 +14,9 @@ const {
     breadcrumb = content['researcher'].heading1.breadcrumbs
 } = Astro.props;
 
-const breadcrumbItems = [{ label: heading, link: breadcrumb.link, current: breadcrumb.current }];
+const breadcrumbItems = [
+    { label: heading, link: breadcrumb.link, current: breadcrumb.current }
+];
 ---
 
 <Layout title=`${title}`>
