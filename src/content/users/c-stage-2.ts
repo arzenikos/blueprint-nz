@@ -24,31 +24,27 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-2/managing-the-mental-load", current: true }
-        },
-        // staying-emotionally-steady
+            breadcrumbs: { link: "/stage-2/staying-grounded-through-it-all", current: true }
+        },        
+        // body-care-that-builds-you-up
         heading2: {
-            stageNum: `2`,
+            stageNum: `1`,
             headingNum: `2`,
             title: resourceContent.contentByCategory["stage-2"].data['1'].heading,
-            label: `Empty Page`,
+            label: `Body Care That Builds You Up`,
             description: resourceContent.contentByCategory["stage-2"].data['1'].content,
             main: {
-                x: {
-                    subheading: '-',
-                    body: [
-                        `🚧 This page is still under development`,
-                        // {
-                        //     items: [
-                        //         'item'
-                        //     ]
-                        // },
-                    ],
-                    link: '#',
+                KegelIntro: {
+                    subheading: 'Kegel Exercise',
+                    description:`Kegel exercises are a simple, no-equipment way to boost bladder control and support prostate recovery—just a few squeezes a day can make a big difference.`,
+                    kegelImage:"/assets/s1/s1h2-kegel-steps.jpg",
+                    alt:"https://my.clevelandclinic.org/-/scassets/images/org/health/articles/kegel-exercises-for-men",
+                    thumbnail: '/assets/s1/s1h2-kegel-vid-thumbnail.JPG',
+                    link: 'https://youtu.be/XWpRg0mgsTI',
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-2/staying-emotionally-steady", current: true }
+            breadcrumbs: { link: "/stage-2/body-care-that-builds-you-up", current: true }
         },
         // your-body-your-needs
         heading3: {

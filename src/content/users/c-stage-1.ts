@@ -19,28 +19,32 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage1/understanding-your-diagnosis", current: true }
+            breadcrumbs: { link: "/stage-1/understanding-your-diagnosis", current: true }
         },
-        // strength-starts-with-care
+        // your-body-your-needs
         heading2: {
             stageNum: `1`,
             headingNum: `2`,
             title: resourceContent.contentByCategory["stage-1"].data['1'].heading,
-            label: `Strength Starts with Care`,
+            label: `Doctor Time: Making Every Visit Count`,
             description: resourceContent.contentByCategory["stage-1"].data['1'].content,
             main: {
-                KegelIntro: {
-                    subheading: 'Kegel Exercise',
-                    description:`Kegel exercises are a simple, no-equipment way to boost bladder control and support prostate recovery—just a few squeezes a day can make a big difference.`,
-                    kegelImage:"/assets/s1/s1h2-kegel-steps.jpg",
-                    alt:"https://my.clevelandclinic.org/-/scassets/images/org/health/articles/kegel-exercises-for-men",
-                    thumbnail: '/assets/s1/s1h2-kegel-vid-thumbnail.JPG',
-                    link: 'https://youtu.be/XWpRg0mgsTI',
+                x: {
+                    subheading: '-',
+                    body: [
+                        `🚧 This page is still under development`,
+                        // {
+                        //     items: [
+                        //         'item'
+                        //     ]
+                        // },
+                    ],
+                    link: '#',
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage1/strength-starts-with-care", current: true }
-        },
+            breadcrumbs: { link: "/stage-1/doctor-time-making-every-visit-count", current: true }
+        },        
         // navigating-your-options
         heading3: {
             stageNum: `1`,
@@ -89,7 +93,7 @@ export const content = {
                 }
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage1/navigating-your-options", current: true }
+            breadcrumbs: { link: "/stage-1/navigating-your-options", current: true }
         },
     },
 }

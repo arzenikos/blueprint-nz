@@ -95,9 +95,10 @@ export const blueguideData = {
       + <a href="/stage-1/understanding-your-diagnosis">
           Understanding Your Diagnosis<br>
         </a>
-      + <a href="/stage-1/strength-starts-with-care">
-          Strength Starts with Care<br>
-        </a>
+
+      + <a href="/stage-1/doctor-time-making-every-visit-count">
+          Doctor Time: Making Every Visit Count<br>
+        </a>        
       + <a href="/stage-1/navigating-your-options">
           Navigating Your Options<br>
         </a>
@@ -119,16 +120,16 @@ export const blueguideData = {
           `
         },
         {
-          key: `Diet & Fitness`,
-          text: `Strength Starts with Care`,
+          key: `Check-Ups`,
+          text: `Doctor Time: Making Every Visit Count`,
           info: `
-          <strong>+ Eating to support recovery.</strong><br>
-          <strong>+ Sleep hygiene during stress.</strong><br>
-          <strong>+ Safe movement & light fitness</strong><br>
+          <strong>+ How often to check in with your doctor, based on your stage.</strong><br>
+          <strong>+ What to ask about symptoms, treatment, and side effects.</strong><br>
+          <strong>+ Tips for tracking appointments, results, and follow-ups.</strong><br>
 
           <br><br>
           <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-1/strength-starts-with-care">Walk This Way →</a>
+            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-1/doctor-time-making-every-visit-count">Walk This Way →</a>
           </button>            
           `
         },        
@@ -155,14 +156,14 @@ export const blueguideData = {
       <strong>About Stage 2</strong>
       Focus on mental and emotional support, managing “what if” worries, building your support network, and recognizing body signals like side effects and fatigue to stay steady and active.
       <br><br>
-      + 
-      <a href="/stage-2/managing-the-mental-load">
-      Managing the Mental Load<br>
+      +
+      <a href="/stage-2/staying-grounded-through-it-all">
+     Staying Grounded Through It All<br>
       </a>
-      + 
-      <a href="/stage-2/staying-emotionally-steady">
-     Staying Emotionally Steady<br>
-      </a>
+      +
+      <a href="/stage-2/body-care-that-builds-you-up">
+        Body Care That Builds You Up<br>
+      </a>      
       + 
       <a href="/stage-2/your-body-your-needs">
       Your Body, Your Needs<br>
@@ -170,32 +171,32 @@ export const blueguideData = {
       `,
       children: [
         {
-          key: `Mental Health`,
-          text: `Managing the Mental Load`,
+          key: `Diet & Fitness`,
+          text: `Strength Starts with Care`,
           info: `
-          <strong>+ How to cope with “what if” thoughts.</strong><br>
-          <strong>+ Support networks and simple tools.</strong><br>
-          <strong>+ When and how to ask for help.</strong><br>
+          <strong>+ Eating to support recovery.</strong><br>
+          <strong>+ Sleep hygiene during stress.</strong><br>
+          <strong>+ Safe movement & light fitness</strong><br>
+
           <br><br>
           <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-2/managing-the-mental-load">Walk This Way →</a>
-          </button>               
-          `
-        },
-        {
-          key: `Emotional Support`,
-          text: `Staying Emotionally Steady`,
-          info: `
-          <strong>+ Intro to prostate basics, risks, symptoms</strong><br>
-          <strong>+ Mental health check-ins.</strong><br>
-          <strong>+ Talking to family, friends, or a counselor.</strong><br>
-          <strong>+ Guided tools to reduce overwhelm.</strong><br>
-          <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-2/staying-emotionally-steady">Walk This Way →</a>
-          </button>               
+            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-2/body-care-that-builds-you-up">Walk This Way →</a>
+          </button>            
           `
         },        
+        {
+          key: `Mind Matters`,
+          text: `Staying Grounded Through It All`,
+          info: `
+          <strong>+ Coping with “what if” thoughts and emotional overwhelm.</strong><br>
+          <strong>+ Knowing when to ask for help — and who to turn to.</strong><br>
+          <strong>+ Using tools, check-ins, and conversations to stay steady.</strong><br>
+          <br><br>
+          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-2/staying-grounded-through-it-all">Walk This Way →</a>
+          </button>               
+          `
+        },      
         {
           key: `Signs & Warnings`,
           text: `Your Body, Your Needs`,

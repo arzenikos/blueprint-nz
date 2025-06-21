@@ -96,11 +96,11 @@ export const resourceContent = {
                     ],
                 },
                 {
-                    heading: "Strength Starts with Care",
+                    heading: "Doctor Time: Making Every Visit Count",
                     content: [
-                        "➤ Eating to support recovery.",
-                        "➤ Sleep hygiene during stress.",
-                        "➤ Safe movement & light fitness"
+                        "➤ How often to check in with your doctor, based on your stage.",
+                        "➤ What to ask about symptoms, treatment, and side effects.",
+                        "➤ Tips for tracking appointments, results, and follow-ups."
                     ],
                 },
                 {
@@ -118,19 +118,19 @@ export const resourceContent = {
             title: "Stage 2 – You’re Not in This Alone",
             data: [
                 {
-                    heading: "Managing the Mental Load",
+                    heading: "Staying Grounded Through It All",
                     content: [
-                        "➤ How to cope with “what if” thoughts.",
-                        "➤ Support networks and simple tools.",
-                        "➤ When and how to ask for help."
+                        "➤ Coping with “what if” thoughts and emotional overwhelm.",
+                        "➤ Knowing when to ask for help — and who to turn to.",
+                        "➤ Using tools, check-ins, and conversations to stay steady."
                     ],
                 },
                 {
-                    heading: "Staying Emotionally Steady",
+                    heading: "Body Care That Builds You Up",
                     content: [
-                        "➤ Mental health check-ins.",
-                        "➤ Talking to family, friends, or a counselor.",
-                        "➤ Guided tools to reduce overwhelm."
+                        "➤ Gentle food habits that work with your energy levels.",
+                        "➤ Kegel exercises to support pelvic strength and recovery.",
+                        "➤ Moving with care — or resting when your body asks."
                     ],
                 },
                 {
