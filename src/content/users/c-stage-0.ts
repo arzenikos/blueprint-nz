@@ -12,6 +12,10 @@ export const content = {
             main: {
                 overview: {
                     subheading: 'Prostate Cancer Overview, Risks, & Symptoms & How to prevent it',
+                    image: {
+                        src:"/assets/s1/signs-symptoms.JPG",
+                        alt:"Prostate Cancer Signs & Symptoms: https://i.dailymail.co.uk/1s/2024/05/06/16/67123075-0-image-a-41_1715008471827.jpg"
+                    },
                     body: [
                         `Early prostate cancer rarely causes symptoms. Even people diagnosed with advanced prostate cancer may have no symptoms.`,
                         `Difficulty passing urine is not always a symptom of prostate cancer, but you should see your doctor if you are worried or if the following symptoms are ongoing:`,

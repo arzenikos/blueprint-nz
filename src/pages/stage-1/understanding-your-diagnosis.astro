@@ -29,7 +29,10 @@ const breadcrumbItems = [{ label: heading, link: breadcrumb.link, current: bread
             </a> -->
         </span>
         <p class="pt-2">{main.Gleason.body}</p>
-        <img src={main.Gleason.image}/>
+        <img 
+            src={main.Gleason.image}
+            alte={main.Gleason.link}
+        />
         <p></p>
         <!-- <ul>
             {main.Gleason.body[2].items.map((item, i) => <li class="pt-2 pl-4">{`- ${item}`}</li>)}

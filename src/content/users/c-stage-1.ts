@@ -15,7 +15,7 @@ export const content = {
                     body: 
                         `It’s a number doctors use to show how aggressive prostate cancer is. Lower scores mean slower-growing cancer; higher scores mean it may spread faster.`,
                     image:"/assets/s1/The-importance-of-the-Gleason-Score.png",
-                    link: '#',
+                    link: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPoycQYcP9ZIAKNGNHkIWK-tJsgWLZArKwxA&s',
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
@@ -33,6 +33,7 @@ export const content = {
                     subheading: 'Kegel Exercise',
                     description:`Kegel exercises are a simple, no-equipment way to boost bladder control and support prostate recovery—just a few squeezes a day can make a big difference.`,
                     kegelImage:"/assets/s1/s1h2-kegel-steps.jpg",
+                    alt:"https://my.clevelandclinic.org/-/scassets/images/org/health/articles/kegel-exercises-for-men",
                     thumbnail: '/assets/s1/s1h2-kegel-vid-thumbnail.JPG',
                     link: 'https://youtu.be/XWpRg0mgsTI',
                 },
@@ -55,11 +56,32 @@ export const content = {
                     `Doctors may use hormone therapy (also known as androgen deprivation therapy) to slow cancer growth by reducing testosterone levels.`,
                     {
                     items: [
-                        "Common medications include LHRH agonists (like leuprolide) or anti-androgens (like bicalutamide).",
-                        "Chemotherapy may be used if the cancer has spread beyond the prostate.",
-                        "Medications are often used alongside surgery or radiation as part of a broader treatment strategy.",
-                        "Side effects can include fatigue, hot flushes, mood changes, and sexual dysfunction — these are managed as part of the care plan.",
-                        "Care planning includes regular checkups, PSA monitoring, mental health support, and managing quality of life."
+                        { 
+                            detail:"Common medications include LHRH agonists (like leuprolide) or anti-androgens (like bicalutamide)",
+                            image:"",
+                            alt:""
+                        },
+                        { 
+                            detail:"Chemotherapy may be used if the cancer has spread beyond the prostate.",
+                            image:"/assets/s2/chemotherapy-for-prostate-cancer-hero.jpg",
+                            alt:"https://www.hopkinsmedicine.org/-/media/images/health/1_-conditions/prostate-cancer_-disease/chemotherapy-for-prostate-cancer-hero.jpg?h=500&iar=0&mh=500&mw=1300&w=1297&hash=412A8799886690732E6AD576CCB74586"
+                        },
+                        { 
+                            detail:"Medications are often used alongside surgery or radiation as part of a broader treatment strategy.",
+                            image:"",
+                            alt:""
+                        },
+                        { 
+                            detail:"Side effects can include fatigue, hot flushes, mood changes, and sexual dysfunction — these are managed as part of the care plan.",
+                            image:"",
+                            alt:""
+                        },
+                        { 
+                            detail:"Care planning includes regular checkups, PSA monitoring, mental health support, and managing quality of life.",
+                            image:"",
+                            alt:""
+                        },
+
                     ]
                     }
                 ],
