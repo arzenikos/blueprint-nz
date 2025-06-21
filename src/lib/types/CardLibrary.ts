@@ -33,7 +33,7 @@ export const blueCardConfig = {
         content: 'card-blue-content px-10', // optional utility class
     },
     color: {
-        heading: 'var(--color-palette-three)',
+        heading: 'var(--color-palette-one)',
         cardBg: 'bg-[var(--color-palette-four)] hover:bg-[var(--color-palette-five)]',
     },
     extraConfig: {

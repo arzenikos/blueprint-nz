@@ -22,10 +22,12 @@ const {
 } = config
 ---
 
-<section class=`${margin} ${padding} ${other} ${scale}` style="background: none">
+<!-- <section class=`${margin} ${padding} ${other} ${scale}` style="background: none"> -->
+<section class="mb-7 md:my-0 w-full bg-transparent px-4 sm:px-6 lg:px-18"></section>
+ <div class="container mx-auto">
   <div class={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between gap-4 h-1/5`}>
     <!-- LEFT CAROUSEL -->
-    <div class="flex flex-col w-full md:w-4/9">
+    <div class="flex flex-col w-full md:w-4/9 px-3 lg:px-7">
       <Carousel images={carouselImages} />
     </div>
 

@@ -4,9 +4,15 @@
   --color-palette-three: #8281db7a;
   --color-palette-four: #082756;
   --color-palette-five: #061a40;
+
+  /* Neutral */
   --color-palette-zero: #fbfdff;
+  --color-palette-border: #0508ba;
+
   --color-palette-gray: #565d64;
+  --color-palette-light-gray: #7a8b9c;
   --color-palette-accent: #0025a0;
+
 
   --gradient-from-light: #b9d6f2;
   --gradient-to-light: #b9d6f2;
@@ -23,7 +29,11 @@
   --color-palette-three: #0b004b;
   --color-palette-four: #80A4B7;
   --color-palette-five: #B8D9EB;
+
   --gradient-from-light: #13232A;
   --gradient-to-light: #13232A;
   --color-palette-accent: #15effb;
+
+  --color-palette-border: #acfbe1;
+  --color-palette-light-gray: #97a2ac;
 }

@@ -10,7 +10,7 @@ export const componentConfiguration = {
     margin: 'mb-7 md:my-0',
     padding: '',
     scale: '',
-    other: 'container item-center justify-center'
+    other: 'container item-center justify-center w-full'
   },
   user:{
     margin: 'md:mx-5 my-10 lg:mt-5 md:my-5 lg:my-15 ',

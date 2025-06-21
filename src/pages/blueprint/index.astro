@@ -6,7 +6,7 @@ import { blueCardConfig } from '../../lib/types/CardLibrary'
 import { blueCards } from '../../content/blueindex/blueindex';
 
 const breadcrumbItems = [
-  { label: 'BluePrint', href: '/bluprint', current: true }
+  { label: 'Blueprint', href: '/blueprint', current: true }
 ];
 
 const {
@@ -24,23 +24,25 @@ const blueCardsContent = [
 ];
 ---
 <Layout title="BluePrint - BluePrintNZ">
-  <Breadcrumbs items={breadcrumbItems} />
-  <div class="flex justify-center align-center">
-    <h2>Choose a card to start learning about Prostate Cancer</h2>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full md:px-20 py-10 place-items-center">
-   {blueCards.map(({heading, content },index) => (
-    <Card
-      heading={heading}
-      content={content}
-      icon={icon}
-      textClass={textClass}
-      color={color}
-      config={extraConfig}
-      index={index}
-      link={`blueprint/${icon.name[index]}`}
-      />
-    ))}
+  <div class="container mx-auto px-4 pt-10 pb-25">
+    <Breadcrumbs items={breadcrumbItems} />
+    <div class="flex justify-center align-center">
+      <h2>Choose a card to start learning about Prostate Cancer</h2>
+    </div>
+  
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full md:px-20 py-10 place-items-center">
+     {blueCards.map(({heading, content },index) => (
+      <Card
+        heading={heading}
+        content={content}
+        icon={icon}
+        textClass={textClass}
+        color={color}
+        config={extraConfig}
+        index={index}
+        link={`blueprint/${icon.name[index]}`}
+        />
+      ))}
+    </div>
   </div>
 </Layout>
