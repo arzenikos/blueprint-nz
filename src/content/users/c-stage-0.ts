@@ -99,19 +99,12 @@ export const content = {
                         alt: "Black currant img source: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST2MkiZslqqQKwcAwGVfVHr8j4x1FgJK8oUg&s",
                     },
                     {
-                        head: "Lycopene",
-                        content: "This tomato-based antioxidant may slow prostate tumor growth and protect healthy cells.",
-                        image: "/assets/s1/s1h2-lycopene.jfif",
+                        head: "Cycling",
+                        content: "Love to ride? Good news — cycling doesn’t cause prostate cancer. Just use the right saddle and give your body some breaks.",
+                        image: "/assets/s1/cycle-prostate.jpg",
                         link: "",
-                        alt: "Tomatoes image source: https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/07/tomatoes-farm-1296x728-header.jpg?w=1155&h=1528",
-                    },
-                    {
-                        head: "Legumes",
-                        content: "Beans, lentils, and soy are full of plant-based compounds that may lower prostate cancer risk.",
-                        image: "/assets/s1/s1h2-legumes.jfif",
-                        link: "",
-                        alt: "Legmes image source: https://cdn-bdcme.nitrocdn.com/YNVexMBpWKXfKFQpHsdWUgFTQYBFJoCh/assets/images/optimized/rev-f0a0aa3/kidsaregreatcooks.com/wp-content/uploads/2020/07/Legumes-sm.jpg",
-                    },                    
+                        alt: "Cycling image source: https://images.justgiving.com/image/ea5d519c-71f4-48ed-b334-48510a865ff7.jpg?template=Size800w",
+                    },                                        
                     {
                         head: "Kegel Exercise",
                         content: "Strengthening pelvic floor muscles through Kegels may support urinary control and prostate function.",
@@ -120,12 +113,26 @@ export const content = {
                         alt: "Kegel image source: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0qx8R_vhLvnIG9DfL4pMbwKRlsy8kxp4ovPKrvDdzHHx8XSBJDpwG1eUmWaGmXNRjtmw&usqp=CAU",
                     },
                     {
+                        head: "Lycopene",
+                        content: "This tomato-based antioxidant may slow prostate tumor growth and protect healthy cells.",
+                        image: "/assets/s1/s1h2-lycopene.jfif",
+                        link: "",
+                        alt: "Tomatoes image source: https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/07/tomatoes-farm-1296x728-header.jpg?w=1155&h=1528",
+                    },
+                    {
                         head: "Smoking & Alcohol",
                         content: "Limiting tobacco and alcohol use can significantly reduce prostate cancer aggressiveness and recurrence.",
                         image: "/assets/s1/s1h2-no-alcohol-smoking.jfif",
                         link: "",
                         alt: "Vice image source: https://cdn.cancercenter.com/-/media/ctca/images/others/blogs/2023/06-june/01-blog-tobacco-alcohol-l.jpg",
-                    },                                        
+                    },
+                    {
+                        head: "Legumes",
+                        content: "Beans, lentils, and soy are full of plant-based compounds that may lower prostate cancer risk.",
+                        image: "/assets/s1/s1h2-legumes.jfif",
+                        link: "",
+                        alt: "Legmes image source: https://cdn-bdcme.nitrocdn.com/YNVexMBpWKXfKFQpHsdWUgFTQYBFJoCh/assets/images/optimized/rev-f0a0aa3/kidsaregreatcooks.com/wp-content/uploads/2020/07/Legumes-sm.jpg",
+                    },                    
                 ],
                 x: {
                     // body: [

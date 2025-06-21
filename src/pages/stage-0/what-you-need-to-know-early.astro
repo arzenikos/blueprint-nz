@@ -16,25 +16,171 @@ const {
 
 const breadcrumbItems = [{ label: heading, link: breadcrumb.link, current: breadcrumb.current }];
 ---
+<Layout title={`${title}`}>
+  <div class="container mx-auto px-4 pt-10 pb-25 max-w-4xl" style={{ color: 'var(--color-palette-five)' }}>
+    {/* 🧩 Header Component */}
+    <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
 
-<Layout title=`${title}`>
-    <div class="container mx-auto px-4 pt-10 pb-25">
-        <!-- 🧩 Header Component -->
-        <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
-
-        <span class="subheadings flex gap-3">
+    {/* Overview Section */}
+    <section
+      class="mt-10"
+      style={{ borderColor: 'var(--color-palette-two)' }}
+    >
+        <div class="flex">
+            <h2
+            class="text-2xl font-semibold mb-2"
+            style={{ color: 'var(--color-palette-four)' }}
+            >
             {main.overview.subheading}
-            <a href=`${main.overview.link}`>
-                <!-- <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);"> -->
-                <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)" />
-                <!-- </div> -->
+            </h2>
+            <span class="subheadings flex gap-3 items-center text-sm mb-4">
+            <a
+                href={`${main.overview.link}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center"
+                style={{ position: 'relative' }}
+                aria-label="Learn more about prostate cancer overview, risks, symptoms, and prevention"
+                title="Learn more"
+            >
+                <Icon class="page-link-icon scale-70" name="external-link" color="var(--color-palette-five)" />
             </a>
-        </span>
-        <p class="pt-2">{main.overview.body[0]}</p>
-        <p class="pt-2">{main.overview.body[1]}</p>
-        <ul>
-            {main.overview.body[2].items.map((item, i) => <li class="pt-2 pl-4">{`- ${item}`}</li>)}
+            </span>
+        </div>
+
+        <p class="pt-2 leading-relaxed" style={{ color: 'var(--color-palette-five)' }}>
+            {main.overview.body[0]}
+        </p>
+        <p class="pt-4 leading-relaxed" style={{ color: 'var(--color-palette-five)' }}>
+            {main.overview.body[1]}
+        </p>
+        <ul class="list-disc list-inside pt-3" style={{ color: 'var(--color-palette-five)' }}>
+            {main.overview.body[2].items.map((item, i) => (
+            <li class="pt-1 text-[var(--color-palette-four)]">
+                {item}
+            </li>
+            ))}
         </ul>
-    </div>
+    </section>
+
+    {/* What It Is Section */}
+    <section
+      class="mt-14 border-t pt-10"
+      style={{ borderColor: 'var(--color-palette-two)' }}
+    >
+      <h2
+        class="text-2xl font-semibold mb-4"
+        style={{ color: 'var(--color-palette-four)' }}
+      >
+        {main.whatItIs.subheading}
+      </h2>
+      {main.whatItIs.main.map((content, i) => {
+        if (typeof content === 'string') {
+          return (
+            <p
+              key={i}
+              class="pt-2 leading-relaxed"
+              style={{ color: 'var(--color-palette-five)' }}
+            >
+              {content}
+            </p>
+          );
+        } else if (content.type === 'list') {
+          return (
+            <ul
+              key={i}
+              class="list-disc list-inside pt-3"
+              style={{ color: 'var(--color-palette-five)' }}
+            >
+              {content.items.map((item, j) => (
+                <li key={j} class="pt-1 text-[var(--color-palette-four)]">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          );
+        }
+      })}
+    </section>
+
+    {/* Screening Matters Section */}
+    <section
+      class="mt-14 border-t pt-10"
+      style={{ borderColor: 'var(--color-palette-two)' }}
+    >
+      <h2
+        class="text-2xl font-semibold mb-4"
+        style={{ color: 'var(--color-palette-four)' }}
+      >
+        {main.screeningMatters.subheading}
+      </h2>
+      {main.screeningMatters.main.map((content, i) => {
+        if (typeof content === 'string') {
+          return (
+            <p
+              key={i}
+              class="pt-2 leading-relaxed"
+              style={{ color: 'var(--color-palette-five)' }}
+            >
+              {content}
+            </p>
+          );
+        } else if (content.type === 'list') {
+          return (
+            <ul
+              key={i}
+              class="list-disc list-inside pt-3"
+              style={{ color: 'var(--color-palette-five)' }}
+            >
+              {content.items.map((item, j) => (
+                <li key={j} class="pt-1 text-[var(--color-palette-four)]">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          );
+        }
+      })}
+    </section>
+
+    {/* PSA Test Section */}
+    <section
+      class="mt-14 border-t pt-10 pb-14"
+      style={{ borderColor: 'var(--color-palette-two)' }}
+    >
+      <h2
+        class="text-2xl font-semibold mb-4"
+        style={{ color: 'var(--color-palette-four)' }}
+      >
+        {main.psaTest.subheading}
+      </h2>
+      {main.psaTest.main.map((content, i) => {
+        if (typeof content === 'string') {
+          return (
+            <p
+              key={i}
+              class="pt-2 leading-relaxed"
+              style={{ color: 'var(--color-palette-five)' }}
+            >
+              {content}
+            </p>
+          );
+        } else if (content.type === 'list') {
+          return (
+            <ul
+              key={i}
+              class="list-disc list-inside pt-3"
+              style={{ color: 'var(--color-palette-five)' }}
+            >
+              {content.items.map((item, j) => (
+                <li key={j} class="pt-1 text-[var(--color-palette-four)]">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          );
+        }
+      })}
+    </section>
+  </div>
 </Layout>
-<script></script>

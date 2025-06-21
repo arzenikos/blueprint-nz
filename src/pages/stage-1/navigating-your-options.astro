@@ -1,5 +1,4 @@
 ---
-// <!-- Not imported by any file -->
 import Layout from '../../layouts/Layout.astro';
 import MainPageHeading from '../../components/layout/MainPageHeading.astro';
 import { content } from '../../content/users/c-stage-1.ts';
@@ -10,31 +9,43 @@ const {
     title = `Stage ${content['stage-1'].heading3.stageNum} - ${heading} | BluePrintNZ`,
     description = content['stage-1'].heading3.description,
     main = content['stage-1'].heading3.main,
-    // link = content["stage-1"].heading3.description,
     breadcrumb = content['stage-1'].heading3.breadcrumbs
 } = Astro.props;
 
 const breadcrumbItems = [{ label: heading, link: breadcrumb.link, current: breadcrumb.current }];
 ---
 
-<Layout title=`${title}`>
-    <div class="container mx-auto px-4 pt-10 pb-25">
-        <!-- 🧩 Header Component -->
-        <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
+<Layout title={`${title}`}>
+  <section class="container mx-auto px-4 pt-12 pb-24">
+    <!-- 🧩 Page Heading -->
+    <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
 
-        <span class="subheadings flex gap-3">
-            {main.x.subheading}
-            <a href=`${main.x.link}`>
-                <!-- <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);"> -->
-                <Icon class="card-icon" name="external-link" color="var(--color-palette-five)" />
-                <!-- </div> -->
-            </a>
-        </span>
-        <p class="pt-2">{main.x.body[0]}</p>
-        <p class="pt-2">{main.x.body[1]}</p>
-        <ul>
-            {main.x.body[2].items.map((item, i) => <li class="pt-2 pl-4">{`- ${item}`}</li>)}
-        </ul>
+    <!-- Subheading Card -->
+    <div class="mt-10 rounded-2xl border-l-8 pl-6 pr-4 py-4 shadow-md bg-white/60 backdrop-blur-md"
+         style="border-color: var(--color-palette-one)">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold" style="color: var(--color-palette-five)">
+          {main.x.subheading}
+        </h2>
+        <a href={`${main.x.link}`} target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center p-2 rounded-full hover:scale-110 transition"
+           style="background: var(--color-palette-one)">
+          <Icon name="external-link" class="w-5 h-5" color="var(--color-palette-five)" />
+        </a>
+      </div>
+        <p class="text-base">{main.x.body[0]}</p>
+        <p class="text-base">{main.x.body[1]}</p>
     </div>
+
+    <!-- Content Card -->
+    <div class="mt-8 bg-white rounded-xl shadow-md px-6 py-6 space-y-6 border border-gray-100"
+         style="color: var(--color-palette-text)">
+
+      <ul class="list-disc list-inside space-y-2 pl-2">
+        {main.x.body[2].items.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
 </Layout>
-<script></script>
