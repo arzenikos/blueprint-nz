@@ -1,29 +1,29 @@
-import { resourceContent } from './home'
+import { resourceContent } from '../home'
 
 export const content = {
     "stage-0": {
         // what-you-need-to-know-early
-        heading1:{
+        heading1: {
             stageNum: `0`,
             headingNum: `1`,
             title: resourceContent.contentByCategory["stage-0"].data['0'].heading,
             label: `Empty Page`,
             description: resourceContent.contentByCategory["stage-0"].data['0'].content,
             main: {
-                overview:{
+                overview: {
                     subheading: 'Prostate Cancer Overview, Risks, & Symptoms & How to prevent it',
                     body: [
                         `Early prostate cancer rarely causes symptoms. Even people diagnosed with advanced prostate cancer may have no symptoms.`,
                         `Difficulty passing urine is not always a symptom of prostate cancer, but you should see your doctor if you are worried or if the following symptoms are ongoing:`,
                         {
                             items: [
-                            'Frequent or sudden need to urinate',
-                            'Blood in the urine or semen',
-                            'A slow flow of urine',
-                            'Needing to get up at night to pass urine',
-                            'Feeling like your bladder is not empty after passing urine',
-                            'Unexplained weight loss',
-                            'Pain in bones (e.g. the neck, back, hips, or pelvis)'
+                                'Frequent or sudden need to urinate',
+                                'Blood in the urine or semen',
+                                'A slow flow of urine',
+                                'Needing to get up at night to pass urine',
+                                'Feeling like your bladder is not empty after passing urine',
+                                'Unexplained weight loss',
+                                'Pain in bones (e.g. the neck, back, hips, or pelvis)'
                             ]
                         },
                     ],
@@ -32,49 +32,49 @@ export const content = {
                 whatItIs: {
                     subheading: 'What Prostate Cancer Is (and Isn’t) & How to prevent it',
                     main: [
-                    `Prostate cancer starts in the prostate gland, which is part of the male reproductive system.`,
-                    `It differs from other prostate conditions like benign prostatic hyperplasia (BPH) or prostatitis, which are not cancer.`,
-                    {
-                        type: 'list',
-                        items: [
-                        'Prostate cancer can be slow-growing or aggressive.',
-                        'Not all prostate problems are cancer.',
-                        'Only a biopsy can confirm prostate cancer.'
-                        ]
-                    }
+                        `Prostate cancer starts in the prostate gland, which is part of the male reproductive system.`,
+                        `It differs from other prostate conditions like benign prostatic hyperplasia (BPH) or prostatitis, which are not cancer.`,
+                        {
+                            type: 'list',
+                            items: [
+                                'Prostate cancer can be slow-growing or aggressive.',
+                                'Not all prostate problems are cancer.',
+                                'Only a biopsy can confirm prostate cancer.'
+                            ]
+                        }
                     ]
                 },
 
                 screeningMatters: {
                     subheading: 'Why Screening Matters',
                     main: [
-                    `Screening helps detect prostate cancer before symptoms appear.`,
-                    `Early detection increases the chance of successful treatment.`,
-                    {
-                        type: 'list',
-                        items: [
-                        'Some cancers grow slowly and may never cause problems.',
-                        'Others may grow quickly and spread.',
-                        'Regular screening can help identify which type it is.'
-                        ]
-                    }
+                        `Screening helps detect prostate cancer before symptoms appear.`,
+                        `Early detection increases the chance of successful treatment.`,
+                        {
+                            type: 'list',
+                            items: [
+                                'Some cancers grow slowly and may never cause problems.',
+                                'Others may grow quickly and spread.',
+                                'Regular screening can help identify which type it is.'
+                            ]
+                        }
                     ]
                 },
 
                 psaTest: {
                     subheading: 'What the PSA Test Actually Tells You',
                     main: [
-                    `The PSA (Prostate-Specific Antigen) test measures the level of PSA in the blood.`,
-                    `Higher levels may indicate prostate cancer, but can also result from other conditions.`,
-                    {
-                        type: 'list',
-                        items: [
-                        'PSA can be elevated due to infection, BPH, or recent ejaculation.',
-                        'A high PSA doesn’t always mean cancer.',
-                        'A normal PSA doesn’t rule it out completely.',
-                        'It’s a tool—not a diagnosis on its own.'
-                        ]
-                    }
+                        `The PSA (Prostate-Specific Antigen) test measures the level of PSA in the blood.`,
+                        `Higher levels may indicate prostate cancer, but can also result from other conditions.`,
+                        {
+                            type: 'list',
+                            items: [
+                                'PSA can be elevated due to infection, BPH, or recent ejaculation.',
+                                'A high PSA doesn’t always mean cancer.',
+                                'A normal PSA doesn’t rule it out completely.',
+                                'It’s a tool—not a diagnosis on its own.'
+                            ]
+                        }
                     ]
                 },
             },
@@ -82,21 +82,21 @@ export const content = {
             breadcrumbs: { link: "/stage-0/what-you-need-to-know-early", current: true }
         },
         // small-choices-big-impact
-        heading2:{
+        heading2: {
             stageNum: `0`,
             headingNum: `2`,
             title: resourceContent.contentByCategory["stage-0"].data['1'].heading,
             label: `Empty Page`,
             description: resourceContent.contentByCategory["stage-0"].data['1'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -107,14 +107,14 @@ export const content = {
             breadcrumbs: { link: "/stage-0/small-choices-big-impact", current: true }
         },
         // should-i-get-screened
-        heading3:{
+        heading3: {
             stageNum: `0`,
             headingNum: 3,
             title: resourceContent.contentByCategory["stage-0"].data['2'].heading,
             label: `Empty Page`,
             description: resourceContent.contentByCategory["stage-0"].data['2'].content,
             main: {
-                PSATest:{
+                PSATest: {
                     subheading: 'What is the PSA test?',
                     body: [
                         `Prostate-specic antigen, or PSA, is a protein produced by cells of the prostate gland. The PSA test measures the level of PSA in a man’s blood.`,
@@ -122,7 +122,7 @@ export const content = {
                     ],
                     link: 'https://otagourology.co.nz/what-we-treat/psa-testing-and-screening/',
                 },
-                PSARecom:{
+                PSARecom: {
                     subheading: 'Is the PSA test recommended for prostate cancer screening?',
                     body: [
                         ` PSA screening is where a blood PSA is obtained from a man who has no evidence of prostate cancer.  This allows us to calculate the riskof having the disease.`,
@@ -130,10 +130,10 @@ export const content = {
                     ],
                     link: '#',
                 },
-                PSAResult:{
+                PSAResult: {
                     subheading: ' What is a normal PSA test result?',
                     body: [
-                         `There is no specific normal or abnormal level of PSA but there is a strong correlation between raised PSA and prostate cancer. We usually use a cut o level depending on your age. At Otago Urology we feel that the levels given below allow us to have a good safety margin to detect prosate cancer and not to over investigate a patient with a low risk.`,
+                        `There is no specific normal or abnormal level of PSA but there is a strong correlation between raised PSA and prostate cancer. We usually use a cut o level depending on your age. At Otago Urology we feel that the levels given below allow us to have a good safety margin to detect prosate cancer and not to over investigate a patient with a low risk.`,
                         // {
                         //     items: [
                         //     'item'
@@ -150,7 +150,7 @@ export const content = {
                         `A false-negative test result occurs when a man’s PSA level is low even though he actually has prostate cancer. This may give a false sense of assurance to the man, his family, and his doctor, potentially delaying necessary treatment.`,
                     ],
                     link: '#',
-                },       
+                },
                 PSAMonitoring: {
                     subheading: 'How is the PSA test used in men who have been treated for prostate cancer?',
                     body: [
@@ -158,10 +158,10 @@ export const content = {
                         `Any detectable PSA in a man who has had his prostate removed for cancer is considered abnormal and must be followed up immediately.`,
                     ],
                     link: 'https://otagourology.co.nz/what-we-treat/psa-testing-and-screening/',
-                },                         
+                },
             },
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/stage-0/should-i-get-screened", current: true }
-        },        
+        },
     },
 }

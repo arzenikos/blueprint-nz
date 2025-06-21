@@ -1,23 +1,23 @@
-import { resourceContent } from './home'
+import { resourceContent } from '../home'
 
 export const content = {
-    "stage-3": {
-        // what-to-expect-now
-        heading1:{
-            stageNum: `3`,
+    "caregiver": {
+        // the-basics-you-need
+        heading1: {
+            stageNum: `caregiver`,
             headingNum: `1`,
-            title: resourceContent.contentByCategory["stage-3"].data['0'].heading,
+            title: resourceContent.contentByCategory["caregiver"].data['0'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["stage-3"].data['0'].content,
+            description: resourceContent.contentByCategory["caregiver"].data['0'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -25,24 +25,24 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-3/what-to-expect-now", current: true }
+            breadcrumbs: { link: "/caregiving/the-basics-you-need", current: true }
         },
-        // caring-for-a-tired-body
-        heading2:{
-            stageNum: `3`,
+        // youre-part-of-this-but-youre-still-you
+        heading2: {
+            stageNum: `caregiving`,
             headingNum: `2`,
-            title: resourceContent.contentByCategory["stage-3"].data['1'].heading,
+            title: resourceContent.contentByCategory["caregiver"].data['1'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["stage-3"].data['1'].content,
+            description: resourceContent.contentByCategory["caregiver"].data['1'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -50,24 +50,24 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-3/caring-for-a-tired-body", current: true }
+            breadcrumbs: { link: "/caregiving/youre-part-of-this-but-youre-still-you", current: true }
         },
-        // finding-your-ground
-        heading3:{
-            stageNum: `3`,
+        // real-support-for-real-people
+        heading3: {
+            stageNum: `caregiving`,
             headingNum: `3`,
-            title: resourceContent.contentByCategory["stage-3"].data['2'].heading,
+            title: resourceContent.contentByCategory["caregiver"].data['2'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["stage-3"].data['2'].content,
+            description: resourceContent.contentByCategory["caregiver"].data['2'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -75,7 +75,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-3/finding-your-ground", current: true }
+            breadcrumbs: { link: "/caregiving/real-support-for-real-people", current: true }
         },
-    },    
+    },
 };

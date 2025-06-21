@@ -43,6 +43,7 @@ export const userContent = {
     other: [
         { icon: "caregiver", label: "caregiver", type:  "Caregiver" },
         { icon: "researcher", label: "researcher", type:  "Researcher" },
+        { icon: "", label: "everything", type:  "General" },
     ],
 };
 
@@ -251,6 +252,20 @@ export const resourceContent = {
                         "➤ Participant recruitment tools. Data-sharing agreements & ethics resources.",
                         "➤ Researcher contact networks & collaboration portals"],
                 }
+            ]
+        },
+        "everything": {
+                parentLink: "General",
+                title: "General – Explore. Understand. Advance.",
+                data: [
+                {
+                    heading: "Structured Understanding + Statistics",
+                    content: [
+                        "➤ Disease progression: staging, grading, biomarkers.",
+                        "➤ Diagnostic pathways: PSA, biopsy, imaging.",
+                        "➤ Cross-system comparisons (NZ, AUS, US, EU).",
+                        "➤ Population data & cohort breakdowns"],
+                },
             ]
         }
     }

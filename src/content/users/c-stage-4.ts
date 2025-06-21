@@ -1,23 +1,23 @@
-import { resourceContent } from './home'
+import { resourceContent } from '../home'
 
 export const content = {
-    "caregiver": {
-        // the-basics-you-need
-        heading1:{
-            stageNum: `caregiver`,
+    "stage-4": {
+        // the-care-that-fits-you
+        heading1: {
+            stageNum: `4`,
             headingNum: `1`,
-            title: resourceContent.contentByCategory["caregiver"].data['0'].heading,
+            title: resourceContent.contentByCategory["stage-4"].data['0'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["caregiver"].data['0'].content,
+            description: resourceContent.contentByCategory["stage-4"].data['0'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -25,24 +25,24 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/caregiving/the-basics-you-need", current: true }
+            breadcrumbs: { link: "/stage-4/the-care-that-fits-you", current: true }
         },
-        // youre-part-of-this-but-youre-still-you
-        heading2:{
-            stageNum: `caregiving`,
+        // support-for-the-day-to-day
+        heading2: {
+            stageNum: `4`,
             headingNum: `2`,
-            title: resourceContent.contentByCategory["caregiver"].data['1'].heading,
+            title: resourceContent.contentByCategory["stage-4"].data['1'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["caregiver"].data['1'].content,
+            description: resourceContent.contentByCategory["stage-4"].data['1'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -50,24 +50,24 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/caregiving/youre-part-of-this-but-youre-still-you", current: true }
+            breadcrumbs: { link: "/stage4/support-for-the-day-to-day", current: true }
         },
-        // real-support-for-real-people
-        heading3:{
-            stageNum: `caregiving`,
+        // honouring-your-life
+        heading3: {
+            stageNum: `4`,
             headingNum: `3`,
-            title: resourceContent.contentByCategory["caregiver"].data['2'].heading,
+            title: resourceContent.contentByCategory["stage-4"].data['2'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["caregiver"].data['2'].content,
+            description: resourceContent.contentByCategory["stage-4"].data['2'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -75,7 +75,8 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/caregiving/real-support-for-real-people", current: true }
+            breadcrumbs: { link: "/stage-4/honouring-your-life", current: true }
         },
-    },    
+
+    },
 };

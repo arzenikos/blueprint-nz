@@ -1,23 +1,23 @@
-import { resourceContent } from './home'
+import { resourceContent } from '../home'
 
 export const content = {
-    "stage-2": {
-        // managing-the-mental-load
-        heading1:{
-            stageNum: `2`,
+    "stage-1": {
+        // understanding-your-diagnosis
+        heading1: {
+            stageNum: `1`,
             headingNum: `1`,
-            title: resourceContent.contentByCategory["stage-2"].data['0'].heading,
+            title: resourceContent.contentByCategory["stage-1"].data['0'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["stage-2"].data['0'].content,
+            description: resourceContent.contentByCategory["stage-1"].data['0'].content,
             main: {
-                x:{
-                    subheading: '-',
+                x: {
+                    subheading: '',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -25,24 +25,24 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-2/managing-the-mental-load", current: true }
+            breadcrumbs: { link: "/stage1/understanding-your-diagnosis", current: true }
         },
-        // staying-emotionally-steady
-        heading2:{
-            stageNum: `2`,
+        // strength-starts-with-care
+        heading2: {
+            stageNum: `1`,
             headingNum: `2`,
-            title: resourceContent.contentByCategory["stage-2"].data['1'].heading,
+            title: resourceContent.contentByCategory["stage-1"].data['1'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["stage-2"].data['1'].content,
+            description: resourceContent.contentByCategory["stage-1"].data['1'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -50,24 +50,24 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-2/staying-emotionally-steady", current: true }
+            breadcrumbs: { link: "/stage1/strength-starts-with-care", current: true }
         },
-        // your-body-your-needs
-        heading3:{
-            stageNum: `2`,
+        // navigating-your-options
+        heading3: {
+            stageNum: `1`,
             headingNum: `3`,
-            title: resourceContent.contentByCategory["stage-2"].data['2'].heading,
+            title: resourceContent.contentByCategory["stage-1"].data['2'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["stage-2"].data['2'].content,
+            description: resourceContent.contentByCategory["stage-1"].data['2'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -75,7 +75,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-2/your-body-your-needs", current: true }
+            breadcrumbs: { link: "/stage1/navigating-your-options", current: true }
         },
-    },    
-};
+    },
+}

@@ -1,23 +1,23 @@
-import { resourceContent } from './home'
+import { resourceContent } from '../home'
 
 export const content = {
-    "stage-4": {
-        // the-care-that-fits-you
-        heading1:{
-            stageNum: `4`,
+    "stage-2": {
+        // managing-the-mental-load
+        heading1: {
+            stageNum: `2`,
             headingNum: `1`,
-            title: resourceContent.contentByCategory["stage-4"].data['0'].heading,
+            title: resourceContent.contentByCategory["stage-2"].data['0'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["stage-4"].data['0'].content,
+            description: resourceContent.contentByCategory["stage-2"].data['0'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -25,24 +25,24 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-4/the-care-that-fits-you", current: true }
+            breadcrumbs: { link: "/stage-2/managing-the-mental-load", current: true }
         },
-        // support-for-the-day-to-day
-        heading2:{
-            stageNum: `4`,
+        // staying-emotionally-steady
+        heading2: {
+            stageNum: `2`,
             headingNum: `2`,
-            title: resourceContent.contentByCategory["stage-4"].data['1'].heading,
+            title: resourceContent.contentByCategory["stage-2"].data['1'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["stage-4"].data['1'].content,
+            description: resourceContent.contentByCategory["stage-2"].data['1'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -50,24 +50,24 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage4/support-for-the-day-to-day", current: true }
+            breadcrumbs: { link: "/stage-2/staying-emotionally-steady", current: true }
         },
-        // honouring-your-life
-        heading3:{
-            stageNum: `4`,
+        // your-body-your-needs
+        heading3: {
+            stageNum: `2`,
             headingNum: `3`,
-            title: resourceContent.contentByCategory["stage-4"].data['2'].heading,
+            title: resourceContent.contentByCategory["stage-2"].data['2'].heading,
             label: `Empty Page`,
-            description: resourceContent.contentByCategory["stage-4"].data['2'].content,
+            description: resourceContent.contentByCategory["stage-2"].data['2'].content,
             main: {
-                x:{
+                x: {
                     subheading: '-',
                     body: [
                         `p`,
                         `p`,
                         {
                             items: [
-                            'item'
+                                'item'
                             ]
                         },
                     ],
@@ -75,8 +75,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-4/honouring-your-life", current: true }
+            breadcrumbs: { link: "/stage-2/your-body-your-needs", current: true }
         },
-        
-    },    
+    },
 };
