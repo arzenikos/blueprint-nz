@@ -1,0 +1,14 @@
+---
+import Icon from '../../components/ui/Icon.astro';
+const {
+    head,
+    content
+} = Astro.props;
+---
+<div class="flex items-start gap-3 my-5 bg-[var(--color-palette-two)] hover:bg-[var(--color-palette-three)] border-l-4 border-blue-500 p-4 rounded shadow transition-colors duration-300">
+    <div class="text-2xl">💡</div>
+    <div class="text-[var(--color-palette-three)] hover:text-[var(--color-palette-four)]">
+        <p class="font-bold">{head}</p>
+        <p class="text-sm">{content}</p>
+    </div>
+</div>

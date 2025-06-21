@@ -5,6 +5,8 @@ import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 import { content } from '../../content/page-content.ts';
 import Icon from '../../components/ui/Icon.astro';
 
+import Callout from '../../components/ui/Callout.astro';
+
 const {
   heading = content["stage-0"].heading3.title,
   title = `Stage ${content["stage-0"].heading3.stageNum} - ${heading} | BluePrintNZ`,
@@ -21,6 +23,7 @@ const breadcrumbItems = [
 <Layout title=`${title}`>
   <div class="container mx-auto px-4 pt-10 pb-25">
     <Breadcrumbs items={breadcrumbItems} />
+
     <div class="max-w-4xl mx-auto">
       <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">{heading}</h1>
       <details class="group">
@@ -37,11 +40,20 @@ const breadcrumbItems = [
           File: <a href="https://tewaka-my.sharepoint.com/:b:/r/personal/ads0417_arastudent_ac_nz/Documents/Documents/20250220%20-%20SoftwareDev/Assignment%203/Files/Prostate%20Cancer/PDF%20Papers%20and%20Information%20Files/node-key/PSA%20testing%20and%20screening%20Otago%20Urology.pdf?csf=1&web=1&e=CgdAsR" class="pt-2">PSA testing and screening Otago Urology</a>
         </p>
       </details>
-      <hr class="my-4 border-t border-gray-300" />
       
+      <hr class="my-4 border-t border-[var(--color-palette-two)]0" />
+
+      <Callout
+        head="Important"
+        content="Any detectable PSA in a man who has had his prostate removed for cancer is abnormal and must be followed up immediately."
+      />
+    <!--  -->
       <span class="subheadings mt-5 flex gap-3">
         {main.PSATest.subheading}
         <a href=`${main.PSATest.link}`>
+          <!-- <span class="group hover:text-[var(--color-palette-two)] text-[var(--color-palette-five)] transition-colors duration-200">
+            <Icon class="page-link-icon" name="external-link" />
+          </span> -->
             <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)"/>
         </a>
       </span>
@@ -71,8 +83,6 @@ const breadcrumbItems = [
             <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)"/>
         </a>
       </span>
-      <!-- <p class="pt-2">{main.PSALimitations.body[0]}</p>
-        -->
       {main.PSALimitations.body.map((item, index) => {
         if (typeof item === 'string') {
           return <p class="pt-2">{item}</p>;
@@ -86,11 +96,27 @@ const breadcrumbItems = [
           );
         }
       })}
-
-                        
-
+    <!--  -->
+      <span class="subheadings mt-5 flex gap-3">
+        {main.PSAMonitoring.subheading}
+        <a href=`${main.PSAMonitoring.link}`>
+            <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)"/>
+        </a>
+      </span>
+      {main.PSAMonitoring.body.map((item, index) => {
+        if (typeof item === 'string') {
+          return <p class="pt-2">{item}</p>;
+        } else if (Array.isArray(item.items)) {
+          return (
+            <ul class="list-disc list-inside pt-2">
+              {item.items.map((subItem, subIndex) => (
+                <li>{subItem}</li>
+              ))}
+            </ul>
+          );
+        }
+      })}      
+      
   </div>
-  </div>
-  <script>
-  </script>
+</div>
 </Layout>

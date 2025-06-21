@@ -13,7 +13,6 @@ interface Props {
   autoplay?: boolean;
   interval?: number;
 }
-
 const { images, autoplay = true, interval = 5000 } = Astro.props;
 const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
 ---

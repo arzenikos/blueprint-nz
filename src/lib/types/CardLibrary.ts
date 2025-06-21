@@ -38,6 +38,6 @@ export const blueCardConfig = {
     },
     extraConfig: {
         hoverFx: false,
-        layout:'px-10 h-60 rounded-lg w-120 md:w-full shadow-md flex items-center justify-center',
+        layout:'px-10 md:px-5 md:mt-1 h-60 md:h-90 rounded-lg w-120 md:w-full shadow-md flex items-center justify-center',
     },
 };

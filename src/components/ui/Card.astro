@@ -27,7 +27,7 @@ const hoveredCardSize = config.hoverFx ? 'hover:scale-110' : 'hover:scale-100'
             <Icon class={icon.class} name={icon.name[index]} color={icon.textColor}/>
         </div>
         <!-- card heading -->
-        <p class=`${textClass.heading}text-xl font-semibold mb-3` style=`color: ${color.heading};`>{heading}</p>
+        <p class=`${textClass.heading} text-xl font-semibold mb-3` style=`color: ${color.heading};`>{heading}</p>
         <!-- card content -->
         {Array.isArray(content) ? (
             <ul class={`${textClass.content}`}>
