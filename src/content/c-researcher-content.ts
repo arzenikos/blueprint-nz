@@ -24,7 +24,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/research/heading1", current: true }
+            breadcrumbs: { link: "/research/structured-understanding-statistics", current: true }
         },
         heading2:{
             stageNum: `research`,
@@ -48,7 +48,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/research/heading2", current: true }
+            breadcrumbs: { link: "/research/trials-treatment-innovation", current: true }
         },
         heading3:{
             stageNum: `research`,
@@ -72,7 +72,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/research/heading3", current: true }
+            breadcrumbs: { link: "/research/tools-grants-collaboration", current: true }
         },
         
     },

@@ -78,7 +78,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage0/what-you-need-to-know-early", current: true }
+            breadcrumbs: { link: "/stage-0/what-you-need-to-know-early", current: true }
         },
         heading2:{
             stageNum: `0`,
@@ -102,7 +102,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage0/heading2", current: true }
+            breadcrumbs: { link: "/stage-0/small-choices-big-impact", current: true }
         },
         heading3:{
             stageNum: `0`,
@@ -158,7 +158,7 @@ export const content = {
                 },                         
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage0/heading3", current: true }
+            breadcrumbs: { link: "/stage-0/should-i-get-screened", current: true }
         },        
     },
 }

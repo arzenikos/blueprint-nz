@@ -24,7 +24,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage4/heading1", current: true }
+            breadcrumbs: { link: "/stage-4/the-care-that-fits-you", current: true }
         },
         heading2:{
             stageNum: `4`,
@@ -48,7 +48,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage4/heading2", current: true }
+            breadcrumbs: { link: "/stage4/support-for-the-day-to-day", current: true }
         },
         heading3:{
             stageNum: `4`,
@@ -72,7 +72,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage4/heading3", current: true }
+            breadcrumbs: { link: "/stage-4/honouring-your-life", current: true }
         },
         
     },    

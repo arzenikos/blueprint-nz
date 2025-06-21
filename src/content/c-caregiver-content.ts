@@ -24,7 +24,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/caregiving/heading1", current: true }
+            breadcrumbs: { link: "/caregiving/the-basics-you-need", current: true }
         },
         heading2:{
             stageNum: `caregiving`,
@@ -48,7 +48,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/caregiving/heading2", current: true }
+            breadcrumbs: { link: "/caregiving/youre-part-of-this-but-youre-still-you", current: true }
         },
         heading3:{
             stageNum: `caregiving`,
@@ -72,7 +72,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/caregiving/heading3", current: true }
+            breadcrumbs: { link: "/caregiving/real-support-for-real-people", current: true }
         },
     },    
 };

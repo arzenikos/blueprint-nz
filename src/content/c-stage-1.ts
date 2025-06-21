@@ -24,7 +24,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage1/heading1", current: true }
+            breadcrumbs: { link: "/stage1/understanding-your-diagnosis", current: true }
         },
         heading2:{
             stageNum: `1`,
@@ -48,7 +48,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage1/heading2", current: true }
+            breadcrumbs: { link: "/stage1/strength-starts-with-care", current: true }
         },
         heading3:{
             stageNum: `1`,
@@ -72,7 +72,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage1/heading3", current: true }
+            breadcrumbs: { link: "/stage1/navigating-your-options", current: true }
         },
     }, 
 }

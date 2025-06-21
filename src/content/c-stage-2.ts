@@ -24,7 +24,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage2/heading1", current: true }
+            breadcrumbs: { link: "/stage-2/managing-the-mental-load", current: true }
         },
         heading2:{
             stageNum: `2`,
@@ -48,7 +48,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage2/heading2", current: true }
+            breadcrumbs: { link: "/stage-2/staying-emotionally-steady", current: true }
         },
         heading3:{
             stageNum: `2`,
@@ -72,7 +72,7 @@ export const content = {
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage2/heading3", current: true }
+            breadcrumbs: { link: "/stage-2/your-body-your-needs", current: true }
         },
     },    
 };
