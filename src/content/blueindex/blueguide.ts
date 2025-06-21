@@ -1,143 +1,272 @@
-export const bluenodeData = {
+import { resourceContent } from '../home.ts'
+
+// const nodeTitleGetter = (title:string, user: string) => {
+//   return resourceContent.contentByCategory[user].title || `Stage 0 – Stay Ahead, Stay Informed`;
+// };
+
+export const blueguideData = {
   key: `Start Here`,
   text: `Start Here`,
   info: `
-    <strong>Abiraterone acetate (Zytiga®)</strong> is a selective, irreversible CYP17 inhibitor used in combination with prednisone for treating <strong>metastatic castration-resistant prostate cancer (mCRPC)</strong>.
     <br><br>
-    It blocks androgen biosynthesis, prolongs survival, and improves symptoms in both pre- and post-chemotherapy settings. It is now <strong>PHARMAC-funded in New Zealand</strong> under Special Authority.
   `,
   children: [
     {
-      key: `Context`,
-      text: `Prostate Cancer Burden`,
+      key: `Stage Zero`,
+      text: "Stage 0 – Stay Ahead, Stay Informed",
       info: `
-        Prostate cancer is one of the most common cancers globally, accounting for 8% of diagnoses and deaths (2012).
-        <br><br>
-        <strong>Economic burden:</strong><br>
-        - Lifetime cost per US patient: >$110,000<br>
-        - US-wide 2008 cohort: $12.4 billion<br><br>
-        <strong>Progression Model:</strong><br>
-        Localised → Rising PSA → Metastases → CRPC → Death
       `,
       children: [
         {
-          key: `DetectionStats`,
-          text: `Disease Progression Stats`,
+          key: `Starters, Prevention, Testing`,
+          text: `What You Need to Know Early`,
           info: `
-            - 10–20% of men present with metastatic disease<br>
-            - 20–30% of localised cases eventually metastasise<br>
-            - Median survival for mCRPC used to be <2 years
+          <strong></strong>
+          + Intro to prostate basics, risks, symptoms,  <br>
+          + What prostate cancer is (and isn\’t),  <br>
+          + Why screening matter,  <br>
+          + What the PSA test actually tells you <br>
           `
-        }
+        },
+        {
+          key: `Nutrition & Healthy Lifestyle Tips`,
+          text: `Small Choices, Big Impact`,
+          info: `
+          <strong></strong>
+          + Nutrition tips to support prostate health<br>
+          + Building healthy sleep & fitness habits<br>
+          + How lifestyle influences your risk<br>
+          `
+        },
+        {
+          key: `Testing`,
+          text: `Should I Get Screened?`,
+          info: `
+          <strong></strong>
+          + PSA test info, who screening is for, etc.<br>
+          + What “watchful waiting” means<br>
+          + Next steps & questions to ask. How to track changes without stress<br>
+          `
+        },        
       ]
     },
     {
-      key: `TherapyEvolution`,
-      text: `Treatment Evolution`,
+      key: `Stage One`,
+      text: "Stage 1 – You Caught It Early. That’s Power",
       info: `
-        <strong>Before 2004:</strong> Only ADT, palliative intent<br>
-        <strong>2004:</strong> Docetaxel + prednisone shows ~2-month OS benefit<br>
-        <strong>Post-2010:</strong> New agents target androgen axis (e.g. abiraterone)
       `,
       children: [
         {
-          key: `AbirateroneDesign`,
-          text: `Abiraterone Mechanism`,
+          key: `Diagnosis`,
+          text: `Understanding Your Diagnosis`,
           info: `
-            Abiraterone inhibits CYP17 enzymes (17α-hydroxylase and C17,20-lyase), blocking androgen synthesis in the adrenal glands and tumor microenvironment.
-            <br><br>
-            Leads to ↓ testosterone and ↑ mineralocorticoids → side effects like hypertension, hypokalaemia, oedema.<br>
-            Requires co-treatment with low-dose prednisone.
+          + What Stage 1 means, in plain terms.<br>
+          + First-line treatment options explained.",<br>
+          + What staying on active surveillance looks like<br>
           `
         },
         {
-          key: `Comparison`,
-          text: `Comparison to Ketoconazole`,
+          key: `Diet & Fitness`,
+          text: `Strength Starts with Care`,
           info: `
-            Ketoconazole was a non-specific CYP17 inhibitor with high toxicity.<br>
-            Abiraterone is more potent and selective with a better safety profile.
+          + Eating to support recovery.<br>
+          + Sleep hygiene during stress.<br>
+          + Safe movement & light fitness<br>
           `
-        }
+        },        
+        {
+          key: `Treatment Plan`,
+          text: `Navigating Your Options`,
+          info: `
+          + Treatment paths: surgery, radiation, hormone therapy.<br>
+          + What to expect during and after.<br>
+          + Working with your medical team.<br>
+          `
+        },        
       ]
     },
     {
-      key: `NZContext`,
-      text: `New Zealand Use`,
+      key: `Stage Two`,
+      text: "Stage 2 – You’re Not in This Alone",
       info: `
-        <strong>Findings:</strong><br>
-        - ADT underused; chemotherapy rarely administered<br>
-        - Māori/Pacific men more likely to receive ADT/orchidectomy<br>
-        - Monitoring (e.g. PSA) not always consistent<br><br>
-        <strong>PHARMAC Funding (May 2015):</strong><br>
-        Abiraterone listed under Special Authority for mCRPC, pre- or post-chemotherapy
       `,
       children: [
         {
-          key: `Criteria`,
-          text: `Eligibility Criteria`,
+          key: `Mental Health`,
+          text: `Managing the Mental Load`,
           info: `
-            <strong>Initial:</strong> mCRPC with metastases, ECOG 0–1 (or 0–2 post-taxane), progression after ADT<br>
-            <strong>Renewal:</strong> PSA response, no clinical progression, no taxane use, ongoing benefit
+          + How to cope with “what if” thoughts.<br>
+          + Support networks and simple tools.<br>
+          + When and how to ask for help.<br>
           `
-        }
+        },
+        {
+          key: `Emotional Support`,
+          text: `Staying Emotionally Steady`,
+          info: `
+          + Intro to prostate basics, risks, symptoms,  <br>
+          + Mental health check-ins.<br>
+          + Talking to family, friends, or a counselor.<br>
+          + Guided tools to reduce overwhelm.<br>
+          `
+        },        
+        {
+          key: `Signs & Warnings`,
+          text: `Your Body, Your Needs`,
+          info: `
+          + Managing side effects through food & rest.<br>
+          + Handling fatigue & disrupted sleep.<br>
+          + Keeping active within your limits.<br>
+          `
+        },        
       ]
     },
     {
-      key: `TrialEvidence`,
-      text: `Clinical Trials`,
+      key: `Stage Three`,
+      text: "Stage 3 – It’s a Lot. We’ll Walk It With You",
       info: `
-        Two key Phase III trials demonstrate survival and quality-of-life benefits of abiraterone + prednisone in mCRPC.
       `,
       children: [
         {
-          key: `COUAA301`,
-          text: `Post-Chemo (COU-AA-301)`,
+          key: `Mid-stage Care Plan `,
+          text: `What to Expect Now`,
           info: `
-            <strong>Participants:</strong> 1195 men with prior docetaxel<br>
-            <strong>Results:</strong> OS 14.8 vs 10.9 months; rPFS, PSA response improved<br>
-            <strong>AEs:</strong> Mostly mild, mineralocorticoid-related
+          + Stage 3 treatment landscape.<br>
+          + Coordinating care across teams.<br>
+          + Understanding more complex symptoms.<br>
           `
         },
         {
-          key: `ElderlySubgroup`,
-          text: `Elderly (≥75) Subgroup`,
+          key: `Self-Care`,
+          text: `Caring for a Tired Body`,
           info: `
-            <strong>OS:</strong> 15.6 vs 9.3 months<br>
-            <strong>PSA Response:</strong> 34% vs 8%<br>
-            Well-tolerated in older patients
+          + Gentle nutrition and hydration tips.<br>
+          + Fatigue, sleep disruption, and what helps.<br>
+          + Movement when you can — or resting when you need.<br>
+          `
+        },        
+        {
+          key: `Mid-stage support`,
+          text: `Finding Your Ground`,
+          info: `
+          + Naming difficult emotions.<br>
+          + Support groups that feel real.<br>
+          + Keeping some control in the chaos<br>
+          `
+        },        
+      ]
+    },           
+    {
+      key: `Stage Four`,
+      text: "Stage 4 – Comfort. Dignity. You.",
+      info: `
+      `,
+      children: [
+        {
+          key: `The Care Plan`,
+          text: `The Care That Fits You`,
+          info: `
+          + Treatment vs. comfort decisions.<br>
+          + What palliative support actually means.<br>
+          + Being heard by your team<br>
           `
         },
         {
-          key: `COUAA302`,
-          text: `Pre-Chemo (COU-AA-302)`,
+          key: `Relief & Rest`,
+          text: `Support for the Day-to-Day`,
           info: `
-            <strong>Participants:</strong> 1088 chemo-naïve men<br>
-            <strong>rPFS:</strong> 16.5 vs 8.3 months<br>
-            <strong>OS:</strong> 34.7 vs 30.3 months (adjusted)<br>
-            <strong>Other Benefits:</strong> Delayed chemo, less opiate use, better quality of life
+          + Eating what feels right.<br>
+          + Sleep, pain relief, and symptom tools.<br>
+          + Movement, touch, or stillness — what works for you.<br>
           `
-        },
+        },        
         {
-          key: `EAP`,
-          text: `Real-World (EAP Study)`,
+          key: `Legacy & Life`,
+          text: `Honouring Your Life`,
           info: `
-            <strong>Sample:</strong> 2314 men post-chemo (23 countries)<br>
-            <strong>Median follow-up:</strong> 5.7 months<br>
-            <strong>Findings:</strong> No new safety signals; AE profile similar to COU-AA-301
+          + Intro to prostate basics, risks, symptoms,  <br>
+          + Processing what matters to you." <br>
+          + Creative legacy & joy in small things. " <br>
+          + Support for family & chosen whānau <br>
           `
-        }
+        },        
       ]
     },
     {
-      key: `Conclusion`,
-      text: `Concluding Remarks`,
+      key: `Caregiving`,
+      text: "Caregiver – You’re Helping. Don’t Forget You Matter Too.",
       info: `
-        - Abiraterone confirms importance of androgen inhibition in mCRPC<br>
-        - Part of a growing treatment arsenal (e.g. enzalutamide, sipuleucel-T)<br>
-        - No biomarker exists to choose agent order<br>
-        - Early treatment, monitoring, and multidisciplinary care improve outcomes
-      `
-    }
+      `,
+      children: [
+        {
+          key: `The Basics`,
+          text: `The Basics You Need`,
+          info: `
+          + Intro to prostate basics, risks, symptoms,  <br>
+          + What’s happening in your loved one’s body.<br>
+          + How to assist with treatment & symptoms.<br>
+          + Clear answers to tough questions.<br>
+          `
+        },
+        {
+          key: `Self- Care`,
+          text: `You’re Part of This — But You’re Still You`,
+          info: `
+          + Managing burnout, sleep loss, and food fatigue."<br>
+          + Fitness or rest — what your body asks for."<br>
+          + Emotional weight & how to put it down sometimes.<br>
+          `
+        },        
+        {
+          key: `Support Guide`,
+          text: `Real Support for Real People`,
+          info: `
+          + Who to call, where to go<br>
+          + Practical guides, appointment planners<br>
+          + Honest voices from other caregivers<br>
+          `
+        },        
+      ]
+    },
+    {
+      key: `Research`,
+      text: "Researcher – Explore. Understand. Advance.",
+      info: `
+      `,
+      children: [
+        {
+          key: `Statistics`,
+          text: `Structured Understanding`,
+          info: `
+          + Disease progression: staging, grading, biomarkers."<br>
+          + Diagnostic pathways: PSA, biopsy, imaging."<br>
+          + Cross-system comparisons (NZ, AUS, US, EU)."<br>
+          + Population data & cohort breakdowns<br>
+          `
+        },
+        {
+          key: `Research Updates`,
+          text: `Trials, Treatment & Innovation`,
+          info: `
+          + Ongoing trials & novel therapies (NZ/international)<br>
+          + Treatment outcomes by demographic & stage.<br>
+          + Health equity & access gaps.<br>
+          + NZ-specific research themes (rural, Māori, Pacific populations)<br>
+          `
+        },        
+        {
+          key: `Community & Grants`,
+          text: `Tools, Grants & Collaboration`,
+          info: `
+          + Active and upcoming grant opportunities (HRC, MBIE, etc.)<br>
+          + Submission guidelines & funding timelines.<br>
+          + Participant recruitment tools. Data-sharing agreements & ethics resources.<br>
+          + Researcher contact networks & collaboration portals
+<br>
+          `
+        },        
+      ]
+    },         
   ]
 };
 

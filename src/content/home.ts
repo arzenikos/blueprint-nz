@@ -152,21 +152,24 @@ export const resourceContent = {
                     content: [
                         "➤ Stage 3 treatment landscape.",
                         "➤ Coordinating care across teams.",
-                        "➤ Understanding more complex symptoms."],
+                        "➤ Understanding more complex symptoms."
+                    ],
                 },
                 {
                     heading: "Caring for a Tired Body",
                     content: [
                         "➤ Gentle nutrition and hydration tips.",
                         "➤ Fatigue, sleep disruption, and what helps.",
-                        "➤ Movement when you can — or resting when you need."],
+                        "➤ Movement when you can — or resting when you need."
+                    ],
                 },
                 {
                     heading: "Finding Your Ground",
                     content: [
                         "➤ Naming difficult emotions.",
                         "➤ Support groups that feel real.",
-                        "➤ Keeping some control in the chaos"],
+                        "➤ Keeping some control in the chaos"
+                    ],
                 }
             ],
         },
@@ -179,21 +182,24 @@ export const resourceContent = {
                     content: [
                         "➤ Treatment vs. comfort decisions.",
                         "➤ What palliative support actually means.",
-                        "➤ Being heard by your team"],
+                        "➤ Being heard by your team"
+                    ],
                 },
                 {
                     heading: "Support for the Day-to-Day",
                     content: [
                         "➤ Eating what feels right.",
                         "➤ Sleep, pain relief, and symptom tools.",
-                        "➤ Movement, touch, or stillness — what works for you."],
+                        "➤ Movement, touch, or stillness — what works for you."
+                    ],
                 },
                 {
                     heading: "Honouring Your Life",
                     content: [
                         "➤ Processing what matters to you.",
                         "➤ Creative legacy & joy in small things. ",
-                        "➤ Support for family & chosen whānau"],
+                        "➤ Support for family & chosen whānau"
+                    ],
                 }
             ],
         },
@@ -206,21 +212,24 @@ export const resourceContent = {
                     content: [
                         "➤ What’s happening in your loved one’s body.",
                         "➤ How to assist with treatment & symptoms.",
-                        "➤ Clear answers to tough questions."],
+                        "➤ Clear answers to tough questions."
+                    ],
                 },
                 {
                     heading: "You’re Part of This — But You’re Still You",
                     content: [
                         "➤ Managing burnout, sleep loss, and food fatigue.",
                         "➤ Fitness or rest — what your body asks for.",
-                        "➤ Emotional weight & how to put it down sometimes."],
+                        "➤ Emotional weight & how to put it down sometimes."
+                    ],
                 },
                 {
                     heading: "Real Support for Real People",
                     content: [
                         "➤ Who to call, where to go.",
                         "➤ Practical guides, appointment planners.",
-                        "➤ Honest voices from other caregivers."],
+                        "➤ Honest voices from other caregivers."
+                    ],
                 }
             ],
         },
@@ -229,12 +238,13 @@ export const resourceContent = {
                 title: "Researcher – Explore. Understand. Advance.",
                 data: [
                 {
-                    heading: "Structured Understanding + Statistics",
+                    heading: "Structured Understanding",
                     content: [
                         "➤ Disease progression: staging, grading, biomarkers.",
                         "➤ Diagnostic pathways: PSA, biopsy, imaging.",
                         "➤ Cross-system comparisons (NZ, AUS, US, EU).",
-                        "➤ Population data & cohort breakdowns"],
+                        "➤ Population data & cohort breakdowns"
+                    ],
                 },
                 {
                     heading: "Trials, Treatment & Innovation",
@@ -242,7 +252,8 @@ export const resourceContent = {
                         "➤ Ongoing trials & novel therapies (NZ/international).",
                         "➤ Treatment outcomes by demographic & stage.",
                         "➤ Health equity & access gaps.",
-                        "➤ NZ-specific research themes (rural, Māori, Pacific populations)."],
+                        "➤ NZ-specific research themes (rural, Māori, Pacific populations)."
+                    ],
                 },
                 {
                     heading: "Tools, Grants & Collaboration",
@@ -250,7 +261,8 @@ export const resourceContent = {
                         "➤ Active and upcoming grant opportunities (HRC, MBIE, etc.).",
                         "➤ Submission guidelines & funding timelines.",
                         "➤ Participant recruitment tools. Data-sharing agreements & ethics resources.",
-                        "➤ Researcher contact networks & collaboration portals"],
+                        "➤ Researcher contact networks & collaboration portals"
+                    ],
                 }
             ]
         },
@@ -264,7 +276,8 @@ export const resourceContent = {
                         "➤ Disease progression: staging, grading, biomarkers.",
                         "➤ Diagnostic pathways: PSA, biopsy, imaging.",
                         "➤ Cross-system comparisons (NZ, AUS, US, EU).",
-                        "➤ Population data & cohort breakdowns"],
+                        "➤ Population data & cohort breakdowns"
+                    ],
                 },
             ]
         }

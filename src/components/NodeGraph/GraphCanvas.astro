@@ -64,7 +64,7 @@ const {
           overflow: go.TextBlock.OverflowEllipsis,
           wrap: go.TextBlock.WrapFit,
           textAlign: 'center'
-        }).bind('text', '', data => data.text || data.key)
+        }).bind('text', '', data => data.key || data.text)
       )
     );
     
@@ -83,7 +83,8 @@ const {
     const nodeTitle = document.getElementById('detail-title');
     const nodeContent = document.getElementById('detail-content');
     if (nodeTitle && nodeContent) {
-      nodeTitle.innerHTML = `${data.text}`;
+      // nodeTitle.innerHTML = `${data.title}` || `${data.text}`;
+      nodeTitle.innerHTML = data?.title || data?.text || "Node Not Found";
       nodeContent.innerHTML = `${data.info}`;
     }
   }

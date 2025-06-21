@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 
 // BlueNode components
-import DetailPanel from '../../components/NodeGraph/DetailPanel.astro';
+import BlueNodeDetails from '../../components/NodeGraph/BlueNodeDetails.astro';
 import GraphCanvas from '../../components/NodeGraph/GraphCanvas.astro';
 import Callout from '../../components/ui/Callout.astro';
 
@@ -20,12 +20,12 @@ const breadcrumbItems = [
 
   <!-- Full-page Interactive Node Graph -->
   <div class="mb-5 w-full " id="node-container">
-    <div class="w-auto mx-10 md:mx-40">
+    <!-- <div class="w-auto mx-10 md:mx-40">
        <Callout
          head="Take the First Step."
          content="Welcome to Blue Journey — your personalized walkthrough to understanding prostate health. From early screening to treatment options, we’ll guide you step-by-step through the essentials. Empower yourself with knowledge, ask the right questions, and discover supportive resources — all in one clear, accessible path."
        />
-     </div>
+     </div> -->
     <!-- Main Graph Area (2/3 width) -->
     <div class="flex flex-col md:flex-row mb-5 px-10 h-[calc(100vh-var(--header-height)-var(--footer-height))]">
       <div class="w-full md:w-3/5 relative">
@@ -33,8 +33,8 @@ const breadcrumbItems = [
         <GraphCanvas data={bluenodeData} />
       </div>
       <div class="w-full md:w-2/5 relative">
-      <!-- DetailPanel (1/3 width) -->
-        <DetailPanel />
+      <!-- BlueNodeDetails (1/3 width) -->
+        <BlueNodeDetails />
       </div>
     </div>
   </div>
