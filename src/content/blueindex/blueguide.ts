@@ -8,13 +8,21 @@ export const blueguideData = {
   key: `Start Here`,
   text: `Start Here`,
   info: `
-    <br><br>
+    He mate repe tāne — prostate cancer — can bring worry and unknowns. This guide is here for you and your whānau: to make things clearer, one step at a time.
   `,
   children: [
     {
       key: `Stage Zero`,
       text: "Stage 0 – Stay Ahead, Stay Informed",
       info: `
+      <strong>About Stage 0</strong>
+      On this page, you’ll find essential details about Stage 0 prostate cancer — what it means, how it’s monitored, and how you can take proactive steps for your health.
+      <br><br>
+
+      + What prostate cancer is, and what it isn\’t<br>
+      + What you need to know about screening<br>
+      + How to get tested<br>
+
       `,
       children: [
         {
@@ -42,10 +50,16 @@ export const blueguideData = {
           key: `Testing`,
           text: `Should I Get Screened?`,
           info: `
-          <strong></strong>
-          + PSA test info, who screening is for, etc.<br>
-          + What “watchful waiting” means<br>
-          + Next steps & questions to ask. How to track changes without stress<br>
+          <strong>PSA test info, who screening is for, etc.</strong>
+          <br>
+            + What to do if you get tested<br>
+            + What to do if you get diagnosed<br>
+          <strong>What “watchful waiting” means</strong>
+          <br>
+          + <br>
+          <strong>Next steps & questions to ask. How to track changes without stress</strong>
+          <br>
+          + <br>
           `
         },        
       ]
@@ -261,23 +275,10 @@ export const blueguideData = {
           + Active and upcoming grant opportunities (HRC, MBIE, etc.)<br>
           + Submission guidelines & funding timelines.<br>
           + Participant recruitment tools. Data-sharing agreements & ethics resources.<br>
-          + Researcher contact networks & collaboration portals
-<br>
+          + Researcher contact networks & collaboration portals<br>
           `
         },        
       ]
     },         
   ]
 };
-
-
-/*
-    { 
-      key: ``, text: ``,
-      info: 
-      ``
-    },
-
-    <strong>
-    </strong>
-*/
