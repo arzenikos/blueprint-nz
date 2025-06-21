@@ -58,8 +58,8 @@ export const content = {
                     items: [
                         { 
                             detail:"Common medications include LHRH agonists (like leuprolide) or anti-androgens (like bicalutamide)",
-                            image:"",
-                            alt:""
+                            image:"/assets/s1/bicalutamide.jpg",
+                            alt:"https://c8.alamy.com/comp/2RTW9PX/bicalutamide-molecule-it-is-nonsteroidal-anti-androgen-for-prostate-cancer-skeletal-chemical-formula-paper-packaging-for-drugs-vector-illustration-2RTW9PX.jpg"
                         },
                         { 
                             detail:"Chemotherapy may be used if the cancer has spread beyond the prostate.",
@@ -68,18 +68,18 @@ export const content = {
                         },
                         { 
                             detail:"Medications are often used alongside surgery or radiation as part of a broader treatment strategy.",
-                            image:"",
-                            alt:""
+                            image:"/assets/s1/meds",
+                            alt:"https://media.istockphoto.com/id/1480595414/photo/senior-man-taking-a-pill-in-a-bathroom.jpg?s=612x612&w=0&k=20&c=f-GkLanZnekDFGoNcjUp3VizcdWS138mJOfEnlzpV7c="
                         },
                         { 
                             detail:"Side effects can include fatigue, hot flushes, mood changes, and sexual dysfunction — these are managed as part of the care plan.",
-                            image:"",
-                            alt:""
+                            image:"/assets/s1/side-effects.JPG",
+                            alt:"https://www.shutterstock.com/image-photo/contemplative-man-leaning-on-large-600nw-2461917699.jpg"
                         },
                         { 
                             detail:"Care planning includes regular checkups, PSA monitoring, mental health support, and managing quality of life.",
-                            image:"",
-                            alt:""
+                            image:"/assets/s2/checkup.jpg",
+                            alt:"https://media.istockphoto.com/id/1473559507/photo/doctor-in-surgery-with-male-patient-using-digital-tablet.jpg?s=612x612&w=0&k=20&c=uUmS26ApuGpYB9ee4Zd7QhQEhSrU-1ySRHRKl2pylVQ="
                         },
 
                     ]
