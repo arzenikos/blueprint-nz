@@ -1,18 +1,19 @@
 ---
 // import { bluenodeData } from '../../content/bluenode.ts';
-
+// import ZoomControls from '../ui/ZoomControls.astro'
 const {
   data
 } = Astro.props;
 ---
 <div class="w-full md:h-full relative">
+  <!-- <ZoomControls/> -->
   <div id="nodes-viewport" class="w-full md:h-full overflow-hidden">
     <div id="nodes-container" class="w-full md:h-full relative transform-gpu origin-center">
-      <div id="bluenode-data" class="hidden">
-        {JSON.stringify(data)}
-      </div>
+         <div id="bluenode-data" class="hidden">
+            {JSON.stringify(data)}
+          </div>
 
-      <div id="diagram" class="h-70 md:h-full w-full" style="background-color: var(--color-palette-one);"></div>
+          <div id="diagram" class="h-70 md:h-full w-full" style="background-color: var(--color-palette-one);"></div>
     </div>
   </div>
   <svg class="absolute top-0 left-0 w-full md:h-full pointer-events-none" id="connection-lines"></svg>
@@ -21,23 +22,25 @@ const {
 <script src="https://cdn.jsdelivr.net/npm/gojs@3.0.24/release/go.js"></script>
 <script id="code">
   const rootDict = JSON.parse(document.getElementById('bluenode-data').textContent);
+  const zoomInBtn = document.getElementById('zoom-in');
+  const zoomOutBtn = document.getElementById('zoom-out');
 
   let bluenode;
   function init() {
     bluenode = new go.Diagram('diagram', {
       initialContentAlignment: go.Spot.TopCenter,
       layout: new go.TreeLayout({
-        angle: 0, // horizontal children by default
+        angle: 0,
         arrangement: go.TreeLayout.ArrangementVertical,
-        layerSpacing: 80,
+        layerSpacing: 40,
         nodeSpacing: 40
       }),
-      // allowMove: false,
-      // allowSelect: false,
+      // allowMove: false, // prevent dragging nodes individually
+      // allowSelect: false, // optional: prevent selection highlighting
       // 'toolManager.dragSelectingTool.isEnabled': false,
-      // 'toolManager.panningTool.isEnabled': true,
+      // 'toolManager.panningTool.isEnabled': true, // ✅ enable panning
       // 'toolManager.mouseWheelBehavior': go.ToolManager.WheelScroll,
-      // allowZoom: true
+      // allowZoom: true // keep zooming if needed
     });
 
     bluenode.animationManager.initialAnimationStyle = go.AnimationStyle.None;
@@ -47,23 +50,17 @@ const {
       isTreeExpanded: false,
       isTreeLeaf: false,
       click: (e, node) => {
-        e.diagram.clearSelection();
-        node.isSelected = true;
+        e.handled = true;
         expandNode(node);
         updateOutput(node.data);
       }
     }).add(
       new go.Panel('Auto', { name: 'PANEL' }).add(
         new go.Shape('RoundedRectangle', {
-          name: 'NODE_SHAPE',
           height: 40,
-          strokeWidth: 2,
-          stroke: 'white',
-          fill: 'whitesmoke'
-        })
-        .bind('stroke', 'isSelected', sel => sel ? '#ef4444' : 'white')
-        .bind('fill', 'isSelected', sel => sel ? '#0025a0' : 'whitesmoke'),
-
+          fill: 'whitesmoke',
+          stroke: 'white'
+        }).bind('rootdistance', dist => dist === 0 ? 160 : 80),
         new go.TextBlock({
           font: '10pt sans-serif',
           margin: 4,
@@ -73,7 +70,7 @@ const {
         }).bind('text', '', data => data.key || data.text)
       )
     );
-
+    
     bluenode.model = new go.TreeModel([
       {
         key: rootDict.key,
@@ -83,48 +80,26 @@ const {
         rootdistance: 0
       }
     ]);
-
-    // Add listener to reposition siblings vertically after layout
-    bluenode.addDiagramListener("LayoutCompleted", (e) => {
-      repositionSiblingsVertically(bluenode);
-    });
-  }
-
-  function repositionSiblingsVertically(diagram) {
-    diagram.nodes.each(node => {
-      if (!node.isTreeLeaf) {
-        const children = [];
-        node.findTreeChildrenNodes().each(child => children.push(child));
-        if (children.length > 1) {
-          const parentLoc = node.location.copy();
-          let verticalOffset = 60; // vertical offset from parent node
-          const offsetIncrement = 70; // vertical gap between siblings
-          let horizontalOffset = 190; // vertical offset from parent node
-          // const offsetIncrement = 70; // vertical gap between siblings
-          children.forEach((child, i) => {
-            child.location = new go.Point(parentLoc.x + horizontalOffset + offsetIncrement * i, parentLoc.y + verticalOffset + offsetIncrement * i);
-          });
-        }
-      }
-    });
   }
 
   function updateOutput(data) {
     const nodeTitle = document.getElementById('detail-title');
     const nodeContent = document.getElementById('detail-content');
     if (nodeTitle && nodeContent) {
+      // nodeTitle.innerHTML = `${data.title}` || `${data.text}`;
       nodeTitle.innerHTML = data?.title || data?.text || "Node Not Found";
       nodeContent.innerHTML = `${data.info}`;
     }
   }
-
+  
   function expandNode(node) {
     const diagram = node.diagram;
-    diagram.startTransaction('ExpandTree');
+    diagram.startTransaction('CollapseExpandTree');
 
     const data = node.data;
     const parent = node.findTreeParentNode();
 
+    // Collapse other siblings at same level
     if (parent) {
       parent.findTreeChildrenNodes().each((sibling) => {
         if (sibling !== node && sibling.isTreeExpanded) {
@@ -133,35 +108,31 @@ const {
       });
     }
 
+    // Only create children if not already expanded
     if (!data.everExpanded) {
       diagram.model.setDataProperty(data, 'everExpanded', true);
       createSubTree(data);
     }
 
-    const originalLoc = node.location.copy();
-
-    diagram.animationManager.isEnabled = true;
-    diagram.animationManager.duration = 300;
-    diagram.animationManager.easing = go.Animation.EaseOutQuad;
-
-    function preserveLocationAfterLayout(e) {
-      node.location = originalLoc;
-      diagram.removeDiagramListener("LayoutCompleted", preserveLocationAfterLayout);
-    }
-    diagram.addDiagramListener("LayoutCompleted", preserveLocationAfterLayout);
-
+    // Expand or collapse the clicked node depending on state
     if (node.isTreeExpanded) {
       diagram.commandHandler.collapseTree(node);
     } else {
       diagram.commandHandler.expandTree(node);
     }
 
-    diagram.commitTransaction('ExpandTree');
+    // Center the expanded node after layout is complete
+    diagram.commitTransaction('CollapseExpandTree');
+    // OPTION A
+    // diagram.zoomToFit(); // Optional: include if you want to scale view
+    // diagram.scrollToRect(node.actualBounds);
 
-    diagram.delayInitialization(() => {
-      const subtreeBounds = computeSubtreeBounds(node);
-      diagram.scrollToRect(subtreeBounds);
-    });
+    // // OPTION B
+    // //   // Ensure layout is done before panning
+      diagram.delayInitialization(() => {
+        const subtreeBounds = computeSubtreeBounds(node);
+        diagram.scrollToRect(subtreeBounds);
+      });
   }
 
   function computeSubtreeBounds(node) {
@@ -175,6 +146,7 @@ const {
     return bounds;
   }
 
+  // Recursive function to find any node in the dict tree
   function findNodeInDict(treeNode, key) {
     if (!treeNode) return null;
     if (treeNode.key === key) return treeNode;
@@ -215,7 +187,28 @@ const {
 
     return children.length;
   }
-
+  // // Zoom in button
+  // if (zoomInBtn) {
+  //   zoomInBtn.addEventListener('click', () => {
+  //     const newScale = Math.min(3, currentScale * 1.2);
+  //     if (newScale !== currentScale) {
+  //       currentScale = newScale;
+  //       applyTransform();
+  //     }
+  //   });
+  // }
+  
+  // // Zoom out button
+  // if (zoomOutBtn) {
+  //   zoomOutBtn.addEventListener('click', () => {
+  //     const newScale = Math.max(0.5, currentScale * 0.8);
+  //     if (newScale !== currentScale) {
+  //       currentScale = newScale;
+  //       applyTransform();
+  //     }
+  //   });
+  // }
+  
   window.addEventListener('DOMContentLoaded', init);
   window.addEventListener('keydown', (e) => {
     if ((e.key === 'F5') || (e.ctrlKey && e.key === 'r')) {
