@@ -204,7 +204,7 @@ export const resourceContent = {
             ],
         },
         "caregiver": {
-            parentLink: "researcher",
+            parentLink: "caregiver",
             title: "Caregiver – You’re Helping. Don’t Forget You Matter Too.",
             data: [
                 {

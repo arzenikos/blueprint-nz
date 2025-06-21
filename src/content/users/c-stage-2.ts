@@ -13,13 +13,12 @@ export const content = {
                 x: {
                     subheading: '-',
                     body: [
-                        `p`,
-                        `p`,
-                        {
-                            items: [
-                                'item'
-                            ]
-                        },
+                        `🚧 This page is still under development`,
+                        // {
+                        //     items: [
+                        //         'item'
+                        //     ]
+                        // },
                     ],
                     link: '#',
                 },
@@ -38,13 +37,12 @@ export const content = {
                 x: {
                     subheading: '-',
                     body: [
-                        `p`,
-                        `p`,
-                        {
-                            items: [
-                                'item'
-                            ]
-                        },
+                        `🚧 This page is still under development`,
+                        // {
+                        //     items: [
+                        //         'item'
+                        //     ]
+                        // },
                     ],
                     link: '#',
                 },
@@ -63,13 +61,12 @@ export const content = {
                 x: {
                     subheading: '-',
                     body: [
-                        `p`,
-                        `p`,
-                        {
-                            items: [
-                                'item'
-                            ]
-                        },
+                        `🚧 This page is still under development`,
+                        // {
+                        //     items: [
+                        //         'item'
+                        //     ]
+                        // },
                     ],
                     link: '#',
                 },
