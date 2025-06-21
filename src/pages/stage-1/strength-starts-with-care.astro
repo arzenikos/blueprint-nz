@@ -22,18 +22,59 @@ const breadcrumbItems = [{ label: heading, link: breadcrumb.link, current: bread
         <!-- 🧩 Header Component -->
         <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
         <span class="subheadings flex gap-3">
-            {main.x.subheading}
-            <a href=`${main.x.link}`>
-                <!-- <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);"> -->
+            <strong>{main.KegelIntro.subheading}</strong>
+            <!-- <a href=`${main.x.link}`>
                 <Icon class="card-icon" name="external-link" color="var(--color-palette-five)" />
-                <!-- </div> -->
-            </a>
+            </a> -->
         </span>
-        <p class="pt-2">{main.x.body[0]}</p>
-        <p class="pt-2">{main.x.body[1]}</p>
-        <ul>
+        <p class="pt-2">{main.KegelIntro.description}</p>
+        <div class="w-full flex flex-col md:flex-row gap-10 max-w-6xl mx-auto px-4 mt-20 items-center">
+            <div class="md:w-1/2 w-full flex justify-center">
+                <img 
+                src={main.KegelIntro.kegelImage} 
+                alt="Kegel exercise illustration" 
+                class="w-full max-w-md md:max-w-full h-auto object-contain"
+                loading="lazy"
+                />
+            </div>
+
+            <div class="md:w-1/2 w-full space-y-6">
+                {[
+                "Identify the muscles: Try stopping urination midstream—that's your pelvic floor.",
+                "Contract: Squeeze and hold for 3–5 seconds, then release.",
+                "Repeat: Do 10 reps, 2–3 times a day.",
+                "Consistency matters: Do them daily for best results.",
+                ].map((step, i) => (
+                <div class="flex items-start gap-4 px-20 md:px-10">
+                    <div class="min-w-[2rem] min-h-[2rem] flex items-center justify-center bg-[var(--color-palette-accent)] text-[var(--color-palette-one)] rounded-full font-bold text-sm shadow">
+                    {i + 1}
+                    </div>
+                    <p class="text-base md:text-lg leading-relaxed text-[var(--color-palette-five)]">
+                    {step}
+                    </p>
+                </div>
+                ))}
+                <hr>
+                <div class="mt-10">
+                <h6>
+                    <strong>Want a step-by-step walkthrough? Watch our detailed demo video{' '}
+                    <a href={main.KegelIntro.link} target="_blank" rel="noopener noreferrer">here</a>!</strong>
+                </h6>
+                <a href={main.KegelIntro.link} target="_blank" rel="noopener noreferrer">
+                    <img
+                    src={main.KegelIntro.thumbnail} 
+                    alt="Demo Video Thumbnail"
+                    style={{ cursor: 'pointer', maxWidth: '100%', height: 'auto', marginTop: '8px' }}
+                    />
+                </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <ul>
             {main.x.body[2].items.map((item, i) => <li class="pt-2 pl-4">{`- ${item}`}</li>)}
-        </ul>
+        </ul> -->
     </div>
 </Layout>
 <script></script>

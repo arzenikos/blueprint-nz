@@ -26,21 +26,15 @@ export const content = {
             stageNum: `1`,
             headingNum: `2`,
             title: resourceContent.contentByCategory["stage-1"].data['1'].heading,
-            label: `Empty Page`,
+            label: `Strength Starts with Care`,
             description: resourceContent.contentByCategory["stage-1"].data['1'].content,
             main: {
-                x: {
-                    subheading: '-',
-                    body: [
-                        `p`,
-                        `p`,
-                        {
-                            items: [
-                                'item'
-                            ]
-                        },
-                    ],
-                    link: '#',
+                KegelIntro: {
+                    subheading: 'Kegel Exercise',
+                    description:`Kegel exercises are a simple, no-equipment way to boost bladder control and support prostate recovery—just a few squeezes a day can make a big difference.`,
+                    kegelImage:"/assets/s1/s1h2-kegel-steps.jpg",
+                    thumbnail: '/assets/s1/s1h2-kegel-vid-thumbnail.JPG',
+                    link: 'https://youtu.be/XWpRg0mgsTI',
                 },
             },
             footnote: `Redirecting you back home in a moment…`,
