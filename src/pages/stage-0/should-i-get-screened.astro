@@ -1,8 +1,8 @@
 ---
 // <!-- Not imported by any file -->
 import Layout from '../../layouts/Layout.astro';
-import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
-import { content } from '../../content/page-content.ts';
+import MainPageHeading from '../../components/MainPageHeading.astro';
+import { content } from '../../content/c-stage-0.ts';
 import Icon from '../../components/ui/Icon.astro';
 
 import Callout from '../../components/ui/Callout.astro';
@@ -22,26 +22,13 @@ const breadcrumbItems = [
 ---
 <Layout title=`${title}`>
   <div class="container mx-auto px-4 pt-10 pb-25">
-    <Breadcrumbs items={breadcrumbItems} />
 
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">{heading}</h1>
-      <details class="group">
-      <summary class="cursor-pointer font-semibold">Summary</summary>
-          <ul style="padding-left:2rem" class="ml-4 mt-2 text-gray-700 group-open:animate-fade-in">
-          {Array.isArray(description) && description.map((p, i) => (
-              <li class="mb-4">{p}</li>
-            ))}
-          </ul>
-        <p>
-          Sources: <a href={main.PSATest.link} class="pt-2">{main.PSATest.link}</a>
-        </p>
-        <p>
-          File: <a href="https://tewaka-my.sharepoint.com/:b:/r/personal/ads0417_arastudent_ac_nz/Documents/Documents/20250220%20-%20SoftwareDev/Assignment%203/Files/Prostate%20Cancer/PDF%20Papers%20and%20Information%20Files/node-key/PSA%20testing%20and%20screening%20Otago%20Urology.pdf?csf=1&web=1&e=CgdAsR" class="pt-2">PSA testing and screening Otago Urology</a>
-        </p>
-      </details>
-      
-      <hr class="my-4 border-t border-[var(--color-palette-two)]0" />
+    <!-- 🧩 Header Component -->
+    <MainPageHeading
+      heading={heading}
+      description={description}
+      breadcrumbItems={breadcrumbItems}
+    />
 
       <Callout
         head="Important"
@@ -116,7 +103,14 @@ const breadcrumbItems = [
           );
         }
       })}      
-      
+    <hr class="my-4 border-t border-[var(--color-palette-two)]0" />
+    <h5>References</h5>
+    <p>
+    --+ <a href={main.PSATest.link} class="pt-2">{main.PSATest.link}</a>
+    </p>
+    <p>
+    --+ <a href="https://tewaka-my.sharepoint.com/:b:/r/personal/ads0417_arastudent_ac_nz/Documents/Documents/20250220%20-%20SoftwareDev/Assignment%203/Files/Prostate%20Cancer/PDF%20Papers%20and%20Information%20Files/node-key/PSA%20testing%20and%20screening%20Otago%20Urology.pdf?csf=1&web=1&e=CgdAsR" class="pt-2">PSA testing and screening Otago Urology</a>
+    </p>
   </div>
 </div>
 </Layout>

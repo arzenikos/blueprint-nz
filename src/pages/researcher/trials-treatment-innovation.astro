@@ -1,8 +1,8 @@
 ---
 // <!-- Not imported by any file -->
 import Layout from '../../layouts/Layout.astro';
-import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
-import { content } from '../../content/page-content';
+import MainPageHeading from '../../components/MainPageHeading.astro';
+import { content, researchCategories } from '../../content/c-researcher-content.ts';
 import Icon from '../../components/ui/Icon.astro';
 
 const {
@@ -17,21 +17,19 @@ const {
 const breadcrumbItems = [
   { label: heading , link: breadcrumb.link, current: breadcrumb.current }
 ];
+
+
 ---
 <Layout title=`${title}`>
   <div class="container mx-auto px-4 pt-10 pb-25">
-    <Breadcrumbs items={breadcrumbItems} />
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">{heading}</h1>
-      <details class="group">
-      <summary class="cursor-pointer font-semibold">Summary</summary>
-          <ul style="padding-left:2rem" class="ml-4 mt-2 text-gray-700 group-open:animate-fade-in">
-          {Array.isArray(description) && description.map((p, i) => (
-              <li class="mb-4">{p}</li>
-            ))}
-          </ul>
-      </details>
-      <hr class="my-4 border-t border-gray-300" />
+
+    <!-- 🧩 Header Component -->
+    <MainPageHeading
+      heading={heading}
+      description={description}
+      breadcrumbItems={breadcrumbItems}
+    />
+
       <span class="subheadings flex gap-3">
         {main.x.subheading}
         <a href=`${main.x.link}`>

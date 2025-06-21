@@ -1,43 +1,38 @@
 ---
-// <!-- Not imported by any file -->
 import Layout from '../../layouts/Layout.astro';
-import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
-import { content } from '../../content/page-content.ts';
+import MainPageHeading from '../../components/MainPageHeading.astro';
 import Icon from '../../components/ui/Icon.astro';
+import { content } from '../../content/c-caregiver-content.ts';
 
 const {
   heading = content["caregiver"].heading2.title,
   title = `Stage ${content["caregiver"].heading2.stageNum} - ${heading} | BluePrintNZ`,
   description = content["caregiver"].heading2.description,
   main = content["caregiver"].heading2.main,
-  // link = content["caregiver"].heading2.description,
   breadcrumb = content["caregiver"].heading2.breadcrumbs,
-} = Astro.props
+} = Astro.props;
 
 const breadcrumbItems = [
   { label: heading , link: breadcrumb.link, current: breadcrumb.current }
 ];
 ---
-<Layout title=`${title}`>
+
+<Layout title={`${title}`}>
   <div class="container mx-auto px-4 pt-10 pb-25">
-    <Breadcrumbs items={breadcrumbItems} />
+
+    <!-- 🧩 Header Component -->
+    <MainPageHeading
+      heading={heading}
+      description={description}
+      breadcrumbItems={breadcrumbItems}
+    />
+
+    <!-- Main content -->
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">{heading}</h1>
-      <details class="group">
-      <summary class="cursor-pointer font-semibold">Summary</summary>
-          <ul style="padding-left:2rem" class="ml-4 mt-2 text-gray-700 group-open:animate-fade-in">
-          {Array.isArray(description) && description.map((p, i) => (
-              <li class="mb-4">{p}</li>
-            ))}
-          </ul>
-      </details>
-      <hr class="my-4 border-t border-gray-300" />
       <span class="subheadings flex gap-3">
         {main.x.subheading}
-        <a href=`${main.x.link}`>
-          <!-- <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);"> -->
-              <Icon class="card-icon" name="external-link" color="var(--color-palette-five)"/>
-          <!-- </div> -->
+        <a href={`${main.x.link}`}>
+          <Icon class="card-icon" name="external-link" color="var(--color-palette-five)" />
         </a>
       </span>
       <p class="pt-2">{main.x.body[0]}</p>
@@ -45,10 +40,9 @@ const breadcrumbItems = [
       <ul>
         {main.x.body[2].items.map((item, i) => (
           <li class="pt-2 pl-4">{`- ${item}`}</li>
-        ))}  
-      </ul> 
+        ))}
+      </ul>
+    </div>
+
   </div>
-  </div>
-  <script>
-  </script>
 </Layout>
