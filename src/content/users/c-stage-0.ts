@@ -7,7 +7,7 @@ export const content = {
             stageNum: `0`,
             headingNum: `1`,
             title: resourceContent.contentByCategory["stage-0"].data['0'].heading,
-            label: `Empty Page`,
+            label: `What You Need to Know Early`,
             description: resourceContent.contentByCategory["stage-0"].data['0'].content,
             main: {
                 overview: {
@@ -86,20 +86,54 @@ export const content = {
             stageNum: `0`,
             headingNum: `2`,
             title: resourceContent.contentByCategory["stage-0"].data['1'].heading,
-            label: `Empty Page`,
+            label: `Small Choices, Big Impact`,
             description: resourceContent.contentByCategory["stage-0"].data['1'].content,
             main: {
+                subheading: 'Small steps, big protection — discover how simple lifestyle habits can help lower your risk of prostate cancer and strengthen long-term wellness.',
+                items: [
+                    {
+                        head: "Black currant",
+                        content: "Rich in antioxidants, black currants may help reduce inflammation linked to prostate cancer progression.",
+                        image: "/assets/s1/s1h2-black-currant.jpg",
+                        link: "",
+                        alt: "Black currant img source: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST2MkiZslqqQKwcAwGVfVHr8j4x1FgJK8oUg&s",
+                    },
+                    {
+                        head: "Lycopene",
+                        content: "This tomato-based antioxidant may slow prostate tumor growth and protect healthy cells.",
+                        image: "/assets/s1/s1h2-lycopene.jfif",
+                        link: "",
+                        alt: "Tomatoes image source: https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/07/tomatoes-farm-1296x728-header.jpg?w=1155&h=1528",
+                    },
+                    {
+                        head: "Legumes",
+                        content: "Beans, lentils, and soy are full of plant-based compounds that may lower prostate cancer risk.",
+                        image: "/assets/s1/s1h2-legumes.jfif",
+                        link: "",
+                        alt: "Legmes image source: https://cdn-bdcme.nitrocdn.com/YNVexMBpWKXfKFQpHsdWUgFTQYBFJoCh/assets/images/optimized/rev-f0a0aa3/kidsaregreatcooks.com/wp-content/uploads/2020/07/Legumes-sm.jpg",
+                    },                    
+                    {
+                        head: "Kegel Exercise",
+                        content: "Strengthening pelvic floor muscles through Kegels may support urinary control and prostate function.",
+                        image: "/assets/s1/s1h2-kegel.JPG",
+                        link: "",
+                        alt: "Kegel image source: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0qx8R_vhLvnIG9DfL4pMbwKRlsy8kxp4ovPKrvDdzHHx8XSBJDpwG1eUmWaGmXNRjtmw&usqp=CAU",
+                    },
+                    {
+                        head: "Smoking & Alcohol",
+                        content: "Limiting tobacco and alcohol use can significantly reduce prostate cancer aggressiveness and recurrence.",
+                        image: "/assets/s1/s1h2-no-alcohol-smoking.jfif",
+                        link: "",
+                        alt: "Vice image source: https://cdn.cancercenter.com/-/media/ctca/images/others/blogs/2023/06-june/01-blog-tobacco-alcohol-l.jpg",
+                    },                                        
+                ],
                 x: {
-                    subheading: '-',
-                    body: [
-                        `p`,
-                        `p`,
-                        {
-                            items: [
-                                'item'
-                            ]
-                        },
-                    ],
+                    // body: [
+                        // `p`,
+                        // `p`,
+                        // {
+                        // },
+                    // ],
                     link: '#',
                 },
             },
@@ -111,7 +145,7 @@ export const content = {
             stageNum: `0`,
             headingNum: 3,
             title: resourceContent.contentByCategory["stage-0"].data['2'].heading,
-            label: `Empty Page`,
+            label: `Should I Get Screened?`,
             description: resourceContent.contentByCategory["stage-0"].data['2'].content,
             main: {
                 PSATest: {
@@ -119,6 +153,12 @@ export const content = {
                     body: [
                         `Prostate-specic antigen, or PSA, is a protein produced by cells of the prostate gland. The PSA test measures the level of PSA in a man’s blood.`,
                         `The blood level of PSA can be elevated for a number of reasons. The most important is prostate cancer but in addition a number of benign (non-cancerous) causes can raise the PSA. This includes a urinary tract infection, in ammation of the prostate or an enlarged prostate.`,
+                    ],
+                    summary:[
+                         "+ PSA helps identify men at higher risk of symptomatic prostate cancer.",
+                         "+ It can give false positives (detects cancer in men who won’t develop symptoms)",
+                         "+ It can miss some aggressive cancers (false negatives), especially if the cut-off is 4 ng/ml.",
+                         "+ Lowering the cut-off (e.g., to 3 ng/ml) increases sensitivity but also increases false positives.",
                     ],
                     link: 'https://otagourology.co.nz/what-we-treat/psa-testing-and-screening/',
                 },

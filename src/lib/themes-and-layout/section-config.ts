@@ -14,13 +14,13 @@ export const componentConfiguration = {
   },
   user:{
     margin: 'md:mx-5 my-10 lg:mt-5 md:my-5 lg:my-15 ',
-    padding: 'py-15 lg:py-10',
+    padding: 'py-15 md:py-5 lg:py-10',
     scale: 'scale-100 md:scale-90',
     other: ''
   },
   cards:{
-    margin: 'mt-15 md:mt-30 mb-45 lg:mx-25 md:mx-15 sm:mx-5',
-    padding: ' px-6',
+    margin: 'mt-15 md:mt-30 mb-95 lg:mx-25 md:mx-15 sm:mx-5',
+    padding: ' px-1',
     scale: '',
     other: 'hidden'
   },

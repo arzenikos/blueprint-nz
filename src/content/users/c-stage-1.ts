@@ -7,20 +7,14 @@ export const content = {
             stageNum: `1`,
             headingNum: `1`,
             title: resourceContent.contentByCategory["stage-1"].data['0'].heading,
-            label: `Empty Page`,
+            label: `Understanding Your Diagnosis`,
             description: resourceContent.contentByCategory["stage-1"].data['0'].content,
             main: {
-                x: {
-                    subheading: '',
-                    body: [
-                        `p`,
-                        `p`,
-                        {
-                            items: [
-                                'item'
-                            ]
-                        },
-                    ],
+                Gleason: {
+                    subheading: 'What’s a Gleason Score?',
+                    body: 
+                        `It’s a number doctors use to show how aggressive prostate cancer is. Lower scores mean slower-growing cancer; higher scores mean it may spread faster.`,
+                    image:"/assets/s1/The-importance-of-the-Gleason-Score.png",
                     link: '#',
                 },
             },

@@ -4,7 +4,7 @@ import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 import Card from '../../components/ui/Card.astro';
 import { blueCardConfig } from '../../lib/types/CardLibrary'
 import { blueCards } from '../../content/blueindex/blueindex';
-
+import MainPageHeading from '../../components/layout/MainPageHeading.astro';
 const breadcrumbItems = [
   { label: 'Blueprint', href: '/blueprint', current: true }
 ];
@@ -22,13 +22,24 @@ const blueCardsContent = [
   "BlueNode",
   "TrueBlueStats",
 ];
+
+const {
+    heading = "Choose a card to start learning about Prostate Cancer",
+    title = `Getting Started | BluePrintNZ`,
+    description = '',
+    // main = 'content['stage-0'].heading2.main',
+    // link = content["stage-0"].heading2.description,
+    // breadcrumb = content['stage-0'].heading2.breadcrumbs
+} = Astro.props;
+
 ---
 <Layout title="BluePrint - BluePrintNZ">
   <div class="container mx-auto px-4 pt-10 pb-25">
-    <Breadcrumbs items={breadcrumbItems} />
-    <div class="flex justify-center align-center">
+    <!-- <Breadcrumbs items={breadcrumbItems} /> -->
+    <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
+    <!-- <div class="flex justify-center align-center">
       <h2>Choose a card to start learning about Prostate Cancer</h2>
-    </div>
+    </div> -->
   
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full md:px-20 py-10 place-items-center">
      {blueCards.map(({heading, content, image },index) => (

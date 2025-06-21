@@ -30,18 +30,26 @@ const breadcrumbItems = [{ label: heading, link: breadcrumb.link, current: bread
         />
         <!--  -->
         <span class="subheadings mt-5 flex gap-3">
-            {main.PSATest.subheading}
-            <a href=`${main.PSATest.link}`>
+            <strong>{main.PSATest.subheading}</strong>
+            <!-- <a href=`${main.PSATest.link}`> -->
                 <!-- <span class="group hover:text-[var(--color-palette-two)] text-[var(--color-palette-five)] transition-colors duration-200">
             <Icon class="page-link-icon" name="external-link" />
           </span> -->
-                <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)" />
-            </a>
+                <!-- <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)" /> -->
+            <!-- </a> -->
         </span>
-        <p class="pt-2">{main.PSATest.body[0]}</p>
-        <p class="pt-2">{main.PSATest.body[1]}</p>
+        <div class="pt-2">
+            <p>{main.PSATest.body[0]}</p>
+            <p>{main.PSATest.body[1]}</p>
+        </div>
+        <div class="ml-10 my-2">
+            <p>{main.PSATest.summary[0]}</p>
+            <p>{main.PSATest.summary[1]}</p>
+            <p>{main.PSATest.summary[2]}</p>
+            <p>{main.PSATest.summary[3]}</p>
+        </div>
         <!--  -->
-        <span class="subheadings mt-5 flex gap-3">
+        <span class="subheadings mt-10 flex gap-3">
             {main.PSARecom.subheading}
             <a href=`${main.PSARecom.link}`>
                 <Icon class="page-link-icon" name="external-link" color="var(--color-palette-five)" />

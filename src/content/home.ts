@@ -43,7 +43,7 @@ export const userContent = {
     other: [
         { icon: "caregiver", label: "caregiver", type:  "Caregiver" },
         { icon: "researcher", label: "researcher", type:  "Researcher" },
-        { icon: "", label: "everything", type:  "General" },
+        // { icon: "", label: "everything", type:  "General" },
     ],
 };
 
@@ -266,39 +266,39 @@ export const resourceContent = {
                 }
             ]
         },
-        "everything": {
-                parentLink: "General",
-                title: "General – Explore. Understand. Advance.",
-                data: [
-                {
-                    heading: " ",
-                    content: [
-                        "➤ ",
-                        "➤ ",
-                        "➤ ",
-                        "➤ "
-                    ],
-                },
-                {
-                    heading: " ",
-                    content: [
-                        "➤ ",
-                        "➤ ",
-                        "➤ ",
-                        "➤ "
-                    ],
-                },
-                {
-                    heading: " ",
-                    content: [
-                        "➤ ",
-                        "➤ ",
-                        "➤ ",
-                        "➤ "
-                    ],
-                },                
-            ]
-        }
+        // "everything": {
+        //         parentLink: "General",
+        //         title: "General – Explore. Understand. Advance.",
+        //         data: [
+        //         {
+        //             heading: " ",
+        //             content: [
+        //                 "➤ ",
+        //                 "➤ ",
+        //                 "➤ ",
+        //                 "➤ "
+        //             ],
+        //         },
+        //         // {
+        //         //     heading: " ",
+        //         //     content: [
+        //         //         "➤ ",
+        //         //         "➤ ",
+        //         //         "➤ ",
+        //         //         "➤ "
+        //         //     ],
+        //         // },
+        //         // {
+        //         //     heading: " ",
+        //         //     content: [
+        //         //         "➤ ",
+        //         //         "➤ ",
+        //         //         "➤ ",
+        //         //         "➤ "
+        //         //     ],
+        //         // },                
+        //     ]
+        // }
     }
 };
 

@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import MainPageHeading from '../../components/layout/MainPageHeading.astro';
 import { content } from '../../content/users/c-stage-0.ts';
 import Icon from '../../components/ui/Icon.astro';
+import Card from '../../components/ui/Card.astro';
 
 const {
     heading = content['stage-0'].heading2.title,
@@ -21,20 +22,30 @@ const breadcrumbItems = [{ label: heading, link: breadcrumb.link, current: bread
     <div class="container mx-auto px-4 pt-10 pb-25">
         <!-- 🧩 Header Component -->
         <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
-
-        <span class="subheadings flex gap-3">
-            {main.x.subheading}
-            <a href=`${main.x.link}`>
-                <!-- <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);"> -->
-                <Icon class="card-icon" name="external-link" color="var(--color-palette-five)" />
-                <!-- </div> -->
-            </a>
-        </span>
-        <p class="pt-2">{main.x.body[0]}</p>
-        <p class="pt-2">{main.x.body[1]}</p>
-        <ul>
-            {main.x.body[2].items.map((item, i) => <li class="pt-2 pl-4">{`- ${item}`}</li>)}
-        </ul>
+        <div class="max-w-4xl mx-auto">
+            <span class="subheadings flex gap-3">
+                {main.subheading}
+                <!-- <a href=`${main.x.link}`>
+                    <Icon class="card-icon scale-70" name="external-link" color="var(--color-palette-five)" />
+                </a> -->
+            </span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full py-10 place-items-center">
+                {main.items.map(({head,content,link,image},index) => (
+                <Card
+                    id={`lifestyle-${head}`}
+                    heading={head}
+                    content={content}
+                    // icon=[{name:"ac"}]
+                    // textClass=""
+                    // color=""
+                    // config=""
+                    index={index}
+                    link={link}
+                    image={image}
+                    variant='simple'
+                    />
+                ))}
+            </div>
+        </div>
     </div>
 </Layout>
-<script></script>
