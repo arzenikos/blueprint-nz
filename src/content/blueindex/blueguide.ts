@@ -417,7 +417,7 @@ export const blueguideData = {
       Explore prostate cancer statistics and staging, the latest trials and treatment innovations, and access tools and funding opportunities to support research and collaboration.
       <br><br>
       + 
-      <a href="/researcher/structured-understanding-statistics">
+      <a href="/researcher/structured-understanding">
       Structured Understanding<br>
       </a>
       + 
@@ -441,7 +441,7 @@ export const blueguideData = {
 
           <br><br>
           <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/researcher/structured-understanding-statistics">Walk This Way →</a>
+            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/researcher/structured-understanding">Walk This Way →</a>
           </button>           
           `
         },

@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+import Button from './Button.astro';
+---
+
+<div class="flex text-sm text-[color:var(--color-palette-four)] items-center justify-center my-4 relative">
+  <Button
+    id="readMoreToggle"
+    aria-expanded="false"
+    class="flex items-center px-4 pt-1 pb-2 gap-1 text-[var(--color-palette-three)] no-underline text-sm cursor-pointer"
+  >
+    <Icon id="toggleIcon" class="icon" name="plus" size={16} />
+    READ me
+  </Button>
+
+  <!-- <div
+    id="readMoreMessage"
+    class="mt-2 hidden rounded bg-[var(--color-palette-four)] p-3 text-[var(--color-palette-three)] italic shadow-md absolute top-full left-0 w-max"
+  >
+    <p>
+      <strong>Note:</strong> Some low-contrast cards are still in progress.<br />
+      We’re quietly working on them — thank you for your patience 🛠️.
+    </p>
+  </div> -->
+</div>
+
+<script type="module" is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('readMoreToggle');
+    const message = document.getElementById('readMoreMessage');
+    const icon = document.getElementById('toggleIcon');
+
+    toggleBtn.addEventListener('click', () => {
+        message.classList.add('block');
+        message.classList.remove('hidden');
+    //   icon.setAttribute('name', isHidden ? 'plus' : 'minus');
+    //   toggleBtn.setAttribute('aria-expanded', !isHidden);
+    //   const isHidden = message.classList.toggle('hidden');
+    //   icon.setAttribute('name', isHidden ? 'plus' : 'minus');
+    //   toggleBtn.setAttribute('aria-expanded', !isHidden);
+    });
+  });
+</script>

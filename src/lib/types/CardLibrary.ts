@@ -12,7 +12,7 @@ export const resourceCardConfig = {
     },
     color: {
         heading: 'var(--color-palette-one)',
-        cardBg: 'bg-[var(--color-palette-four)]',
+        cardBg: 'bg-[var(--color-palette-accent)]',
     },
     extraConfig: {
         hoverFx: true,

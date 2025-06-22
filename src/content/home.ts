@@ -64,6 +64,7 @@ export const resourceContent = {
                         "➤ Why screening matter", 
                         "➤ What the PSA test actually tells you"
                     ],
+                    cardStatus: "complete",
                 },
                 {
                     heading: "Small Choices, Big Impact",
@@ -72,6 +73,7 @@ export const resourceContent = {
                         "➤ Building healthy sleep & fitness habits",
                         "➤ How lifestyle influences your risk"
                     ],
+                    cardStatus: "complete",
                 },
                 {
                     heading: "Should I Get Screened?",
@@ -80,6 +82,7 @@ export const resourceContent = {
                         "➤ What “watchful waiting” means.",
                         "➤ Next steps & questions to ask. How to track changes without stress"
                     ],
+                    cardStatus: "complete",
                 },
             ],
         },
@@ -94,6 +97,7 @@ export const resourceContent = {
                         "➤ First-line treatment options explained.",
                         "➤ What staying on active surveillance looks like"
                     ],
+                    cardStatus: "complete",
                 },
                 {
                     heading: "Doctor Time: Making Every Visit Count",
@@ -102,6 +106,7 @@ export const resourceContent = {
                         "➤ What to ask about symptoms, treatment, and side effects.",
                         "➤ Tips for tracking appointments, results, and follow-ups."
                     ],
+                    cardStatus: "incomplete",
                 },
                 {
                     heading: "Navigating Your Options",
@@ -110,6 +115,7 @@ export const resourceContent = {
                         "➤ What to expect during and after.",
                         "➤ Working with your medical team."
                     ],
+                    cardStatus: "complete",
                 },                
             ],
         },
@@ -124,6 +130,7 @@ export const resourceContent = {
                         "➤ Knowing when to ask for help — and who to turn to.",
                         "➤ Using tools, check-ins, and conversations to stay steady."
                     ],
+                    cardStatus: "incomplete",
                 },
                 {
                     heading: "Body Care That Builds You Up",
@@ -132,6 +139,7 @@ export const resourceContent = {
                         "➤ Kegel exercises to support pelvic strength and recovery.",
                         "➤ Moving with care — or resting when your body asks."
                     ],
+                    cardStatus: "complete",
                 },
                 {
                     heading: "Your Body, Your Needs",
@@ -140,6 +148,7 @@ export const resourceContent = {
                         "➤ Handling fatigue & disrupted sleep.",
                         "➤ Keeping active within your limits."
                     ],
+                    cardStatus: "incomplete",
                 },
             ],
         },
@@ -154,6 +163,7 @@ export const resourceContent = {
                         "➤ Coordinating care across teams.",
                         "➤ Understanding more complex symptoms."
                     ],
+                    cardStatus: "incomplete",
                 },
                 {
                     heading: "Caring for a Tired Body",
@@ -162,6 +172,7 @@ export const resourceContent = {
                         "➤ Fatigue, sleep disruption, and what helps.",
                         "➤ Movement when you can — or resting when you need."
                     ],
+                    cardStatus: "incomplete",
                 },
                 {
                     heading: "Finding Your Ground",
@@ -170,6 +181,7 @@ export const resourceContent = {
                         "➤ Support groups that feel real.",
                         "➤ Keeping some control in the chaos"
                     ],
+                    cardStatus: "incomplete",
                 }
             ],
         },
@@ -184,6 +196,7 @@ export const resourceContent = {
                         "➤ What palliative support actually means.",
                         "➤ Being heard by your team"
                     ],
+                    cardStatus: "incomplete",
                 },
                 {
                     heading: "Support for the Day-to-Day",
@@ -192,6 +205,7 @@ export const resourceContent = {
                         "➤ Sleep, pain relief, and symptom tools.",
                         "➤ Movement, touch, or stillness — what works for you."
                     ],
+                    cardStatus: "incomplete",
                 },
                 {
                     heading: "Honouring Your Life",
@@ -200,6 +214,7 @@ export const resourceContent = {
                         "➤ Creative legacy & joy in small things. ",
                         "➤ Support for family & chosen whānau"
                     ],
+                    cardStatus: "incomplete",
                 }
             ],
         },
@@ -214,6 +229,7 @@ export const resourceContent = {
                         "➤ How to assist with treatment & symptoms.",
                         "➤ Clear answers to tough questions."
                     ],
+                    cardStatus: "incomplete",
                 },
                 {
                     heading: "You’re Part of This — But You’re Still You",
@@ -222,6 +238,7 @@ export const resourceContent = {
                         "➤ Fitness or rest — what your body asks for.",
                         "➤ Emotional weight & how to put it down sometimes."
                     ],
+                    cardStatus: "incomplete",
                 },
                 {
                     heading: "Real Support for Real People",
@@ -230,6 +247,7 @@ export const resourceContent = {
                         "➤ Practical guides, appointment planners.",
                         "➤ Honest voices from other caregivers."
                     ],
+                    cardStatus: "incomplete",                    
                 }
             ],
         },
@@ -245,6 +263,7 @@ export const resourceContent = {
                         "➤ Cross-system comparisons (NZ, AUS, US, EU).",
                         "➤ Population data & cohort breakdowns"
                     ],
+                    cardStatus: "incomplete",
                 },
                 {
                     heading: "Trials, Treatment & Innovation",
@@ -254,6 +273,7 @@ export const resourceContent = {
                         "➤ Health equity & access gaps.",
                         "➤ NZ-specific research themes (rural, Māori, Pacific populations)."
                     ],
+                    cardStatus: "complete",
                 },
                 {
                     heading: "Tools, Grants & Collaboration",
@@ -263,6 +283,7 @@ export const resourceContent = {
                         "➤ Participant recruitment tools. Data-sharing agreements & ethics resources.",
                         "➤ Researcher contact networks & collaboration portals"
                     ],
+                    cardStatus: "incomplete",                    
                 }
             ]
         },

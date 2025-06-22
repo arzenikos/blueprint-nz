@@ -1,5 +1,7 @@
 ---
 import Card from '../../components/ui/Card.astro';
+import ReadMeToggle from '../../components/ui/ReadMeToggle.astro'
+
 import { resourceCardConfig } from '../../lib/types/CardLibrary'
 
 const {
@@ -34,19 +36,29 @@ const {
 ---
 <section id="card-section" class=`${margin} ${padding} ${other} ${scale}`>
   <h2 id="card-title" class="text-3xl md:text-4xl font-bold text-center mb-1">{sectionTitle}</h2>
-  <h4 class="text-center mb-12">{sectionSubtitle}</h4>
-  
-  <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
-  {selectedCards.map(({heading, content}, index) => (
-    <Card
-      heading={heading}
-      content={content}
-      icon={icon}
-      textClass={textClass}
-      color={color}
-      config={extraConfig}
-      index={index}
-      />
-    ))}
+  <h4 class="text-center">{sectionSubtitle}</h4>
+  <div class="flex flex-col gap-4">
+    <!-- <div class="p-2"> -->
+      <ReadMeToggle/>
+    <!-- </div> -->
+    <div id="readMoreMessage" class="mt-2 hidden transition-opacity duration-200 ease-in">
+      <p class="flex flex-col"><strong>Note:</strong> Some low-contrast cards are still in progress.<br />
+      We’re quietly working on them — thank you for your patience 🛠️.</p>
+    </div>
+    <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
+    
+    {selectedCards.map(({ heading, content, cardStatus }, index) => (
+      <Card
+        heading={heading}
+        content={content}
+        icon={icon}
+        textClass={textClass}
+        color={color}
+        config={extraConfig}
+        index={index}
+        cardStatus={cardStatus}
+        />
+      ))}
+    </div>
   </div>
 </section>

@@ -1,6 +1,5 @@
 ---
 import Icon from '../../components/ui/Icon.astro';
-
 // userContent from '../content/home.ts';
 // componentConfiguration from '../lib/themes-and-layout/section-config';
 const {
@@ -28,7 +27,7 @@ const {
 class=`${margin} ${padding} ${other} ${scale} mb-25 rounded-2xl` style="background-color: var(--color-palette-four);">
   <div class="text-center px-6 md:px-4 md:py-5 lg:px-60 lg:py-5">
       <h2 class="font-bold mb-4" style="color: var(--color-palette-one);">{sectionTitle}</h2>
-      <p class="text-center mb-6" style="color: var(--color-palette-two);">
+      <p class="text-center" style="color: var(--color-palette-two);">
       {description}
       </p>
   </div>
@@ -150,20 +149,23 @@ class=`${margin} ${padding} ${other} ${scale} mb-25 rounded-2xl` style="backgrou
       console.log(...linkSet);
 
       // Details
-      const cardContentElement = document.querySelectorAll('.card-content');
-      cardContentElement.forEach((content, i)=> {
-        const items =  
-        currentSet.data[i].content;
-        const html = items.map(item => `
-          <li style="position: relative; padding-left: 0.75rem;" class="scale-85 md:scale-95 text-[var(--color-palette-two)]">
-              ${item}
-          </li>
-        `).join('');
+      const cardItemElements = document.querySelectorAll('.card-item');
+      cardItemElements.forEach((card, i) => {
+        const cardStatus = currentSet.data[i].cardStatus || 'complete';
 
-        content.innerHTML = html;
-        
+        const incompleteBgColor = 'bg-[var(--color-palette-two)]';
+        const completeBgColor = 'bg-[var(--color-palette-five)]';
+        // Clear any previous override class
+        card.classList.remove(incompleteBgColor, completeBgColor); // etc.
+
+        if (cardStatus === 'incomplete') {
+          card.classList.add(incompleteBgColor);
+        } else {
+          card.classList.add(completeBgColor);
+        }
       });
-      
+
+
       const cardLinkElement = document.querySelectorAll('.card-rsc-item');
       cardLinkElement.forEach((link, i)=> {
         
