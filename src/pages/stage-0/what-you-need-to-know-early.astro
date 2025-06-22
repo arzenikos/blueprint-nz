@@ -1,5 +1,4 @@
 ---
-// <!-- Not imported by any file -->
 import Layout from '../../layouts/Layout.astro';
 import MainPageHeading from '../../components/layout/MainPageHeading.astro';
 import { content } from '../../content/users/c-stage-0.ts';
@@ -10,183 +9,107 @@ const {
     title = `Stage ${content['stage-0'].heading1.stageNum} - ${heading} | BluePrintNZ`,
     description = content['stage-0'].heading1.description,
     main = content['stage-0'].heading1.main,
-    // link = content["stage-0"].heading1.description,
     breadcrumb = content['stage-0'].heading1.breadcrumbs
 } = Astro.props;
 
 const breadcrumbItems = [{ label: heading, link: breadcrumb.link, current: breadcrumb.current }];
 ---
 <Layout title={`${title}`}>
-  <div class="container mx-auto px-4 pt-10 pb-25 max-w-4xl" style={{ color: 'var(--color-palette-five)' }}>
-    {/* 🧩 Header Component */}
+  <div class="container mx-auto px-4 pt-10 pb-25 space-y-16">
     <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
 
-    {/* Overview Section */}
-    <section
-      class="mt-10"
-      style={{ borderColor: 'var(--color-palette-two)' }}
-    >
-        <div class="flex">
-            <h2
-            class="text-2xl font-semibold mb-2"
-            style={{ color: 'var(--color-palette-four)' }}
-            >
-            {main.overview.subheading}
-            </h2>
-            <span class="subheadings flex gap-3 items-center text-sm mb-4">
-            <a
-                href={`${main.overview.link}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center"
-                style={{ position: 'relative' }}
-                aria-label="Learn more about prostate cancer overview, risks, symptoms, and prevention"
-                title="Learn more"
-            >
-                <Icon class="page-link-icon scale-70" name="external-link" color="var(--color-palette-five)" />
-            </a>
-            </span>
-        </div>
-        <div class="rounded-lg">
-            <img
-                src= {main.overview.image.src}
-                alt={main.overview.image.alt}
-            >
-        </div>
-        <div>
-        <p class="pt-2 leading-relaxed" style={{ color: 'var(--color-palette-five)' }}>
-            {main.overview.body[0]}
-        </p>
-        <p class="pt-4 leading-relaxed" style={{ color: 'var(--color-palette-five)' }}>
-            {main.overview.body[1]}
-        </p>
-        <ul class="list-disc list-inside pt-3" style={{ color: 'var(--color-palette-five)' }}>
-            {main.overview.body[2].items.map((item, i) => (
-            <li class="pt-1 text-[var(--color-palette-four)]">
-                {item}
-            </li>
+    <!-- Overview Section -->
+    <section class="pt-10 space-y-6 px-5 md:px-4">
+      <div>
+        <h2 class="text-3xl font-semibold text-[var(--color-palette-five)]">
+          {main.overview.subheading}
+        </h2>
+        <a
+          href={main.overview.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm text-[var(--color-palette-five)] hover:underline"
+        >
+          Learn more
+          <Icon name="external-link" class="scale-75" color="var(--color-palette-five)" />
+        </a>
+      </div>
+      <div class="flex flex-col md:flex-row items-start justify-between gap-4">
+        <img
+          src={main.overview.image.src}
+          alt={main.overview.image.alt}
+          class="rounded-lg w-full md:w-1/2"
+        />
+        <div class="text-[var(--color-palette-five)] space-y-4 py-5">
+          <p>{main.overview.body[0]}</p>
+          <p>{main.overview.body[1]}</p>
+          <ul class="list-disc list-inside space-y-1">
+            {main.overview.body[2].items.map((item) => (
+              <li class="text-[var(--color-palette-four)] pl-2">{item}</li>
             ))}
-        </ul>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    {/* What It Is Section */}
-    <section
-      class="mt-14 border-t pt-10"
-      style={{ borderColor: 'var(--color-palette-two)' }}
-    >
-      <h2
-        class="text-2xl font-semibold mb-4"
-        style={{ color: 'var(--color-palette-four)' }}
-      >
+    <!-- What It Is Section -->
+    <section class="border-t pt-10 px-5 space-y-6" style={{ borderColor: 'var(--color-palette-five)' }}>
+      <h2 class="text-2xl font-semibold text-[var(--color-palette-four)]">
         {main.whatItIs.subheading}
       </h2>
-      {main.whatItIs.main.map((content, i) => {
-        if (typeof content === 'string') {
-          return (
-            <p
-              key={i}
-              class="pt-2 leading-relaxed"
-              style={{ color: 'var(--color-palette-five)' }}
-            >
-              {content}
-            </p>
-          );
-        } else if (content.type === 'list') {
-          return (
-            <ul
-              key={i}
-              class="list-disc list-inside pt-3"
-              style={{ color: 'var(--color-palette-five)' }}
-            >
-              {content.items.map((item, j) => (
-                <li key={j} class="pt-1 text-[var(--color-palette-four)]">
-                  {item}
-                </li>
+      <div class="text-[var(--color-palette-five)] space-y-4">
+        {main.whatItIs.main.map((content, i) =>
+          typeof content === 'string' ? (
+            <p key={i}>{content}</p>
+          ) : (
+            <ul key={i} class="list-disc list-inside space-y-1">
+              {content.items.map((item) => (
+                <li class="text-[var(--color-palette-four)] pl-2">{item}</li>
               ))}
             </ul>
-          );
-        }
-      })}
+          )
+        )}
+      </div>
     </section>
 
-    {/* Screening Matters Section */}
-    <section
-      class="mt-14 border-t pt-10"
-      style={{ borderColor: 'var(--color-palette-two)' }}
-    >
-      <h2
-        class="text-2xl font-semibold mb-4"
-        style={{ color: 'var(--color-palette-four)' }}
-      >
+    <!-- Screening Matters Section -->
+    <section class="border-t pt-10 px-5 space-y-6" style={{ borderColor: 'var(--color-palette-five)' }}>
+      <h2 class="text-2xl font-semibold text-[var(--color-palette-four)]">
         {main.screeningMatters.subheading}
       </h2>
-      {main.screeningMatters.main.map((content, i) => {
-        if (typeof content === 'string') {
-          return (
-            <p
-              key={i}
-              class="pt-2 leading-relaxed"
-              style={{ color: 'var(--color-palette-five)' }}
-            >
-              {content}
-            </p>
-          );
-        } else if (content.type === 'list') {
-          return (
-            <ul
-              key={i}
-              class="list-disc list-inside pt-3"
-              style={{ color: 'var(--color-palette-five)' }}
-            >
-              {content.items.map((item, j) => (
-                <li key={j} class="pt-1 text-[var(--color-palette-four)]">
-                  {item}
-                </li>
+      <div class="text-[var(--color-palette-five)] space-y-4">
+        {main.screeningMatters.main.map((content, i) =>
+          typeof content === 'string' ? (
+            <p key={i}>{content}</p>
+          ) : (
+            <ul key={i} class="list-disc list-inside space-y-1">
+              {content.items.map((item) => (
+                <li class="text-[var(--color-palette-four)] pl-2">{item}</li>
               ))}
             </ul>
-          );
-        }
-      })}
+          )
+        )}
+      </div>
     </section>
 
-    {/* PSA Test Section */}
-    <section
-      class="mt-14 border-t pt-10 pb-14"
-      style={{ borderColor: 'var(--color-palette-two)' }}
-    >
-      <h2
-        class="text-2xl font-semibold mb-4"
-        style={{ color: 'var(--color-palette-four)' }}
-      >
+    <!-- PSA Test Section -->
+    <section class="border-t pt-10 pb-14 px-5 space-y-6" style={{ borderColor: 'var(--color-palette-five)' }}>
+      <h2 class="text-2xl font-semibold text-[var(--color-palette-four)]">
         {main.psaTest.subheading}
       </h2>
-      {main.psaTest.main.map((content, i) => {
-        if (typeof content === 'string') {
-          return (
-            <p
-              key={i}
-              class="pt-2 leading-relaxed"
-              style={{ color: 'var(--color-palette-five)' }}
-            >
-              {content}
-            </p>
-          );
-        } else if (content.type === 'list') {
-          return (
-            <ul
-              key={i}
-              class="list-disc list-inside pt-3"
-              style={{ color: 'var(--color-palette-five)' }}
-            >
-              {content.items.map((item, j) => (
-                <li key={j} class="pt-1 text-[var(--color-palette-four)]">
-                  {item}
-                </li>
+      <div class="text-[var(--color-palette-five)] space-y-4">
+        {main.psaTest.main.map((content, i) =>
+          typeof content === 'string' ? (
+            <p key={i}>{content}</p>
+          ) : (
+            <ul key={i} class="list-disc list-inside space-y-1">
+              {content.items.map((item) => (
+                <li class="text-[var(--color-palette-four)] pl-2">{item}</li>
               ))}
             </ul>
-          );
-        }
-      })}
+          )
+        )}
+      </div>
     </section>
   </div>
 </Layout>

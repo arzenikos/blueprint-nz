@@ -4,11 +4,16 @@ const {
     head,
     content
 } = Astro.props;
+
+const textColor = "text-[var(--color-palette-two)]";
+// const textHoverColor = "hover:text-[var(--color-palette-two)]";
+// const bgColor = "hover:text-[var(--color-palette-gray)]";
+const bgColor = "bg-[var(--color-palette-light-gray)]";
 ---
-<div class="flex items-start gap-3 my-5 bg-[var(--color-palette-two)] hover:bg-[var(--color-palette-three)] border-l-4 border-blue-500 p-4 rounded shadow transition-colors duration-300">
-    <div class="text-2xl">💡</div>
-    <div class="text-[var(--color-palette-three)] hover:text-[var(--color-palette-four)]">
-        <p class="font-bold">{head}</p>
-        <p class="text-sm">{content}</p>
+<div class=`${bgColor} flex items-start gap-7 my-5 border-l-4 border-blue-500 p-4 rounded shadow transition-colors duration-300`>
+    <div class=`text-1xl item-center justify-center mr-2`>💡</div>
+    <div class=``>
+        <p class=`${textColor} font-bold scale-105 mb-2`>{head}</p>
+        <p class=`${textColor}` set:html={content}></p>
     </div>
 </div>

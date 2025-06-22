@@ -13,14 +13,14 @@ export const componentConfiguration = {
     other: 'container item-center justify-center w-full'
   },
   user:{
-    margin: 'md:mx-5 my-10 lg:mt-5 md:my-5 lg:my-15 ',
-    padding: 'py-15 md:py-5 lg:py-10',
+    margin: 'md:mx-5 my-10 lg:mt-5 md:my-5 lg:my-15 mb-25',
+    padding: 'mx-5 py-15 md:py-5 lg:py-10',
     scale: 'scale-100 md:scale-90',
-    other: ''
+    other: 'rounded-2xl'
   },
   cards:{
-    margin: 'mt-15 md:mt-30 mb-95 lg:mx-25 md:mx-15 sm:mx-5',
-    padding: ' px-1',
+    margin: 'mt-15 md:mt-30 mb-95 md:mb-120 lg:mb-20 lg:mx-25 md:mx-15 sm:mx-5',
+    padding: 'px-7 md:px-10',
     scale: '',
     other: 'hidden'
   },

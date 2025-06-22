@@ -40,11 +40,9 @@ const {
   <div class="flex flex-col gap-4">
     <!-- <div class="p-2"> -->
       <ReadMeToggle/>
+
     <!-- </div> -->
-    <div id="readMoreMessage" class="mt-2 hidden transition-opacity duration-200 ease-in">
-      <p class="flex flex-col"><strong>Note:</strong> Some low-contrast cards are still in progress.<br />
-      We’re quietly working on them — thank you for your patience 🛠️.</p>
-    </div>
+    
     <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-160">
     
     {selectedCards.map(({ heading, content, cardStatus }, index) => (

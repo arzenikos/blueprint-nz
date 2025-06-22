@@ -24,9 +24,9 @@ export const blueCardConfig = {
     icon: {
         name: [
             'blueguide',
-            'bluebeacon',
             'bluenode',
             'bluestats',
+            'bluebeacon',
         ],
         class: 'card-icon', // optional utility class
         textColor: 'var(--color-palette-five)',
