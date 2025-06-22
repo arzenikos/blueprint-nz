@@ -26,7 +26,7 @@ export const componentConfiguration = {
   },
   context:{
     margin: 'mt-50 my-70 lg:mx-10 sm:mx-5 scroll-mt-28',
-    padding: 'px-6 md:px-25',
+    padding: 'px-6 md:px-3 lg:px-25',
     scale: '',
     other: 'text-center'
   },
