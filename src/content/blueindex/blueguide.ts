@@ -8,7 +8,7 @@ export const blueguideData = {
   key: `Start Here`,
   text: `Start Here`,
   info: `
-    He mate repe tāne — prostate cancer — can bring worry and unknowns. This guide is here for you and your whānau: to make things clearer, one step at a time.
+    Navigating this journey can often bring worry and unknowns. This guide is here for you and your whānau: to make things clearer, one step at a time.
   `,
   children: [
     {
