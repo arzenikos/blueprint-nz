@@ -1,22 +1,32 @@
 ---
 // <!-- Not imported by any file -->
 import Layout from '../../layouts/Layout.astro';
-import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+// import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import MainPageHeading from '../../components/layout/MainPageHeading.astro';
 
 const breadcrumbItems = [
   { label: 'Blueprint', link: '/blueprint', current: false },
   { label: 'BlueBeacon', link: '/blueprint/bluebeacon', current: true }
 ];
+
+const {
+  heading = "BlueBeacon",
+  title = `BlueBeacon | BluePrintNZ`,
+  description = "➤ Locate clinics, support groups, and resources near you for care and community.",
+  // main = content['stage-1'].heading2.main,
+  // breadcrumb = content['stage-1'].heading2.breadcrumbs
+} = Astro.props;
 ---
 
-<Layout title="BlueBeacon - BluePrintNZ">
+<Layout title={title}>
   <div class="container mx-auto px-4 pt-10 pb-25">
-    <Breadcrumbs items={breadcrumbItems} />
+    <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
+    <!-- <Breadcrumbs items={breadcrumbItems} /> -->
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">BlueBeacon</h1>
-      <h3>➤ Locate clinics, support groups, and resources near you for care and community.</h3>
-      <br><hr><br>
-      <p style="font-style: italic;">🚧 This page is still under development</p>
+      <!-- <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">BlueBeacon</h1>
+      <h6>➤ Locate clinics, support groups, and resources near you for care and community.</h6>
+      <br><hr><br> -->
+      <!-- <p style="font-style: italic;">🚧 This page is still under development</p> -->
     </div>
   </div>
 </Layout>

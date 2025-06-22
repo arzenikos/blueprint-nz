@@ -21,30 +21,51 @@ export const content = {
             footnote: `Redirecting you back home in a moment…`,
             breadcrumbs: { link: "/stage-1/understanding-your-diagnosis", current: true }
         },
-        // your-body-your-needs
+        // doctor-time-making-every-visit-count
         heading2: {
-            stageNum: `1`,
-            headingNum: `2`,
-            title: resourceContent.contentByCategory["stage-1"].data['1'].heading,
-            label: `Doctor Time: Making Every Visit Count`,
-            description: resourceContent.contentByCategory["stage-1"].data['1'].content,
-            main: {
-                x: {
-                    subheading: '-',
-                    body: [
-                        `🚧 This page is still under development`,
-                        // {
-                        //     items: [
-                        //         'item'
-                        //     ]
-                        // },
-                    ],
-                    link: '#',
-                },
-            },
-            footnote: `Redirecting you back home in a moment…`,
-            breadcrumbs: { link: "/stage-1/doctor-time-making-every-visit-count", current: true }
-        },        
+        stageNum: `1`,
+        headingNum: `2`,
+        title: resourceContent.contentByCategory["stage-1"].data['1'].heading,
+        label: `Doctor Time: Making Every Visit Count`,
+        description: resourceContent.contentByCategory["stage-1"].data['1'].content,
+        main: {
+            questions: {
+            subheading: 'Questions to Ask Your Doctor / Pātai Hei Pātai ki tō Rātā',
+            body: [
+                {
+                type: 'list',
+                items: [
+                    { en: "Where is it in my body?",  mi: "Kei tēhea wāhi o taku tinana?" },
+                    { en: "How is the cancer affecting my body?",  mi: "Pēhea te pānga o te matepukupuku ki taku tinana?" },
+                    { en: "What tests do I need?",  mi: "He aha ngā whakamātautau me whai au?" },
+                    { en: "When will I know the results?",  mi: "Āhea mōhio ai au ki ngā hua o te whakamātautau?" },
+                    { en: "What will the tests tell us?",  mi: "He aha ngā kōrero ka puta i te whakamātautau?" },
+                    { en: "What treatments are available?",  mi: "He aha ngā maimoatanga e wātea ana?" },
+                    { en: "What is the aim of the treatment?",  mi: "He aha te whāinga o ngā maimoatanga?" },
+                    { en: "What is the probability of it working?",  mi: "Ka mahi pai anō te maimoatanga?" },
+                    { en: "Is there a clinical trial I can join?",  mi: "Ka taea te hono ki tētahi whakamātautau ā-haumanu?" },
+                    { en: "Will I have to have treatment in hospital?",  mi: "Me haere au ki te hōhipera mō ngā maimoatanga?" },
+                    { en: "How do you check that the treatment is working?",  mi: "Pēhea te mōhio mēnā kei te mahi pai te maimoatanga?" },
+                    { en: "If the treatment is not working what is the plan?",  mi: "Ki te kore te maimoatanga e mahi tika whai muri mai i tērā, ka aha?" },
+                    { en: "Are there any side-effects to treatments?",  mi: "He mate tūpono anō kei te taha o ngā maimoatanga?" },
+                    { en: "Can I still go to work?",  mi: "Ka pai noa iho au ki te mahi?" },
+                    { en: "Should I follow a special eating plan?",  mi: "Me whai rārangi kai motuhake au?" },
+                    { en: "Will the treatment affect my sex life?",  mi: "Ka pā anō he rarararu ki tōku hia ai nā runga i te maimoatanga?" },
+                    { en: "Will treatment affect my fertility?",  mi: "Ka taea tonu e au te mahi pēpi?" },
+                    { en: "Can I exercise?",  mi: "Ka pai noa iho au ki te korikori i taku tinana?" },
+                    { en: "Can I travel?",  mi: "He pai noa iho te puta ki te haerēre?" },
+                    { en: "Where can I go for support?",  mi: "Ki hea au rapu tautoko ai?" },
+                    { en: "Will I have to pay for anything?",  mi: "Me utu anō au i ētahi utu?" },
+                    { en: "What will happen if my cancer cannot be controlled?",  mi: "Ka aha mēnā kāore e taea te whakahaere i taku matepukupuku?" }
+                ]
+                }
+            ],
+            link: '/stage-1/doctor-time-making-every-visit-count',
+            }
+        },
+        footnote: `Redirecting you back home in a moment…`,
+        breadcrumbs: { link: "/stage-1/doctor-time-making-every-visit-count", current: true }
+        },
         // navigating-your-options
         heading3: {
             stageNum: `1`,

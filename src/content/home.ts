@@ -106,7 +106,7 @@ export const resourceContent = {
                         "➤ What to ask about symptoms, treatment, and side effects.",
                         "➤ Tips for tracking appointments, results, and follow-ups."
                     ],
-                    cardStatus: "incomplete",
+                    cardStatus: "complete",
                 },
                 {
                     heading: "Navigating Your Options",
