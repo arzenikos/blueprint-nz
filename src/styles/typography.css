@@ -1,5 +1,5 @@
 @layer base {
-  html, body {
+  html, body, header {
     color: var(--color-palette-five);
     background-color: var(--color-palette-one);
   }
