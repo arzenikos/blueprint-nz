@@ -43,8 +43,8 @@ export const blueguideData = {
           <strong>+ What the PSA test actually tells you <br></strong>          
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-0/what-you-need-to-know-early">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-0/what-you-need-to-know-early">Walk This Way →</a>
           </button>
           `
         },
@@ -57,8 +57,8 @@ export const blueguideData = {
           <strong>+ How lifestyle influences your risk<br></strong>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-0/small-choices-big-impact">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-0/small-choices-big-impact">Walk This Way →</a>
           </button>          
           `
         },
@@ -78,8 +78,8 @@ export const blueguideData = {
           + <br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-0/should-i-get-screened">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-0/should-i-get-screened">Walk This Way →</a>
           </button>          
           `
         },        
@@ -113,8 +113,8 @@ export const blueguideData = {
           <strong>+ What staying on active surveillance looks like</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-1/understanding-your-diagnosis">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-1/understanding-your-diagnosis">Walk This Way →</a>
           </button>            
 
           `
@@ -128,8 +128,8 @@ export const blueguideData = {
           <strong>+ Tips for tracking appointments, results, and follow-ups.</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-1/doctor-time-making-every-visit-count">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-1/doctor-time-making-every-visit-count">Walk This Way →</a>
           </button>            
           `
         },        
@@ -142,8 +142,8 @@ export const blueguideData = {
           <strong>+ Working with your medical team.</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-1/navigating-your-options">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-1/navigating-your-options">Walk This Way →</a>
           </button>            
           `
         },        
@@ -179,8 +179,8 @@ export const blueguideData = {
           <strong>+ Safe movement & light fitness</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-2/body-care-that-builds-you-up">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-2/body-care-that-builds-you-up">Walk This Way →</a>
           </button>            
           `
         },        
@@ -192,8 +192,8 @@ export const blueguideData = {
           <strong>+ Knowing when to ask for help — and who to turn to.</strong><br>
           <strong>+ Using tools, check-ins, and conversations to stay steady.</strong><br>
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-2/staying-grounded-through-it-all">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-2/staying-grounded-through-it-all">Walk This Way →</a>
           </button>               
           `
         },      
@@ -205,8 +205,8 @@ export const blueguideData = {
           <strong>+ Handling fatigue & disrupted sleep.</strong><br>
           <strong>+ Keeping active within your limits.</strong><br>
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-2/your-body-your-needs">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-2/your-body-your-needs">Walk This Way →</a>
           </button>               
           `
         },        
@@ -242,8 +242,8 @@ export const blueguideData = {
           <strong>+ Understanding more complex symptoms.</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-3/what-to-expect-now">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-3/what-to-expect-now">Walk This Way →</a>
           </button>             
           `
         },
@@ -256,8 +256,8 @@ export const blueguideData = {
           <strong>+ Movement when you can — or resting when you need.</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-3/caring-for-a-tired-body">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-3/caring-for-a-tired-body">Walk This Way →</a>
           </button>             
           `
         },        
@@ -270,8 +270,8 @@ export const blueguideData = {
           <strong>+ Keeping some control in the chaos</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-3/finding-your-ground">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-3/finding-your-ground">Walk This Way →</a>
           </button>             
           `
         },        
@@ -307,8 +307,8 @@ export const blueguideData = {
           <strong>+ Being heard by your team</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-4/the-care-that-fits-you">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-4/the-care-that-fits-you">Walk This Way →</a>
           </button>            
           `
         },
@@ -321,8 +321,8 @@ export const blueguideData = {
           <strong>+ Movement, touch, or stillness — what works for you</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-4/support-for-the-day-to-day">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-4/support-for-the-day-to-day">Walk This Way →</a>
           </button>            
           `
         },        
@@ -336,8 +336,8 @@ export const blueguideData = {
           <strong>+ Support for family & chosen whānau </strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/stage-4/honouring-your-life">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/stage-4/honouring-your-life">Walk This Way →</a>
           </button>            
           `
         },        
@@ -374,8 +374,8 @@ export const blueguideData = {
           <strong>+ Clear answers to tough questions.</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/caregiver/the-basics-you-need">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/caregiver/the-basics-you-need">Walk This Way →</a>
           </button>            
           `
         },
@@ -388,8 +388,8 @@ export const blueguideData = {
           <strong>+ Emotional weight & how to put it down sometimes.</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/caregiver/youre-part-of-this-but-youre-still-you">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/caregiver/youre-part-of-this-but-youre-still-you">Walk This Way →</a>
           </button>            
           `
         },        
@@ -402,8 +402,8 @@ export const blueguideData = {
           <strong>+ Honest voices from other caregivers</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/caregiver/real-support-for-real-people">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/caregiver/real-support-for-real-people">Walk This Way →</a>
           </button>            
           `
         },        
@@ -440,8 +440,8 @@ export const blueguideData = {
           <strong>+ Population data & cohort breakdowns<b<strong/>r>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/researcher/structured-understanding">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/researcher/structured-understanding">Walk This Way →</a>
           </button>           
           `
         },
@@ -455,8 +455,8 @@ export const blueguideData = {
           <strong>+ NZ-specific research themes (rural, Māori, Pacific populations)</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/researcher/trials-treatment-innovation">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/researcher/trials-treatment-innovation">Walk This Way →</a>
           </button>           
           `
         },        
@@ -470,8 +470,8 @@ export const blueguideData = {
           <strong>+ Researcher contact networks & collaboration portals</strong><br>
 
           <br><br>
-          <button class="rounded-md p-2 bg-[var(--color-palette-three)] hover:bg-[var(--color-palette-five)]">
-            <a class="text-[var(--color-palette-five)] hover:text-[var(--color-palette-three)]" href="/researcher/tools-grants-collaboration">Walk This Way →</a>
+          <button class="rounded-md p-2 bg-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)]">
+            <a class="text-[var(--color-palette-one)] hover:text-[var(--color-palette-two)]" href="/researcher/tools-grants-collaboration">Walk This Way →</a>
           </button>           
           `
         },        

@@ -44,7 +44,7 @@ const isTheme = name === 'sun-moon';
   >
     <g>
       {Array.isArray(icon) ? (
-        icon.map((d, i) => <path d={d} key={i} />)
+        icon.map((d, i) => <path d={d}/>)
       ) : (
         <path d={icon} />
       )}
