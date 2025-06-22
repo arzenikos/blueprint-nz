@@ -19,14 +19,14 @@ export const componentConfiguration = {
     other: 'rounded-2xl'
   },
   cards:{
-    margin: 'mt-15 md:mt-30 mb-95 md:mb-120 lg:mb-20 lg:mx-25 md:mx-15 sm:mx-5',
+    margin: 'mt-15 md:mt-30 mb-95 md:mb-115 lg:mb-10 lg:mx-25 md:mx-15 sm:mx-5',
     padding: 'px-7 md:px-10',
     scale: '',
     other: 'hidden'
   },
   context:{
-    margin: 'mt-50 my-70 scroll-mt-28',
-    padding: 'px-6 md:px-3',
+    margin: 'mt-50 my-70 lg:mx-10 sm:mx-5 scroll-mt-28',
+    padding: 'px-6 md:px-25',
     scale: '',
     other: 'text-center'
   },
