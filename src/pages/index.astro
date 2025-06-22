@@ -47,3 +47,30 @@ import { componentConfiguration } from '../lib/themes-and-layout/section-config'
 </Layout>
 
 
+<!-- <script>
+  let lastMouseY = 0;
+  let scrollTriggered = false;
+
+  window.addEventListener("mousemove", (e) => {
+    const currentY = e.clientY;
+    const deltaY = currentY - lastMouseY;
+
+    // Detect upward movement
+    if (deltaY < -10 && !scrollTriggered) {
+      scrollTriggered = true;
+
+      // Scroll to target section
+      const target = document.getElementById("user-section");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      // Prevent rapid re-triggers
+      setTimeout(() => {
+        scrollTriggered = false;
+      }, 2000); // adjust delay as needed
+    }
+
+    lastMouseY = currentY;
+  });
+</script> -->

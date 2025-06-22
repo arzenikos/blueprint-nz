@@ -6,6 +6,7 @@ import Footer from '../components/layout/footer/Footer.astro';
 import Header from '../components/layout/header/Header.astro';
 import ChatBox from '../components/common/ChatBox.astro';
 import BackToTop from '../components/common/BackToTop.astro';
+import Button from '../components/ui/Button.astro';
 // import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
 import '../styles/globals.css';
 
@@ -59,14 +60,29 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
     </main>
     <Footer />
     <!-- <BackToTop /> -->
+    <button
+      id="scrollToTop"
+      class="fixed bottom-6 right-6 z-50 bg-[var(--color-palette-three)] text-white p-3 rounded-full shadow-lg hover:bg-[var(--color-palette-four)] transition-opacity duration-300 opacity-0 pointer-events-none"
+      aria-label="Scroll to top"
+    >
+      ↑
+    </button>
     <ChatBox />
+
   </body>
 </html>
+<script>
+  const scrollBtn = document.getElementById("scrollToTop");
 
-<style>
-  .homeSection {
-    /* background: none; */
-    width: auto;
-    /* margin: 7em 0; */
-  }
-</style>
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.remove("opacity-0", "pointer-events-none");
+    } else {
+      scrollBtn.classList.add("opacity-0", "pointer-events-none");
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
