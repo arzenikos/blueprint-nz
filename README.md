@@ -1,6 +1,14 @@
 # BluePrintNZ: Astro on Netlify Platform Starter
+[Live Demo available here!](https://blueprintnz.netlify.app/)
+
+## Launching the app locally
+Requirement:
 
 
+## Checking out the most recent branch
+```
+
+```
 
 ## Module dependency resolution
 ```bash
@@ -13,7 +21,7 @@ npm install
 npm run dev
 ```
 
-[Or check the Live Demo here!](https://blueprintnz.netlify.app/)
+
 
 
 # Setup
