@@ -3,7 +3,8 @@
 import Logo from './Logo.astro';
 import FontSizeToggle from './FontSizeToggle.astro';
 import ThemeToggle from './ThemeToggle.astro';
-import { mainNavItems } from '../../../content/navigation';
+import ChatBox from '../../common/ChatBox.astro';
+import { mainNavItems } from '../../../content/common/navigation';
 
 const {
   class: 
@@ -18,7 +19,7 @@ const visibilityClass = desktopOnly ?
 '';
 ---
 
-<header class="sticky top-0 my-5 z-40 w-full bg-transparent">
+<header class="sticky top-0 mb-5 py-3 z-40 w-full">
   <div class=`container mx-auto px-10 md:px-6 lg:px-8 max-w-[2000px] flex ${visibilityClass} items-center h-20`>
     <!-- Logo (left) - Size from centralized file -->
      <Logo/>
@@ -30,6 +31,7 @@ const visibilityClass = desktopOnly ?
         <div class={`flex items-center space-x-1 sm:space-x-8 ${className}`}>
           <ThemeToggle />
         </div>
+        <ChatBox />
       </div>
   </div>
 </header>
@@ -49,22 +51,35 @@ const visibilityClass = desktopOnly ?
     
     // Apply the current theme
     const applyTheme = (theme) => {
-        const darkLogo  = '/assets/images/logo-13232A-6DA3C0.png';
-        const lightLogo = '/assets/images/logo-b9d6f2-061a40.png'; // Change this to your dark logo path
+        const darkLogo  = '/assets/logo/logo-03045e-6985c0.png';
+        const lightLogo = '/assets/logo/logo-b9d6f2-061a40.png'; // Change this to your dark logo path
         const logo = document.getElementById('site-logo');
+        
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
 
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
+
+        darkIcon?.classList.add('hidden');
+        lightIcon?.classList.remove('hidden');
+        
         if (logo instanceof HTMLImageElement) {
           logo.src = darkLogo;
         }
 
       } else {
         document.documentElement.classList.remove('dark');
+
+        darkIcon?.classList.remove('hidden');
+        lightIcon?.classList.add('hidden');
+
         if (logo instanceof HTMLImageElement) {
           logo.src = lightLogo;
         }
       }
+      
     };
     
     // Initialize theme

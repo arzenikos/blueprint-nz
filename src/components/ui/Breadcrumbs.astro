@@ -1,19 +1,13 @@
 ---
-// <!-- Imported by: pages/bluenode/d3-version.astro, pages/get-involved/index.astro, pages/information-and-support/index.astro, pages/news/index.astro, pages/research/index.astro, pages/shop/index.astro -->
 interface BreadcrumbItem {
   label: string;
-  href: string;
+  link: string;
   current?: boolean;
-}
-
-interface Props {
-  items: BreadcrumbItem[];
 }
 
 const { items } = Astro.props;
 ---
-
-<nav aria-label="Breadcrumb" class="pt-5 pb-15 px-10">
+<nav aria-label="Breadcrumb" class="pt-5 pb-15">
   <ol class="flex flex-wrap items-center space-x-1 md:space-x-2 text-sm">
     <li>
       <a href="/" class="text-secondary hover:text-primary transition-colors">
@@ -30,7 +24,7 @@ const { items } = Astro.props;
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
         <a 
-          href={item.href}
+          href={item.link}
           class={`${item.current ? 'text-primary font-medium' : 'text-secondary hover:text-primary'} transition-colors`}
           aria-current={item.current ? 'page' : undefined}
         >

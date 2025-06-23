@@ -1,35 +1,63 @@
 ---
 import Button from '../../components/ui/Button.astro';
+import Carousel from '../../components/ui/Carousel.astro';
+
+const { 
+  content,
+  config,
+} = Astro.props;
+
 const {
-    sectionTitle = 'About BluePrintNZ',
-    ctaLink = '/about',
-    ctaText = 'Learn More About Us',
-    sectionBody = {
-        paragraph1: "BluePrintNZ is a platform designed to showcase modern web development techniques and best practices using Astro and Netlify.",
-        paragraph2: "Our mission is to provide a blueprint for building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture and Netlify's deployment platform."
-    }
-} = Astro.props
+  title,
+  description,
+  // carouselImages,
+  mainButton,
+  link,
+  mediaSource,
+  paragraph,
+} = content
+
+const {
+  margin=config.context.margin,
+  padding=config.context.padding,
+  scale=config.context.scale,
+  other=config.context.other
+} = config
 ---
-<section class=`container my-70 px-6 md:px-3 text-center scroll-mt-28`>
-    <div class="flex flex-col md:flex-row items-center gap-10">
-        <div class="md:w-2/5">
-            <img 
-            src="/src/assets/placeholder-image-1.jpg" 
-            alt="About BluePrintNZ" 
-            class="rounded-lg shadow-lg w-full h-auto"
-            />
-        </div>
-        <div class="md:w-3/5 text-center md:text-start">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--color-palette-five);">{sectionTitle}</h2>
-            <p class="text-center md:text-start text-lg  mb-6" style="color: var(--color-palette-five);">
-            {sectionBody.paragraph1}
-            </p>
-            <p class="text-lg mb-6" style="color: var(--color-palette-five);">
-            {sectionBody.paragraph2}
-            </p>
-            <Button variant="primary" href={ctaLink}>
-            {ctaText}
-            </Button>
-        </div>
+<section class={`${margin} ${padding} ${other} ${scale}`} style="background: none">
+  <hr class="my-15 w-ful mx-auto border-b border-[var(--color-palette-gray)]" />
+
+  <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+    
+    <div class="w-full md:w-1/2 max-w-3xl">
+      <video 
+        src={mediaSource}
+        controls 
+        class="w-full rounded-2xl shadow-lg border border-[var(--color-palette-gray)]"
+      >
+        Your browser does not support the video tag.
+      </video>
     </div>
+
+    <div class="md:w-1/2 text-center md:text-start px-5 md:px-0">
+      <h1 class="text-2xl md:text-5xl lg:text-6xl font-bold mb-6">
+        {title}
+      </h1>
+      <p class="text-lg md:text-xl mb-5 text-[var(--color-palette-four)]">
+        {description}
+      </p>
+      <p class="text-md mb-8 text-[var(--color-palette-four)]">
+        {paragraph}
+      </p>
+      <div class="flex gap-4 justify-center md:justify-start">
+        <Button variant="primary" size="lg" href="/empty">
+          Real Voices: Read Stories
+        </Button>
+        <Button variant="secondary" size="lg" href="/empty">
+          Share Yours Now
+        </Button>
+      </div>
+    </div>
+
+  </div>
 </section>

@@ -18,7 +18,11 @@ function getFontSizeClass(value) {
                 <select
                     id="font-size-dropdown"
                     class="text-sm border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-accent"
+<<<<<<< HEAD
                     style="border-color: var(--color-palette-four); background: var(--color-palette-two);"
+=======
+                    style="border-color: var(--color-palette-four); background: var(--color-palette-one);"
+>>>>>>> feature/iteration-003-bluenode-content
                 >
                     {buttonItems.map((item) => (
                         <option class={fontSizeClass(item.value)} value={item.value}>
@@ -51,22 +55,16 @@ function getFontSizeClass(value) {
 </div>
 
 <script define:vars={{ id, label }}>
-    // Add event listeners for dropdowns and button groups
     document.addEventListener('DOMContentLoaded', () => {
         const element = document.getElementById(id);
-        const carouselHero = document.getElementById('hero-carousel');
-
         if (element) {
             const buttons = element.querySelectorAll('button[data-value]');
 
-            // Set active state based on stored preference
             if (label === 'Font Size') {
                 const storedFontSize = localStorage.getItem('fontSizePreference') || 'medium';
                 buttons.forEach((button) => {
                     if (button.getAttribute('data-value') === storedFontSize) {
-                        // button.classList.add('bg-red-100', 'text-blue-900');
                     } else {
-                        // button.classList.remove('bg-red-600', 'text-blue-900');
                     }
                 });
             }
@@ -74,41 +72,34 @@ function getFontSizeClass(value) {
             buttons.forEach((button) => {
                 button.addEventListener('click', (e) => {
                     const value = button.getAttribute('data-value');
-                    // button.style.backgroundColor = 'var(--color-palette-three)';
-                    button.style.color = 'var(--color-palette-three)';
 
                     if (label === 'Font Size') {
-                        // console.log(`Font size changed to: ${value}`);
 
                         // Remove existing font size classes
                         document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg', 'text-xl',
-                        //  'scale-5', 'scale-10', 'scale-30'
                         );
 
                         // Add new font size class
                         switch (value) {
                             case 'small':
                                 document.documentElement.classList.add('text-sm');
-                                // carouselHero.documentElement.classList.add('scale-5');
                                 break;
                             case 'medium':
                                 document.documentElement.classList.add('text-base');
-                                // carouselHero.documentElement.classList.add('scale-10');
                                 break;
                             case 'large':
                                 document.documentElement.classList.add('text-xl');
-                                // carouselHero.documentElement.classList.add('scale-30');
                                 break;
                         }
 
                         // Update active state
                         buttons.forEach((btn) => {
-                            // btn.classList.remove('bg-red-100');
-                            // btn.classList.remove('text-blue-900');
+                            btn.classList.remove('bg-[var(--color-palette-three)]');
+                            btn.classList.remove('text-[var(--color-palette-five)]');
                         });
 
-                        // button.classList.add('bg-red-100');
-                        // button.classList.add('text-blue-900');
+                        button.classList.add('bg-[var(--color-palette-three)]');
+                        button.classList.add('text-[var(--color-palette-five)]');
 
                         // Store preference
                         localStorage.setItem('fontSizePreference', value);
@@ -124,15 +115,12 @@ function getFontSizeClass(value) {
         switch (storedFontSize) {
             case 'small':
                 document.documentElement.classList.add('text-sm', 'selected');
-                // carouselHero.documentElement.classList.add('scale-5');
                 break;
             case 'medium':
                 document.documentElement.classList.add('text-base', 'selected');
-                // carouselHero.documentElement.classList.add('scale-10');
                 break;
             case 'large':
                 document.documentElement.classList.add('text-xl', 'selected'); // 
-                // carouselHero.documentElement.classList.add('scale-30');
                 break;
         }
     }
@@ -163,9 +151,3 @@ function getFontSizeClass(value) {
         });
     }
 </script>
-
-<style>
-    .selected {
-        background-color: var(--color-palette-three);
-    }
-</style>
