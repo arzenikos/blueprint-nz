@@ -36,7 +36,7 @@ export const footerLinks = {
     },
   ],
   socialLinks: [
-    { platform: "video", url: "empty", ariaLabel: "Tutorial/Demo in onedrive" },
+    { platform: "video", url: "https://www.youtube.com/watch?v=p2OKDvwO6EY", ariaLabel: "Tutorial/Demo in onedrive" },
     { platform: "gmail", url: "mailto:cpt.iqhwa.vx7@gmail.com", ariaLabel: "Tutorial/Demo in onedrive" },
     { platform: "hashnode", url: "https://hashnode.com/@arsenie", ariaLabel: "Tutorial/Demo in onedrive" },
     { platform: "github", url: "https://github.com/arsenie-sarmiento", ariaLabel: "Check this on Github" },
