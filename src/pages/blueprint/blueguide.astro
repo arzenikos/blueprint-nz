@@ -1,12 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 
 // BlueNode components
 import BlueGuideDetails from '../../components/NodeGraph/BlueGuideDetails.astro';
 import GraphCanvas from '../../components/NodeGraph/GraphCanvas.astro';
 import Callout from '../../components/ui/Callout.astro';
-
+import MainPageHeading from '../../components/layout/MainPageHeading.astro';
 import { blueguideData } from '../../content/blueindex/blueguide.ts';
 
 const breadcrumbItems = [
@@ -17,15 +16,34 @@ const breadcrumbItems = [
 ---
 <Layout title="The Blue Guide | BluePrintNZ">
   <div class="container mx-auto px-4 pt-10 pb-25">
-    <Breadcrumbs items={breadcrumbItems} />
-    
+    <MainPageHeading heading="The Blue Guide" description={blueguideData.description} breadcrumbItems={breadcrumbItems} title={"Take the First Step Toward Prostate Health."}/>
      <div class="mx-10">
       <Callout
-          head="Take the First Step."
-          content="Welcome to Blue Journey — your personalized walkthrough to understanding prostate health. From early screening to treatment options, we’ll guide you step-by-step through the essentials. Empower yourself with knowledge, ask the right questions, and discover supportive resources — all in one clear, accessible path."
+        head="Need a direct link?"
+        content=`
+          <a class="text-[var(--color-palette-one)]" href="https://www.youtube.com/watch?v=p2OKDvwO6EY">Watch the full video here.</a>
+        </div>
+        `
         />
-      </div>
-    <div class="flex flex-col md:flex-row mb-5 w-full px-10 h-[calc(100vh-var(--header-height)-var(--footer-height))]" id="node-container">
+        <div class="flex justify-center mt-3 w-full">
+          <div class="w-full md:w-1/2 max-w-3xl">
+            <video 
+              src=""
+              controls 
+              class="w-full rounded-2xl shadow-lg border border-[var(--color-palette-gray)]"
+            >
+              Your browser does not support the video tag. Follow this <a href="https://drive.google.com/file/d/1jSr_uGVQBgooHZoz15GgDihySMrC-wYA/view?usp=sharing">link</a> to watch the demo.
+            </video>
+          </div>
+
+        </div>
+      <br>
+      <hr class="my-4 border-t border-[var(--color-palette-gray)]" />
+      <p class="text-center mt-6 text-lg font-semibold text-[var(--color-palette-five)]">
+        👇 Explore the Blue Guide page map below to see how everything connects.
+      </p>
+      <hr class="my-4 border-t border-[var(--color-palette-gray)]" />
+    <div class="flex flex-col md:flex-row mb-5 mt-10 w-full px-10 h-[calc(100vh-var(--header-height)-var(--footer-height))]" id="node-container">
       <!-- Main Graph Area (2/3 width) -->
        
       <div class="w-full md:w-3/5 relative">

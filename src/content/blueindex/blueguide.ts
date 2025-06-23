@@ -1,4 +1,4 @@
-import { resourceContent } from '../home.ts'
+// import { resourceContent } from '../home.ts'
 
 // const nodeTitleGetter = (title:string, user: string) => {
 //   return resourceContent.contentByCategory[user].title || `Stage 0 – Stay Ahead, Stay Informed`;
@@ -10,6 +10,12 @@ export const blueguideData = {
   info: `
     Navigating this journey can often bring worry and unknowns. This guide is here for you and your whānau: to make things clearer, one step at a time.
   `,
+  description: [
+    `Welcome to Blue Guide — your personal guide to understanding prostate cancer. `,
+    `From early screening to treatment options, this walkthrough helps you navigate each step with clarity and confidence.`,
+    `Learn what to ask your doctor, explore support resources, and feel more informed — all in one simple, accessible path.`,
+    `Watch the demo below to see how Blue Journey can help you or a loved one. Then scroll down to explore the interactive page map.`
+  ],
   children: [
     {
       key: `Stage Zero`,
