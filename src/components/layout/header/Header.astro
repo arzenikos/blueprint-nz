@@ -52,9 +52,16 @@ const visibilityClass = desktopOnly ?
         const darkLogo  = '/assets/logo/logo-03045e-6985c0.png';
         const lightLogo = '/assets/logo/logo-b9d6f2-061a40.png'; // Change this to your dark logo path
         const logo = document.getElementById('site-logo');
+        
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
 
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
+
+        darkIcon?.classList.add('hidden');
+        lightIcon?.classList.remove('hidden');
         
         if (logo instanceof HTMLImageElement) {
           logo.src = darkLogo;
@@ -62,10 +69,15 @@ const visibilityClass = desktopOnly ?
 
       } else {
         document.documentElement.classList.remove('dark');
+
+        darkIcon?.classList.remove('hidden');
+        lightIcon?.classList.add('hidden');
+
         if (logo instanceof HTMLImageElement) {
           logo.src = lightLogo;
         }
       }
+      
     };
     
     // Initialize theme

@@ -22,6 +22,9 @@
   --color-warning: #f59e0b;
   --color-error: #ef4444;
   --color-info: #3b82f6;
+
+  --color-sun: #f58b0a;
+  --color-moon: #04007d;
 }
 
 .dark {

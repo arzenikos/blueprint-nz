@@ -58,3 +58,15 @@
   pointer-events: none;
   user-select: none;
 }
+
+  #theme-toggle {
+    transition: all 0.3s ease;
+  }
+  
+  #theme-toggle svg {
+    transition: transform 0.3s ease;
+  }
+  
+  #theme-toggle:hover svg {
+    transform: rotate(12deg);
+  }
