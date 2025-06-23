@@ -72,11 +72,11 @@ const hoveredCardSize = config.hoverFx ? 'hover:scale-110' : 'hover:scale-100';
       {Array.isArray(content) ? (
         <ul class={`${textClass.content}`}>
           {content.map((item) => (
-            <li style={`color: ${color.heading};`}>{item}</li>
+            <li class="card-content" style={`color: ${color.heading};`}>{item}</li>
           ))}
         </ul>
       ) : (
-        <p>{content}</p>
+        <p class="card-content">{content}</p>
       )}
     </a>
   </div>

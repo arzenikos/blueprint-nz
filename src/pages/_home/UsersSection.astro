@@ -167,7 +167,21 @@ class=`${margin} ${padding} ${other} ${scale}` style="background-color: var(--co
           card.classList.add(completeBgColor);
         }
       });
+      
+      // Details
+      const cardContentElement = document.querySelectorAll('.card-content');
+      cardContentElement.forEach((content, i)=> {
+        const items =  
+        currentSet.data[i].content;
+        const html = items.map(item => `
+          <li style="position: relative; padding-left: 0.75rem;" class="scale-85 md:scale-95 text-[var(--color-palette-two)]">
+              ${item}
+          </li>
+        `).join('');
 
+        content.innerHTML = html;
+        
+      });
 
       const cardLinkElement = document.querySelectorAll('.card-rsc-item');
       cardLinkElement.forEach((link, i)=> {
