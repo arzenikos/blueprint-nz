@@ -3,6 +3,7 @@
 import Logo from './Logo.astro';
 import FontSizeToggle from './FontSizeToggle.astro';
 import ThemeToggle from './ThemeToggle.astro';
+import ChatBox from '../../common/ChatBox.astro';
 import { mainNavItems } from '../../../content/common/navigation';
 
 const {
@@ -30,6 +31,7 @@ const visibilityClass = desktopOnly ?
         <div class={`flex items-center space-x-1 sm:space-x-8 ${className}`}>
           <ThemeToggle />
         </div>
+        <ChatBox />
       </div>
   </div>
 </header>

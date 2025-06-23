@@ -12,7 +12,7 @@
   --color-palette-gray: #565d64;
   --color-palette-ghost: #849cb7b1;
   --color-palette-light-gray: #37393b;
-  --color-palette-accent: #0025a0;
+  --color-palette-accent: #3a0d02;
 
 
   --gradient-from-light: #b9d6f2;
@@ -24,7 +24,7 @@
   --color-info: #3b82f6;
 
   --color-sun: #f58b0a;
-  --color-moon: #04007d;
+  --color-moon: #3a0d02;
 }
 
 .dark {
@@ -36,7 +36,7 @@
 
   --gradient-from-light: #13232A;
   --gradient-to-light: #13232A;
-  --color-palette-accent: #04b8ff;
+  --color-palette-accent: rgb(238, 196, 185);
 
   --color-palette-border: #acfbe1;
   --color-palette-light-gray: #97a2ac;
