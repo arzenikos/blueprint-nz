@@ -2,35 +2,54 @@
 [Live Demo available here!](https://blueprintnz.netlify.app/)
 
 ## Launching the app locally
-Requirement:
+Requirements:
+- **Operating System:**
+  - (a) Windows 10 or Windows 11 environment  
+    &nbsp;&nbsp;&nbsp;&nbsp;- WSL1 installed to launch Linux Ubuntu environment  
+    &nbsp;&nbsp;&nbsp;&nbsp;- Ubuntu LTS 22.04 distro installed
+  - (b) Linux Ubuntu (**preferred**)
 
+- **Software:**
+  - Visual Studio Code installed
+  - Node.js and Git installed
+  - Git (see https://git-scm.com/downloads to download or see the Git Install guide below 👇)
+  
 
 ## Checking out the most recent branch
+1. Cloning the repository:
 ```
+ git clone https://github.com/arsenie-sarmiento/astro-blueprint-nz.git
 
 ```
-
-## Module dependency resolution
+2. Switching to the current branch
+```
+git switch feature/iteration-003-bluenode-content
+```
+3. Installing the package for dependencies
+In the parent directory, run the following commands:
+#### Module dependency resolution
 ```bash
 rm -rf node_modules
 rm -rf package-lock.json
 npm install
 ```
-## Launching the app
+#### Launching the app
 ```
 npm run dev
 ```
+<br>
+
+----
 
 
-
-
-# Setup
-## Installing WSL
+## Setup (In case you run into errors)
+### Installing WSL
 ```
 wsl --install
 ```
 ```
 wsl --set-version Ubuntu 2
+
 ```
 # Install Node.js on Windows Subsystem for Linux (WSL2)
 ```
