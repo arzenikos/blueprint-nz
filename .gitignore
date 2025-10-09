@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# vscode settings
+.vscode/
+
 # generated types
 .astro/
 
@@ -20,8 +23,5 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# Local Netlify folder
-.netlify
-
-# Vscode
-.vscode
+# jetbrains setting folder
+.idea/
