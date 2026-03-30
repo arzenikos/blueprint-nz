@@ -8,12 +8,11 @@ BluePrintNZ is an informational and resource platform designed to support indivi
 This project demonstrates full-stack development using modern web technologies, accessibility best practices, and responsive design principles.
 
 ## Demo
-**[Visit the live site →](https://blueprintnz.netlify.app/)**
-
-**Figma Prototype:** [View the interactive design prototype](https://www.figma.com/design/8TethMT7VHzz3WNlrJRdCZ/DesignThinkingProjects?node-id=67-64)
-
-[Emerge Poster]
-> [Short Paper]
+- **[Live site →](https://blueprintnz.netlify.app/)**
+- **[Figma Prototype](https://www.figma.com/design/8TethMT7VHzz3WNlrJRdCZ/DesignThinkingProjects?node-id=67-64)**
+- **[PDF Wireframe Diagram](https://github.com/arsenie-sarmiento/draft-project-blueprint-nz/blob/dev/blueprint-nz-diagram.pdf)**
+- [Emerge Poster]
+- [Short Paper]
 
 ---
 ## Features
