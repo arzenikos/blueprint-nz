@@ -10,6 +10,8 @@ This project demonstrates full-stack development using modern web technologies, 
 ## Demo
 **[Visit the live site →](https://blueprintnz.netlify.app/)**
 
+**Figma Prototype:** [View the interactive design prototype](https://www.figma.com/design/8TethMT7VHzz3WNlrJRdCZ/DesignThinkingProjects?node-id=67-64)
+
 [Emerge Poster]
 > [Short Paper]
 
