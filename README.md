@@ -1,106 +1,81 @@
-# BluePrintNZ: Astro on Netlify Platform Starter
+# BluePrintNZ
+A community-focused website for Prostate Cancer NZ
+Built with Astro (TypeScript) and hosted on Netlify.
 
+---
+## Overview
+BluePrintNZ is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
+This project demonstrates full-stack development using modern web technologies, accessibility best practices, and responsive design principles.
 
+## Demo
+**[Visit the live site →](https://blueprintnz.netlify.app/)**
 
-## Module dependency resolution
-```bash
-rm -rf node_modules
-rm -rf package-lock.json
+[Emerge Poster]
+> [Short Paper]
+
+---
+## Features
+- Informational Pages: Clear, structured content on prostate cancer awareness, symptoms, treatment options, and support services.
+- Responsive Design: Optimized for mobile, tablet, and desktop screens.
+- Fast & Lightweight: Built with Astro for minimal client-side JavaScript and high performance.
+- Accessibility-Focused: Ensures inclusive navigation for all users.
+- Deployment: Seamlessly hosted on Netlify with automated CI/CD.
+
+## Tech Stack
+- Framework: Astro (TypeScript)
+- Styling: TailwindCSS / SCSS (or whichever is used)
+- Hosting & CI/CD: Netlify
+
+## Project Structure
+```
+BluePrintNZ/
+├─ public/           # Static assets (images, icons)
+├─ src/
+│  ├─ components/    # Reusable UI components
+│  ├─ pages/         # Route-based pages
+│  ├─ layouts/       # Page layouts
+│  └─ styles/        # Global and component styles
+├─ package.json
+├─ tsconfig.json
+└─ astro.config.mjs
+```
+
+---
+## Installation
+1. Clone the repository
+```
+git clone https://github.com/arsenie-sarmiento/draft-project-blueprint-nz.git
+```
+
+2. Install dependencies
+```
+cd draft-project-blueprint-nz
 npm install
 ```
-## Launching the app
+3. Start local development server
 ```
 npm run dev
 ```
 
-[Or check the Live Demo here!](https://blueprintnz.netlify.app/)
+---
+## Deployment
+The site is deployed on Netlify for easy hosting and continuous deployment:
+1. Connect your GitHub repo to Netlify.
+2. Configure build settings:
+   - Build command: npm run build
+   - Publish directory: dist/
+3. Automatic redeploy on every push to the main branch.
+
+---
 
 
-# Setup
-## Installing WSL
-```
-wsl --install
-```
-```
-wsl --set-version Ubuntu 2
-```
-# Install Node.js on Windows Subsystem for Linux (WSL2)
-```
-sudo apt update && sudo apt upgrade
+> [!WARNING]
+> ## Important Notice: Academic Integrity
+> **BCDE311 - Software Development Project**
+> 
+> This portfolio contains original work completed as part of my BCDE311 - Software Development Project course at Ara Institute of Canterbury. I do not condone plagiarism or academic misconduct in any form. This project is for academic purposes only and is not intended to be copied or used without proper authorisation.
+> The university has a STRICT policy on academic misconduct, and I fully support this policy. Any attempt to plagiarize, copy, or use this work as your own will result in serious consequences. Please respect academic integrity and do not attempt to pass off this work as your own.
+>
+> ## **Disclaimer**
+> All the content presented here is the result of my own individual work, and any resemblance to other works is purely coincidental. If you are a student, please refrain from using or copying this work in any way that violates the principles of academic honesty and integrity.
 
-sudo apt-get install curl
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-```
-
-Verify installation
-```
-command -v nvm
-```
-List which versions of Node are currently installed (should be none at this point): 
-```
-nvm ls
-```
-
-Source: [Windows Developer Tools](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
-
-
-
-# Git install
-On linux cli (e.g. bash)
-```
-sudo apt install git-all
-```
-
-Check
-```
-git --version
-```
-
-
-# Starter
-Install node & npm via nvm: need to update & manage packagess like package.json
-```
-$ # Download and install nvm:
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-
-# in lieu of restarting the shell
-\. "$HOME/.nvm/nvm.sh"
-
-# Download and install Node.js:
-nvm install 22
-
-# Verify the Node.js version:
-node -v # Should print "v22.16.0".
-nvm current # Should print "v22.16.0".
-
-# Verify npm version:
-npm -v # Should print "10.9.2".
-
-````
-
-cd to the cloned repo and run
-```
-$ npm i
-```
-
-/*
-Currently: this is where it was stored
-
-$ export NVM_DIR="$HOME/.nvm"
-
-Arsenie@DESKTOP-I6TUJ7K MINGW64 /
-$ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-
-$ source ~/.bashrc   # or source ~/.zshrc
-bash: /c/Users/Arsenie/.bashrc: No such file or directory
-
-$ nvm use 22
-Now using node v22.16.0 (npm v10.9.2)
-$ which node
-/c/Users/Arsenie/.nvm/versions/node/v22.16.0/bin/node
-
-$ which npm
-/c/Users/Arsenie/.nvm/versions/node/v22.16.0/bin/npm
-*/
