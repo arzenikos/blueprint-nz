@@ -1,6 +1,13 @@
 # BluePrintNZ
-A community-focused website for Prostate Cancer NZ
-Built with Astro (TypeScript) and hosted on Netlify.
+![Astro](https://img.shields.io/badge/AstroJS-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-%2300C7B7.svg?style=for-the-badge&logo=netlify&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![Design Thinking](https://img.shields.io/badge/Design_Thinking-%231F67CC.svg?style=for-the-badge&logo=adobexd&logoColor=white)
+
+> BCDE311 - Software Development Project
+> 
+>  A community-focused website remake for Prostate Cancer NZ, as part of the **BCDE311 - Software Development Project** course. This app is built with TypeScript, designed to help users build consistent habits through structured tracking, intelligent reminders, and actionable insights. 
 
 ---
 ## Overview
