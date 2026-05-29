@@ -1,0 +1,75 @@
+---
+import Icon from '../../components/ui/Icon.astro';
+// const numbers = [0, 1, 2, 3, 4];
+const numbers = [
+  { label: 'Patient', icon: '0' },
+  { label: 'Patient', icon: '1' },
+  { label: 'Patient', icon: '2' },
+  { label: 'Patient', icon: '3' },
+  { label: 'Patient', icon: '4' },
+];
+
+const icons = [
+  { label: 'Caregiver', icon: 'caregiver' },
+  { label: 'Researcher', icon: 'researcher' },
+];
+
+const {} = Astro.props
+---
+
+<div class="container flex items-center justify-center gap-4 w-full px-4">
+  <!-- Left Label -->
+  <!-- <div class="text-lg font-semibold text-gray-800 min-w-[80px]">Patient</div> -->
+
+  <!-- Number Buttons with Horizontal Line -->
+  <div class="relative ">
+    <!-- Connecting Line -->
+    <div class="absolute top-1/2 left-0 w-full h-0.5-z-10 translate-y-1/2"></div>
+
+    <!-- Fixed-size Button Containers -->
+     <div class="flex relative">
+      {numbers.map(({ label, icon }) => (
+        <div class="relative group w-10 h-10 flex items-center justify-center">
+          <button
+            type="button"
+            class="w-full h-full flex p-5 items-center justify-center rounded-full md: text-xl text-s transition-all duration-200 hover:scale-110 " style="background: var(--color-palette-four); color: var(--color-palette-one);"
+          >
+          {icon}
+          </button>
+          <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm  rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+            {label}
+          </div>
+        </div>
+      <div class="flex items-center justify-center">
+        <div class="h-0.5 w-4 md:w-10"  style="background-color: var(--color-palette-five);"></div>
+      </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Separator -->
+  <!-- <div class="h-12 w-0.5" style="background-color: var(--color-palette-five);"></div> -->
+
+  <!-- Icon Buttons with Tooltip -->
+  <div class="flex relative">
+    {
+      icons.map(({ label, icon }) => (
+      <div class="flex items-center justify-center">
+        <div class="h-0.5 w-4 md:w-10" style="background-color: var(--color-palette-five);"></div>
+      </div>
+      <div class="relative group w-10 h-10 flex items-center justify-center">
+        <button
+          type="button"
+          class="w-full h-full flex items-center justify-center rounded-full text-xl transition-all duration-200 hover:scale-110" style="background: var(--color-palette-four);"
+        >
+          {/* {icon} */}
+          <Icon name={icon} class="hover:text-white" color="var(--color-palette-one)"/>
+        </button>
+        <div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+          {label}
+        </div>
+      </div>
+    ))
+    }
+  </div>
+</div>

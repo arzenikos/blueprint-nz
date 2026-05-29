@@ -1,51 +1,144 @@
 @import 'tailwindcss';
-@import './chat-box.css';
-
+/* @import './chat-box.css'; */
 /* CSS variables are injected from colors.ts */
 :root {
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  
+  /* MAIN */
+  --color-palette-one: #b9d6f2;
+  --color-palette-two: #74b9e0;
+  --color-palette-three: #0353a4;
+  --color-palette-four: #1e2939;
+  --color-palette-five: #061a40;
+  /* dark:bg-gray-800  */
+  --color-palette-zero: #fbfdff;
+  --color-palette-gray: #565d64;
+
+    --gradient-from-light: #b9d6f2; /* Light blue (from-blue-50) */
+  --gradient-to-light: #b9d6f2;  /* White (to-white) */
+  /* var(--color-primary-content) */
+
+  /* Default stroke color */
+  /* .icon {
+    stroke: var(--icon-color, #000); 
+    transition: stroke 0.3s ease;
+  } */
+
+  /* Hover effect: Change stroke color on hover */
+  /* .icon:hover {
+    stroke: var(--icon-hover-color, #FF5733);
+  } */
+
   /* Core palette */
-  --color-primary: #05213b;
-  --color-secondary: #c0c8d8;
+  /* --color-custom-main: #000f2e;
+  
+  --color-primary: #b9d6f2;
+  --color-secondary: #000f2e;
   --color-accent: #3b82f6;
   --color-neutral: #ffffff;
   --color-semantic: #10b981;
-  
+   */
   /* Primary colors */
-  --color-primary-light: #3b82f6;
+  /* --color-primary-light: #d4e5f7;
   --color-primary-dark: #8fb8e6;
-  --color-primary-content: #000f2e;
+  --color-primary-content: #000f2e; */
   
   /* Secondary colors */
-  --color-secondary-light: #001a52;
-  --color-secondary-dark: #70737a;
-  --color-secondary-content: #ffffff;
+  /* --color-secondary-light: #001a52;
+  --color-secondary-dark: #00071a;
+  --color-secondary-content: #ffffff; */
   
   /* Accent colors */
-  --color-accent-light: #60a5fa;
+  /* --color-accent-light: #60a5fa;
   --color-accent-dark: #2563eb;
-  --color-accent-content: #350404;
+  --color-accent-content: #ffffff; */
   
-  /* UI colors */
-  --color-background: #000f2e;
-  --color-foreground: #b9b5b5;
+  /* UI colors - Light theme by default */
+  /* --color-background: #ffffff;
+  --color-foreground: #13172a; 
   --color-border: #e2e8f0;
   --color-focus: #b9d6f2;
   --color-muted: #f1f5f9;
-  
+  --color-card: #ffffff;
+  --color-card-border: #e2e8f0;
+   */
   /* Feedback colors */
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
   --color-info: #3b82f6;
+
+}
+
+/* Dark theme variables */
+.dark {
+  /* Core palette - Dark theme */
+  /* --color-primary: #3b82f6;
+  --color-secondary: #1b2332;
+  --color-accent: #60a5fa;
+  --color-neutral: #1f2937;
+  --color-semantic: #10b981; */
+  
+  /* Primary colors - Dark theme */
+  /* --color-primary-light: #60a5fa;
+  --color-primary-dark: #2563eb;
+  --color-primary-content: #ffffff; */
+  
+  /* Secondary colors - Dark theme */
+  /* --color-secondary-light: #d1d5db;
+  --color-secondary-dark: #9ca3af;
+  --color-secondary-content: #111827; */
+  
+  /* UI colors - Dark theme */
+  --color-palette-one: #13232A;
+  --color-palette-two: rgb(8, 56, 82);
+  --color-palette-three: #6DA3C0;
+  --color-palette-four: #80A4B7;
+  --color-palette-five: #B8D9EB;
+    --gradient-from-light: #13232A; /* Light blue (from-blue-50) */
+  --gradient-to-light: #13232A;  /* White (to-white) */
+  /* Dark gray (from-gray-900) */
+  /* --gradient-from-dark: #1a202c;  */
+  /* Darker gray (to-gray-800) */
+  /* --gradient-to-dark: #2d3748; */
+  /* --color-background: #13172a;
+  --color-foreground: #e5e7eb;
+  --color-border: #374151;
+  --color-focus: #3b82f6;
+  --color-muted: #1f2937;
+  --color-card: #1f2937;
+  --color-card-border: #374151; */
+}
+
+/* Theme transition */
+:root {
+  --transition-speed: 0.3s;
+}
+
+* {
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease,
+              border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
 }
 
 @layer base {
   html, body {
     @apply w-full overflow-x-hidden;
-    color: var(--color-foreground);
-    background-color: var(--color-background);
+    color: var(--color-palette-five);
+    background-color: var(--color-palette-one);
+  }
+  
+  /* Font size classes with increased distinction */
+  html.text-sm {
+    font-size: 0.8rem;
+  }
+  
+  html.text-base {
+    font-size: 1rem;
+  }
+  
+  html.text-xl {
+    font-size: 1.4rem;
   }
   
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -61,35 +154,39 @@
 
   h1 {
     @apply text-4xl font-bold tracking-tight sm:text-5xl;
-    color: var(--color-secondary);
+    color: var(--color-palette-five);
   }
 
   h2 {
     @apply text-2xl font-bold sm:text-3xl;
-    color: var(--color-secondary);
+    color: var(--color-palette-five);
   }
 
   h3 {
     @apply text-xl font-semibold sm:text-2xl;
-    color: var(--color-secondary);
+    color: var(--color-palette-five);
   }
 
   a:not(.btn) {
     @apply underline transition hover:opacity-80;
-    color: var(--color-primary-dark);
+    color: var(--color-palette-five); /* Changed to dark blue */
   }
 
   pre {
     @apply p-6 overflow-x-auto rounded-lg;
-    background-color: var(--color-secondary);
-    color: var(--color-secondary-content);
+    background-color: var(--color-palette-one);
+    color: var(--color-palette-five);
   }
 
   :not(pre) > code {
     @apply px-1 py-0.5 font-mono rounded;
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
+    background-color: var(--color-palette-one);
+    color: var(--color-palette-five);
     font-size: 0.9em;
+  }
+  
+  p, span, div, li {
+    color: var(--color-palette-five);
   }
 }
 
@@ -107,18 +204,20 @@
     @apply inline-flex items-center justify-center gap-2 cursor-pointer text-center font-semibold no-underline transition-colors rounded-md;
     padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
     font-size: var(--btn-font-size, 0.875rem);
-    background-color: var(--color-primary);
-    color: var(--color-primary-content);
+    background-color: var(--color-palette-five);
+    color: var(--palette-five);
 
     &:hover {
       background-color: var(--color-primary-dark);
     }
 
     &:disabled {
-      @apply text-gray-400 bg-gray-700;
+      @apply
+       text-gray-400;
+      color: var(--color-palette-one);
+      background-color: var(--color-palette-five);
     }
   }
-
   .btn-accent {
     background-color: var(--color-accent);
     color: var(--color-accent-content);
@@ -145,8 +244,8 @@
   
   .card {
     @apply rounded-lg overflow-hidden;
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
+    background-color: var(--color-card);
+    border: 1px solid var(--color-card-border);
   }
   
   .card-body {
@@ -163,7 +262,7 @@
   }
   
   .bg-noise {
-    background-color: var(--color-secondary);
+    background-color: var(--color-muted);
   }
   
   .markdown {
@@ -182,5 +281,20 @@
     > :last-child {
       @apply mb-0;
     }
+  }
+  
+  /* BlueNode interactive elements */
+  .node {
+    @apply cursor-pointer transition-all duration-300;
+  }
+  
+  .node-line {
+    @apply transition-all duration-500 opacity-0;
+    stroke: var(--color-accent);
+    stroke-width: 2;
+  }
+  
+  .node-line.active {
+    @apply opacity-100;
   }
 }

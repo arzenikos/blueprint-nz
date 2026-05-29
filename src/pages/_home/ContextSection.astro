@@ -1,0 +1,27 @@
+---
+import Button from '../../components/ui/Button.astro';
+const {} = Astro.props
+---
+<div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center gap-12">
+    <div class="md:w-1/2">
+        <img 
+        src="/src/assets/placeholder-image-1.jpg" 
+        alt="About BluePrintNZ" 
+        class="rounded-lg shadow-lg w-full h-auto"
+        />
+    </div>
+    <div class="md:w-1/2">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--color-palette-five);">About BluePrintNZ</h2>
+        <p class="text-lg  mb-6" style="color: var(--color-palette-five);">
+        BluePrintNZ is a platform designed to showcase modern web development techniques and best practices using Astro and Netlify.
+        </p>
+        <p class="text-lg  mb-6" style="color: var(--color-palette-five);">
+        Our mission is to provide a blueprint for building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture and Netlify's deployment platform.
+        </p>
+        <Button variant="primary" href="/about">
+        Learn More About Us
+        </Button>
+    </div>
+    </div>
+</div>

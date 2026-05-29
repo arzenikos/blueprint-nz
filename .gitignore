@@ -3,9 +3,6 @@ dist/
 .output/
 .vercel/
 .netlify/
-.vscode/
-
-.prettierrc
 
 # Generated types and caches
 .astro/
@@ -58,7 +55,6 @@ cypress/videos/
 cypress/screenshots/
 
 # Temporary files
-public/
 tmp/
 temp/
 .tmp/
@@ -67,6 +63,7 @@ temp/
 *.swp
 
 # OS generated files
+.DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
@@ -75,5 +72,9 @@ ehthumbs.db
 Thumbs.db
 
 # Specific to Astro/Netlify
+.netlify/
 functions/*.js
 functions/*.map
+
+# Backup
+backup/
