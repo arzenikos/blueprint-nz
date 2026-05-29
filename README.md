@@ -3,6 +3,7 @@
 [Live Demo](https://blueprintnz.netlify.app/)
 
 ## Module dependency resolution
+
 ```bash
 rm -rf node_modules
 rm -rf package-lock.json
