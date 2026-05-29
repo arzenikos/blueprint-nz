@@ -75,3 +75,6 @@ Thumbs.db
 .netlify/
 functions/*.js
 functions/*.map
+
+# Backup
+backup/
