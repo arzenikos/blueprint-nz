@@ -79,3 +79,7 @@ functions/*.map
 
 # Assets
 **/assets/**
+
+
+# Public
+public/**/*
