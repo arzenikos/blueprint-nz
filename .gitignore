@@ -80,6 +80,9 @@ functions/*.map
 # Amazon Q
 amazon-q.deb
 *.deb
+public/
+
 # Backup
 backup/
 **/assets/**
+

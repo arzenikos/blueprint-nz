@@ -221,3 +221,9 @@
     @apply opacity-100;
   }
 }
+
+#blueNodeDiagram a[href*="gojs.net"] {
+  opacity: 0.1 !important;
+  pointer-events: none;
+  user-select: none;
+}
