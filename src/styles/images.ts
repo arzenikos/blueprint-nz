@@ -19,7 +19,7 @@ export const imageSizes = {
     },
     small: {
       height: {
-        mobile: '1.6rem',
+        mobile: '2rem',
         desktop: '2.5rem',
       },
       aspectRatio: 'auto',

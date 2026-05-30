@@ -6,15 +6,15 @@ export const homeData = {
     ctaLink: "/bluenode",
     carouselImages: [
       {
-        src: "placeholder-image.jpg",
+        src: "/assets/images/placeholders/placeholder-image.jpg",
         alt: "Hero image 1"
       },
       {
-        src: "placeholder-image.jpg",
+        src: "/assets/images/placeholders/placeholder-image.jpg",
         alt: "Hero image 2"
       },
       {
-        src: "placeholder-image.jpg",
+        src: "/assets/images/placeholders/placeholder-image.jpg",
         alt: "Hero image 3"
       }
     ]
@@ -30,19 +30,19 @@ export const homeData = {
     services: [
       {
         title: "Get Involved",
-        image: "placeholder-image.jpg",
+        image: "/assets/images/placeholders/placeholder-image.jpg",
         alt: "Get Involved",
         link: "/get-involved"
       },
       {
         title: "Research",
-        image: "placeholder-image.jpg",
+        image: "/assets/images/placeholders/placeholder-image.jpg",
         alt: "Research",
         link: "/research"
       },
       {
         title: "Shop",
-        image: "placeholder-image.jpg",
+        image: "/assets/images/placeholders/placeholder-image.jpg",
         alt: "Shop",
         link: "/shop"
       }

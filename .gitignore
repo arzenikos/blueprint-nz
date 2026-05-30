@@ -80,3 +80,6 @@ functions/*.map
 backup/
 **/assets/**
 
+
+# Assets
+**/assets/**/*
