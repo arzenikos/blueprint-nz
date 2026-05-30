@@ -1,0 +1,90 @@
+---
+import { siteData } from '../../data/site';
+import { imageSizes } from '../../styles/images';
+import { componentSpacing } from '../../styles/spacing';
+import SearchBar from '../navigation/SearchBar.astro';
+import SearchButton from '../navigation/SearchButton.astro';
+import MainNav from '../navigation/MainNav.astro';
+
+// Get logo sizes from centralized file
+const logoSizes = imageSizes.logo.default.height;
+// Get header margin from centralized file
+const headerMarginTop = componentSpacing.header.margin.top;
+const headerMarginBottom = componentSpacing.header.margin.bottom;
+---
+
+<header class="sticky top-0 z-40 w-full bg-transparent">
+  <!-- Spacer div for mobile top margin -->
+  <div class="md:hidden" style={`margin-top: ${headerMarginTop.mobile};`}></div>
+  <div class="hidden md:block" style={`margin-top: ${headerMarginTop.desktop};`}></div>
+
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-[2000px]">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo (left) - Size from centralized file -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img 
+            src="/src/assets/images/logo-dark.png" 
+            alt={siteData.site.title} 
+            class="max-h-full object-contain"
+            style={`height: ${logoSizes.mobile};`}
+          />
+        </a>
+      </div> 
+      
+      <!-- Search Bar (middle) - Hidden on mobile -->
+      <SearchBar />
+      
+      <!-- Right Navigation Items -->
+      <div class="flex items-center space-x-1 sm:space-x-4">
+        <!-- Search Icon (Mobile Only) -->
+        <SearchButton />
+        
+        <!-- Main Navigation Items -->
+        <MainNav />
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Search (Hidden by default) -->
+  <SearchBar mobile={true} />
+  
+  <!-- Spacer div for mobile bottom margin -->
+  <div class="md:hidden" style={`margin-bottom: ${headerMarginBottom.mobile};`}></div>
+  <div class="hidden md:block" style={`margin-bottom: ${headerMarginBottom.desktop};`}></div>
+</header>
+
+<script>
+  // Toggle mobile search
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchButton = document.querySelector('button[aria-label="Search"]');
+    const mobileSearch = document.getElementById('mobile-search');
+    
+    searchButton?.addEventListener('click', () => {
+      mobileSearch?.classList.toggle('hidden');
+      // Focus the search input when shown
+      if (!mobileSearch?.classList.contains('hidden')) {
+        const searchInput = mobileSearch.querySelector('input[type="search"]');
+        (searchInput as HTMLInputElement | null)?.focus();
+      }
+    });
+    
+    // Responsive image sizing for max screen width
+    const handleResize = () => {
+      const isMaxWidth = window.innerWidth >= 1920;
+      const icons = document.querySelectorAll('header svg:not(.logo-svg)');
+      
+      icons.forEach(icon => {
+        if (isMaxWidth) {
+          icon.classList.add('scale-75');
+        } else {
+          icon.classList.remove('scale-75');
+        }
+      });
+    };
+    
+    // Initial call and event listener
+    handleResize();
+    window.addEventListener('resize', handleResize);
+  });
+</script>

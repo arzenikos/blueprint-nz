@@ -1,6 +1,3 @@
-// Imported by: components/shared/PixelRibbon.astro,
-// components/ui/ColorPalette.astro,
-// pages/design-system.astro
 /**
  * BluePrintNZ Theme System
  * 

@@ -1,4 +1,3 @@
-// Imported by: components/about/ImageComparison.astro, components/about/MainContent.astro, components/common/Logo.astro, components/home/FoundationSection.astro, components/home/HeroSection.astro, components/home/InfoSection.astro, components/home/ServicesSection.astro, components/layout/Header.astro
 /**
  * BluePrintNZ Image Size System
  * 
@@ -19,7 +18,7 @@ export const imageSizes = {
     },
     small: {
       height: {
-        mobile: '1.6rem',
+        mobile: '2rem',
         desktop: '2.5rem',
       },
       aspectRatio: 'auto',
