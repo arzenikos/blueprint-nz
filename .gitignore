@@ -3,9 +3,6 @@ dist/
 .output/
 .vercel/
 .netlify/
-.vscode/**/*
-
-.prettierrc
 
 # Generated types and caches
 .astro/
@@ -48,6 +45,24 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+.DS_Store
+*.sublime-workspace
+
+# Testing
+coverage/
+.nyc_output/
+cypress/videos/
+cypress/screenshots/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+*.bak
+*.swp
+
+# OS generated files
 .DS_Store
 *.sublime-workspace
 

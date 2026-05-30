@@ -1,0 +1,174 @@
+---
+// <!-- Not imported by any file -->
+import { Image } from 'astro:assets';
+import { homeData } from '../../data/home';
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import Markdown from '../Markdown.astro';
+// import placeholderImage from '../../assets/images/placeholder-image.jpg';
+import placeholderImage from '/assets/images/placeholder-image.jpg';
+
+const { hero } = homeData;
+---
+
+<section class="py-12">
+  <Container>
+    <!-- Desktop layout (md and up) -->
+    <div class="hidden md:flex flex-col md:flex-row items-center gap-8 mb-10 w-full">
+      <div class="w-full md:w-1/2">
+        <div class="mb-6">
+          <h1 class="mb-2">{hero.title}</h1>
+        </div>
+        <Markdown content={hero.slogan} class="mb-8 text-lg" />
+        <Button href={hero.ctaLink} size="lg" class="custom-button">{hero.ctaText}</Button>
+      </div>
+      <div class="w-full md:w-1/2 flex justify-center">
+        <!-- Desktop Carousel -->
+        <div class="carousel-container w-full">
+          <div class="carousel-slides">
+            {hero.carouselImages.map((image, index) => (
+              <div class="carousel-slide" data-index={index}>
+                <Image
+                  src={placeholderImage}
+                  alt={image.alt}
+                  class="w-full max-w-full rounded-lg shadow-lg object-cover"
+                  width={800}
+                  height={600}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  format="webp"
+                  quality={80}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  // Carousel functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel-container');
+    
+    carousels.forEach(carousel => {
+      const slides: NodeListOf<Element> = carousel.querySelectorAll('.carousel-slide');
+      const dots: NodeListOf<Element> = carousel.querySelectorAll('.carousel-dot');
+      const prevBtn: Element | null = carousel.querySelector('.carousel-prev');
+      const nextBtn: Element | null = carousel.querySelector('.carousel-next');
+      let currentIndex: number = 0;
+      
+      // Initialize the carousel
+      function initCarousel() {
+        slides.forEach((slide: Element, index: number) => {
+          (slide as HTMLElement).style.display = index === currentIndex ? 'block' : 'none';
+        });
+        updateDots();
+      }
+      
+      // Update the dots
+      function updateDots() {
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('bg-gray-300', index !== currentIndex);
+          dot.classList.toggle('bg-gray-500', index === currentIndex);
+          
+          // For mobile dots with white background
+          // dot.classList.toggle('bg-white', index !== currentIndex && window.innerWidth < 768);
+          // dot.classList.toggle('bg-opacity-70', index !== currentIndex && window.innerWidth < 768);
+          // dot.classList.toggle('bg-opacity-100', index === currentIndex && window.innerWidth < 768);
+        });
+      }
+      
+      // Go to a specific slide
+      function goToSlide(index:any) {
+        // Check if slides exist and have the style property before manipulating
+        if (slides.length > 0 && currentIndex >= 0 && currentIndex < slides.length) {
+          const currentSlide = slides[currentIndex] as HTMLElement;
+          if (currentSlide) {
+            currentSlide.style.display = 'none';
+          }
+        }
+        
+        currentIndex = (index + slides.length) % slides.length;
+        
+        if (slides.length > 0 && currentIndex >= 0 && currentIndex < slides.length) {
+          const newSlide = slides[currentIndex] as HTMLElement;
+          if (newSlide) {
+            newSlide.style.display = 'block';
+          }
+        }
+        
+        updateDots();
+      }
+      
+      // Event listeners for dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+      });
+      
+      // Event listeners for prev/next buttons
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+      }
+      
+      // Auto-advance the carousel
+      let interval = setInterval(() => goToSlide(currentIndex + 1), 5000);
+      
+      // Pause auto-advance on hover
+      carousel.addEventListener('mouseenter', () => clearInterval(interval));
+      carousel.addEventListener('mouseleave', () => {
+        clearInterval(interval);
+        interval = setInterval(() => goToSlide(currentIndex + 1), 5000);
+      });
+      
+      // Initialize
+      initCarousel();
+    });
+  });
+</script>
+
+<style>
+  /* Carousel styles */
+  .carousel-container {
+    overflow: hidden;
+  }
+  
+  .carousel-slide {
+    transition: opacity 0.5s ease;
+  }
+  
+  .carousel-dot {
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Additional styles for the mobile hero section */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    :global(.markdown-content p) {
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      font-size: 1rem;
+    }
+  }
+  
+  /* Custom button styling */
+  :global(.custom-button) {
+    background-color: var(--color-primary-light) !important;
+    color: var(--color-secondary) !important;
+    font-weight: 600;
+  }
+  
+  :global(.custom-button:hover) {
+    background-color: var(--color-primary) !important;
+  }
+</style>

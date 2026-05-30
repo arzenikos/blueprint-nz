@@ -9,8 +9,6 @@ export default {
     colors,
     fontFamily: typography.fontFamily,
     fontSize: typography.fontSize,
-    fontWeight: typography.fontWeight,
-    lineHeight: typography.lineHeight,
     spacing,
     borderRadius,
     boxShadow: shadows,

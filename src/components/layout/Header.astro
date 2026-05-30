@@ -1,0 +1,116 @@
+---
+// <!-- Imported by: layouts/BaseLayout.astro, layouts/FullPageLayout.astro -->
+import { siteData } from '../../data/site';
+import { imageSizes } from '../../styles/images';
+import { componentSpacing } from '../../styles/spacing';
+import { mainNavItems } from '../../data/navigation';
+// import MainNav from '../navigation/MainNav.astro';
+import NavItem from '../navigation/NavItem.astro';
+import type { NavItem as NavItemType } from '../../data/navigation';
+
+
+interface Props extends NavItemType{
+  class?: string;
+  iconSize?: number;
+  mobileOnly?: boolean;
+  desktopOnly?: boolean;
+}
+
+const {
+  class: className = '' ,
+  // mobileOnly = false,
+  desktopOnly = true,
+} = Astro.props;
+
+const visibilityClass = desktopOnly ? 
+'justify-between' 
+: 
+'';
+// Get logo sizes from centralized file
+const logoSizes = imageSizes.logo.default.height;
+// Get header margin from centralized file
+const headerMarginTop = componentSpacing.header.margin.top;
+const headerMarginBottom = componentSpacing.header.margin.bottom;
+
+
+
+const headerLayout = 'flex-row items-center justify-between';
+---
+
+<header class="sticky top-0 z-40 w-full bg-transparent">
+  <!-- Spacer div for mobile top margin -->
+  <div class="md:hidden" style={`margin-top: ${headerMarginTop.mobile};`}></div>
+  <div class="hidden md:block" style={`margin-top: ${headerMarginTop.desktop};`}></div>
+
+  <div class="container mx-auto px-10 md:px-6 lg:px-8 max-w-[2000px]">
+    <div class=`flex ${visibilityClass} items-center h-20`>
+      <!-- Logo (left) - Size from centralized file -->
+      <div class="flex-shrink-0 w-45 md:w-65">
+        <a href="/" class="flex items-center">
+          <img 
+            id="site-logo"
+            src="/src/assets/images/logo-13232A-6DA3C0.png" 
+            alt={siteData.site.title} 
+            class="object-contain"
+            style={`height: ${logoSizes.mobile};`}
+          />
+        </a>
+      </div> 
+      
+      <!-- Right Navigation Items -->
+       <div class={`flex items-center space-x-1 sm:space-x-8 ${className}`}>
+          {mainNavItems.map(item => (
+            <NavItem {...item} />
+          ))}
+        </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Search (Hidden by default) -->
+  
+  <!-- Spacer div for mobile bottom margin -->
+  <div class="md:hidden" style={`margin-bottom: ${headerMarginBottom.mobile};`}></div>
+  <div class="hidden md:block" style={`margin-bottom: ${headerMarginBottom.desktop};`}></div>
+</header>
+
+<script type="application/json" id="image-sizes">
+</script>
+
+<script>
+  // Theme toggle for logo
+  const darkLogo  = '/assets/images/logo-13232A-6DA3C0.png';
+  // const darkLogo  = '/src/assets/images/logo-13232A-6DA3C0.png';
+  const lightLogo = '/assets/images/logo-b9d6f2-061a40.png'; // Change this to your dark logo path
+
+  function setLogoByTheme(theme) {
+    const logo = document.getElementById('site-logo');
+    if (!logo) return;
+    if (theme === 'dark') {
+      (logo as HTMLImageElement).src = darkLogo;
+    } else {
+      (logo as HTMLImageElement).src = lightLogo;
+    }
+  }
+
+  function getPreferredTheme() {
+    if (window.localStorage.getItem('theme')) {
+      return window.localStorage.getItem('theme');
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set logo on load
+    setLogoByTheme(getPreferredTheme());
+
+    // Listen for theme changes (if you have a theme toggle event)
+    window.addEventListener('themechange', (e) => {
+      const customEvent = e as CustomEvent;
+      setLogoByTheme(customEvent.detail.theme);
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      setLogoByTheme(e.matches ? 'dark' : 'light');
+    });
+  });
+</script>
