@@ -1,0 +1,42 @@
+{
+  "name": "astro-netlify-platform-starter",
+  "type": "module",
+  "version": "0.3.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "close": "rm -rf node_modules && rm -rf package-lock.json",
+    "edit-netlify-config": "code C:\\Users\\arsenie-sarmiento\\AppData\\Roaming\\netlify\\Config\\config.json",
+    "publish": "git add . && git commit -m 'Update' && git push"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "^6.3.4",
+    "@astrojs/react": "^4.3.0",
+    "@fontsource-variable/inter": "^5.2.5",
+    "@netlify/blobs": "^8.2.0",
+    "@netlify/functions": "^2.8.2",
+    "astro": "^5.8.0",
+    "astro-carousel": "^3.0.2",
+    "astro-icon": "^1.1.5",
+    "blobshape": "^1.0.0",
+    "d3": "^7.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.2.0",
+    "unique-names-generator": "^4.7.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.14",
+    "@types/blobshape": "^1.0.3",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "sass-embedded": "^1.89.0",
+    "vite-plugin-static-copy": "^3.0.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.41.1"
+  }
+}
