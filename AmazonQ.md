@@ -1,43 +1,45 @@
-# CSS Improvements for BluePrintNZ Website
+# Project Conflict Resolution
 
-## Changes Made
+This document outlines the changes made to resolve package and module conflicts in the Astro project.
 
-1. **Layout Structure**:
-   - Modified the main layout to use full viewport width
-   - Added proper container classes with responsive padding
-   - Set a maximum width of 2000px to prevent excessive stretching on large screens
+## Issues Identified and Fixed
 
-2. **Responsive Design**:
-   - Improved mobile responsiveness with better flex/grid layouts
-   - Added proper breakpoints for different screen sizes
-   - Ensured content is properly aligned at all viewport widths
+1. **Tailwind Integration Conflict**
+   - Replaced `@tailwindcss/vite` with the official `@astrojs/tailwind` integration
+   - Updated Tailwind from v4.0.14 (beta) to stable v3.4.1
+   - Fixed the Tailwind configuration file to properly satisfy TypeScript types
 
-3. **Header Component**:
-   - Restructured navigation for better spacing
-   - Added justify-between to create proper spacing between logo and navigation items
-   - Improved mobile responsiveness
+2. **Angular/Astro Conflict**
+   - Removed `angular.json` as it was causing confusion with the Astro project structure
+   - Ensured all configurations are Astro-specific
 
-4. **Footer Component**:
-   - Completely redesigned for better structure and responsiveness
-   - Added proper grid layout for footer sections
-   - Improved newsletter subscription form layout
-   - Added social media icons with proper spacing
+3. **Configuration Updates**
+   - Updated `astro.config.mjs` to use the proper Tailwind integration
+   - Removed Windows-specific path in package.json scripts
 
-5. **Homepage Content**:
-   - Restructured hero section for better responsiveness
-   - Improved card layouts with proper grid system
-   - Fixed image sizing and responsiveness issues
-   - Added proper spacing between sections
+## How to Run the Project
 
-6. **CSS Utilities**:
-   - Added container-fluid utility class for consistent full-width sections
-   - Added proper HTML/body styling to prevent horizontal overflow
-   - Improved overall spacing and alignment
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Future Improvements
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+   
+   Or with Netlify CLI:
+   ```bash
+   netlify dev
+   ```
 
-1. Consider adding a proper color theme system for light/dark mode
-2. Implement proper image optimization for better performance
-3. Add animations for interactive elements
-4. Improve accessibility features
-5. Consider implementing a proper design system for consistency
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+
+4. Preview the production build:
+   ```bash
+   npm run preview
+   ```
