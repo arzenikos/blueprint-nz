@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root{
+  --color-palette-one:#b9d6f2;
+  --color-palette-two:#9fc6ed;
+  --color-palette-three:#3583f6;
+  --color-palette-four:#082756;
+  --color-palette-five:#061a40;
+
+  --color-palette-accent:#3a0d02;
+
+  --bg:var(--color-palette-one);
+  --surface:rgba(255,255,255,.18);
+  --line:rgba(6,26,64,.18);
+
+  --text:var(--color-palette-five);
+  --muted:rgba(6,26,64,.6);
+
+  --radius:1.2rem;
+}
+
+/* ================= RESET ================= */
+
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+  width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  min-height:300vh;
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-palette-one),
+      var(--color-palette-two)
+    );
+
+  color:var(--text);
+
+  font-family:"Bebas Neue", sans-serif;
+  letter-spacing:.04em;
+
+  overscroll-behavior:none;
+}
+
+/* ================= SCROLL WRAPPER ================= */
+
+.scroll-wrapper{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  position:relative;
+}
+
+/* ================= INSTRUCTION ================= */
+
+.scroll-instruction{
+  position:fixed;
+  bottom:2rem;
+  left:50%;
+  transform:translateX(-50%);
+
+  z-index:100;
+
+  padding:.65rem 1.4rem;
+
+  border:1px solid var(--line);
+
+  background:rgba(255,255,255,.18);
+  /* backdrop-filter:blur(14px); */
+
+  color:var(--muted);
+
+  font-size:1rem;
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+
+  pointer-events:none;
+}
+
+/* ================= CANVAS ================= */
+
+.canvas{
+  position:absolute;
+  top:50%;
+  left:0;
+
+  translate:0 -50%;
+
+  width:2500px;
+  height:1000px;
+}
+
+/* ================= SVG LINES ================= */
+
+.lines-layer{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  pointer-events:none;
+  z-index:1;
+}
+
+.line-path{
+  stroke:var(--color-palette-four);
+  stroke-width:2;
+
+  fill:none;
+
+  opacity:.7;
+  stroke-linecap:round;
+}
+
+/* ================= BASE ELEMENT ================= */
+
+.clay-element{
+  position:absolute;
+  transform:translate(-50%, -50%);
+
+  background:rgba(255,255,255,.12);
+
+  /* backdrop-filter:blur(14px); */
+
+  border:1px solid rgba(255,255,255,.25);
+
+  z-index:2;
+}
+
+/* ================= CONNECTOR ================= */
+
+.connector-dot{
+  width:1rem;
+  height:1rem;
+
+  border-radius:50%;
+
+  background:var(--color-palette-three);
+
+  border:2px solid rgba(255,255,255,.5);
+
+  box-shadow:
+    0 0 0 4px rgba(53,131,246,.08);
+}
+
+/* ================= BUTTON ================= */
+
+.branch-btn {
+  min-width: 120px;
+  height: 42px;
+
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(53, 131, 246, 0.25);
+  border-radius: 10px;
+
+  background: rgba(6, 26, 64, 0.82);
+
+  color: var(--color-palette-three);
+
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+
+  /* box-shadow: none; */
+  box-shadow:
+  0 10px 30px rgba(6, 26, 64, 0.12);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+
+  z-index: 4;
+
+  /* backdrop-filter: blur(8px); */
+}
+
+.branch-btn:hover {
+  background: rgba(8, 39, 86, 0.96);
+
+  border-color: var(--color-palette-three);
+
+  color: white;
+
+  transform: translate(-50%, -50%) translateY(-2px);
+}
+
+/* ================= CARD ================= */
+
+.card{
+  width:250px;
+  height:250px;
+
+  overflow:hidden;
+
+  border-radius:1rem;
+
+  border:1px solid rgba(255,255,255,.28);
+
+  background:rgba(255,255,255,.14);
+
+  /* backdrop-filter:blur(16px); */
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease;
+}
+
+.card:hover{
+  transform:translate(-50%, -53%);
+
+  border-color:rgba(53,131,246,.45);
+}
+
+/* ================= MEDIA ================= */
+
+.card-video-wrap{
+  position:relative;
+
+  width:100%;
+  height:190px;
+
+  overflow:hidden;
+}
+
+.thumbnail{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:
+    grayscale(.1)
+    contrast(1.02)
+    brightness(.9);
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6,26,64,.15),
+      rgba(6,26,64,.6)
+    );
+
+  mix-blend-mode:multiply;
+}
+
+/* ================= BADGES ================= */
+
+.header-badges{
+  position:absolute;
+
+  top:1rem;
+  left:1rem;
+  right:1rem;
+
+  z-index:3;
+
+  display:flex;
+  justify-content:space-between;
+}
+
+.badge-group{
+  display:flex;
+  gap:.5rem;
+}
+
+.badge{
+  padding:.3rem .7rem;
+
+  border:1px solid rgba(255,255,255,.22);
+
+  background:rgba(255,255,255,.14);
+
+  color:#fff;
+
+  font-size:.8rem;
+  font-weight:400;
+
+  letter-spacing:.08em;
+
+  border-radius:999px;
+
+  /* backdrop-filter:blur(8px); */
+}
+
+.badge.icon{
+  padding:.35rem .65rem;
+}
+
+/* ================= TITLE ================= */
+
+.title{
+  position:absolute;
+
+  bottom:1rem;
+  left:1rem;
+
+  z-index:3;
+
+  color:#fff;
+
+  font-size:1.6rem;
+  font-weight:400;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+}
+
+/* ================= STATS ================= */
+
+.card-stats{
+  height:60px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-evenly;
+
+  border-top:1px solid rgba(255,255,255,.18);
+
+  color:var(--color-palette-four);
+
+  font-size:.95rem;
+
+  letter-spacing:.08em;
+
+  background:rgba(255,255,255,.08);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 64em){
+
+  .canvas{
+    scale:.8;
+    transform-origin:left center;
+  }
+
+}
+
+@media (max-width: 48em){
+
+  .canvas{
+    scale:.62;
+  }
+
+  .scroll-instruction{
+    font-size:.8rem;
+  }
+
+}
