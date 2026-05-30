@@ -1,4 +1,10 @@
-/** @type {import('tailwindcss').Config} */
+// /** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss';
+// Update the import path below if your theme file is located elsewhere
+import { colors, typography, spacing, borderRadius, shadows } from './src/styles/theme';
+// If the file does not exist, create 'theme.ts' in 'src/styles' with the necessary exports.
+
+
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: 'class', // Enable class-based dark mode
@@ -64,6 +70,11 @@ export default {
         card: 'var(--color-card-border)',
       },
     },
+    fontFamily: typography.fontFamily,
+    fontSize: typography.fontSize,
+    spacing,
+    borderRadius,
+    boxShadow: shadows,
     screens: {
       sm: '600px',
       md: '800px',
