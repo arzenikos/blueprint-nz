@@ -15,11 +15,11 @@ const { images, autoplay = true, interval = 5000 } = Astro.props;
 const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
 ---
 
-<div class="flex flex-col gap-4">
+<div class="flex flex-col">
   <div id={carouselId} class="relative w-full overflow-hidden rounded-lg">
-    <div class="carousel-container flex transition-transform duration-500 ease-in-out h-[400px] md:h-[500px]">
+    <div id="hero-carousel" class="carousel-container flex my-5 transition-transform duration-500 ease-in-out h-[400px] md:h-[500px]">
       {images.map((image, index) => (
-        <div class="carousel-slide min-w-full h-full" data-index={index}>
+        <div class="carousel-slide min-w-full h-auto" data-index={index}>
           <img 
             src={image.src} 
             alt={image.alt} 

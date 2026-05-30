@@ -18,7 +18,7 @@ const visibilityClass = desktopOnly ?
 '';
 ---
 
-<header class="sticky top-0 my-5 z-40 w-full bg-transparent">
+<header class="sticky top-0 mb-5 py-3 z-40 w-full bg-[var(--color-palette-one)] ">
   <div class=`container mx-auto px-10 md:px-6 lg:px-8 max-w-[2000px] flex ${visibilityClass} items-center h-20`>
     <!-- Logo (left) - Size from centralized file -->
      <Logo/>
@@ -55,6 +55,7 @@ const visibilityClass = desktopOnly ?
 
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
+        
         if (logo instanceof HTMLImageElement) {
           logo.src = darkLogo;
         }

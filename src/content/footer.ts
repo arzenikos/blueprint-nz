@@ -8,41 +8,41 @@ export const footerLinks = {
   },
   sections: [
     {
-      title: "Information",
+      title: "User Guide",
       links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
+        { text: "How to Use This Site", url: "/user-guide" },
+        { text: "FAQ", url: "empty" },
+        { text: "Terms of Use", url: "empty" },
+        { text: "Privacy Policy", url: "empty" }
       ]
     },
     {
-      title: "Resources",
+      title: "News & Events",
       links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
-      ]
-    },
-    {
-      title: "Support",
-      links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
+        { text: "Latest Updates", url: "empty" },
+        { text: "Upcoming Events", url: "empty" },
+        { text: "Webinars & Talks", url: "empty" },
+        { text: "Community Stories", url: "empty" },
       ]
     },
     {
       title: "Shop & Services",
       links: [
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" },
-        { text: "Link", url: "empty" }
+        { text: "Health & Diet Guides", url: "empty" },
+        { text: "Wellbeing Kits", url: "empty" },
+        { text: "Donate", url: "empty" },
+        { text: "Volunteer", url: "empty" }
       ]
-    }
+    },
+    // {
+    //   title: "x",
+    //   links: [
+    //     { text: "Link", url: "empty" },
+    //     { text: "Link", url: "empty" },
+    //     { text: "Link", url: "empty" },
+    //     { text: "Link", url: "empty" }
+    //   ]
+    // }
   ],
   socialLinks: [
     { platform: "video", url: "empty", ariaLabel: "Tutorial/Demo in onedrive" },
@@ -51,5 +51,5 @@ export const footerLinks = {
     { platform: "github", url: "https://github.com/arsenie-sarmiento", ariaLabel: "Check this on Github" },
     { platform: "linkedin", url: "https://nz.linkedin.com/in/arsenie-sarmiento", ariaLabel: "Connect with us on LinkedIn" }
   ],
-  copyright: "© 2025 BluePrintNZ. All rights reserved."
+  copyright: "© 2025 BluePrintNZ — designed & developed by Arsenie Sarmiento"
 };

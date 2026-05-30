@@ -1,0 +1,14 @@
+---
+import NodeBox from '../ui/NodeBox.astro';
+---
+<!-- Nodes and SVG Lines -->
+<div class="w-full h-full relative">
+  <div id="nodes-viewport" class="w-full h-full overflow-hidden">
+    <div id="nodes-container" class="w-full h-full relative transform-gpu origin-center">
+      <div id="node-root" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer node-element" data-node-id="root">
+        <NodeBox label="Prostate Cancer" />
+      </div>
+    </div>
+  </div>
+  <svg class="absolute top-0 left-0 w-full h-full pointer-events-none" id="connection-lines"></svg>
+</div>

@@ -1,5 +1,5 @@
 // Referenced by: pages/bluenode/index.astro
-export const bluenodeData = {
+export const bluenodeDataContent = {
   nodes: [
     {
       id: "root",
@@ -99,3 +99,49 @@ export const bluenodeData = {
     }
   ]
 };
+
+export const bluenodeBranchData = [
+  {
+    label: 'Overview',
+    detail: 'Basic intro and structure.',
+    icon: '📘',
+  },
+  {
+    label: 'Diagnosis',
+    detail: 'How diagnosis works.',
+    icon: '🧪',
+    children: [
+      {
+        label: 'PSA Test',
+        detail: 'Blood test for PSA levels.',
+        icon: '🩸',
+      },
+      {
+        label: 'Biopsy',
+        detail: 'Sample tissue exam.',
+        icon: '🔬',
+        children: [
+          {
+            label: 'Core Needle Biopsy',
+            detail: 'Using hollow needle for sample.',
+            icon: '🧷',
+          },
+          {
+            label: 'Transrectal Biopsy',
+            detail: 'Via rectal wall using ultrasound.',
+            icon: '📡',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Treatment',
+    detail: 'Treatment options available.',
+    icon: '💊',
+    children: [
+      { label: 'Radiation', detail: 'High-energy rays.', icon: '☢️' },
+      { label: 'Surgery', detail: 'Remove prostate gland.', icon: '🔧' },
+    ]
+  }
+];

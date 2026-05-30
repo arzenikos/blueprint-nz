@@ -76,10 +76,10 @@ Thumbs.db
 functions/*.js
 functions/*.map
 
+
+# Amazon Q
+amazon-q.deb
+*.deb
 # Backup
 backup/
 **/assets/**
-
-
-# Assets
-**/assets/**/*

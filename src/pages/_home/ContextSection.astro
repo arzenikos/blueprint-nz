@@ -1,27 +1,42 @@
 ---
 import Button from '../../components/ui/Button.astro';
-const {} = Astro.props
+import Carousel from '../../components/ui/Carousel.astro';
+
+const { 
+  content,
+  config,
+  reversed,
+} = Astro.props;
+
+const {
+  carouselImages,
+  title,
+  description,
+} = content
+
+const {
+  margin=config.context.margin,
+  padding=config.context.padding,
+  scale=config.context.scale,
+  other=config.context.other
+} = config
 ---
-<div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row items-center gap-12">
-    <div class="md:w-1/2">
-        <img 
-        src="/assets/images/placeholders/placeholder-image.jpg" 
-        alt="About BluePrintNZ" 
-        class="rounded-lg shadow-lg w-full h-auto"
-        />
-    </div>
-    <div class="md:w-1/2">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--color-palette-five);">About BluePrintNZ</h2>
-        <p class="text-lg  mb-6" style="color: var(--color-palette-five);">
-        BluePrintNZ is a platform designed to showcase modern web development techniques and best practices using Astro and Netlify.
-        </p>
-        <p class="text-lg  mb-6" style="color: var(--color-palette-five);">
-        Our mission is to provide a blueprint for building fast, accessible, and modern websites that leverage the power of Astro's multi-page application architecture and Netlify's deployment platform.
-        </p>
-        <Button variant="primary" href="/about">
-        Learn More About Us
+
+<section class=`${margin} ${padding} ${other} ${scale}` style="background: none">
+  <div class={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between gap-12 h-1/5`}>
+    <Carousel images={carouselImages} />
+    <div class="md:w-1/2 text-center px-5 md:px-0 md:text-start">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+        {title}
+      </h1>
+      <p class="text-lg md:text-xl mb-8" style="color: var(--color-palette-four);">
+        {description}
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+        <Button variant="primary" size="lg" href={content.exploreLink}>
+          {content.exploreButton}
         </Button>
+      </div>
     </div>
-    </div>
-</div>
+  </div>
+</section>

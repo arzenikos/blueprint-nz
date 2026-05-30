@@ -1,24 +1,26 @@
 ---
 // <!-- Referenced by: components/ui/CTASection.astro, components/ui/ContentSection.astro, components/ui/FeatureCard.astro, components/ui/HeroSection.astro, pages/bluenode/d3-version.astro, pages/index.astro -->
-interface Props {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'link';
-  size?: 'sm' | 'md' | 'lg';
-  href?: string;
-  type?: 'button' | 'submit' | 'reset';
-  class?: string;
-  disabled?: boolean;
-  fullWidth?: boolean;
-  ariaLabel?: string;
-}
+// interface Props {
+//   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'link';
+//   size?: 'sm' | 'md' | 'lg';
+//   href?: string;
+//   type?: 'button' | 'submit' | 'reset';
+//   class?: string;
+//   disabled?: boolean;
+//   fullWidth?: boolean;
+//   ariaLabel?: string;
+// }
 
 const {
   variant = 'primary',
-  size = 'md',
+  size,
   href,
-  type = 'button',
+  type,
   class: className = '',
   disabled = false,
   fullWidth = false,
+  dataLabel,
+  id,
   ariaLabel,
 } = Astro.props;
 
@@ -34,11 +36,11 @@ const sizeClasses = {
 
 // Variant classes
 const variantClasses = {
-  primary: 'bg-[var(--color-palette-four)] text-[var(--color-palette-one)] hover:bg-[var(--color-palette-two)] hover:text-[var(--color-palette-five)] focus-visible:ring-[var(--color-primary-focus-ring)] no-underline',
-  secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus-visible:ring-gray-500',
+  primary: 'bg-[var(--color-palette-four)] text-[var(--color-palette-one)] hover:bg-[var(--color-palette-three)] hover:text-[var(--color-palette-five)] focus-visible:ring-[var(--color-primary-focus-ring)] no-underline',
+  secondary: 'px-10 py-3 bg-gray-500 text-gray-900 hover:bg-gray-300 focus-visible:ring-gray-500 no-underline',
   outline: 'border border-gray-300 bg-transparent hover:bg-gray-100 focus-visible:ring-gray-500',
   ghost: 'bg-transparent hover:bg-gray-100 focus-visible:ring-gray-500',
-  link: 'bg-transparent hover:underline text-blue-600 hover:text-blue-700 focus-visible:ring-blue-500 p-0 h-auto no-underline'
+  link: 'bg-[var(--color-palette-three)] text-[var(--color-palette-five)] hover:bg-[var(--color-palette-five)] hover:text-[var(--color-palette-one)] focus-visible:ring-blue-500 p-0 h-auto no-underline'
 };
 
 const classes = [
