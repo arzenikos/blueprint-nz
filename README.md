@@ -3,18 +3,18 @@
 [Live Demo](https://blueprintnz.netlify.app/)
 
 ## Module dependency resolution
+
 ```bash
 rm -rf node_modules
 rm -rf package-lock.json
 npm install
 ```
 
-
 ## Project Structure
 
 Below is a comprehensive file structure tree of the `src` directory:
 
-```
+```text
 src/
 ├── assets/
 │   ├── icons/
@@ -285,7 +285,7 @@ This structure follows a modular architecture where components are organized by 
 
 Below is a diagram showing the main dependencies between key files in the src directory:
 
-```
+```text
                                   +----------------+
                                   |                |
                                   |   index.astro  |
@@ -350,7 +350,8 @@ This diagram shows the primary dependencies between key components. The main flo
 ## Detailed Component Dependencies
 
 Below is a more detailed breakdown of component dependencies:
-```
+
+```text
 +---------------------+     +---------------------+     +---------------------+
 | Pages               |     | Layouts             |     | Components          |
 +---------------------+     +---------------------+     +---------------------+
@@ -391,6 +392,7 @@ Below is a more detailed breakdown of component dependencies:
 Below is a detailed mapping of which components are used by other components:
 
 ### Layout Components
+
 - **Layout.astro**: Used by most page components (index.astro, about.astro, etc.)
   - Imports: Header.astro, Footer.astro, globals.css
   
@@ -401,6 +403,7 @@ Below is a detailed mapping of which components are used by other components:
   - Imports: FooterSection.astro, NewsletterForm.astro, SocialLinks.astro
 
 ### UI Components
+
 - **Button.astro**: Used by NewsletterForm.astro, HeroSection.astro, various page components
   - Imports: none (base component)
   
@@ -411,6 +414,7 @@ Below is a detailed mapping of which components are used by other components:
   - Imports: none (base component)
 
 ### Navigation Components
+
 - **MainNav.astro**: Used by Header.astro
   - Imports: NavItem.astro, navigation.ts
   
@@ -418,6 +422,7 @@ Below is a detailed mapping of which components are used by other components:
   - Imports: Icon.astro, ThemeToggle.astro
 
 ### Home Page Components
+
 - **HeroSection.astro**: Used by index.astro
   - Imports: Button.astro, Carousel.astro
   
@@ -425,6 +430,7 @@ Below is a detailed mapping of which components are used by other components:
   - Imports: Card.astro, Icon.astro
 
 ### Footer Components
+
 - **FooterSection.astro**: Used by Footer.astro
   - Imports: none
   
@@ -435,10 +441,14 @@ Below is a detailed mapping of which components are used by other components:
   - Imports: Icon.astro
 
 ### Icon System
+
 - **Icon.astro**: Used by NavItem.astro, SocialLinks.astro, various UI components
   - Imports: IconLibrary.ts
   
 - **IconLibrary.ts**: Used by Icon.astro
   - Imports: none (data file)
+<<<<<<< HEAD
 
 This mapping shows how components are interconnected throughout the application, highlighting the modular architecture and component reuse patterns.
+=======
+>>>>>>> sandbox

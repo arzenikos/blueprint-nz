@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import { aboutData } from '../../data/about';
+import Markdown from '../Markdown.astro';
+import Diff from '../Diff.astro';
+import corgi from '../../assets/images/corgi.jpg';
+
+const { imageComparison } = aboutData;
+
+const originalVsCdnSnippet = `
+## ${imageComparison.title}
+
+${imageComparison.description}
+
+~~~jsx
+// <== On the left, the original image
+<img src="/corgi.jpg" alt="Corgi" />
+
+// ==> On the right, using Astro's built-in Image component
+<Image 
+  src={corgiImage}
+  alt="Corgi"
+  width={1200}
+  height={800}
+  format="webp"
+  quality={80}
+/>
+~~~
+`;
+---
+
+<section class="py-12">
+  <Markdown content={originalVsCdnSnippet} class="mb-8" />
+  <Diff class="border-2 border-white rounded-lg image-diff aspect-3/2">
+    <Fragment slot="item-1">
+      <div>
+        <div class="relative">
+          <span class="hidden absolute py-1.5 px-2.5 text-sm rounded-md bg-gray-900/70 top-2.5 left-2.5"></span>
+          <img src={corgi.src} alt="Corgi" />
+        </div>
+      </div>
+    </Fragment>
+    <Fragment slot="item-2">
+      <div>
+        <div class="relative">
+          <span class="hidden absolute py-1.5 px-2.5 text-sm rounded-md bg-gray-900/70 top-2.5 right-2.5"></span>
+          <Image 
+            src={corgi} 
+            alt="Corgi" 
+            width={1200}
+            height={800}
+            format="webp"
+            quality={80}
+          />
+        </div>
+      </div>
+    </Fragment>
+  </Diff>
+</section>
+
+<script>
+  const images = document.querySelectorAll<HTMLImageElement>('.image-diff img');
+
+  images.forEach((image) => {
+    if (image.complete) {
+      showImageSize(image);
+    } else {
+      image.addEventListener('load', () => {
+        showImageSize(image);
+      });
+    }
+  });
+
+  function showImageSize(image: HTMLImageElement) {
+    const imageEntry = window?.performance?.getEntriesByName(image.currentSrc)?.[0] as PerformanceResourceTiming;
+    if (imageEntry && imageEntry.encodedBodySize) {
+      const imageOverlay = image.previousElementSibling;
+      imageOverlay.classList.remove('hidden');
+      imageOverlay.textContent = `Size: ${Math.ceil(imageEntry.encodedBodySize / 1024)}KB`;
+    }
+  }
+</script>

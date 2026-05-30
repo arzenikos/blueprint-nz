@@ -35,10 +35,10 @@ lerna-debug.log*
 .env.development
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-!.vscode/launch.json
+.vscode/**/*
+.vscode/extensions.json
+.vscode/settings.json
+.vscode/launch.json
 .idea/
 *.suo
 *.ntvs*
@@ -80,3 +80,6 @@ functions/*.map
 # Amazon Q
 amazon-q.deb
 *.deb
+# Backup
+backup/
+**/assets/**

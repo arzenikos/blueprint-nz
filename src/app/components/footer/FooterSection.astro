@@ -1,0 +1,23 @@
+---
+interface Link {
+  text: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  links: Link[];
+  index: number;
+}
+
+const { title, links, index } = Astro.props;
+---
+
+<section class="flex flex-col">
+  <h2 id={`footerHeading${index}`} class="mb-4 text-neutral font-semibold text-sm">{title}</h2>
+  <ul aria-labelledby={`footerHeading${index}`} class="flex flex-col gap-2.5">
+    {links.map(link => (
+      <li><a href={link.url} class="footer-link text-xs">{link.text}</a></li>
+    ))}
+  </ul>
+</section>
