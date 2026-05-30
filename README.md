@@ -17,7 +17,7 @@ This project demonstrates full-stack development using modern web technologies, 
 ## Demo
 - **[Live site →](https://blueprintnz.netlify.app/)**
 - **[Figma Prototype](https://www.figma.com/design/8TethMT7VHzz3WNlrJRdCZ/DesignThinkingProjects?node-id=67-64)**
-- **[PDF Wireframe Diagram](https://github.com/arsenie-sarmiento/draft-project-blueprint-nz/blob/dev/blueprint-nz-diagram.pdf)**
+- **[PDF Wireframe Diagram](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/diagrams/blueprint-nz-diagram.pdf)**
 - [Emerge Poster]
 - [Short Paper]
 
