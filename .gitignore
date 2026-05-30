@@ -78,5 +78,5 @@ functions/*.map
 
 # Backup
 backup/
-assets/
+**/assets/**
 
