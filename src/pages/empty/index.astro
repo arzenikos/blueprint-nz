@@ -1,6 +1,6 @@
 ---
 // <!-- Not imported by any file -->
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 
 const breadcrumbItems = [
@@ -8,8 +8,8 @@ const breadcrumbItems = [
 ];
 ---
 
-<BaseLayout title="Empty - BluePrintNZ">
-  <div class="container mx-auto px-4 py-8">
+<Layout title="Empty - BluePrintNZ">
+  <div class="container mx-auto px-4 pt-10 pb-25">
     <Breadcrumbs items={breadcrumbItems} />
     <div class="max-w-4xl mx-auto">
       <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">🚧 This page is still under development</h1>
@@ -24,4 +24,4 @@ const breadcrumbItems = [
       window.location.replace('/');
     }, 3000);
   </script>
-</BaseLayout>
+</Layout>

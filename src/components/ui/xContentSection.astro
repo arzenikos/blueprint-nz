@@ -1,0 +1,72 @@
+---
+// <!-- Referenced by: pages/services.astro -->
+// import Button from './button/Button.astro';
+
+// interface Props {
+//   title: string;
+//   content: string | string[];
+//   buttonText?: string;
+//   buttonHref?: string;
+//   image?: string;
+//   imageAlt?: string;
+//   reversed?: boolean;
+//   bgClass?: string;
+// }
+
+// const { 
+//   title, 
+//   content, 
+//   buttonText, 
+//   buttonHref, 
+//   image, 
+//   imageAlt,
+//   reversed = false,
+//   bgClass = "bg-white dark:bg-gray-900"
+// } = Astro.props;
+
+// Handle content as either a string or an array of strings
+// const contentArray = Array.isArray(content) ? content : [content];
+---
+
+<!-- <section class={`py-16 ${bgClass} theme-transition`}>
+  <div class="container mx-auto px-6">
+    {image ? (
+      <div class={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12`}>
+        <div class="md:w-1/2">
+          <img 
+            src={image} 
+            alt={imageAlt || title} 
+            class="rounded-lg shadow-lg w-full h-auto"
+          />
+        </div>
+        <div class="md:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
+          {contentArray.map(paragraph => (
+            <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+              {paragraph}
+            </p>
+          ))}
+          {buttonText && buttonHref && (
+            <Button variant="primary" href={buttonHref}>
+              {buttonText}
+            </Button>
+          )}
+        </div>
+      </div>
+    ) : (
+      <div class="text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
+        {contentArray.map(paragraph => (
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-3xl mx-auto">
+            {paragraph}
+          </p>
+        ))}
+        {buttonText && buttonHref && (
+          <Button variant="primary" size="lg" href={buttonHref}>
+            {buttonText}
+          </Button>
+        )}
+      </div>
+    )}
+  </div>
+</section> -->

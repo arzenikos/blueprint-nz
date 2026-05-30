@@ -1,0 +1,79 @@
+---
+// <!-- Referenced by: pages/features.astro,
+// pages/index.astro,
+// pages/services.astro -->
+import Button from '../../components/ui/Button.astro';
+import Carousel from '../../components/ui/Carousel.astro';
+
+import { homeData } from '../../content/home.ts';
+
+interface Props {
+  title: string;
+  description: string;
+  exploreButton: string;
+  exploreLink: string;
+  // primaryButton: {
+  //   text: string;
+  //   href: string;
+  // };
+  // secondaryButton?: {
+  //   text: string;
+  //   href: string;
+  // };
+  carouselImages?: {
+    src: string;
+    alt: string;
+  }[];
+  useCarousel?: boolean;
+  reversed?: boolean;
+}
+
+const { 
+  title = homeData.hero.title,
+  description = homeData.hero.description,
+  exploreButton = homeData.hero.exploreButton,
+  exploreLink = homeData.hero.exploreLink,
+  // primaryButton, 
+  // secondaryButton, 
+  carouselImages = [
+    {
+      src: "/assets/images/placeholders/placeholder-image-1.jpg",
+      alt: "Hero image 1"
+    },
+    {
+      src: "/assets/images/placeholders/placeholder-image-1.jpg",
+      alt: "Hero image 2"
+    },
+    {
+      src: "/assets/images/placeholders/placeholder-image-1.jpg",
+      alt: "Hero image 3"
+    }
+  ],
+  // useCarousel = false,
+  reversed = false 
+} = Astro.props;
+---
+
+<section class="py-16 md:py-15 theme-transition" style="background: none">
+<!-- <section class="py-16 md:py-15 theme-transition" style="background: linear-gradient(to bottom, var(--gradient-from-light), var(--gradient-to-light));"> -->
+  <div class="container mx-auto px-6">
+    <div class={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between gap-12 h-1/5`}>
+      <div class="w-6/7 md:w-2/3">
+        <Carousel images={carouselImages} />
+      </div>
+      <div class="md:w-1/2">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          {title}
+        </h1>
+        <p class="text-lg md:text-xl mb-8" style="color: var(--color-palette-four);">
+          {description}
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <Button variant="primary" size="lg" href={exploreLink}>
+            {exploreButton}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

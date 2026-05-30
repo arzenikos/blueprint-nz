@@ -1,17 +1,17 @@
 ---
 // <!-- Imported by: components/about/ImageComparison.astro, components/about/MainContent.astro, components/common/EdgeFunctionExplainer.astro, components/home/HeroSection.astro, pages/blobs/index.astro, pages/newsletter.astro -->
-import { marked } from 'marked';
+// import { marked } from 'marked';
 
-interface Props {
-  content: string;
-  class?: string;
-}
+// interface Props {
+//   content: string;
+//   class?: string;
+// }
 
-const { content, class: className = '' } = Astro.props;
-const html = marked.parse(content);
+// const { content, class: className = '' } = Astro.props;
+// const html = marked.parse(content);
 ---
-
-<div class={`markdown-content ${className}`} set:html={html} />
+<!-- 
+<div className={`markdown-content ${className}`} set:html={html} />
 
 <style>
   .markdown-content {
@@ -67,4 +67,4 @@ const html = marked.parse(content);
   .markdown-content :global(code) {
     font-family: monospace;
   }
-</style>
+</style> -->

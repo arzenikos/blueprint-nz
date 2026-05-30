@@ -447,3 +447,8 @@ Below is a detailed mapping of which components are used by other components:
   
 - **IconLibrary.ts**: Used by Icon.astro
   - Imports: none (data file)
+<<<<<<< HEAD
+
+This mapping shows how components are interconnected throughout the application, highlighting the modular architecture and component reuse patterns.
+=======
+>>>>>>> sandbox

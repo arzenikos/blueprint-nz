@@ -1,0 +1,144 @@
+---
+// <!-- Imported by: components/about/ImageComparison.astro -->
+// <!-- Not referenced by any file -->
+// interface Props {
+//   class?: string;
+// }
+
+// const { class: className = '' } = Astro.props;
+---
+
+<!-- <div class={`diff ${className}`}>
+  <div class="diff-item-1">
+    <slot name="item-1" />
+  </div>
+  <div class="diff-item-2">
+    <slot name="item-2" />
+  </div>
+  <div class="diff-resizer"></div>
+</div> -->
+
+<!-- <style>
+  .diff {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+  }
+
+  .diff-item-1,
+  .diff-item-2 {
+    grid-area: 1 / 1 / 1 / 1;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .diff-item-1 {
+    clip-path: polygon(0 0, var(--position, 50%) 0, var(--position, 50%) 100%, 0 100%);
+  }
+
+  .diff-item-2 {
+    clip-path: polygon(var(--position, 50%) 0, 100% 0, 100% 100%, var(--position, 50%) 100%);
+  }
+
+  .diff-resizer {
+    position: absolute;
+    top: 0;
+    left: var(--position, 50%);
+    height: 100%;
+    width: 4px;
+    background-color: white;
+    transform: translateX(-50%);
+    cursor: ew-resize;
+  }
+
+  .diff-resizer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .diff-resizer::after {
+    content: '↔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: black;
+  }
+
+  .aspect-3\/2 {
+    aspect-ratio: 3/2;
+  }
+</style> -->
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const diffs = document.querySelectorAll('.diff');
+    
+    diffs.forEach(diff => {
+      const resizer = diff.querySelector('.diff-resizer') as HTMLElement;
+      let isResizing = false;
+      
+      if (!resizer) return;
+      
+      const onMouseDown = (e: MouseEvent) => {
+        isResizing = true;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+        e.preventDefault();
+      };
+      
+      const onMouseMove = (e: MouseEvent) => {
+        if (!isResizing) return;
+        
+        const diffRect = diff.getBoundingClientRect();
+        const position = ((e.clientX - diffRect.left) / diffRect.width) * 100;
+        const clampedPosition = Math.max(0, Math.min(100, position));
+        
+        (diff as HTMLElement).style.setProperty('--position', `${clampedPosition}%`);
+      };
+      
+      const onMouseUp = () => {
+        isResizing = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      };
+      
+      resizer.addEventListener('mousedown', onMouseDown);
+      
+      // Touch support
+      resizer.addEventListener('touchstart', (e) => {
+        isResizing = true;
+        document.addEventListener('touchmove', onTouchMove);
+        document.addEventListener('touchend', onTouchEnd);
+        e.preventDefault();
+      });
+      
+      const onTouchMove = (e: TouchEvent) => {
+        if (!isResizing || !e.touches[0]) return;
+        
+        const diffRect = diff.getBoundingClientRect();
+        const position = ((e.touches[0].clientX - diffRect.left) / diffRect.width) * 100;
+        const clampedPosition = Math.max(0, Math.min(100, position));
+        
+        (diff as HTMLElement).style.setProperty('--position', `${clampedPosition}%`);
+      };
+      
+      const onTouchEnd = () => {
+        isResizing = false;
+        document.removeEventListener('touchmove', onTouchMove);
+        document.removeEventListener('touchend', onTouchEnd);
+      };
+    });
+  });
+</script> -->
