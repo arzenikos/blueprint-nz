@@ -1,25 +1,45 @@
 ---
 // <!-- Referenced by: layouts/BaseLayout.astro -->
 // Standalone ChatBox overlay button that's guaranteed to be visible on all pages
-import { chatboxContent } from '../../content/chatbox';
+import { chatboxContent } from '../../content/common/chatbox';
 
 const { title, initialMessage, placeholder, buttonText, responses } = chatboxContent;
 ---
 
 <!-- Chat Overlay Button -->
 <div
-  id="chat-overlay"
-  class="fixed bottom-6 right-6 z-50"
+  id="button-overlay"
+  class=""
   >
   <button 
     id="chat-overlay-button" 
-    class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white rounded-full p-4 shadow-xl flex items-center justify-center transform transition-all duration-300 hover:scale-110"
+    class=`
+    bg-[var(--color-palette-accent)] rounded-sm p-4 shadow-xl flex items-center justify-center transform transition-all duration-300 hover:scale-110
+    `
     aria-label="Chat Support"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-    </svg>
+    </svg> -->
+    <svg 
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="var(--color-palette-five)"
+      stroke="var(--color-palette-two)"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+    <rect x="3" y="11" width="18" height="10" rx="2" />
+    <circle cx="12" cy="5" r="2" />
+    <path d="M12 7v4" />
+    <line x1="8" y1="16" x2="8" y2="16" />
+    <line x1="16" y1="16" x2="16" y2="16" />
+  </svg>
   </button>
+  
 </div>
 
 <!-- Chat Box -->
@@ -28,7 +48,7 @@ const { title, initialMessage, placeholder, buttonText, responses } = chatboxCon
     id="chat-box"
      class="hidden fixed rounded-lg shadow-lg overflow-hidden theme-transition
            w-[90%] h-[90%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-           md:w-80 md:h-96 md:translate-x-0 md:translate-y-0 md:left-auto md:top-auto md:right-6 md:bottom-6">
+           md:w-95 md:h-120 md:translate-x-0 md:translate-y-0 md:left-auto md:top-auto md:right-6 md:bottom-6">
     <iframe src="https://copilotstudio.microsoft.com/environments/Default-ef475ff3-7cd1-4fa3-ba77-f63824f7c37c/bots/cr4d1_prometheus/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%;"></iframe>
   </div>
 </div>

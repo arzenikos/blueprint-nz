@@ -1,14 +1,19 @@
 ---
-import { bluenodeData } from '../../content/bluenode.ts';
+// import { bluenodeData } from '../../content/bluenode.ts';
+// import ZoomControls from '../ui/ZoomControls.astro'
+const {
+  data
+} = Astro.props;
 ---
 <div class="w-full md:h-full relative">
+  <!-- <ZoomControls/> -->
   <div id="nodes-viewport" class="w-full md:h-full overflow-hidden">
     <div id="nodes-container" class="w-full md:h-full relative transform-gpu origin-center">
          <div id="bluenode-data" class="hidden">
-            {JSON.stringify(bluenodeData)}
+            {JSON.stringify(data)}
           </div>
 
-          <div id="blueNodeDiagram" class="h-70 md:h-full w-full" style="background-color: var(--color-palette-one);"></div>
+          <div id="diagram" class="py-6 h-170 w-full" style="background-color: var(--color-palette-one);"></div>
     </div>
   </div>
   <svg class="absolute top-0 left-0 w-full md:h-full pointer-events-none" id="connection-lines"></svg>
@@ -17,18 +22,28 @@ import { bluenodeData } from '../../content/bluenode.ts';
 <script src="https://cdn.jsdelivr.net/npm/gojs@3.0.24/release/go.js"></script>
 <script id="code">
   const rootDict = JSON.parse(document.getElementById('bluenode-data').textContent);
+  const zoomInBtn = document.getElementById('zoom-in');
+  const zoomOutBtn = document.getElementById('zoom-out');
 
   let bluenode;
   function init() {
-    bluenode = new go.Diagram('blueNodeDiagram', {
+    bluenode = new go.Diagram('diagram', {
       initialContentAlignment: go.Spot.TopCenter,
       layout: new go.TreeLayout({
-        angle: 90,
+        angle: 0,
         arrangement: go.TreeLayout.ArrangementVertical,
         layerSpacing: 40,
         nodeSpacing: 40
       }),
+      // allowMove: false, // prevent dragging nodes individually
+      // allowSelect: false, // optional: prevent selection highlighting
+      // 'toolManager.dragSelectingTool.isEnabled': false,
+      // 'toolManager.panningTool.isEnabled': true, // ✅ enable panning
+      // 'toolManager.mouseWheelBehavior': go.ToolManager.WheelScroll,
+      // allowZoom: true // keep zooming if needed
     });
+
+    bluenode.animationManager.initialAnimationStyle = go.AnimationStyle.None;
 
     bluenode.nodeTemplate = new go.Node('Spot', {
       selectionObjectName: 'PANEL',
@@ -52,11 +67,10 @@ import { bluenodeData } from '../../content/bluenode.ts';
           overflow: go.TextBlock.OverflowEllipsis,
           wrap: go.TextBlock.WrapFit,
           textAlign: 'center'
-        }).bind('text', '', data => data.text || data.key)
+        }).bind('text', '', data => data.key || data.text)
       )
     );
-
-    // root model
+    
     bluenode.model = new go.TreeModel([
       {
         key: rootDict.key,
@@ -72,7 +86,8 @@ import { bluenodeData } from '../../content/bluenode.ts';
     const nodeTitle = document.getElementById('detail-title');
     const nodeContent = document.getElementById('detail-content');
     if (nodeTitle && nodeContent) {
-      nodeTitle.innerHTML = `${data.text}`;
+      // nodeTitle.innerHTML = `${data.title}` || `${data.text}`;
+      nodeTitle.innerHTML = data?.title || data?.text || "Node Not Found";
       nodeContent.innerHTML = `${data.info}`;
     }
   }
@@ -108,8 +123,27 @@ import { bluenodeData } from '../../content/bluenode.ts';
 
     // Center the expanded node after layout is complete
     diagram.commitTransaction('CollapseExpandTree');
-    diagram.zoomToFit(); // Optional: include if you want to scale view
-    diagram.scrollToRect(node.actualBounds);
+    // OPTION A
+    // diagram.zoomToFit(); // Optional: include if you want to scale view
+    // diagram.scrollToRect(node.actualBounds);
+
+    // // OPTION B
+    // //   // Ensure layout is done before panning
+      diagram.delayInitialization(() => {
+        const subtreeBounds = computeSubtreeBounds(node);
+        diagram.scrollToRect(subtreeBounds);
+      });
+  }
+
+  function computeSubtreeBounds(node) {
+    let bounds = node.actualBounds.copy();
+    if (node.isTreeExpanded) {
+      node.findTreeChildrenNodes().each(child => {
+        const childBounds = computeSubtreeBounds(child);
+        bounds.unionRect(childBounds);
+      });
+    }
+    return bounds;
   }
 
   // Recursive function to find any node in the dict tree
@@ -153,7 +187,32 @@ import { bluenodeData } from '../../content/bluenode.ts';
 
     return children.length;
   }
-
-window.addEventListener('DOMContentLoaded', init);
-
+  // // Zoom in button
+  // if (zoomInBtn) {
+  //   zoomInBtn.addEventListener('click', () => {
+  //     const newScale = Math.min(3, currentScale * 1.2);
+  //     if (newScale !== currentScale) {
+  //       currentScale = newScale;
+  //       applyTransform();
+  //     }
+  //   });
+  // }
+  
+  // // Zoom out button
+  // if (zoomOutBtn) {
+  //   zoomOutBtn.addEventListener('click', () => {
+  //     const newScale = Math.max(0.5, currentScale * 0.8);
+  //     if (newScale !== currentScale) {
+  //       currentScale = newScale;
+  //       applyTransform();
+  //     }
+  //   });
+  // }
+  
+  window.addEventListener('DOMContentLoaded', init);
+  window.addEventListener('keydown', (e) => {
+    if ((e.key === 'F5') || (e.ctrlKey && e.key === 'r')) {
+      e.preventDefault();
+    }
+  });
 </script>

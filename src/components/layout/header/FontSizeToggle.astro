@@ -18,7 +18,7 @@ function getFontSizeClass(value) {
                 <select
                     id="font-size-dropdown"
                     class="text-sm border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-accent"
-                    style="border-color: var(--color-palette-four); background: var(--color-palette-three);"
+                    style="border-color: var(--color-palette-four); background: var(--color-palette-one);"
                 >
                     {buttonItems.map((item) => (
                         <option class={fontSizeClass(item.value)} value={item.value}>
@@ -51,15 +51,11 @@ function getFontSizeClass(value) {
 </div>
 
 <script define:vars={{ id, label }}>
-    // Add event listeners for dropdowns and button groups
     document.addEventListener('DOMContentLoaded', () => {
         const element = document.getElementById(id);
-        const carouselHero = document.getElementById('hero-carousel');
-
         if (element) {
             const buttons = element.querySelectorAll('button[data-value]');
 
-            // Set active state based on stored preference
             if (label === 'Font Size') {
                 const storedFontSize = localStorage.getItem('fontSizePreference') || 'medium';
                 buttons.forEach((button) => {
@@ -115,15 +111,12 @@ function getFontSizeClass(value) {
         switch (storedFontSize) {
             case 'small':
                 document.documentElement.classList.add('text-sm', 'selected');
-                // carouselHero.documentElement.classList.add('scale-5');
                 break;
             case 'medium':
                 document.documentElement.classList.add('text-base', 'selected');
-                // carouselHero.documentElement.classList.add('scale-10');
                 break;
             case 'large':
                 document.documentElement.classList.add('text-xl', 'selected'); // 
-                // carouselHero.documentElement.classList.add('scale-30');
                 break;
         }
     }
@@ -154,9 +147,3 @@ function getFontSizeClass(value) {
         });
     }
 </script>
-
-<style>
-    /* .selected {
-        background-color: var(--color-palette-three);
-    } */
-</style>

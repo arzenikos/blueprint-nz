@@ -1,6 +1,13 @@
 # BluePrintNZ: Astro on Netlify Platform Starter
+[Live Demo available here!](https://blueprintnz.netlify.app/)
 
-[Live Demo](https://blueprintnz.netlify.app/)
+## Launching the app locally
+Requirements:
+- **Operating System:**
+  - (a) Windows 10 or Windows 11 environment  
+    &nbsp;&nbsp;&nbsp;&nbsp;- WSL1 installed to launch Linux Ubuntu environment  
+    &nbsp;&nbsp;&nbsp;&nbsp;- Ubuntu LTS 22.04 distro installed
+  - (b) Linux Ubuntu (**preferred**)
 
 ## Module dependency resolution
 
@@ -9,6 +16,13 @@ rm -rf node_modules
 rm -rf package-lock.json
 npm install
 ```
+#### Launching the app
+```
+npm run dev
+```
+<br>
+
+----
 
 ## Project Structure
 
@@ -345,9 +359,8 @@ Below is a diagram showing the main dependencies between key files in the src di
     +-----------------------+
 ```
 
-This diagram shows the primary dependencies between key components. The main flow starts from the index.astro (homepage) which uses the Layout.astro component. The Layout component incorporates Header and Footer components, which in turn use navigation components and footer components respectively. Most components rely on data files for content and configuration, and many use the Icon system for visual elements.
+Source: [Windows Developer Tools](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
 
-## Detailed Component Dependencies
 
 Below is a more detailed breakdown of component dependencies:
 
@@ -387,9 +400,10 @@ Below is a more detailed breakdown of component dependencies:
 +---------------------+     +---------------------+     +---------------------+
 ```
 
-## Component Usage Map
-
-Below is a detailed mapping of which components are used by other components:
+Check
+```
+git --version
+```
 
 ### Layout Components
 
@@ -447,8 +461,3 @@ Below is a detailed mapping of which components are used by other components:
   
 - **IconLibrary.ts**: Used by Icon.astro
   - Imports: none (data file)
-<<<<<<< HEAD
-
-This mapping shows how components are interconnected throughout the application, highlighting the modular architecture and component reuse patterns.
-=======
->>>>>>> sandbox

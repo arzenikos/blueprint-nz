@@ -1,37 +1,94 @@
 ---
+// configs from lib/types/CardLibrary.ts
+// data from content/blueindex/blueindex.ts
 import Icon from '../../components/ui/Icon.astro';
-import Button from '../../components/ui/Button.astro';
-
 const {
-    heading,
-    content,
+  heading,
+  content,
+  icon,
+  textClass,
+  color,
+  config,
+  index,
+  link,
+  image,
+  variant = 'default',
+  cardStatus
 } = Astro.props;
+
+const hoveredCardSize = config.hoverFx ? 'hover:scale-110' : 'hover:scale-100';
 ---
 
-<div class="rounded-lg card-link shadow-md p-6 transition-transform hover:scale-105" style="background: var(--color-palette-four);">
-    <a id="card-link" class="card-item no-underline block" style={{ textDecoration: 'none' }}>
-        <div class="p-3 rounded-full w-15 h-15 flex items-center justify-center mb-4" style="background: var(--color-palette-one);">
-            <Icon class="card-icon" name="{icon}" color="var(--color-palette-five)"/>
-        </div>
-        <p class="card-heading text-xl font-semibold mb-3 no-underline" style="color: var(--color-palette-one);">{heading}</p>
-        <p class="card-content"  style="color: var(--color-palette-two); no-underline">
-            {content}
-        </p>
-        <!-- <div class="mt-20 background-color: var(--color-palette-one);">
-            <Button variant="link" size="lg" href="#">
-                Learn More
-            </Button>
-        </div> -->
+{variant === 'simple' ? (
+  // --- SIMPLE VARIANT ---
+  <div
+    class="px-5 h-110 rounded-md shadow-md transition-transform py-10 bg-[var(--color-palette-four)]"
+  >
+    <div>
+      {image && (
+        <img
+          src={image}
+          alt={heading}
+          class="rounded-lg"
+          loading="lazy"
+        />
+      )}
+    </div>
+      <p class="text-xl font-semibold mt-4 mb-2 text-[var(--color-palette-one)]">
+        {heading}
+      </p>
+      <p class="text-[var(--color-palette-one)]">
+        {content}
+      </p>
+    <a href={link} class="mt-5 block underline underline-offset-5">
+    <span class="flex gap-2" style="color: var(--color-palette-three)">
+        Learn more
+        <Icon class="card-icon scale-70" name="external-link" color="var(--color-palette-three)" />
+    </span>
     </a>
-</div>
+  </div>
+) : (
+  // --- DEFAULT (FULL) VARIANT ---
+  <div
+  class={`card-item justify-center rounded-lg shadow-md transition-transform ${hoveredCardSize} ${config.layout} ${color.cardBg}`}
+>
+    <div>
+      {image && (
+        <img
+          src={image}
+          alt={heading}
+          class={config.image}
+          loading="lazy"
+        />
+      )}
+    </div>
+    <a href={link} class={`${textClass.setVariant} no-underline block`}>
+      <div class="rounded-full w-15 h-15 flex items-center justify-center mb-4" style={`${icon.bgColor};`}>
+        <Icon class={icon.class} name={icon.name[index]} color={icon.textColor} />
+      </div>
+      <p class={`${textClass.heading} text-xl font-semibold mb-3`} style={`color: ${color.heading};`}>
+        {heading}
+      </p>
+      {Array.isArray(content) ? (
+        <ul class={`${textClass.content}`}>
+          {content.map((item) => (
+            <li class="card-content" style={`color: ${color.heading};`}>{item}</li>
+          ))}
+        </ul>
+      ) : (
+        <p class="card-content">{content}</p>
+      )}
+    </a>
+  </div>
+)}
 
-<!-- <script type="module">
-  document.addEventListener('DOMContentLoaded', () => {
-    const link = document.getElementById('card-link');
-    const current = localStorage.getItem('current') || "stage-0";
-    if (link) {
-      const slug = document.getElementById('card-heading');
-      link.href = `${current}/${slug.tex}`;
-    }
-  });
-</script> -->
+
+<!-- <style>
+  .incomplete {
+    background-color: [var(--color-palette-accent)];
+  }
+  .card-item.incomplete {
+    background-color: var(--color-palette-accent) !important;
+  }
+
+</style> -->

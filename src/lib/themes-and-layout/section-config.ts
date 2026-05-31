@@ -7,133 +7,32 @@ export const componentConfiguration = {
     scale: ''
   },
   hero:{
-    margin: 'mb-7 md:my-0 mx-auto',
-    padding: 'px-6',
-    scale: '40%',
-    other: 'container'
+    margin: 'mb-7 md:my-0',
+    padding: '',
+    scale: '',
+    other: 'container item-center justify-center w-full'
   },
   user:{
-    margin: 'my-10 lg:mt-5 md:my-7 lg:my-15 ',
-    padding: 'py-7',
-    scale: 'scale-100 md:scale-80'
+    margin: 'md:mx-5 my-10 lg:mt-5 md:my-5 lg:my-15 mb-25',
+    padding: 'mx-5 py-15 md:py-5 lg:py-10',
+    scale: 'scale-100 md:scale-90',
+    other: 'rounded-2xl'
   },
   cards:{
-    margin: 'mt-10 md:mt-30 mb-95',
-    padding: ' px-6',
+    margin: 'mt-15 md:mt-30 mb-95 md:mb-115 lg:mb-10 lg:mx-25 md:mx-15 sm:mx-5',
+    padding: 'px-7 md:px-10',
     scale: '',
-    other: 'container'
+    other: 'hidden'
   },
   context:{
-    margin: 'mt-50 my-70 scroll-mt-28',
-    padding: 'px-6 md:px-3',
+    margin: 'mt-50 my-70 lg:mx-10 sm:mx-5 scroll-mt-28',
+    padding: 'px-6 md:px-3 lg:px-25',
     scale: '',
-    other: 'container text-center'
+    other: 'text-center'
   },
   footer:{
     margin: '',
     padding: '',
     scale: ''
   },
-
-
-  // Header spacing
-  // header: {
-  //   margin: {
-  //     top: {
-  //       mobile: '0.5rem',
-  //       desktop: '1rem'
-  //     },
-  //     bottom: {
-  //       mobile: '0.5rem',
-  //       desktop: '1rem'
-  //     }
-  //   },
-  //   padding: {
-  //     x: {
-  //       mobile: '1rem',
-  //       tablet: '1.5rem',
-  //       desktop: '2rem'
-  //     },
-  //     y: '1rem'
-  //   }
-  // },
-  
-  // // Footer spacing
-  // footer: {
-  //   margin: {
-  //     top: '3rem'
-  //   },
-  //   padding: {
-  //     x: {
-  //       mobile: '1rem',
-  //       tablet: '1.5rem',
-  //       desktop: '2rem'
-  //     },
-  //     y: '2rem'
-  //   },
-  //   divider: {
-  //     margin: {
-  //       y: '1.5rem'
-  //     }
-  //   }
-  // },
-  
-  // // Section spacing
-  // section: {
-  //   margin: {
-  //     top: '2rem',
-  //     bottom: '2rem'
-  //   },
-  //   padding: {
-  //     x: {
-  //       mobile: '1rem',
-  //       tablet: '1.5rem',
-  //       desktop: '2rem'
-  //     },
-  //     y: '2rem'
-  //   }
-  // },
-  
-  // // Card spacing
-  // card: {
-  //   padding: {
-  //     mobile: '1rem',
-  //     desktop: '1.5rem'
-  //   },
-  //   gap: '1rem'
-  // }
 };
-
-// Spacing scale (for general use)
-// export const spacing = {
-//   '0': '0',
-//   '1': '0.25rem',
-//   '2': '0.5rem',
-//   '3': '0.75rem',
-//   '4': '1rem',
-//   '5': '1.25rem',
-//   '6': '1.5rem',
-//   '8': '2rem',
-//   '10': '2.5rem',
-//   '12': '3rem',
-//   '16': '4rem',
-//   '20': '5rem',
-//   '24': '6rem',
-//   '32': '8rem',
-//   '40': '10rem',
-//   '48': '12rem',
-//   '56': '14rem',
-//   '64': '16rem',
-// };
-
-// // Gap scale (for flex and grid gaps)
-// export const gap = {
-//   '0': '0',
-//   'xs': '0.25rem',
-//   'sm': '0.5rem',
-//   'md': '1rem',
-//   'lg': '1.5rem',
-//   'xl': '2rem',
-//   '2xl': '3rem',
-//   '3xl': '4rem',
-// };
