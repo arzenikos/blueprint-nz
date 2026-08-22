@@ -76,7 +76,11 @@ body{
   border:1px solid var(--line);
 
   background:rgba(255,255,255,.18);
+<<<<<<< HEAD
   /* backdrop-filter:blur(14px); */
+=======
+  backdrop-filter:blur(14px);
+>>>>>>> e320f28c03838d0d4798077ddddaa61dd898d427
 
   color:var(--muted);
 
@@ -132,7 +136,11 @@ body{
 
   background:rgba(255,255,255,.12);
 
+<<<<<<< HEAD
   /* backdrop-filter:blur(14px); */
+=======
+  backdrop-filter:blur(14px);
+>>>>>>> e320f28c03838d0d4798077ddddaa61dd898d427
 
   border:1px solid rgba(255,255,255,.25);
 
@@ -190,7 +198,11 @@ body{
 
   z-index: 4;
 
+<<<<<<< HEAD
   /* backdrop-filter: blur(8px); */
+=======
+  backdrop-filter: blur(8px);
+>>>>>>> e320f28c03838d0d4798077ddddaa61dd898d427
 }
 
 .branch-btn:hover {
@@ -217,7 +229,11 @@ body{
 
   background:rgba(255,255,255,.14);
 
+<<<<<<< HEAD
   /* backdrop-filter:blur(16px); */
+=======
+  backdrop-filter:blur(16px);
+>>>>>>> e320f28c03838d0d4798077ddddaa61dd898d427
 
   transition:
     transform .25s ease,
@@ -306,7 +322,11 @@ body{
 
   border-radius:999px;
 
+<<<<<<< HEAD
   /* backdrop-filter:blur(8px); */
+=======
+  backdrop-filter:blur(8px);
+>>>>>>> e320f28c03838d0d4798077ddddaa61dd898d427
 }
 
 .badge.icon{
