@@ -14,12 +14,14 @@
 BluePrintNZ is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
 This project demonstrates full-stack development using modern web technologies, accessibility best practices, and responsive design principles.
 
-## Demo
-- **[Live site →](https://blueprintnz.netlify.app/)**
-- **[Figma Prototype](https://www.figma.com/design/8TethMT7VHzz3WNlrJRdCZ/DesignThinkingProjects?node-id=67-64)**
+[![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo%20-181717?style=for-the-badge&logo=netlify&labelColor=080182)](https://blueprintnz.netlify.app/)
+
+## Wiki [→](https://github.com/arzenikos/blueprint-nz/wiki)
+- **[Iterations](https://github.com/arzenikos/blueprint-nz/wiki/Development-Iterations)**
+- **[Figma Prototype](https://www.figma.com/design/fCs420IxnIJFJ5a36LEQdp/DesignThinkingProjects--Copy-?node-id=2012-192&t=OKl2kRrYhCOtsRTu-1)**
 - **[PDF Wireframe Diagram](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/diagrams/blueprint-nz-diagram.pdf)**
-- [Emerge Poster]
-- [Short Paper]
+- **[Emerge Poster](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/documents/emerge-poster.pdf)**
+- **[Short Paper](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/documents/citrenz-short-paper.pdf)**
 
 ---
 ## Features
@@ -31,7 +33,7 @@ This project demonstrates full-stack development using modern web technologies, 
 
 ## Tech Stack
 - Framework: Astro (TypeScript)
-- Styling: TailwindCSS / SCSS (or whichever is used)
+- Styling: TailwindCSS
 - Hosting & CI/CD: Netlify
 
 ## Project Structure
