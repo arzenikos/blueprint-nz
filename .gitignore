@@ -36,10 +36,9 @@ lerna-debug.log*
 
 # Editor directories and files
 .vscode/*
-.vscode/extensions.json
-.vscode/settings.json
-.vscode/launch.json
-.prettierrc
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
 .idea/
 *.suo
 *.ntvs*
@@ -76,7 +75,3 @@ Thumbs.db
 .netlify/
 functions/*.js
 functions/*.map
-
-
-## Assets
-**/assets/**
