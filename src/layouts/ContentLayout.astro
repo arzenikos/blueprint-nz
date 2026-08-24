@@ -1,0 +1,26 @@
+---
+import Layout from './Layout.astro';
+import MainPageHeading from '../components/layout/MainPageHeading.astro';
+
+interface BreadcrumbItem {
+  label: string;
+  href: string;
+  current?: boolean;
+}
+
+interface Props {
+  title: string;
+  heading: string;
+  description?: string | string[];
+  breadcrumbItems?: BreadcrumbItem[];
+}
+
+const { title, heading, description, breadcrumbItems = [] } = Astro.props;
+---
+
+<Layout title={title}>
+  <div class="container mx-auto px-4 pb-20 pt-10">
+    <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
+    <slot />
+  </div>
+</Layout>

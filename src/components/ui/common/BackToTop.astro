@@ -1,0 +1,25 @@
+---
+---
+
+<button
+  id="back-to-top"
+  type="button"
+  class="pointer-events-none fixed right-6 bottom-24 z-40 rounded-sm bg-[var(--color-palette-four)] px-4 py-3 text-[var(--color-palette-one)] opacity-0 shadow-lg transition-opacity hover:bg-[var(--color-palette-three)]"
+  aria-label="Scroll to top"
+>
+  ↑
+</button>
+
+<script>
+  const button = document.getElementById('back-to-top');
+  if (button) {
+    window.addEventListener('scroll', () => {
+      const show = window.scrollY > 300;
+      button.classList.toggle('opacity-0', !show);
+      button.classList.toggle('pointer-events-none', !show);
+    });
+    button.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>

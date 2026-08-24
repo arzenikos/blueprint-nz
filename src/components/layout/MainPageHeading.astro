@@ -1,30 +1,26 @@
 ---
-// src/components/CaregiverHeader.astro
-
 import Breadcrumbs from '../ui/Breadcrumbs.astro';
-// import type { BreadcrumbItem } from '../types'; // Optional if using types
 
-const {
-  heading,
-  description,
-  breadcrumbItems
-} = Astro.props;
+interface BreadcrumbItem {
+  label: string;
+  href: string;
+  current?: boolean;
+}
 
+interface Props {
+  heading: string;
+  description?: string | string[];
+  breadcrumbItems?: BreadcrumbItem[];
+}
 
+const { heading, description, breadcrumbItems = [] } = Astro.props;
+const descriptionList = Array.isArray(description) ? description : description ? [description] : [];
 ---
 
-<div>
-  <Breadcrumbs items={breadcrumbItems} />
-  <!-- <div class="max-w-4xl mx-auto"> -->
-    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">{heading}</h1>
-    <details class="group">
-      <summary class="cursor-pointer font-semibold">Summary</summary>
-      <ul style="padding-left:2rem" class="ml-4 mt-2 group-open:animate-fade-in">
-        {Array.isArray(description) && description.map((p, i) => (
-          <li class="mb-4 text-[var(--color-palette-four)]">{p}</li>
-        ))}
-      </ul>
-    </details>
-    <hr class="my-4 border-t border-[var(--color-palette-gray)]" />
-  </div>
-<!-- </div> -->
+<header class="mb-10">
+  {breadcrumbItems.length > 0 && <Breadcrumbs items={breadcrumbItems} />}
+  <h1 class="text-3xl font-bold text-[var(--color-palette-five)] md:text-4xl">{heading}</h1>
+  {descriptionList.map((line) => (
+    <p class="mt-3 max-w-3xl text-[var(--color-palette-four)]">{line}</p>
+  ))}
+</header>

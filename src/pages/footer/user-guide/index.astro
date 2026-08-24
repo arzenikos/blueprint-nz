@@ -1,25 +1,22 @@
 ---
-// <!-- Not imported by any file -->
 import Layout from '../../../layouts/Layout.astro';
-import Breadcrumbs from '../../../components/ui/Breadcrumbs.astro';
-// import { content } from '../../../content/user-guide.ts';
-
-// const breadcrumbItems = [
-//   { label:`${content.title}`, href: '/user-guide', current: true }
-// ];
+import MainPageHeading from '../../../components/layout/MainPageHeading.astro';
 ---
 
-<!-- <Layout title="Empty - BluePrintNZ">
-  <div class="container mx-auto px-4 pt-10 pb-25">
-    <Breadcrumbs items={breadcrumbItems} />
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">How to Use This Site</h1>
-    <p>We’re working on it—check back soon!</p>
-    <br><hr><br>
-     <p style="font-style: italic;">Redirecting you back home in a moment…</p>
+<Layout title="How to use this site | BluePrintNZ">
+  <div class="container mx-auto px-4 pb-20 pt-10">
+    <MainPageHeading
+      heading="How to use this site"
+      description="Start on the welcome page, choose the card that matches your situation, then open the guides in that hub."
+      breadcrumbItems={[
+        { label: 'Home', href: '/', current: false },
+        { label: 'User guide', href: '/footer/user-guide', current: true },
+      ]}
+    />
+    <ol class="max-w-2xl list-decimal space-y-3 pl-6 text-[var(--color-palette-four)]">
+      <li>On the home page, pick diagnosis, support, or research.</li>
+      <li>Open a resource card for a short overview.</li>
+      <li>Use the header to switch theme and text size at any time.</li>
+    </ol>
   </div>
-  </div>
-
-  <script>
-  </script>
-</Layout> -->
+</Layout>

@@ -1,7 +1,6 @@
 ---
-// configs from lib/types/CardLibrary.ts
-// data from content/blueindex/blueindex.ts
-import Icon from '../../components/ui/Icon.astro';
+import Icon from './Icon.astro';
+
 const {
   heading,
   content,
@@ -13,64 +12,40 @@ const {
   link,
   image,
   variant = 'default',
-  cardStatus
+  cardStatus,
 } = Astro.props;
 
-const hoveredCardSize = config.hoverFx ? 'hover:scale-110' : 'hover:scale-100';
+const hoverClass = config?.hoverFx || config?.hoverFx ? 'hover:scale-110' : 'hover:scale-100';
 ---
 
 {variant === 'simple' ? (
-  // --- SIMPLE VARIANT ---
-  <div
-    class="px-5 h-110 rounded-md shadow-md transition-transform py-10 bg-[var(--color-palette-four)]"
-  >
-    <div>
-      {image && (
-        <img
-          src={image}
-          alt={heading}
-          class="rounded-lg"
-          loading="lazy"
-        />
-      )}
-    </div>
-      <p class="text-xl font-semibold mt-4 mb-2 text-[var(--color-palette-one)]">
-        {heading}
-      </p>
-      <p class="text-[var(--color-palette-one)]">
-        {content}
-      </p>
+  <div class="h-110 rounded-md bg-[var(--color-palette-four)] px-5 py-10 shadow-md transition-transform">
+    {image && (
+      <img src={image} alt={heading} class="rounded-lg" loading="lazy" />
+    )}
+    <p class="mt-4 mb-2 text-xl font-semibold text-[var(--color-palette-one)]">{heading}</p>
+    <p class="text-[var(--color-palette-one)]">{content}</p>
     <a href={link} class="mt-5 block underline underline-offset-5">
-    <span class="flex gap-2" style="color: var(--color-palette-three)">
+      <span class="flex gap-2" style="color: var(--color-palette-three)">
         Learn more
         <Icon class="card-icon scale-70" name="external-link" color="var(--color-palette-three)" />
-    </span>
+      </span>
     </a>
   </div>
 ) : (
-  // --- DEFAULT (FULL) VARIANT ---
-  <div
-  class={`card-item justify-center rounded-lg shadow-md transition-transform ${hoveredCardSize} ${config.layout} ${color.cardBg}`}
->
-    <div>
-      {image && (
-        <img
-          src={image}
-          alt={heading}
-          class={config.image}
-          loading="lazy"
-        />
-      )}
-    </div>
-    <a href={link} class={`${textClass.setVariant} no-underline block`}>
-      <div class="rounded-full w-15 h-15 flex items-center justify-center mb-4" style={`${icon.bgColor};`}>
+  <div class={`card-item justify-center rounded-lg shadow-md transition-transform ${hoverClass} ${config.layout} ${color.cardBg}`}>
+    {image && (
+      <img src={image} alt={heading} class={config.image} loading="lazy" />
+    )}
+    <a href={link} class={`${textClass.setVariant} block no-underline`}>
+      <div class="mb-4 flex h-15 w-15 items-center justify-center rounded-full" style={`${icon.bgColor};`}>
         <Icon class={icon.class} name={icon.name[index]} color={icon.textColor} />
       </div>
-      <p class={`${textClass.heading} text-xl font-semibold mb-3`} style={`color: ${color.heading};`}>
+      <p class={`${textClass.heading} mb-3 text-xl font-semibold`} style={`color: ${color.heading};`}>
         {heading}
       </p>
       {Array.isArray(content) ? (
-        <ul class={`${textClass.content}`}>
+        <ul class={textClass.content}>
           {content.map((item) => (
             <li class="card-content" style={`color: ${color.heading};`}>{item}</li>
           ))}
@@ -81,14 +56,3 @@ const hoveredCardSize = config.hoverFx ? 'hover:scale-110' : 'hover:scale-100';
     </a>
   </div>
 )}
-
-
-<!-- <style>
-  .incomplete {
-    background-color: [var(--color-palette-accent)];
-  }
-  .card-item.incomplete {
-    background-color: var(--color-palette-accent) !important;
-  }
-
-</style> -->

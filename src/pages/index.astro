@@ -1,75 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const title = "BluePrintNZ | Prostate Cancer Foundation of New Zealand";
-
-import HeroSection from './_home/HeroSection.astro';
-import UsersSection from './_home/UsersSection.astro';
-import ResourceSection from './_home/ResourceSection.astro';
-import ContextSection from './_home/ContextSection.astro';
-// import GetStartedSection from './_home/GetStartedSection.astro';
-
-import { heroContent, userContent, resourceContent, overviewContent } from '../content/home.ts';
-import { componentConfiguration } from '../lib/themes-and-layout/section-config';
-
+import AudienceCard from '../components/ui/AudienceCard.astro';
+import landing from '../data/landing.json';
 ---
 
-<Layout title={title}>
-    <HeroSection
-      content={heroContent}
-      reversed = {false}
-      config={componentConfiguration}
-    />
-    <UsersSection
-      content={userContent}
-      config={componentConfiguration}
-    />
-    <ResourceSection
-        content={resourceContent}
-        config={componentConfiguration}
-    />
-    <!-- <div class="page-background-wrapper">
-      <img
-        class="page-background-image"
-        src="/assets/banner/hero-generic-banner-light.jpg"
-        alt="Background"
-      />
-    </div> -->
-
-    <ContextSection
-      content={overviewContent}
-      config={componentConfiguration}
-    />
-  <!-- <section class="homeSection">
-    <GetStartedSection/>
-  </section> -->
+<Layout title={landing.meta.title} description={landing.meta.description}>
+  <section class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 bg-linear-to-b from-[var(--color-palette-one)] via-transparent to-transparent"></div>
+    <div class="container relative mx-auto max-w-6xl px-4 py-16 md:py-24">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-palette-three)]">
+        {landing.hero.eyebrow}
+      </p>
+      <h1 class="max-w-3xl text-4xl font-bold leading-tight text-[var(--color-palette-five)] md:text-5xl">
+        {landing.hero.title}
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg text-[var(--color-palette-four)]">
+        {landing.hero.subtitle}
+      </p>
+      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+        {landing.cards.map((card) => (
+          <AudienceCard href={card.href} title={card.title} description={card.description} icon={card.icon} />
+        ))}
+      </div>
+    </div>
+  </section>
 </Layout>
-
-
-<!-- <script>
-  let lastMouseY = 0;
-  let scrollTriggered = false;
-
-  window.addEventListener("mousemove", (e) => {
-    const currentY = e.clientY;
-    const deltaY = currentY - lastMouseY;
-
-    // Detect upward movement
-    if (deltaY < -10 && !scrollTriggered) {
-      scrollTriggered = true;
-
-      // Scroll to target section
-      const target = document.getElementById("user-section");
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
-      // Prevent rapid re-triggers
-      setTimeout(() => {
-        scrollTriggered = false;
-      }, 2000); // adjust delay as needed
-    }
-
-    lastMouseY = currentY;
-  });
-</script> -->

@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  placeholder: string;
+  buttonText: string;
+}
+
+const { title, description, placeholder, buttonText } = Astro.props;
+---
+
+<div class="flex flex-col lg:max-w-sm">
+  <p class="text-base font-semibold text-[var(--color-palette-five)]">{title}</p>
+  <p class="mb-5 pt-2 text-sm text-[var(--color-palette-four)]">{description}</p>
+  <form action="#" method="post" class="flex flex-col gap-3 sm:flex-row">
+    <input
+      class="h-10 flex-grow rounded-lg border border-[var(--color-palette-three)] px-4 py-2 text-sm"
+      type="email"
+      placeholder={placeholder}
+      name="email"
+      required
+    />
+    <button type="submit" class="h-10 rounded-lg border border-[var(--color-palette-three)] px-5 text-sm font-medium">
+      {buttonText}
+    </button>
+  </form>
+</div>

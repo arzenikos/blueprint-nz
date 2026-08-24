@@ -1,25 +1,14 @@
 ---
-// <!-- Referenced by: pages/about.astro, pages/blobs/index.astro, pages/bluenode/d3-version.astro, pages/bluenode/index.astro, pages/design-system.astro, pages/features.astro, pages/get-involved/index.astro, pages/help/index.astro, pages/index.astro, pages/information-and-support/index.astro, pages/news/index.astro, pages/newsletter.astro, pages/research/index.astro, pages/services.astro, pages/shop/index.astro -->
-// This is a compatibility layout that redirects to BaseLayout
-// It's kept for backward compatibility with existing pages
-import Footer from '../components/layout/footer/Footer.astro';
-import Header from '../components/layout/header/Header.astro';
-// import ChatBox from '../components/common/ChatBox.astro';
-import BackToTop from '../components/common/BackToTop.astro';
-import Button from '../components/ui/Button.astro';
-// import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
+import Header from '../components/layout/Header.astro';
+import site from '../data/site.json';
 import '../styles/globals.css';
-
-// const breadcrumbItems = [
-//   { label: '', href: '/', current: true }
-// ];
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.props;
+const { title, description = site.defaultDescription } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -31,58 +20,45 @@ const { title, description = 'BlueprintNZ - Modern web solutions' } = Astro.prop
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
-    
-    <!-- Theme script to prevent flash of wrong theme -->
     <script is:inline>
-      // Check for saved theme preference or use system preference
-      const getThemePreference = () => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'dark' : 'light';
-      };
-      
-      // Apply theme immediately to prevent flash
-      const theme = getThemePreference();
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      const storedTheme = typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null;
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
     </script>
   </head>
-  <body class="min-h-screen flex flex-col">
-    <Header label="Home" href="/" icon="home" />
-    <!-- <Breadcrumbs items={breadcrumbItems} /> -->
-
-    <main class="flex-grow">
+  <body class="flex min-h-screen flex-col bg-[var(--color-palette-zero)] text-[var(--color-palette-five)]">
+    
+    <Header />
+    
+    <main class="grow">
       <slot />
     </main>
-    <Footer />
-    <!-- <BackToTop /> -->
-    <button
-      id="scrollToTop"
-      class="fixed bottom-6 right-6 z-50 bg-[var(--color-palette-four)] text-[var(--color-palette-one)] px-4 py-3 rounded-sm shadow-lg hover:bg-[var(--color-palette-four)] transition-opacity duration-300 opacity-0 pointer-events-none"
-      aria-label="Scroll to top"
-    >
-      ↑
-    </button>
-    <!-- <ChatBox /> -->
-
   </body>
 </html>
+
 <script>
-  const scrollBtn = document.getElementById("scrollToTop");
+  const lightLogo = '/assets/images/home-icon/logo-b9d6f2-061a40.png';
+  const darkLogo = '/assets/images/home-icon/logo-13232A-6DA3C0.png';
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      scrollBtn.classList.remove("opacity-0", "pointer-events-none");
-    } else {
-      scrollBtn.classList.add("opacity-0", "pointer-events-none");
+  function applyTheme(theme: string) {
+    const isDark = theme === 'dark';
+    document.documentElement.classList.toggle('dark', isDark);
+    const logo = document.getElementById('site-logo');
+    if (logo instanceof HTMLImageElement) {
+      logo.src = isDark ? darkLogo : lightLogo;
     }
-  });
+    document.getElementById('theme-toggle-dark-icon')?.classList.toggle('hidden', isDark);
+    document.getElementById('theme-toggle-light-icon')?.classList.toggle('hidden', !isDark);
+  }
 
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const current = localStorage.getItem('theme')
+    || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(current);
+
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const next = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
   });
 </script>
