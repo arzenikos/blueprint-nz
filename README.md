@@ -4,6 +4,10 @@ Astro site for the Prostate Cancer Foundation of New Zealand. Visitors land on a
 
 Live demo: [blueprintnz.netlify.app](https://blueprintnz.netlify.app/)
 
+## Thumbnail
+
+
+
 ## Run locally
 
 **Requirements:** Node.js 18+, npm. Windows 10/11 or Linux.
