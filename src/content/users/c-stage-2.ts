@@ -1,4 +1,4 @@
-import { resourceContent } from '../home'
+import { resourceContent } from '../common/home'
 
 export const content = {
     "stage-2": {
