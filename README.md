@@ -1,82 +1,63 @@
-# BluePrintNZ
+# Astro Starter Kit: Blog
 
-Astro site for the Prostate Cancer Foundation of New Zealand. Visitors land on a RealMe-style welcome screen, choose who they are, and continue into a hub written for that audience.
-
-Live demo: [blueprintnz.netlify.app](https://blueprintnz.netlify.app/)
-
-## Thumbnail
-
-
-
-## Run locally
-
-**Requirements:** Node.js 18+, npm. Windows 10/11 or Linux.
-
-```bash
-npm install
-npm run dev
+```sh
+npm create astro@latest -- --template blog
 ```
 
-The app runs at `http://localhost:4321`.
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-| Command | Action |
-| --- | --- |
-| `npm install` | Install dependencies |
-| `npm run dev` | Local dev server |
-| `npm run build` | Production build to `./dist/` |
-| `npm run preview` | Preview the production build |
+Features:
 
-## How the site is organised
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and Open Graph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
 
 ```text
-src/
-├── data/                 JSON content (landing, hubs, resources, nav, footer)
-├── content/              Article copy for stage, caregiver, and research pages
-├── components/
-│   ├── layout/           Header, footer, logo, theme and font controls
-│   ├── ui/               Shared cards, buttons, icons, breadcrumbs
-│   └── content/          Audience hubs and resource grids
-├── layouts/
-│   ├── Layout.astro      Site shell (header, slot, footer)
-│   └── ContentLayout.astro
-├── pages/
-│   ├── index.astro       Welcome / audience chooser
-│   ├── diagnosis/        Patient hub
-│   ├── support/          Whānau / caregiver hub
-│   ├── research/         Clinical / research hub
-│   ├── stage-0 … stage-4
-│   ├── caregiver/
-│   ├── researcher/
-│   └── blueprint/
-└── styles/               Global theme and utilities
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
 ```
 
-Content is hardcoded in JSON under `src/data/` for now:
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-- `landing.json` — welcome headline and the three hovering audience cards
-- `hubs.json` — copy for the diagnosis, support, and research main pages
-- `resources.json` — stage and role resource cards
-- `navigation.json` / `footer.json` / `site.json` — chrome and metadata
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-## Visitor flow
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-1. **Welcome** (`/`) asks “How can we help you today?” with three hovering cards.
-2. **I am navigating my own diagnosis** → `/diagnosis` (stages 0–4).
-3. **I am supporting a loved one** → `/support` (caregiver guides).
-4. **I am looking for clinical data or research** → `/research` (trials and tools).
+Any static assets, like images, can be placed in the `public/` directory.
 
-Each hub card links through to the existing article pages.
+## 🧞 Commands
 
-## Layout and data flow
+All commands are run from the root of the project, from a terminal:
 
-- Pages render inside `Layout.astro`, which always outputs the page `slot` plus header and footer.
-- Hub pages use `AudienceHub.astro` + `ResourceGrid.astro`.
-- Article pages use `MainPageHeading.astro` and content modules under `src/content/users/`.
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## Colour system
+## 👀 Want to learn more?
 
-Edit CSS variables in `src/styles/themes.css`. The palette is a five-step blue scale plus accent and semantic colours for light and dark themes.
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-## Deploy
+## Credit
 
-The site deploys to Netlify via `@astrojs/netlify`. Push to the connected Git branch, or run `npm run build` and publish `dist/`.
+This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
