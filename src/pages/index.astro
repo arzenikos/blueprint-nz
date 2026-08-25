@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import AudienceCard from '../components/ui/AudienceCard.astro';
-import landing from '../data/landing.json';
+// import AudienceCard from '../layouts/AudienceCard.astro';
+import landing from '../content/data/landing.json';
 ---
 
 <Layout title={landing.meta.title} description={landing.meta.description}>
@@ -17,10 +17,10 @@ import landing from '../data/landing.json';
       <p class="mt-5 max-w-2xl text-lg text-[var(--color-palette-four)]">
         {landing.hero.subtitle}
       </p>
-      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+      <!-- <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
         {landing.cards.map((card) => (
           <AudienceCard href={card.href} title={card.title} description={card.description} icon={card.icon} />
-        ))}
+        ))} -->
       </div>
     </div>
   </section>
