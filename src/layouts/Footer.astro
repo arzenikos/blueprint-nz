@@ -1,6 +1,5 @@
 ---
 import footer from '../../data/footer.json';
-import FooterSection from './FooterSection.astro';
 import NewsletterForm from './NewsletterForm.astro';
 import SocialLinks from './SocialLinks.astro';
 ---
@@ -15,9 +14,16 @@ import SocialLinks from './SocialLinks.astro';
         buttonText={footer.newsletterSection.buttonText}
       />
       <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
-        {footer.sections.map((section) => (
-          <FooterSection title={section.title} links={section.links} />
-        ))}
+        <h3 class="mb-3 text-sm font-semibold text-[var(--color-palette-five)]">{title}</h3>
+        <ul class="space-y-2">
+          {links.map((link) => (
+            <li>
+              <a href={link.url} class="text-xs text-[var(--color-palette-four)] hover:underline">
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
     <hr class="my-6 border-[var(--color-palette-four)]" />

@@ -1,3 +1,4 @@
+// Unused
 export const resourceCardConfig = {
     icon: {
         name: ['chevron-right','chevron-right','chevron-right'],//'chevron-right',
