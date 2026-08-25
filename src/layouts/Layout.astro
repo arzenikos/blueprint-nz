@@ -1,5 +1,7 @@
 ---
-import Header from '../layouts/Header.astro';
+// <!-- Boilerplate -->
+
+// import Header from '../layouts/Header.astro';
 import site from '../content/data/site.json';
 import '../styles/globals.css';
 
@@ -29,7 +31,7 @@ const { title, description = site.defaultDescription } = Astro.props;
   </head>
   <body class="flex min-h-screen flex-col bg-[var(--color-palette-zero)] text-[var(--color-palette-five)]">
     
-    <Header />
+    <!-- <Header /> -->
     
     <main class="grow">
       <slot />
