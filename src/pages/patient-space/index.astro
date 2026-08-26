@@ -4,8 +4,9 @@ import PersonaLayout from '../../layouts/PersonaLayout.astro';
 const { title } = Astro.props;
 
 import AccordionToggle from '../../components/react/AccordionToggle.tsx';
+import Card from '../../components/astro/cards/Card.astro'
 
-import { sections } from '../../content/Sections.data';
+// import { sections } from '../../content/Sections.data';
 ---
 <BaseLayout title={title}>
     
@@ -15,12 +16,23 @@ import { sections } from '../../content/Sections.data';
   </h1>
 
   <PersonaLayout title={title}>
-    <header class="head">
-      <h1>Stages</h1>
-      <p class="lede">General plus stages 1–4, each expandable into a card grid.</p>
+    <header class="head">     
+      <h4>Stages</h4>
+      <p>General plus stages 1–4, each expandable into a card grid.</p>
     </header>
    
-    <AccordionToggle client:load />
+    <AccordionToggle client:load>
+      <div data-section="general">
+        <Card title="Card A" greeting="xxx"/>
+      </div>
+      <div data-section="stage-1">
+        <Card title="Card A" />
+        <Card title="Card B" /></div>
+      <div data-section="stage-2">
+        <Card title="Card A" />
+      </div>
+      
+    </AccordionToggle>
 
 
   </PersonaLayout>
@@ -29,12 +41,8 @@ import { sections } from '../../content/Sections.data';
 
 
 <style is:global>
-  .head {
-    padding: clamp(24px, 5vw, 48px);
-    border-bottom: var(--border);
-  }
 
-  h1 {
+  h4 {
     margin: 0 0 20px;
     font-size: clamp(30px, 7vw, 64px);
     line-height: 0.96;
@@ -42,19 +50,18 @@ import { sections } from '../../content/Sections.data';
     text-transform: uppercase;
   }
 
-  h1 mark {
+  h4 mark {
     padding: 0 0.08em;
     background: var(--orange);
     color: #fff;
   }
 
-  .lede {
-    max-width: 54ch;
-    margin: 0 0 24px;
-    color: var(--grey);
-  }
+  /**********************************************
+   AccordionToggle 
+  **********************************************/
 
-  .cta {
+  /* EXPAND ALL Button */
+  .cta {                                            
     padding: 14px 24px;
     border: var(--border);
     border-radius: 0;
@@ -85,37 +92,13 @@ import { sections } from '../../content/Sections.data';
     outline-offset: 3px;
   }
 
-  .hint {
-    margin: 16px 0 0;
-    font-size: 12px;
-    color: var(--grey);
+
+  /* Individual stage panels */
+  .stage { 
+    padding: 0.3rem 1rem;
   }
 
-  .col {
-    padding: 24px;
-  }
-
-
-
-  .label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 0 6px;
-  }
-
-  .label b {
-    padding: 3px 9px;
-    border: 2px solid var(--ink);
-    font-size: 12px;
-  }
-
-  .decl {
-    margin: 0 0 16px;
-    font-size: 12px;
-    color: var(--grey);
-  }
-
+  /* Panel container */
   .box {
     border: var(--border);
     background: #fff;
@@ -158,128 +141,38 @@ import { sections } from '../../content/Sections.data';
     color: #fff;
   }
 
-
-  .general .panel {
+/* Panel */
+  .panel {
     height: 0;
     overflow: clip;
     transition: height var(--speed) ease;
   }
 
-  .general .panel.is-open {
+  .panel.is-open {
     height: auto;
   }
 
-  .stage-1 .panel {
-    max-height: 0;
-    overflow: clip;
-    transition: max-height var(--speed) ease;
-  }
-
-  .stage-1 .panel.is-open {
-    max-height: 800px;
-  }
-
-  .stage-2 .panel {
-    height: 0;
-    overflow: clip;
-    transition: height var(--speed) ease;
-  }
-
-  .stage-2 .panel.is-open {
-    height: auto;
-  }
-
-  .body {
+  /* Panel Content */
+  .panel-content {
     padding: 16px;
     border-top: var(--border);
     color: var(--grey);
   }
 
-  .body p {
+  /* .panel-content p {
     margin: 0 0 12px;
   }
-  .body ul {
+  .panel-content ul {
     margin: 0;
     padding-left: 20px;
   }
-  .body li {
+  .panel-content li {
     margin-bottom: 6px;
   }
-  .body li::marker {
+  .panel-content li::marker {
     color: var(--orange);
-  }
+  } */
 
-  .source {
-    padding: clamp(20px, 4vw, 32px);
-    border-top: var(--border);
-    background: var(--ink);
-    color: #fff;
-  }
-
-  .source pre {
-    margin: 0;
-    overflow-x: auto;
-    font-size: 13px;
-    line-height: 1.8;
-  }
-  .prop {
-    color: #ff8a4c;
-  }
-  .val {
-    color: #8ce0ff;
-  }
-  .punc {
-    color: #8a8a82;
-  }
-
-  .note {
-    padding: 20px clamp(20px, 4vw, 32px);
-    border-top: var(--border);
-    font-size: 12px;
-    color: var(--grey);
-  }
-
-  .note b {
-    color: var(--ink);
-  }
-
-  .warn {
-    display: none;
-    padding: 14px clamp(20px, 4vw, 32px);
-    border-top: var(--border);
-    background: #ffe8b0;
-    font-size: 12px;
-  }
-
-  .warn.show {
-    display: block;
-  }
-
-  .foot {
-    border-top: var(--border);
-    border-bottom: 0;
-  }
-
-  .site {
-    display: flex;
-    align-items: center;
-    padding: 10px 16px;
-    border-left: var(--border);
-    background: var(--orange);
-    color: #fff;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-
-  .site:hover {
-    background: var(--ink);
-  }
-  .site:focus-visible {
-    outline: 3px solid var(--blue);
-    outline-offset: -3px;
-  }
 
 
   @media (prefers-reduced-motion: reduce) {

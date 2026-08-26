@@ -1,0 +1,12 @@
+---
+
+interface Props {
+    title: string;
+    greeting?: string;
+}
+
+const { greeting = "Hello", title } = Astro.props
+---
+<div>
+    Card {greeting} {title}
+</div>
