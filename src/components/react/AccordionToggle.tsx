@@ -1,29 +1,37 @@
 import { useState, useEffect, Children, isValidElement, type ReactElement } from 'react';
+import CardGrid from './CardGrid' 
+import sectionsDataRaw from './data.json'
 
 type Section = {
   id: string;
   title: string;
-  content: string;
 };
 
-type SectionChildProps = {
-  'data-section': string;
+type CardData = {
+  id: string;
+  icon: string;
+  link: string;
+  title: string;
 };
 
+
+type SectionsData = Record<string, CardData[]>;
+
+const sectionsData = sectionsDataRaw as SectionsData;
 
 // The only place you add/remove/rename a section - nothing below this
 // needs to change when you add Stage 5, rename Stage 2, etc.
 
 const SECTIONS: Section[] = [
-  { id: 'general', title: 'General', content: 'cards' },
-  { id: 'stage-1', title: 'Stage 1', content: 'cards' },
-  { id: 'stage-2', title: 'Stage 2', content: 'cards' },
-  { id: 'stage-3', title: 'Stage 3', content: 'cards' },
-  { id: 'stage-4', title: 'Stage 4', content: 'cards' },
+  { id: 'general', title: 'General' },
+  { id: 'stage-1', title: 'Stage 1' },
+  { id: 'stage-2', title: 'Stage 2' },
+  { id: 'stage-3', title: 'Stage 3' },
+  { id: 'stage-4', title: 'Stage 4' },
 ];
 
-export default function TrickToggle({children}: {children: React.ReactNode}) {
-  const childArray = Children.toArray(children);
+export default function TrickToggle() {
+
 
   // One object keyed by section id, instead of one useState per section.
   const [openMap, setOpenMap] = useState<Record<string, boolean>>({});
@@ -33,6 +41,7 @@ export default function TrickToggle({children}: {children: React.ReactNode}) {
     if (typeof CSS !== 'undefined' && CSS.supports) {
       setSupportsInterpolateSize(CSS.supports('interpolate-size', 'allow-keywords'));
     }
+
   }, []);
 
   const allOpen = SECTIONS.every((section) => openMap[section.id]);
@@ -53,14 +62,10 @@ export default function TrickToggle({children}: {children: React.ReactNode}) {
       </button>
 
       <section className="grid">
-        {SECTIONS.map(({ id, title, content }) => {
+        {SECTIONS.map(({ id, title }) => {
           
           const open = !!openMap[id];
-          const sectionContent = childArray.find(
-            (child): child is ReactElement<SectionChildProps> =>
-              isValidElement<SectionChildProps>(child) && child.props['data-section'] === id
-          );
-          
+
           return (
             <article className={`stage ${id}`} key={id}>
               <div className="box">
@@ -78,8 +83,7 @@ export default function TrickToggle({children}: {children: React.ReactNode}) {
 
                 <div className={`panel${open ? ' is-open' : ''}`} id={`panel-${id}`}>
                   <div className="panel-content">
-                    {sectionContent}
-                    {/* <p>{content}</p> */}
+                  <CardGrid cards={sectionsData[id] ?? []} />
                   </div>
                 </div>
               </div>
