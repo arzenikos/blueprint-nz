@@ -1,0 +1,329 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PersonaLayout from '../../layouts/PersonaLayout.astro';
+const { title } = Astro.props;
+
+import AccordionToggle from '../../components/react/AccordionToggle.tsx';
+
+import { sections } from '../../content/Sections.data';
+---
+<BaseLayout title={title}>
+    
+  <p>breadcrumbs</p>
+  <h1>
+    Family Page
+  </h1>
+
+  <PersonaLayout title={title}>
+    <header class="head">
+      <h1>Stages</h1>
+      <p class="lede">General plus stages 1–4, each expandable into a card grid.</p>
+    </header>
+   
+    <AccordionToggle client:load />
+
+
+  </PersonaLayout>
+
+</BaseLayout>
+
+
+<style is:global>
+  .head {
+    padding: clamp(24px, 5vw, 48px);
+    border-bottom: var(--border);
+  }
+
+  h1 {
+    margin: 0 0 20px;
+    font-size: clamp(30px, 7vw, 64px);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  h1 mark {
+    padding: 0 0.08em;
+    background: var(--orange);
+    color: #fff;
+  }
+
+  .lede {
+    max-width: 54ch;
+    margin: 0 0 24px;
+    color: var(--grey);
+  }
+
+  .cta {
+    padding: 14px 24px;
+    border: var(--border);
+    border-radius: 0;
+    background: var(--orange);
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 5px 5px 0 var(--ink);
+    transition:
+      transform 120ms ease,
+      box-shadow 120ms ease;
+  }
+
+  .cta:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+  .cta:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 var(--ink);
+  }
+  .cta:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+  }
+
+  .hint {
+    margin: 16px 0 0;
+    font-size: 12px;
+    color: var(--grey);
+  }
+
+  .col {
+    padding: 24px;
+  }
+
+
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 6px;
+  }
+
+  .label b {
+    padding: 3px 9px;
+    border: 2px solid var(--ink);
+    font-size: 12px;
+  }
+
+  .decl {
+    margin: 0 0 16px;
+    font-size: 12px;
+    color: var(--grey);
+  }
+
+  .box {
+    border: var(--border);
+    background: #fff;
+  }
+
+  .trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 16px;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .trigger:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: -3px;
+  }
+
+  .sign {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border: 2px solid var(--ink);
+    font-size: 15px;
+    line-height: 1;
+  }
+
+  .trigger[aria-expanded="true"] .sign {
+    background: var(--ink);
+    color: #fff;
+  }
+
+
+  .general .panel {
+    height: 0;
+    overflow: clip;
+    transition: height var(--speed) ease;
+  }
+
+  .general .panel.is-open {
+    height: auto;
+  }
+
+  .stage-1 .panel {
+    max-height: 0;
+    overflow: clip;
+    transition: max-height var(--speed) ease;
+  }
+
+  .stage-1 .panel.is-open {
+    max-height: 800px;
+  }
+
+  .stage-2 .panel {
+    height: 0;
+    overflow: clip;
+    transition: height var(--speed) ease;
+  }
+
+  .stage-2 .panel.is-open {
+    height: auto;
+  }
+
+  .body {
+    padding: 16px;
+    border-top: var(--border);
+    color: var(--grey);
+  }
+
+  .body p {
+    margin: 0 0 12px;
+  }
+  .body ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .body li {
+    margin-bottom: 6px;
+  }
+  .body li::marker {
+    color: var(--orange);
+  }
+
+  .source {
+    padding: clamp(20px, 4vw, 32px);
+    border-top: var(--border);
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .source pre {
+    margin: 0;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .prop {
+    color: #ff8a4c;
+  }
+  .val {
+    color: #8ce0ff;
+  }
+  .punc {
+    color: #8a8a82;
+  }
+
+  .note {
+    padding: 20px clamp(20px, 4vw, 32px);
+    border-top: var(--border);
+    font-size: 12px;
+    color: var(--grey);
+  }
+
+  .note b {
+    color: var(--ink);
+  }
+
+  .warn {
+    display: none;
+    padding: 14px clamp(20px, 4vw, 32px);
+    border-top: var(--border);
+    background: #ffe8b0;
+    font-size: 12px;
+  }
+
+  .warn.show {
+    display: block;
+  }
+
+  .foot {
+    border-top: var(--border);
+    border-bottom: 0;
+  }
+
+  .site {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    border-left: var(--border);
+    background: var(--orange);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .site:hover {
+    background: var(--ink);
+  }
+  .site:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: -3px;
+  }
+
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition-duration: 1ms !important;
+    }
+  }
+</style>
+
+
+<!-- ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AccordionSection from '../../components/astro/accordion/AccordionSection.astro';
+import CardGrid from '../../components/astro/cards/CardGrid.astro';
+import CategoryCard from '../../components/astro/cards/CategoryCard.astro';
+import { getCollection } from 'astro:content';
+import PersonaLayout from '../../layouts/PersonaLayout.astro';
+
+// group articles by their `category` field (e.g. "stage-1", "stage-2"...)
+const allArticles = await getCollection('articles', ({ data }) => data.persona === 'diagnosis');
+const { title } = Astro.props;
+
+const stages = [
+  { key: 'basics', title: 'PROSTATE CANCER BASICS, TESTS, RECURRENCE & SUPPORT' },
+  { key: 'stage-1', title: 'STAGE 1: EARLY-STAGE AND LOCALISED OPTIONS' },
+  { key: 'stage-2', title: 'STAGE 2: INTERMEDIATE-RISK PROSTATE CANCER' },
+  { key: 'stage-3', title: 'STAGE 3: LOCALLY ADVANCED PROSTATE CANCER' },
+  { key: 'stage-4', title: 'STAGE 4: LIVING WELL WITH ADVANCED PROSTATE CANCER' },
+];
+---
+<BaseLayout title="Navigating Your Diagnosis">
+
+  <p>breadcrumbs</p>
+
+  <h1 class="text-hero font-bold text-neutral-900">Every journey is different.</h1>
+  <PersonaLayout title={title}>
+    <p>
+      From persona Layout: slot - Patient
+    </p>
+    
+
+
+
+    
+  </PersonaLayout>
+</BaseLayout>
+ -->
