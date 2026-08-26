@@ -2,12 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PersonaLayout from '../../layouts/PersonaLayout.astro';
 const { title } = Astro.props;
+// import { sections } from '../data/sections.data';
 
 import AccordionToggle from '../../components/react/AccordionToggle.tsx';
 import Card from '../../components/astro/cards/Card.astro'
+import CardGrid from '../../components/astro/cards/CardGrid.astro';
 
 // import { sections } from '../../content/Sections.data';
 ---
+
+
+
 <BaseLayout title={title}>
     
   <p>breadcrumbs</p>
@@ -21,18 +26,10 @@ import Card from '../../components/astro/cards/Card.astro'
       <p>General plus stages 1–4, each expandable into a card grid.</p>
     </header>
    
-    <AccordionToggle client:load>
-      <div data-section="general">
-        <Card title="Card A" greeting="xxx"/>
-      </div>
-      <div data-section="stage-1">
-        <Card title="Card A" />
-        <Card title="Card B" /></div>
-      <div data-section="stage-2">
-        <Card title="Card A" />
-      </div>
-      
-    </AccordionToggle>
+    <AccordionToggle client:load/>
+      <!-- <CardGrid stage="general"/>
+      <CardGrid stage="stage-1"/> -->
+    <!-- </AccordionToggle> -->
 
 
   </PersonaLayout>
