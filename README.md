@@ -1,4 +1,10 @@
-# BluePrintNZ
+<img width="100" height="100" alt="unnamed (7 1)" src="https://github.com/user-attachments/assets/48113539-8454-4047-80ad-e0ea604adbff" />
+<img width="100" height="100" alt="unnamed (13)" src="https://github.com/user-attachments/assets/53114be2-7b6d-47f0-92a7-af3985a028d0" />
+
+<h1>
+   Pamana | Aotearoa
+</h1>
+
 ![Astro](https://img.shields.io/badge/AstroJS-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Netlify](https://img.shields.io/badge/Netlify-%2300C7B7.svg?style=for-the-badge&logo=netlify&logoColor=white)
@@ -11,17 +17,17 @@
 
 ---
 ## Overview
-BluePrintNZ is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
+`Pamana | Aotearoa` is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
 This project demonstrates full-stack development using modern web technologies, accessibility best practices, and responsive design principles.
 
 [![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo%20-181717?style=for-the-badge&logo=netlify&labelColor=080182)](https://blueprintnz.netlify.app/)
 
-## Wiki [→](https://github.com/arzenikos/blueprint-nz/wiki)
-- **[Iterations](https://github.com/arzenikos/blueprint-nz/wiki/Development-Iterations)**
+## Wiki [→](https://github.com/arzenikos/pamana/wiki)
+- **[Iterations](https://github.com/arzenikos/pamana/wiki/Development-Iterations)**
 - **[Figma Prototype](https://www.figma.com/design/fCs420IxnIJFJ5a36LEQdp/DesignThinkingProjects--Copy-?node-id=2012-192&t=OKl2kRrYhCOtsRTu-1)**
-- **[PDF Wireframe Diagram](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/diagrams/blueprint-nz-diagram.pdf)**
-- **[Emerge Poster](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/documents/emerge-poster.pdf)**
-- **[Short Paper](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/documents/citrenz-short-paper.pdf)**
+- **[PDF Wireframe Diagram](https://github.com/arseniedev/pamana/tree/docs/assets/diagrams/pamana-diagram.pdf)**
+- **[Emerge Poster](https://github.com/arseniedev/pamana/tree/docs/assets/documents/emerge-poster.pdf)**
+- **[Short Paper](https://github.com/arseniedev/pamana/tree/docs/assets/documents/citrenz-short-paper.pdf)**
 
 ---
 ## Features
@@ -38,7 +44,7 @@ This project demonstrates full-stack development using modern web technologies, 
 
 ## Project Structure
 ```
-BluePrintNZ/
+Pamana/
 ├─ public/           # Static assets (images, icons)
 ├─ src/
 │  ├─ components/    # Reusable UI components
@@ -54,12 +60,12 @@ BluePrintNZ/
 ## Installation
 1. Clone the repository
 ```
-git clone https://github.com/arsenie-sarmiento/draft-project-blueprint-nz.git
+git clone https://github.com/arsenie-sarmiento/draft-project-pamana.git
 ```
 
 2. Install dependencies
 ```
-cd draft-project-blueprint-nz
+cd draft-project-pamana
 npm install
 ```
 3. Start local development server
