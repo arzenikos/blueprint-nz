@@ -37,10 +37,6 @@ This project demonstrates full-stack development using modern web technologies, 
 - Accessibility-Focused: Ensures inclusive navigation for all users.
 - Deployment: Seamlessly hosted on Netlify with automated CI/CD.
 
-## Tech Stack
-- Framework: Astro (TypeScript)
-- Styling: TailwindCSS
-- Hosting & CI/CD: Netlify
 
 ## Project Structure
 ```
