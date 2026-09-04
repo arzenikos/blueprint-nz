@@ -7,7 +7,7 @@ export const brand = {
 export const footerLinks = [
   {
     label: 'Documentation',
-    href: 'https://github.com/arsenie-sarmiento',
+    href: 'https://github.com/arzenikos/blueprint-nz',
     icon: 'github' as const,
     external: true,
   },

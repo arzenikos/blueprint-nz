@@ -1,7 +1,7 @@
 ---
-import SimpleArticle from '../../components/article/SimpleArticle.astro';
-import PlaceholderMedia from '../../components/media/PlaceholderMedia.astro';
-import { content } from '../../content/users/c-stage-0.ts';
+import SimpleArticle from '../../../components/article/SimpleArticle.astro';
+import PlaceholderMedia from '../../../components/media/PlaceholderMedia.astro';
+import { content } from '../../../content/users/c-stage-0.ts';
 
 const heading = content['stage-0'].heading2.title;
 const main = content['stage-0'].heading2.main;
@@ -10,7 +10,7 @@ const main = content['stage-0'].heading2.main;
 <SimpleArticle title={`Pamana | ${heading}`} heading={heading} illustration="Placeholder: lifestyle illustration">
   <h2>{main.subheading}</h2>
   <div class="grid">
-    {main.items.map((item) => (
+    {main.items.map((item: any) => (
       <article>
         <PlaceholderMedia label={`Placeholder: ${item.head} image`} />
         <h3>{item.head}</h3>

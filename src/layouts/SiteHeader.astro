@@ -15,17 +15,20 @@ const hubCopy = hubs[hub];
 
 <header class:list={['site-header', `site-header--${variant}`]}>
   <div class="site-header__inner">
-    {variant === 'hub' ? (
-      <a class="site-header__brand" href="/">
-        <BrandMark size="md" />
-        <span>
-          <strong>{hubCopy.kicker}</strong>
-          <em>{hubCopy.subtitle}</em>
-        </span>
-      </a>
-    ) : (
-      <span></span>
-    )}
+    <div class="site-header__brand-container">
+      {variant === 'hub' ? (
+        <a class="site-header__brand" href="/">
+          <BrandMark size="md" />
+
+          <span>
+            <strong>{hubCopy.kicker}</strong>
+            <em>{hubCopy.subtitle}</em>
+          </span>
+        </a>
+      ) : (
+        <span></span>
+      )}
+    </div>
     <UtilityNav />
   </div>
 </header>
@@ -42,7 +45,7 @@ const hubCopy = hubs[hub];
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: var(--content-width);
+    /* max-width: var(--content-width); */
     margin: 0 auto;
     padding: 1.25rem 1.5rem 0.75rem;
     min-height: var(--header-height);
@@ -51,6 +54,13 @@ const hubCopy = hubs[hub];
 
   .site-header--landing .site-header__inner {
     justify-content: flex-end;
+  }
+
+  .site-header__brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
   }
 
   .site-header__brand {

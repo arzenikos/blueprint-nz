@@ -23,9 +23,9 @@ export const patientSections: PathSection[] = [
       {
         title: 'Risk, testing & prevention',
         cards: [
-          { label: 'What you need to know early', href: '/stage-0/what-you-need-to-know-early', iconLabel: 'Placeholder: early knowledge icon' },
-          { label: 'Should I get screened?', href: '/stage-0/should-i-get-screened', iconLabel: 'Placeholder: screening icon' },
-          { label: 'Small choices, big impact', href: '/stage-0/small-choices-big-impact', iconLabel: 'Placeholder: lifestyle icon' },
+          { label: 'What you need to know early', href: '/patient/stage-0/what-you-need-to-know-early', iconLabel: 'Placeholder: early knowledge icon' },
+          { label: 'Should I get screened?', href: '/patient/stage-0/should-i-get-screened', iconLabel: 'Placeholder: screening icon' },
+          { label: 'Small choices, big impact', href: '/patient/stage-0/small-choices-big-impact', iconLabel: 'Placeholder: lifestyle icon' },
           { label: 'Sexual health', href: '/empty', iconLabel: 'Placeholder: sexual health icon' },
         ],
       },
@@ -55,9 +55,9 @@ export const patientSections: PathSection[] = [
       {
         title: '',
         cards: [
-          { label: 'Understanding your diagnosis', href: '/stage-1/understanding-your-diagnosis', iconLabel: 'Placeholder: diagnosis icon' },
-          { label: 'Navigating your options', href: '/stage-1/navigating-your-options', iconLabel: 'Placeholder: options icon' },
-          { label: "Making every doctor's visit count", href: '/stage-1/doctor-time-making-every-visit-count', iconLabel: 'Placeholder: appointment icon' },
+          { label: 'Understanding your diagnosis', href: '/patient/stage-1/understanding-your-diagnosis', iconLabel: 'Placeholder: diagnosis icon' },
+          { label: 'Navigating your options', href: '/patient/stage-1/navigating-your-options', iconLabel: 'Placeholder: options icon' },
+          { label: "Making every doctor's visit count", href: '/patient/stage-1/doctor-time-making-every-visit-count', iconLabel: 'Placeholder: appointment icon' },
           { label: 'Community & support networks', href: '/empty', iconLabel: 'Placeholder: community icon' },
           { label: 'Health & Well-being', href: '/empty', iconLabel: 'Placeholder: wellbeing icon' },
         ],
@@ -71,26 +71,26 @@ export const patientSections: PathSection[] = [
       {
         title: 'Navigating your options',
         cards: [
-          { label: 'Treatment paths', href: '/stage-1/navigating-your-options', iconLabel: 'Placeholder: treatment paths icon' },
-          { label: 'Working with your medical team', href: '/stage-1/doctor-time-making-every-visit-count', iconLabel: 'Placeholder: medical team icon' },
-          { label: 'What to expect', href: '/stage-2/staying-grounded-through-it-all', iconLabel: 'Placeholder: expectations icon' },
+          { label: 'Treatment paths', href: '/patient/stage-1/navigating-your-options', iconLabel: 'Placeholder: treatment paths icon' },
+          { label: 'Working with your medical team', href: '/patient/stage-1/doctor-time-making-every-visit-count', iconLabel: 'Placeholder: medical team icon' },
+          { label: 'What to expect', href: '/patient/stage-2/staying-grounded-through-it-all', iconLabel: 'Placeholder: expectations icon' },
         ],
       },
       {
         title: 'Staying emotionally steady',
         cards: [
-          { label: 'Mental health check-ins', href: '/stage-2/staying-grounded-through-it-all', iconLabel: 'Placeholder: mental health icon' },
+          { label: 'Mental health check-ins', href: '/patient/stage-2/staying-grounded-through-it-all', iconLabel: 'Placeholder: mental health icon' },
           { label: 'Talking to family', href: '/caregiver', iconLabel: 'Placeholder: family conversation icon' },
           { label: 'Community & support', href: '/empty', iconLabel: 'Placeholder: support icon' },
-          { label: 'Tools to reduce overwhelm', href: '/stage-2/staying-grounded-through-it-all', iconLabel: 'Placeholder: tools icon' },
+          { label: 'Tools to reduce overwhelm', href: '/patient/stage-2/staying-grounded-through-it-all', iconLabel: 'Placeholder: tools icon' },
         ],
       },
       {
         title: "Your body's needs",
         cards: [
-          { label: 'Managing side effects', href: '/stage-2/your-body-your-needs', iconLabel: 'Placeholder: side effects icon' },
-          { label: 'Handling fatigue', href: '/stage-2/body-care-that-builds-you-up', iconLabel: 'Placeholder: fatigue icon' },
-          { label: 'Keeping active', href: '/stage-2/body-care-that-builds-you-up', iconLabel: 'Placeholder: activity icon' },
+          { label: 'Managing side effects', href: '/patient/stage-2/your-body-your-needs', iconLabel: 'Placeholder: side effects icon' },
+          { label: 'Handling fatigue', href: '/patient/stage-2/body-care-that-builds-you-up', iconLabel: 'Placeholder: fatigue icon' },
+          { label: 'Keeping active', href: '/patient/stage-2/body-care-that-builds-you-up', iconLabel: 'Placeholder: activity icon' },
         ],
       },
     ],
@@ -102,9 +102,9 @@ export const patientSections: PathSection[] = [
       {
         title: '',
         cards: [
-          { label: 'What to expect now', href: '/stage-3/what-to-expect-now', iconLabel: 'Placeholder: stage 3 overview icon' },
-          { label: 'Caring for a tired body', href: '/stage-3/caring-for-a-tired-body', iconLabel: 'Placeholder: tired body icon' },
-          { label: 'Finding your ground', href: '/stage-3/finding-your-ground', iconLabel: 'Placeholder: grounding icon' },
+          { label: 'What to expect now', href: '/patient/stage-3/what-to-expect-now', iconLabel: 'Placeholder: stage 3 overview icon' },
+          { label: 'Caring for a tired body', href: '/patient/stage-3/caring-for-a-tired-body', iconLabel: 'Placeholder: tired body icon' },
+          { label: 'Finding your ground', href: '/patient/stage-3/finding-your-ground', iconLabel: 'Placeholder: grounding icon' },
         ],
       },
     ],
@@ -116,9 +116,9 @@ export const patientSections: PathSection[] = [
       {
         title: '',
         cards: [
-          { label: 'The care that fits you', href: '/stage-4/the-care-that-fits-you', iconLabel: 'Placeholder: care plan icon' },
-          { label: 'Support for the day-to-day', href: '/stage-4/support-for-the-day-to-day', iconLabel: 'Placeholder: daily support icon' },
-          { label: 'Honouring your life', href: '/stage-4/honouring-your-life', iconLabel: 'Placeholder: legacy icon' },
+          { label: 'The care that fits you', href: '/patient/stage-4/the-care-that-fits-you', iconLabel: 'Placeholder: care plan icon' },
+          { label: 'Support for the day-to-day', href: '/patient/stage-4/support-for-the-day-to-day', iconLabel: 'Placeholder: daily support icon' },
+          { label: 'Honouring your life', href: '/patient/stage-4/honouring-your-life', iconLabel: 'Placeholder: legacy icon' },
         ],
       },
     ],

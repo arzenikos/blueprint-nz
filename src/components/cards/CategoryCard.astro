@@ -11,7 +11,7 @@ interface Props {
 const { href, label, iconLabel, selected = false } = Astro.props;
 ---
 
-<a class:list={['category-card', selected && 'is-selected']} href={href}>
+<a class:list={'category-card'} href={href}>
   <PlaceholderMedia label={iconLabel} />
   <span>{label}</span>
 </a>
@@ -42,12 +42,8 @@ const { href, label, iconLabel, selected = false } = Astro.props;
     font-size: 0.92rem;
     line-height: 1.35;
   }
-
-  .is-selected {
-    background: var(--color-card-selected);
-  }
-
   .category-card:hover {
     border-color: var(--color-navy);
+    background: var(--color-card-selected);
   }
 </style>
