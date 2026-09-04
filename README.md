@@ -1,82 +1,96 @@
 # BluePrintNZ
+![Astro](https://img.shields.io/badge/AstroJS-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-%2300C7B7.svg?style=for-the-badge&logo=netlify&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![Design Thinking](https://img.shields.io/badge/Design_Thinking-%231F67CC.svg?style=for-the-badge&logo=adobexd&logoColor=white)
 
-Astro site for the Prostate Cancer Foundation of New Zealand. Visitors land on a RealMe-style welcome screen, choose who they are, and continue into a hub written for that audience.
+> BCDE311 - Software Development Project
+> 
+>  A community-focused website remake for Prostate Cancer NZ, as part of the **BCDE311 - Software Development Project** course. This app is built with TypeScript, designed to help users build consistent habits through structured tracking, intelligent reminders, and actionable insights. 
 
-Live demo: [blueprintnz.netlify.app](https://blueprintnz.netlify.app/)
+---
+## Overview
+BluePrintNZ is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
+This project demonstrates full-stack development using modern web technologies, accessibility best practices, and responsive design principles.
 
-## Thumbnail
+[![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo%20-181717?style=for-the-badge&logo=netlify&labelColor=080182)](https://blueprintnz.netlify.app/)
 
+## Wiki [→](https://github.com/arzenikos/blueprint-nz/wiki)
+- **[Iterations](https://github.com/arzenikos/blueprint-nz/wiki/Development-Iterations)**
+- **[Figma Prototype](https://www.figma.com/design/fCs420IxnIJFJ5a36LEQdp/DesignThinkingProjects--Copy-?node-id=2012-192&t=OKl2kRrYhCOtsRTu-1)**
+- **[PDF Wireframe Diagram](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/diagrams/blueprint-nz-diagram.pdf)**
+- **[Emerge Poster](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/documents/emerge-poster.pdf)**
+- **[Short Paper](https://github.com/arseniedev/blueprint-nz/tree/docs/assets/documents/citrenz-short-paper.pdf)**
 
+---
+## Features
+- Informational Pages: Clear, structured content on prostate cancer awareness, symptoms, treatment options, and support services.
+- Responsive Design: Optimized for mobile, tablet, and desktop screens.
+- Fast & Lightweight: Built with Astro for minimal client-side JavaScript and high performance.
+- Accessibility-Focused: Ensures inclusive navigation for all users.
+- Deployment: Seamlessly hosted on Netlify with automated CI/CD.
 
-## Run locally
+## Tech Stack
+- Framework: Astro (TypeScript)
+- Styling: TailwindCSS
+- Hosting & CI/CD: Netlify
 
-**Requirements:** Node.js 18+, npm. Windows 10/11 or Linux.
+## Project Structure
 
-```bash
+<!-- README_TREE:START -->
+```
+BluePrintNZ/
+├─ public/           # Static assets (images, icons)
+├─ src/
+│  ├─ assets/        # Boilerplate assets
+│  ├─ components/    # Reusable UI components
+│  ├─ content/       # Blog content (in Markdown format) 
+│  ├─ layouts/       # Page layouts
+│  ├─ pages/         # Route-based pages
+│  └─ styles/        # Global and component styles
+├─ package.json
+├─ tsconfig.json
+└─ astro.config.mjs
+```
+<!-- README_TREE:END -->
+
+---
+## Installation
+1. Clone the repository
+```
+git clone https://github.com/arsenie-sarmiento/draft-project-blueprint-nz.git
+```
+
+2. Install dependencies
+```
+cd draft-project-blueprint-nz
 npm install
+```
+3. Start local development server
+```
 npm run dev
 ```
 
-The app runs at `http://localhost:4321`.
+---
+## Deployment
+The site is deployed on Netlify for easy hosting and continuous deployment:
+1. Connect your GitHub repo to Netlify.
+2. Configure build settings:
+   - Build command: npm run build
+   - Publish directory: dist/
+3. Automatic redeploy on every push to the main branch.
 
-| Command | Action |
-| --- | --- |
-| `npm install` | Install dependencies |
-| `npm run dev` | Local dev server |
-| `npm run build` | Production build to `./dist/` |
-| `npm run preview` | Preview the production build |
+---
 
-## How the site is organised
 
-```text
-src/
-├── data/                 JSON content (landing, hubs, resources, nav, footer)
-├── content/              Article copy for stage, caregiver, and research pages
-├── components/
-│   ├── layout/           Header, footer, logo, theme and font controls
-│   ├── ui/               Shared cards, buttons, icons, breadcrumbs
-│   └── content/          Audience hubs and resource grids
-├── layouts/
-│   ├── Layout.astro      Site shell (header, slot, footer)
-│   └── ContentLayout.astro
-├── pages/
-│   ├── index.astro       Welcome / audience chooser
-│   ├── diagnosis/        Patient hub
-│   ├── support/          Whānau / caregiver hub
-│   ├── research/         Clinical / research hub
-│   ├── stage-0 … stage-4
-│   ├── caregiver/
-│   ├── researcher/
-│   └── blueprint/
-└── styles/               Global theme and utilities
-```
+> [!WARNING]
+> ## Important Notice: Academic Integrity
+> **BCDE311 - Software Development Project**
+> 
+> This portfolio contains original work completed as part of my BCDE311 - Software Development Project course at Ara Institute of Canterbury. I do not condone plagiarism or academic misconduct in any form. This project is for academic purposes only and is not intended to be copied or used without proper authorisation.
+> The university has a STRICT policy on academic misconduct, and I fully support this policy. Any attempt to plagiarize, copy, or use this work as your own will result in serious consequences. Please respect academic integrity and do not attempt to pass off this work as your own.
+>
+> ## **Disclaimer**
+> All the content presented here is the result of my own individual work, and any resemblance to other works is purely coincidental. If you are a student, please refrain from using or copying this work in any way that violates the principles of academic honesty and integrity.
 
-Content is hardcoded in JSON under `src/data/` for now:
-
-- `landing.json` — welcome headline and the three hovering audience cards
-- `hubs.json` — copy for the diagnosis, support, and research main pages
-- `resources.json` — stage and role resource cards
-- `navigation.json` / `footer.json` / `site.json` — chrome and metadata
-
-## Visitor flow
-
-1. **Welcome** (`/`) asks “How can we help you today?” with three hovering cards.
-2. **I am navigating my own diagnosis** → `/diagnosis` (stages 0–4).
-3. **I am supporting a loved one** → `/support` (caregiver guides).
-4. **I am looking for clinical data or research** → `/research` (trials and tools).
-
-Each hub card links through to the existing article pages.
-
-## Layout and data flow
-
-- Pages render inside `Layout.astro`, which always outputs the page `slot` plus header and footer.
-- Hub pages use `AudienceHub.astro` + `ResourceGrid.astro`.
-- Article pages use `MainPageHeading.astro` and content modules under `src/content/users/`.
-
-## Colour system
-
-Edit CSS variables in `src/styles/themes.css`. The palette is a five-step blue scale plus accent and semantic colours for light and dark themes.
-
-## Deploy
-
-The site deploys to Netlify via `@astrojs/netlify`. Push to the connected Git branch, or run `npm run build` and publish `dist/`.
