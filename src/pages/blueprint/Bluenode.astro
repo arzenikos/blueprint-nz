@@ -1,23 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
-
-// BlueNode components
+import HubHero from '../../components/layout/HubHero.astro';
 import BlueNodeDetails from '../../components/NodeGraph/BlueNodeDetails.astro';
 import GraphCanvas from '../../components/NodeGraph/GraphCanvas.astro';
 import Callout from '../../components/ui/Callout.astro';
-
 import { bluenodeData } from '../../content/blueindex/bluenode.ts';
 
-const breadcrumbItems = [
-  { label: 'Blueprint', link: '/blueprint', current: false },
-  { label: 'BlueNode', link: '/blueprint/bluenode', current: true }
-];
-
 ---
-<Layout title="BlueNode - BluePrintNZ">
-  <div class="container mx-auto px-4 pt-10 pb-10 mb-70">
-    <Breadcrumbs items={breadcrumbItems} />
+<Layout title="BlueNode | Pamana" hub="research">
+  <HubHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Blueprint', href: '/blueprint' }, { label: 'BlueNode' }]}
+    heading="BlueNode"
+    intro="An interactive map of prostate cancer concepts, stages, and related topics."
+    illustration="Placeholder: node graph illustration"
+  />
+  <div class="container mx-auto px-4 pt-4 pb-10 mb-70">
   
     <!-- Full-page Interactive Node Graph -->
     <div class="mb-5 w-full " id="node-container">

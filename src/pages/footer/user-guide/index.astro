@@ -1,25 +1,21 @@
 ---
-// <!-- Not imported by any file -->
 import Layout from '../../../layouts/Layout.astro';
-import Breadcrumbs from '../../../components/ui/Breadcrumbs.astro';
-// import { content } from '../../../content/user-guide.ts';
-
-// const breadcrumbItems = [
-//   { label:`${content.title}`, href: '/user-guide', current: true }
-// ];
 ---
 
-<!-- <Layout title="Empty - BluePrintNZ">
-  <div class="container mx-auto px-4 pt-10 pb-25">
-    <Breadcrumbs items={breadcrumbItems} />
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary">How to Use This Site</h1>
-    <p>We’re working on it—check back soon!</p>
-    <br><hr><br>
-     <p style="font-style: italic;">Redirecting you back home in a moment…</p>
-  </div>
-  </div>
+<Layout title="How to use this site | Pamana">
+  <section class="guide">
+    <h1>How to use this site</h1>
+    <p>Start on the home page and choose the path that matches where you are: research, your own diagnosis, or supporting a loved one.</p>
+    <p>On the patient hub, open the stage that best describes the situation. Each card leads to a focused article.</p>
+    <p>Use the icons at the top right for newsletters, clinics, help, and accessibility options.</p>
+  </section>
+</Layout>
 
-  <script>
-  </script>
-</Layout> -->
+<style>
+  .guide {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 4rem;
+    line-height: 1.6;
+  }
+</style>

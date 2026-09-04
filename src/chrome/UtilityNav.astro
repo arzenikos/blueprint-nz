@@ -1,0 +1,69 @@
+---
+import LineIcon from '../components/ui/LineIcon.astro';
+
+const items = [
+  { id: 'newsletter', label: 'Newsletter', icon: 'mail' as const },
+  { id: 'clinics', label: 'Find a clinic', icon: 'pin' as const },
+  { id: 'help', label: 'Help', icon: 'help' as const },
+  { id: 'accessibility', label: 'Accessibility', icon: 'accessibility' as const },
+];
+---
+
+<nav class="utility-nav" aria-label="Site utilities">
+  {items.map((item) => (
+    <button
+      type="button"
+      class="utility-btn"
+      data-overlay={item.id}
+      aria-expanded="false"
+      aria-controls={`hub-overlay-${item.id}`}
+      aria-label={item.label}
+    >
+      <LineIcon name={item.icon} />
+    </button>
+  ))}
+</nav>
+
+<style>
+  .utility-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .utility-btn {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-navy);
+    cursor: pointer;
+  }
+
+  .utility-btn::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--color-overlay);
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+
+  .utility-btn.is-active,
+  .utility-btn:hover {
+    color: var(--color-overlay);
+  }
+
+  .utility-btn.is-active::after {
+    opacity: 1;
+  }
+</style>

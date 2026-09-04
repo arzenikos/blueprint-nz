@@ -5,18 +5,18 @@ import Layout from '../../layouts/Layout.astro';
 import BlueGuideDetails from '../../components/NodeGraph/BlueGuideDetails.astro';
 import GraphCanvas from '../../components/NodeGraph/GraphCanvas.astro';
 import Callout from '../../components/ui/Callout.astro';
-import MainPageHeading from '../../components/layout/MainPageHeading.astro';
+import HubHero from '../../components/layout/HubHero.astro';
 import { blueguideData } from '../../content/blueindex/blueguide.ts';
 
-const breadcrumbItems = [
-  { label: 'Blueprint', link: '/blueprint', current: false },
-  { label: 'The Blue Guide', link: '/blueprint/blueguide', current: true }
-];
-
 ---
-<Layout title="The Blue Guide | BluePrintNZ">
-  <div class="container mx-auto px-4 pt-10 pb-25">
-    <MainPageHeading heading="The Blue Guide" description={blueguideData.description} breadcrumbItems={breadcrumbItems} title={"Take the First Step Toward Prostate Health."}/>
+<Layout title="The Blue Guide | Pamana" hub="research">
+  <HubHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Blueprint', href: '/blueprint' }, { label: 'The Blue Guide' }]}
+    heading="The Blue Guide"
+    intro={Array.isArray(blueguideData.description) ? blueguideData.description.join(' ') : String(blueguideData.description ?? 'Take the first step toward prostate health.')}
+    illustration="Placeholder: site guide illustration"
+  />
+  <div class="container mx-auto px-4 pt-4 pb-25">
      <div class="mx-10">
       <Callout
         head="Need a direct link?"

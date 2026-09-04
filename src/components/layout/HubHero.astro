@@ -1,0 +1,90 @@
+---
+import Breadcrumbs from '../ui/Breadcrumbs.astro';
+import PlaceholderMedia from '../media/PlaceholderMedia.astro';
+import type { Crumb } from '../../lib/types/nav';
+
+interface Props {
+  breadcrumbs: Crumb[];
+  heading: string;
+  intro: string;
+  illustration: string;
+  band?: boolean;
+  cta?: { label: string; href: string };
+}
+
+const { breadcrumbs, heading, intro, illustration, band = false, cta } = Astro.props;
+---
+
+<section class:list={['hub-hero', band && 'hub-hero--band']}>
+  <div class="hub-hero__copy">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1>{heading}</h1>
+    <p>{intro}</p>
+    {cta && (
+      <a class="hub-hero__cta" href={cta.href}>
+        {cta.label}
+        <span aria-hidden="true">↗</span>
+      </a>
+    )}
+  </div>
+  <div class="hub-hero__art">
+    <PlaceholderMedia label={illustration} />
+  </div>
+</section>
+
+<style>
+  .hub-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(180px, 0.7fr);
+    gap: 2rem;
+    align-items: center;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem 1.5rem;
+  }
+
+  .hub-hero--band {
+    max-width: none;
+    padding: 1.5rem 8vw 2rem;
+    background: var(--color-hero-band);
+    margin-bottom: 1.5rem;
+  }
+
+  .hub-hero--band .hub-hero__copy,
+  .hub-hero--band .hub-hero__art {
+    max-width: calc(var(--content-width) / 2);
+  }
+
+  h1 {
+    margin: 0.7rem 0 0.9rem;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.2;
+    color: var(--color-navy);
+  }
+
+  p {
+    margin: 0;
+    max-width: 42rem;
+    color: var(--color-navy);
+    line-height: 1.55;
+  }
+
+  .hub-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1.2rem;
+    padding: 0.7rem 1.1rem;
+    background: var(--color-navy);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 800px) {
+    .hub-hero {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,27 +1,23 @@
 ---
 // <!-- Not imported by any file -->
 import Layout from '../../layouts/Layout.astro';
-import MainPageHeading from '../../components/layout/MainPageHeading.astro';
-import Icon from '../../components/ui/Icon.astro'
-// import { blueCards } from '../../content/blueindex/blueindex.ts';
-
-const breadcrumbItems = [
-  { label: 'Blueprint', link: '/blueprint', current: false },
-  { label: 'TrueBlueStats', link: '/blueprint/bluestats', current: true }
-];
+import HubHero from '../../components/layout/HubHero.astro';
+import LineIcon from '../../components/ui/LineIcon.astro';
 
 const {
   heading = "TrueBlueStats",
-  title = `TrueBlueStats | BluePrintNZ`,
-  description = ["- View key statistics and insights about prostate cancer."],
-  // main = content['stage-1'].heading2.main,
-  // breadcrumb = content['stage-1'].heading2.breadcrumbs
+  title = `TrueBlueStats | Pamana`,
 } = Astro.props;
 
 ---
-<Layout title={title}>
-  <div class="container mx-auto px-4 pt-10 pb-25">
-     <MainPageHeading heading={heading} description={description} breadcrumbItems={breadcrumbItems} />
+<Layout title={title} hub="research">
+  <HubHero
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Blueprint', href: '/blueprint' }, { label: heading }]}
+    heading={heading}
+    intro="View key statistics and insights about prostate cancer."
+    illustration="Placeholder: statistics illustration"
+  />
+  <div class="container mx-auto px-4 pt-4 pb-25">
       <!-- Description Section -->
     <div class="mb-8 text-[var(--color-palette-five)] leading-relaxed space-y-4">
       <p>
@@ -39,7 +35,7 @@ const {
         class="inline-flex items-center gap-2 text-[var(--color-palette-five)] hover:text-[var(--color-palette-four)] underline underline-offset-4"
       >
       View full report
-      <Icon name="external-link" size={16} />
+      <LineIcon name="external" size={16} />
       </a>
     </div>
 
@@ -71,7 +67,7 @@ const {
         class="inline-flex items-center gap-2 text-[var(--color-palette-two)] hover:text-[var(--color-palette-one)] underline underline-offset-4 font-semibold"
       >
       View more from Monash University
-      <Icon name="external-link" size={16} />
+      <LineIcon name="external" size={16} />
       </a>
     </section>
 
