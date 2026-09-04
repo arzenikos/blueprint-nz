@@ -13,13 +13,11 @@
 
 > BCDE311 - Software Development Project
 > 
->  A community-focused website remake for Prostate Cancer NZ, as part of the **BCDE311 - Software Development Project** course. This app is built with TypeScript, designed to help users build consistent habits through structured tracking, intelligent reminders, and actionable insights. 
-
----
-## Overview
-`Pamana | Aotearoa` is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
+>  A community-focused website remake for Prostate Cancer NZ, as part of the **BCDE311 - Software Development Project** course. `Pamana | Aotearoa`, formerly BlueprintNZ, is an informational and resource platform designed to support individuals affected by prostate cancer in New Zealand. The site aims to provide reliable guidance, raise awareness, and connect users with helpful resources and support networks.
 This project demonstrates full-stack development using modern web technologies, accessibility best practices, and responsive design principles.
 
+---
+## Demo
 [![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo%20-181717?style=for-the-badge&logo=netlify&labelColor=080182)](https://blueprintnz.netlify.app/)
 
 ## Wiki [→](https://github.com/arzenikos/pamana/wiki)
@@ -86,7 +84,7 @@ The site is deployed on Netlify for easy hosting and continuous deployment:
 > **BCDE311 - Software Development Project**
 > 
 > This portfolio contains original work completed as part of my BCDE311 - Software Development Project course at Ara Institute of Canterbury. I do not condone plagiarism or academic misconduct in any form. This project is for academic purposes only and is not intended to be copied or used without proper authorisation.
-> The university has a STRICT policy on academic misconduct, and I fully support this policy. Any attempt to plagiarize, copy, or use this work as your own will result in serious consequences. Please respect academic integrity and do not attempt to pass off this work as your own.
+> The university has a STRICT policy on academic misconduct, and I fully support this policy. Any attempt to plagiarise, copy, or use this work as your own will result in serious consequences. Please respect academic integrity and do not attempt to pass off this work as your own.
 >
 > ## **Disclaimer**
 > All the content presented here is the result of my own individual work, and any resemblance to other works is purely coincidental. If you are a student, please refrain from using or copying this work in any way that violates the principles of academic honesty and integrity.
