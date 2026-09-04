@@ -1,5 +1,5 @@
 ---
-import LineIcon from '../components/ui/LineIcon.astro';
+import LineIcon from '../ui/LineIcon.astro';
 
 const items = [
   { id: 'newsletter', label: 'Newsletter', icon: 'mail' as const },
@@ -47,17 +47,17 @@ const items = [
   .utility-btn::after {
     content: '';
     position: absolute;
-    left: 50%;
-    bottom: -8px;
+    bottom: -22px;
+    top: auto;
     width: 0;
     height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 8px solid var(--color-navy);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 18px solid var(--color-navy);  flipped: was border-top
     transform: translateX(-50%);
     opacity: 0;
     pointer-events: none;
-    z-index: 1;
+    transition: opacity 0.15s ease;
   }
 
   .utility-btn.is-active,
@@ -67,11 +67,8 @@ const items = [
 
   .utility-btn.is-active::after {
     opacity: 1;
-    rotate: 180;
   }
 
-  .utility-btn.is-active::after,
-  .utility-btn:hover::after {
-    opacity: 1;
-  }
+
+
 </style>

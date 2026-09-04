@@ -1,7 +1,7 @@
 ---
-import LineIcon from '../components/ui/LineIcon.astro';
-import PlaceholderMedia from '../components/media/PlaceholderMedia.astro';
-import { overlays } from '../content/ui/site';
+import LineIcon from '../../components/ui/LineIcon.astro';
+import PlaceholderMedia from '../../components/media/PlaceholderMedia.astro';
+import { overlays } from '../../content/ui/site';
 ---
 
 <div class="hub-root" data-hub-root hidden>
@@ -135,7 +135,7 @@ import { overlays } from '../content/ui/site';
     display: grid;
     grid-template-columns: minmax(140px, 280px) 1fr;
     gap: 2rem;
-    background: var(--color-overlay);
+    background: var(--color-navy);
     color: #fff;
     min-height: 280px;
     padding: 2.5rem 2rem 2rem;
@@ -152,8 +152,7 @@ import { overlays } from '../content/ui/site';
   }
 
   .hub-overlay__art :global(.placeholder-media) {
-    min-height: 220px;
-    border-color: rgba(255, 255, 255, 0.35);
+    min-height: 300px;
     color: #fff;
   }
 

@@ -1,7 +1,7 @@
 ---
-import BrandMark from '../components/brand/BrandMark.astro';
-import SiteFooter from '../layouts/SiteFooter.astro';
-import { brand } from '../content/ui/site';
+import BrandMark from '../../components/brand/BrandMark.astro';
+import SiteFooter from '../../layouts/SiteFooter.astro';
+import { brand } from '../../content/ui/site';
 
 ---
 
@@ -17,7 +17,7 @@ import { brand } from '../content/ui/site';
 <script>
   const splash = document.getElementById('splash-screen');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const delay = reduceMotion ? 0 : 3000;
+  const delay = reduceMotion ? 0 : 100;
 
   window.setTimeout(() => {
     splash?.classList.add('is-done');
