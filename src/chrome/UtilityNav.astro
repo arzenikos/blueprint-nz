@@ -48,14 +48,16 @@ const items = [
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -10px;
+    bottom: -8px;
     width: 0;
     height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 10px solid var(--color-overlay);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 8px solid var(--color-navy);
     transform: translateX(-50%);
     opacity: 0;
+    pointer-events: none;
+    z-index: 1;
   }
 
   .utility-btn.is-active,
@@ -64,6 +66,12 @@ const items = [
   }
 
   .utility-btn.is-active::after {
+    opacity: 1;
+    rotate: 180;
+  }
+
+  .utility-btn.is-active::after,
+  .utility-btn:hover::after {
     opacity: 1;
   }
 </style>
